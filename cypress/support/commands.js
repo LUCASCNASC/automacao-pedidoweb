@@ -26,13 +26,36 @@
 
 import '@testing-library/cypress/add-commands';
 
+// cypress/support/commands.js
+
 Cypress.Commands.add('login', (username, password) => {
-   // Seu código para fazer o login
-   // Por exemplo:
-   cy.fixture('local').then( user => {
-      cy.visit(user.url)
-      cy.get('#email').type(username ?? user.email)
-      cy.get('#current-password').type(password ?? user.password)
-   })
-   cy.get("#kt_login_signin_submit").click()
- });
+  // Visite a página de login
+  cy.visit('http://10.7.0.42:2800/');
+
+  // Preencha o campo de nome de usuário
+  cy.get('#txtusername').type('sabium.automacao');
+
+  // Preencha o campo de senha
+  cy.get('#txtpassword').type('123.automacao');
+
+  // Submeta o formulário de login
+  cy.get('.test_btnSalvarCliente').click();
+
+  cy.get('.ng-scope > .ng-binding')
+    .should('contain','Entrando no sistema') //Validando mensagem "Entrando no sistema" logo após clicarmos no botão Entrar
+  
+  cy.wait(6000)
+
+  cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
+    .should('contain','Cliente') //Validando se realmente fez o login
+
+});
+
+
+
+ const generateCPF = require('./cpfGenerator');
+
+// Adiciona um comando personalizado de geração de CPF ao Cypress
+Cypress.Commands.add('generateCPF', () => {
+  return generateCPF(); // Retorna o CPF gerado
+});
