@@ -126,18 +126,6 @@ describe('Gerar pedido normal', () => {
 
         cy.wait(1500)
 
-        //Botão SERVIÇOS VINCULADOS
-        cy.get(':nth-child(4) > :nth-child(1) > .md-default')
-            .click()
-
-        cy.wait(500)
-           
-        //Botão "OK" - Serviços Vinculados
-        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-            .click()
-
-        cy.wait(500)
-
         //Botão de arrastar Retirada / Entrega
         cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
             .click() //Clicar para tirar a entrega do pedido
