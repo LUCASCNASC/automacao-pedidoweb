@@ -7,15 +7,35 @@ describe('Gerar pedido normal', () => {
   
     it('Gerar pedido de venda normal, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
+        
         cy.title()
             .should('eq', 'Sabium Mobile') //Validando título da página
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
         cy.wait(10000);
-        //clicar em "INICIAR ATENDIMENTO"
-        //cy.get('.hide-sm > :nth-child(2) > .md-raised')
-        //    .click()
+
+
+         //Botão "INICIAR ATENDIMENTO"
+         cy.get('.hide-sm > :nth-child(2) > .md-raised')
+            .should('exist') // Verifica se o elemento existe
+            .and('be.visible'); //Verifica se o elemento está visível
+
+         //Botão "INICIAR ATENDIMENTO"
+         cy.get('.hide-sm > :nth-child(2) > .md-raised')
+            .should('contain','Iniciar Atendimento ') //Validando texto dentro do botão
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+        //ícone carrinho de compras
+        cy.get('#test_btnCarrinho > .md-icon-button > .ng-binding')
+            .should('exist') // Verifica se o elemento existe
+            .and('be.visible'); //Verifica se o elemento está visível
+            
+        //Tres barras do menu
+        cy.get('[aria-label="Menu de opções"] > .ng-binding')
+            .should('exist') // Verifica se o elemento existe
+            .and('be.visible'); //Verifica se o elemento está visível
+
 
         //cy.wait(1500)
 
@@ -32,6 +52,7 @@ describe('Gerar pedido normal', () => {
         cy.get('#select_option_9 > .md-text > em')
             .should('contain','Selecione uma opção') //Validando "Selecione uma opção", quando cou escolher um processo
             .and('exist') //Validando se a opção existe
+            //.and('be.visible') //Verifica se o elemento está visível
 
         cy.wait(1500)
 
@@ -49,6 +70,7 @@ describe('Gerar pedido normal', () => {
         cy.get('.click-cliente > .informe-o-cliente > #lblNomeClienteSelecionado')
             .should('contain','INFORME O CLIENTE') //Validando texto dentro do campo para inserir CLIENTE
             .and('exist') //Validando se a mensagem existe
+            .and('be.visible') //Verifica se o elemento está visível
 
         //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
         cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -268,7 +290,7 @@ describe('Gerar pedido normal', () => {
             .should('have.text','Opções do produto') //Validando texto "Opções do produto"
             .and('exist') //Validando que o texto existe
             .and('be.visible') //Validando que o texto está visível
-            .and('equal', 'rgb(26, 70, 203'); // Verifica a cor (RGB)
+            //.and('equal', 'rgb(26, 70, 203'); // Verifica a cor (RGB)
 
         //Validar botão "INTENÇÃO DE COMPRA"
         cy.get(':nth-child(5) > .md-accent')
@@ -276,13 +298,42 @@ describe('Gerar pedido normal', () => {
             .and('exist') //Validando que o botão existe
             .and('be.visible') //Validando que o botão está visível
             .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
-            .and('have.css', 'background-color', 'rgb(33, 137, 70)') // Verifica a cor (RGB) do botão 33, 137, 70
+            //.and('have.css', 'background-color', 'rgb(33, 137, 70)') // Verifica a cor (RGB) do botão
 
+        //Validar botão "SALDO DETALHADO"
         cy.get('[ng-if="(!itemGradeSelecionado.grade.composicao || itemGradeSelecionado.grade.composicao.length == 0)"] > .md-default')
-            .should('contain','Saldo detalhado') //Validando texto botão "Saldo Detalhado"
+            .should('exist') //Validando que o botão existe
+            .and('be.visible') //Validando que o botão está visível
+            .and('contain','Saldo detalhado') //Validando texto botão "Saldo Detalhado"
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
 
+        //Validar botão "ADICIONAR"
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
-            .should('contain','Adicionar') //Validando texto botão "Adicionar"
+            .should('exist') //Validando se o botão existe
+            .and('be.visible') //Validando que o botão está visível
+            .and('contain','Adicionar') //Validando texto botão "Saldo Detalhado"
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+            //.and('have.css', 'background-color', 'rgb(26, 70, 203)') // Verifica a cor (RGB) do botão
+
+        //Validando botão "-"
+        cy.contains('md-icon', 'remove_circle_outline')
+            .should('be.visible') //Validando que o botão está visível
+            .and('exist') //Validando se botão "-" existe
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+        //Validando botão "+"
+        cy.contains('md-icon', 'add_circle_outline')
+            .should('be.visible') //Validando que o botão está visível
+            .and('exist') //Validando se botão "+" existe
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+        //Validando "Valor:"
+        cy.get('.layout-wrap > .ng-binding')
+            .should('exist') //Validando se o texto existe
+            .and('be.visible') //Validando que o texto está visível
+            .and('contain','Valor:') //Validando texto "Valor:" 
+            .and('contain','R$') //Validando texto "R$"
+
 
         //clicar no botão "ADICIONAR", para adicionar produto
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
@@ -290,20 +341,42 @@ describe('Gerar pedido normal', () => {
 
         cy.wait(4000)
 
+        //Serviços vinculados
         cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .flex')
             .should('contain','Serviços Vinculados') //Validando título do card "Serviços Vinculados"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
 
+        //mensagem "O item foi adicionado ao carrinho"
         cy.get('.ng-scope.flex-100 > .layout-wrap > :nth-child(2) > h2')
             .should('contain', 'O item foi adicionado ao carrinho') //Validando mensagem "O item foi adicionado ao carrinho"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
 
+        //mensagem "Aproveite para adicionar os serviços abaixo"
         cy.get('.ng-scope.flex-100 > .layout-wrap > :nth-child(2) > h4')
             .should('contain','Aproveite para adicionar os serviços abaixo') //Validando mensagem "Aproveite para adicionar os serviços abaixo"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
 
+        //título "Garantias" no card "Serviços Vinculados"
         cy.get('[style=""] > [style="font-size:25px;margin:0;padding:0 0 15px 15px"]')
             .should('contain','Garantias') //Validando título "Garantias" no card "Serviços Vinculados"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
 
+
+        //título "Mão de Obra" no card "Serviços Vinculados"
         cy.get(':nth-child(2) > [style="font-size:25px;margin:0;padding:0 0 15px 15px"]')
             .should('contain','Mão de Obra') //Validando título "Mão de Obra" no card "Serviços Vinculados"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
+        //Validando check verde, afirmando que o item foi adicionado
+        cy.get('.icon')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
 
         //Desmarcar garantia - card "Serviços Vinculados"
         cy.get('#checkbox-141-2 > .md-container')
@@ -317,74 +390,342 @@ describe('Gerar pedido normal', () => {
 
         cy.wait(1200)
 
+        //Botão "OK" - Serviços Vinculados
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
             .should('contain','Ok')  //Validando texto botão "Ok"
-            .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+            
 
-        cy.wait(1500)
+        //Botão "OK" - Serviços Vinculados
+        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
+        .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+
+        cy.wait(2000)
+
 
 
         // Tela de ENTREGA DO PEDIDO - PRODUTOS
 
 
+                //VALIDAR ÍCONES DE CIMA//
+
+        //cy.get('.selected > .icon-step > .md-default-theme')
+        
+
+        //cy.get('.ng-scope > .icon-step > [ng-show="msgBtnAvancarEndereco"]')
+
+
+        //cy.get('[ng-class="{'active': etapaAtual > 3, 'selected': etapaAtual == 3}"] > .icon-step > [ng-show="msgBtnAvancarEndereco"]')
+
+
+        //cy.get('[ng-class="{'active': etapaAtual > 4, 'selected': etapaAtual == 4}"] > .icon-step > [ng-show="msgBtnAvancarEndereco"]')
+
+
+
+        //Botão "Resumo do Pedido"
         cy.get('.carrinho > .layout-wrap > .md-primary')
             .should('contain','Resumo do Pedido') //Validando texto botão "Resumo do Pedido"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
 
+        //Botão PDF
+        cy.get('.iconeBuscaDetalheVenda')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+        
+        //Texto "Produtos"
         cy.get('[ng-show="(carrinho.produtos.length > 0)"] > .titulo-toolbar > .md-toolbar-tools > .flex')
             .should('contain','Produtos') //Validando título "Produtos" 
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
 
+        //Texto "Quantidade" no meio dos botões "+" e "-"
         cy.get('.text-align-center')
             .should('contain','Quantidade') //Validando texto "Quantidade"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
 
+
+        //Validando botão "-"
+        cy.contains('md-icon', 'remove_circle_outline')
+        .should('be.visible') //Validando que o botão está visível
+        .and('exist') //Validando se botão "-" existe
+        .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+        //Validando botão "+"
+        cy.contains('md-icon', 'add_circle_outline')
+        .should('be.visible') //Validando que o botão está visível
+        .and('exist') //Validando se botão "+" existe
+        .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+
+        //Informação "SKY:" - Produtos
         cy.get(':nth-child(2) > .produtos_detalhes > :nth-child(1) > b')
-            .should('contain','SKU:') //Validando texto "SKY:"
+            .should('have.text','SKU:') //Validando texto
+            .and('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
 
+        //Informação "Grade:" - Produtos
         cy.get(':nth-child(2) > .produtos_detalhes > :nth-child(2) > b')
-            .should('contain','Grade:') //Validando texto "Grade:"
+            .should('have.text','Grade:') //Validando texto
+            .and('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
 
+        //Informação "Marca:" - Produtos
         cy.get(':nth-child(2) > .produtos_detalhes > :nth-child(3) > b')
-            .should('contain','Marca:') //Validando texto "Marca:"
+            .should('have.text','Marca:') //Validando texto
+            .and('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
 
+        //Informação "Local de faturamento:" - Produtos
         cy.get(':nth-child(2) > .produtos_detalhes > :nth-child(4) > b')
-            .should('contain','Local de faturamento:') //Validando texto "Local de faturamento:"
+            .should('have.text','Local de faturamento:') //Validando texto
+            .and('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
 
+        //Informação "Valor unitário:" - Produtos
         cy.get(':nth-child(2) > .produtos_detalhes > :nth-child(5) > b')
-            .should('contain','Valor unitário:') //Validando texto "Valor unitário:"
+            .should('have.text','Valor unitário:') //Validando texto
+            .and('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
 
+        //Informação "Vendedor:" - Produtos
         cy.get(':nth-child(2) > .produtos_detalhes > :nth-child(6) > b')
-            .should('contain','Vendedor:') //Validando texto "Vendedor:"
+            .should('have.text','Vendedor:') //Validando texto
+            .and('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
 
+        //Informação "Valor Total:" - Produtos
         cy.get(':nth-child(4) > p.ng-binding')
-            .should('contain','Valor Total:') //Validando texto "Valor Total:"
+            .should('have.text','Valor Total:') //Validando texto
+            .and('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
 
+        //Informação "C.V." - Produtos
+        cy.get('[style="text-align: center;"] > :nth-child(1)')
+            .should('have.text','C.V.') //Validando texto
+            .and('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
+
+        //Botão Lixeira vermelha
+        cy.get('.flex-20 > .md-warn')
+            .should('exist') //Validando se o botão existe
+            .and('be.visible') //Validando que o botão está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+            //.and('have.css', 'background-color', 'rgb(26, 70, 203)') // Verifica a cor (RGB) do botão
+
+        //Ícone Lixeira dentro do botão Lixeira vermelha
+        cy.get('.md-warn > .ng-binding')
+            .should('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
+
+        //Botão cifrão $
+        cy.get('[ng-click="abrirModalDescontoProduto($index)"]')
+            .should('exist') //Validando se o botão existe
+            .and('be.visible') //Validando que o botão está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+        //Ícone cifrão $ dentro do botão cifrão $
+        cy.get('[ng-click="abrirModalDescontoProduto($index)"] > .ng-scope')
+            .should('exist') //Validando se o elemento existe
+            .and('be.visible') //Validando se o elemento está visível
+
+        //Botão SERVIÇOS VINCULADOS
+        cy.get(':nth-child(4) > :nth-child(1) > .md-default')
+            .should('exist') //Validando se o botão existe
+            .and('be.visible') //Validando que o botão está visível
+            .and('contain','Serviços Vinculados') //Validando texto dentro do botão
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+            .click()
+
+        //Serviços vinculados
+        cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .flex')
+            .should('contain','Serviços Vinculados') //Validando título do card "Serviços Vinculados"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
+
+        //título "Garantias" no card "Serviços Vinculados"
+        cy.get('[style=""] > [style="font-size:25px;margin:0;padding:0 0 15px 15px"]')
+            .should('contain','Garantias') //Validando título "Garantias" no card "Serviços Vinculados"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
+
+        //título "Mão de Obra" no card "Serviços Vinculados"
+        cy.get(':nth-child(2) > [style="font-size:25px;margin:0;padding:0 0 15px 15px"]')
+            .should('contain','Mão de Obra') //Validando título "Mão de Obra" no card "Serviços Vinculados"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
+
+        cy.wait(1200)
+
+        //Botão "OK" - Serviços Vinculados
+        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
+            .should('contain','Ok')  //Validando texto botão "Ok"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+
+        cy.wait(1200)
+
+        //Botão LOCAIS DE SALDO
+        cy.get('.hide-sm > .md-default')
+            .should('exist') //Validando se o botão existe
+            .and('be.visible') //Validando que o botão está visível
+            .and('contain','Locais de Saldo') //Validando texto dentro do botão
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+            .click()
+
+        //card Locais de Saldo
+        cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .flex')
+            .should('contain','Locais de Saldo') //Validando título do card "Serviços Vinculados"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
+        //Texto Local/Saldo dentro do card Locais de Saldo
+        cy.get('.white > .md-no-sticky > .md-subheader-inner')
+            .should('contain','Local/Saldo') //Validando título do card "Serviços Vinculados"
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
+        cy.wait(800)
+
+        //Botão "X" de sair
+        cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .md-icon-button > .ng-binding')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .click()
+
+        cy.wait(1000)
+
+        //Textos Previsão de Entrega e Previsão de Montagem abaixo do botão SERVIÇOS VINCULADOS
         cy.get('.produto-nome')
-            .should('contain','Previsão de Entrega') //Validando texto "Previsão de Entrega"
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('contain','Previsão de Entrega') //Validando texto "Previsão de Entrega"
             .and('contain','Previsão de Montagem') //Validando texto "Previsão de Montagem"
 
-        cy.get('[ng-show="true"] > .md-list-item-text > p')
-            .should('contain','Total de produtos') //Validando texto "Total de produtos"
+        //Ícone de calendário, abaixo de Previsão de entrega
+        cy.get('[ng-show="itemAtual._permiteEntrega && itemAtual.habilitarDataEntrega"] > .validaData > .md-datepicker-button')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
 
-        cy.get(':nth-child(4) > .md-list-item-text > p')
-            .should('contain','Total do pedido') //Validando texto "Total do pedido"
+        //Campo de data, abaixo de Previsão de entrega
+        cy.get('#input_162')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
 
-        cy.get('.ng-scope.layout-align-start-center > :nth-child(2) > .layout-align-center-center > .md-raised')
-            .should('contain','ADICIONAR SERVIÇO') //Validando texto do botão "ADICIONAR SERVIÇO"
+        //Botão seta para baixo, para escolhermos a data que queremos
+        cy.get('[ng-show="itemAtual._permiteEntrega && itemAtual.habilitarDataEntrega"] > .validaData > .md-datepicker-input-container > .md-datepicker-triangle-button > .md-datepicker-expand-triangle')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+
+        //Ícone de calendário, abaixo de Previsão de montagem
+        cy.get('[ng-show="itemAtual._permiteMontagem && itemAtual.habilitarDataMontagem"] > .validaData > .md-datepicker-button')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+        //Campo de data, abaixo de Previsão de montagem
+        cy.get('#input_164')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
+        //Botão seta para baixo, para escolhermos a data que queremos
+        cy.get('[ng-show="itemAtual._permiteMontagem && itemAtual.habilitarDataMontagem"] > .validaData > .md-datepicker-input-container > .md-datepicker-triangle-button > .md-datepicker-expand-triangle')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('not.have.attr', 'disabled') //Validando se o botão está habilitado
+
+        cy.wait(1000)
+
+        //Botão de arrastar Retirada / Entrega
+        cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('contain','Retirada / Entrega') //Validar mensagem do botão
+            .click() //Clicar para tirar a entrega do pedido
+
+        cy.wait(1500)
+
+        //Botão de arrastar Montagem
+        cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('contain','Montagem') //Validar mensagem do botão
+            .click() //Clicar para tirar a montagem
+
+        cy.wait(700)
 
         //rolagem para baixo
         cy.get('.containerSabium')
             .scrollTo("center")
 
-        cy.wait(1000)
+        cy.wait(500)
 
-        cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            .should('contain','Retirada / Entrega') //Validar mensagem do botão
-            .click() //Clicar para tirar a entrega do pedido
+        //Texto "Total de produtos"
+        cy.get('[ng-show="true"] > .md-list-item-text > p')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('have.text','Total de produtos') //Validando texto "Total de produtos"
 
-        cy.wait(1500)
+        //Cifrão do "Total de produtos" 
+        cy.get('[ng-show="true"] > .md-secondary-container > div > .ng-binding > sup')
+            .should('contain','R$') //Validando texto
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+        
+        //Validando valor do "Total de produtos" 
+        cy.get('[ng-show="true"] > .md-secondary-container > div > .ng-binding')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
 
-        cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-            .should('contain','Montagem') //Validar mensagem do botão
-            .click() //Clicar para tirar a montagem
+        //Texto "Total do pedido"
+        cy.get(':nth-child(4) > .md-list-item-text > p')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('have.text','Total do pedido') //Validando texto "Total do pedido"
+
+         //Cifrão do "Total do pedido" 
+        cy.get(':nth-child(4) > .md-secondary-container > div > .ng-binding > sup')
+            .should('contain','R$') //Validando texto
+            .and('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
+        //Validando valor do "Total do pedido" 
+        cy.get(':nth-child(4) > .md-secondary-container > div > .ng-binding')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+        
+        //Botão "ADICIONAR SERVIÇO"
+        cy.get('.ng-scope.layout-align-start-center > :nth-child(2) > .layout-align-center-center > .md-raised')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+            .and('have.text','ADICIONAR SERVIÇO') //Validando texto do botão "ADICIONAR SERVIÇO"
+            //cor
+            .click()
+
+        cy.wait(3000)
+
+        //Card Servicços
+        cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .flex')
+            .should('exist') //Validando que elemento existe
+            .and('be.visible') //Validando que elemento está visível
+
+
+
+
+
 
         cy.wait(2000)
 

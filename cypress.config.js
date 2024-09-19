@@ -1,3 +1,6 @@
+/* eslint-disale no unused-vars */
+/* eslint-disale no unudef */
+
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
