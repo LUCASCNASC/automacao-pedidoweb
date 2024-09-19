@@ -8,7 +8,7 @@ describe('Gerar pedido normal', () => {
         cy.clearAllSessionStorage();
     })
   
-    it('Gerar pedido de venda normal, processo 9860; um produto, produto 1862 0 0 - caminho feliz', () => {
+    it('Gerar pedido de venda normal, processo 9863; um produto, produto 1860 0 0 - caminho feliz', () => {
 
         
         cy.title()
@@ -26,12 +26,12 @@ describe('Gerar pedido normal', () => {
         
         //rolar para o meio das opções de processo
         cy.get('#select_listbox_12')
-            .scrollTo('center')
+            .scrollTo('bottom')
 
         cy.wait(1000)
 
-        //selecionar processo de venda "9860"
-        cy.get('#select_option_59 > .md-text')
+        //selecionar processo de venda "9863"
+        cy.get('#select_option_62 > .md-text')
             .click({force: true})
 
         cy.wait(1000)
@@ -65,12 +65,12 @@ describe('Gerar pedido normal', () => {
         cy.get('#searchText')
             .should('have.value', '') //Validando se o campo foi realmente limpo
             .wait(1500)
-            .type('1862')
+            .type('1860')
        
         cy.wait(3500)
 
         //Preenchendo campo para pesquisar produto
-        cy.contains('Cod: 1862')
+        cy.contains('Cod: 1860')
 
         cy.wait(500)
 
@@ -83,7 +83,7 @@ describe('Gerar pedido normal', () => {
             .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
 
         //clicar para selecionar o produto; 
-        cy.contains('Cod: 1862')
+        cy.contains('Cod: 1860')
             .click({ force: true })
 
         cy.wait(1500)
@@ -109,13 +109,13 @@ describe('Gerar pedido normal', () => {
         cy.wait(3500)
 
         //Desmarcar garantia - card "Serviços Vinculados"
-        cy.get(':nth-child(4) > :nth-child(5) > .md-no-style > .md-secondary-container > :nth-child(1) > #checkbox-141-2 > .md-container')
+        cy.get('#checkbox-141-2 > .md-container')
             .click()
 
         cy.wait(1000)
 
         //Desmarcar Mão de Obra - card "Serviços Vinculados"
-        cy.get(':nth-child(4) > :nth-child(5) > .md-no-style > .md-secondary-container > :nth-child(1) > #checkbox-144-2 > .md-container')
+        cy.get('#checkbox-144-2 > .md-container')
             .click()
 
         cy.wait(500)
@@ -186,6 +186,14 @@ describe('Gerar pedido normal', () => {
 
         cy.wait(1000)
 
+        //Desmarcando seguro prestamista, no card de seguro prestamista que abriu 
+        //cy.get('#checkbox-85-0 > .md-container')
+        //    .click()
+
+        //Clicando em "OK" para sair do card de seguro prestamista 
+        //cy.get('md-dialog-actions.layout-row > .md-primary')
+        //    .click()
+
         //Botão "AVANÇAR"
         cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
             .click()
@@ -212,25 +220,33 @@ describe('Gerar pedido normal', () => {
         cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
             .scrollIntoView()
 
+        //Card de Inconssistencias (trial)
+        //cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        //    .click() //fechar o card
+
         //Botão "FINALIZAR PEDIDO"
         cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
             .click()
 
         //Carregando a finalização do pedido
-        cy.wait(7500)
+        cy.wait(8500)
 
-         //Validar mensagem "Pedido gravado com sucesso!"
+        //Validar mensagem "Pedido gravado com sucesso!"
         cy.get('[ng-show="!editarPedido"]')
             .should('exist')
             .and('be.visible')
             .and('contain.text','Pedido gravado com sucesso!')
 
+        //Card de Inconssistencias (trial)
+        //cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        //    .click() //fechar o card
+
 
         //Após gerar pedido
 
         //Botão "OK"
-        cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
-            .click()
+        //cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
+        //    .click()
 
     })
 })

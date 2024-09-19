@@ -19,11 +19,15 @@
     "cypress-fill-command": "^1.0.2",
     "eslint": "^9.9.1",
     "eslint-plugin-cypress": "^3.5.0",
+    "faker": "^6.6.6",
     "globals": "^15.9.0",
     "typescript": "^5.5.4",
     "typescript-eslint": "^8.4.0"
   },
   "dependencies": {
-    "@testing-library/cypress": "^10.0.1"
+    "@testing-library/cypress": "^10.0.1",
+    "cypress-plugin-api": "^2.11.2",
+    "pytest": "^1.0.0",
+    "requests": "^0.3.0"
   }
 }

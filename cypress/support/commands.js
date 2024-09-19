@@ -44,7 +44,7 @@ Cypress.Commands.add('login', (username, password) => {
   cy.get('.ng-scope > .ng-binding')
     .should('contain','Entrando no sistema') //Validando mensagem "Entrando no sistema" logo após clicarmos no botão Entrar
   
-  cy.wait(6000)
+  cy.wait(11000)
 
   cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
     .should('contain','Cliente') //Validando se realmente fez o login

@@ -1,7 +1,7 @@
 describe('Tentar logar no pedido web - esqueceu a senha?', () => {
 
     beforeEach(() => {
-        cy.visit('http://10.7.0.42:2800/');
+        cy.visit('/');
         cy.clearAllSessionStorage();
     })
   

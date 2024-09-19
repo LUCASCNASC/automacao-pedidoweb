@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar } from '../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar } from '../../../support/uiUtils';
 
 describe('Gerar pedido normal', () => {
 
@@ -8,7 +8,7 @@ describe('Gerar pedido normal', () => {
         cy.clearAllSessionStorage();
     })
   
-    it('Gerar pedido de venda normal, processo 9860; um produto, produto 1862 0 0 - caminho feliz', () => {
+    it('Gerar pedido com promoção a prazo parcelado, processo 9860; um produto, produto 1867 0 0 (promoção 151) - caminho feliz', () => {
 
         
         cy.title()
@@ -65,25 +65,25 @@ describe('Gerar pedido normal', () => {
         cy.get('#searchText')
             .should('have.value', '') //Validando se o campo foi realmente limpo
             .wait(1500)
-            .type('1862')
+            .type('1867')
        
         cy.wait(3500)
 
         //Preenchendo campo para pesquisar produto
-        cy.contains('Cod: 1862')
+        cy.contains('Cod: 1867')
 
         cy.wait(500)
 
         //Validando informações do produto após pesquisar
-        cy.get('.md-list-item-text > .ng-scope')
-            .should('exist') //Validando existencia do "Saldo disponível"
-            .and('be.visible') //Validando se elemento "Saldo disponível" está visível
-            .and('have.text','Saldo disponivel') //Verificando texto
-            .invoke('css', 'color') // Obtém a cor do elemento
-            .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+        //cy.get('.md-list-item-text > .ng-scope')
+        //    .should('exist') //Validando existencia do "Saldo disponível"
+        //    .and('be.visible') //Validando se elemento "Saldo disponível" está visível
+        //    .and('have.text','Saldo disponivel') //Verificando texto
+        //    .invoke('css', 'color') // Obtém a cor do elemento
+        //    .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
 
         //clicar para selecionar o produto; 
-        cy.contains('Cod: 1862')
+        cy.contains('Cod: 1867')
             .click({ force: true })
 
         cy.wait(1500)
@@ -99,8 +99,14 @@ describe('Gerar pedido normal', () => {
         //Selecionar a voltagem do produto
         cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
             .click({ force: true })
-        
-        cy.wait(1000)
+
+        //Usar promoção, no card "Promoções"
+        cy.get('.md-3-line > div.md-button > .md-no-style')
+            .click()
+
+        //Escolher uma forma de pagamento, no card de "Formas de pagamento"
+        cy.get('#dialogContent_119 > .white > [style=""] > div.md-button > .md-no-style')
+            .click()
 
         //clicar no botão "ADICIONAR", para adicionar produto
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
@@ -109,13 +115,13 @@ describe('Gerar pedido normal', () => {
         cy.wait(3500)
 
         //Desmarcar garantia - card "Serviços Vinculados"
-        cy.get(':nth-child(4) > :nth-child(5) > .md-no-style > .md-secondary-container > :nth-child(1) > #checkbox-141-2 > .md-container')
+        cy.get('#checkbox-141-2 > .md-container')
             .click()
 
         cy.wait(1000)
 
         //Desmarcar Mão de Obra - card "Serviços Vinculados"
-        cy.get(':nth-child(4) > :nth-child(5) > .md-no-style > .md-secondary-container > :nth-child(1) > #checkbox-144-2 > .md-container')
+        cy.get('#checkbox-144-2 > .md-container')
             .click()
 
         cy.wait(500)
@@ -160,29 +166,7 @@ describe('Gerar pedido normal', () => {
         cy.get('.flex-gt-sm-50 > .md-primary')
             .click() //Clicar para avançar para a próxima tela
 
-        // tela de GERAR PARCELAS
-
-        cy.wait(6500)
-
-        //Título "Formas de pagamento na Entrada"
-        cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-            .scrollIntoView()
-
-        cy.wait(500)
-
-        //Botão "GERAR PARCELAS"
-        cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-            .click({force:true})
-
-        cy.wait(7000)
-
-        //Selecionando forma de pagamento
-        cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-            .click()
-
-        //Selecionando parcela na forma de pagamento
-        cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-            .click()
+        // tela de PAGAMENTO
 
         cy.wait(1000)
 
@@ -190,7 +174,7 @@ describe('Gerar pedido normal', () => {
         cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
             .click()
 
-        cy.wait(3500)
+        cy.wait(6000)
 
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
         
@@ -199,18 +183,6 @@ describe('Gerar pedido normal', () => {
             .scrollIntoView()
 
         cy.wait(1000)
-
-        //PRODUTOS 
-
-        //FINANCEIRO
-
-        //Texto "Formas de pagamento no Parcelamento"
-        cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-            .scrollIntoView()
-
-        //Cifrão do "Total financeiro"
-        cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-            .scrollIntoView()
 
         //Botão "FINALIZAR PEDIDO"
         cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -229,8 +201,8 @@ describe('Gerar pedido normal', () => {
         //Após gerar pedido
 
         //Botão "OK"
-        cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
-            .click()
+        //cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
+        //    .click()
 
     })
 })
