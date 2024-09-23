@@ -10,12 +10,11 @@ describe('Gerar pedido normal', () => {
   
     it('Gerar pedido de venda normal, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
-        
-        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-        titulopagina()
-
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
+        
         cy.wait(4000);
 
          //Botão "INICIAR ATENDIMENTO"

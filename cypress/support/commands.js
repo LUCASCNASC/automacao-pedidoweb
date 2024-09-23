@@ -29,6 +29,7 @@ import '@testing-library/cypress/add-commands';
 // cypress/support/commands.js
 
 Cypress.Commands.add('login', (username, password) => {
+  
   // Visite a página de login
   cy.visit('http://10.7.0.42:2701/');
 

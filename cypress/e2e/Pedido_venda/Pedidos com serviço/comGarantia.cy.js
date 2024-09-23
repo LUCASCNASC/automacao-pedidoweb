@@ -12,10 +12,11 @@ describe('Gerar pedidos com Garantia', () => {
 
         it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
     
             cy.wait(1000)
     
@@ -182,11 +183,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(4000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
-            //Texto "Consumidor Final"
-            cy.get('.md-label')
-                .scrollIntoView()
-    
+
             cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
@@ -212,11 +209,10 @@ describe('Gerar pedidos com Garantia', () => {
     
         it.skip('Gerar pedido de venda com Garantia que não separa título, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
     
-            
+            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+    
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
             cy.wait(1000)
     
@@ -383,11 +379,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(5000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
-            //Texto "Consumidor Final"
-            cy.get('.md-label')
-                .scrollIntoView()
-    
+
             cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
@@ -413,11 +405,10 @@ describe('Gerar pedidos com Garantia', () => {
     
         it.skip('Gerar pedido de venda com Garantia que separa título em um processo diferente, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
     
-            
+            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+    
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
             cy.wait(1000)
     
@@ -578,11 +569,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(5000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
-            //Texto "Consumidor Final"
-            cy.get('.md-label')
-                .scrollIntoView()
-    
+
             cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
@@ -611,11 +598,10 @@ describe('Gerar pedidos com Garantia', () => {
 
         it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
-        
+            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+    
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
             cy.wait(1000)
     
@@ -829,10 +815,6 @@ describe('Gerar pedidos com Garantia', () => {
     
             cy.wait(1000)
     
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-    
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -856,12 +838,11 @@ describe('Gerar pedidos com Garantia', () => {
 
         it.skip('Gerar pedido de venda com Garantia que não separa título, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
     
-            
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
+
             cy.wait(1000)
     
             //clicar para aparecer as opções de processo
@@ -1072,11 +1053,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(9000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
-            //Texto "Consumidor Final"
-            cy.get('.md-label')
-                .scrollIntoView()
-    
+
             cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
@@ -1102,12 +1079,11 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Gerar pedido de venda com Garantia que separa título em um processo diferente, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
     
-            
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
+            
             cy.wait(1000)
     
             //clicar para aparecer as opções de processo
@@ -1312,11 +1288,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(9000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
-            //Texto "Consumidor Final"
-            cy.get('.md-label')
-                .scrollIntoView()
-    
+
             cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
