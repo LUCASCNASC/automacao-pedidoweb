@@ -1,3 +1,6 @@
+//Importando funções 
+import { titulopagina } from '../../../support/uiUtils';
+
 describe('Validar tela de login', () => {
 
     beforeEach(() => {
@@ -7,8 +10,8 @@ describe('Validar tela de login', () => {
   
     it.skip('Tentar logar no pedido web - sem usuário e senha (não deve entrar, botão Entrar desabilitado).', () => {
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
         cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding')
             .click() //Clicando no ícone do Computador
@@ -79,8 +82,8 @@ describe('Validar tela de login', () => {
     
     it.skip('Tentar logar no pedido web - usuário e senha errados.', () => {
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
         cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding')
             .click() //Clicando no ícone do Computador
@@ -161,8 +164,8 @@ describe('Validar tela de login', () => {
 
     it.skip('Tentar logar no pedido web - usuário e senha errados - tentar logar novamente com usuário e senha corretos (deve permitir).', () => {
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
         cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding')
             .click() //Clicando no ícone do Computador

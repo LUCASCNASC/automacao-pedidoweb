@@ -1,3 +1,6 @@
+//Importando funções 
+import { titulopagina } from '../../../support/uiUtils';
+
 describe('Tentar logar no pedido web - esqueceu a senha?', () => {
 
     beforeEach(() => {
@@ -7,8 +10,8 @@ describe('Tentar logar no pedido web - esqueceu a senha?', () => {
   
     it.skip('Tentar logar no pedido web - esqueceu a senha? - sem email cadastrado.', () => {
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
             
         cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding') //ícone do computador
@@ -198,8 +201,8 @@ describe('Tentar logar no pedido web - esqueceu a senha?', () => {
 
     it.skip('Tentar logar no pedido web - esqueceu a senha? - com email cadastrado.', () => {
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
             
         cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding') //ícone do computador

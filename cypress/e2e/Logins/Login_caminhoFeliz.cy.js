@@ -1,3 +1,6 @@
+//Importando funções 
+import { titulopagina } from '../../../support/uiUtils';
+
 describe('Validar tela de login', () => {
 
     beforeEach(() => {
@@ -7,8 +10,8 @@ describe('Validar tela de login', () => {
   
     it('Tentar logar no pedido web - caminho feliz (deve entrar sem problemas).', () => {
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
             
         cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding') //ícone do computador

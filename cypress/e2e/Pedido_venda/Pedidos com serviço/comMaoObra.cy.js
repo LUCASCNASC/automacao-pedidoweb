@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar } from '../../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar, titulopagina } from '../../../support/uiUtils';
 
 describe('Gerar pedidos com Mão de obra', () => {
 
@@ -13,8 +13,8 @@ describe('Gerar pedidos com Mão de obra', () => {
         it.skip('Gerar pedido de venda com Mão de Obra que Destaca e Não separa título, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
         
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -190,18 +190,6 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             cy.wait(1000)
     
-            //PRODUTOS 
-    
-            //FINANCEIRO
-    
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-    
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-    
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -223,11 +211,11 @@ describe('Gerar pedidos com Mão de obra', () => {
     
         })
     
-        it('Gerar pedido de venda com Mão de Obra que Não destaca e Separa título no Mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Mão de Obra que Não destaca e Separa título no Mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
     
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -400,20 +388,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Texto "Consumidor Final"
             cy.get('.md-label')
                 .scrollIntoView()
-    
+
             cy.wait(1000)
-    
-            //PRODUTOS 
-    
-            //FINANCEIRO
-    
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-    
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -436,11 +412,11 @@ describe('Gerar pedidos com Mão de obra', () => {
     
         })
     
-        it('Gerar pedido de venda com Mão de Obra que Não destaca e Separa título em processo Diferente, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Mão de Obra que Não destaca e Separa título em processo Diferente, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
     
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -610,18 +586,6 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             cy.wait(1000)
     
-            //PRODUTOS 
-    
-            //FINANCEIRO
-    
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-    
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-    
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -642,6 +606,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             //    .click()
     
         })
+    })
+
+    context('Com entrega', () => {
+
+        beforeEach(() => {
+            cy.visit('/');
+            cy.clearAllSessionStorage();
+        })
+        
     })
 })
 

@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar } from '../../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar, titulopagina } from '../../../support/uiUtils';
 
 describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
@@ -13,8 +13,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -190,14 +190,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(1000)
 
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -222,8 +214,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -399,14 +391,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(1000)
 
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -431,8 +415,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -608,14 +592,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(1000)
 
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -640,8 +616,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -817,14 +793,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(1000)
 
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -849,8 +817,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -1026,14 +994,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(1000)
 
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -1058,8 +1018,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -1235,14 +1195,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(1000)
 
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -1267,8 +1219,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -1444,14 +1396,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(1000)
 
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -1476,8 +1420,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -1653,14 +1597,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(1000)
 
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -1685,8 +1621,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
-            cy.title()
-                .should('eq', 'Sabium Mobile') //Validando título da página
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -1862,14 +1798,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(1000)
 
-            //Texto "Formas de pagamento no Parcelamento"
-            cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-                .scrollIntoView()
-
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -1890,6 +1818,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             //    .click()
 
         })
+    })
+
+    context('Com entrega', () => {
+
+        beforeEach(() => {
+            cy.visit('/');
+            cy.clearAllSessionStorage();
+        })
+        
     })
     
 

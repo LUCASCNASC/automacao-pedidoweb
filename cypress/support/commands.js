@@ -30,7 +30,7 @@ import '@testing-library/cypress/add-commands';
 
 Cypress.Commands.add('login', (username, password) => {
   // Visite a página de login
-  cy.visit('http://10.7.0.42:2800/');
+  cy.visit('http://10.7.0.42:2701/');
 
   // Preencha o campo de nome de usuário
   cy.get('#txtusername').type('sabium.automacao');

@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar } from '../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar, titulopagina } from '../../support/uiUtils';
 
 describe('Gerar pedido normal', () => {
 
@@ -11,8 +11,8 @@ describe('Gerar pedido normal', () => {
     it('Gerar pedido de venda normal, processo 9863; um produto, produto 1860 0 0 - caminho feliz', () => {
 
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 

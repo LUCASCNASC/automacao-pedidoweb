@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar } from '../../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar, titulopagina } from '../../../support/uiUtils';
 
 describe('Gerar pedidos com promoção', () => {
 
@@ -11,8 +11,8 @@ describe('Gerar pedidos com promoção', () => {
     it.skip('Usar promoção - Gerar pedido com promoção partida, processo 9860; um produto, produto 1868 0 0 (promoção 152) - caminho feliz', () => {
 
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -192,8 +192,8 @@ describe('Gerar pedidos com promoção', () => {
     it.skip('Usar promoção - Gerar pedido com promoção a prazo com entrada, processo 9860; um produto, produto 1866 0 0 (promoção 150) - caminho feliz', () => {
 
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -399,8 +399,8 @@ describe('Gerar pedidos com promoção', () => {
     it.skip('Usar promoção - Gerar pedido com promoção a prazo parcelado, processo 9860; um produto, produto 1867 0 0 (promoção 151) - caminho feliz', () => {
 
         
-        cy.title()
-            .should('eq', 'Sabium Mobile') //Validando título da página
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
