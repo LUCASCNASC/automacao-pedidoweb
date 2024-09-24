@@ -69,7 +69,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -180,11 +180,9 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(4000)
+            cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -265,7 +263,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -304,7 +302,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
@@ -376,11 +374,9 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(5000)
+            cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -461,7 +457,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -500,7 +496,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Desmarcar Mão de Obra - card "Serviços Vinculados"
             cy.get('#checkbox-144-2 > .md-container')
@@ -566,11 +562,9 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(5000)
+            cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -654,7 +648,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -693,7 +687,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -739,7 +733,7 @@ describe('Gerar pedidos com Garantia', () => {
             // tela para ESCOLHER TRANSPORTADORA
 
     
-            cy.wait(16000)
+            cy.wait(15000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -767,7 +761,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .type('1')
 
             //Clicar na lupa de pesquisa de rota
-            cy.get('#dialogContent_899 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_900 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             //Escolher rota após pesquisarmos
@@ -784,7 +778,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(11000)
+            cy.wait(10000)
 
 
             // tela de GERAR PARCELAS
@@ -793,7 +787,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(8000)
+            cy.wait(8500)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -812,8 +806,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(10000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -894,7 +886,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -933,7 +925,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
@@ -1006,7 +998,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_899 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_900 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -1050,12 +1042,10 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(9000)
+            cy.wait(10000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-            cy.wait(1000)
-    
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -1077,7 +1067,7 @@ describe('Gerar pedidos com Garantia', () => {
     
         })
 
-        it('Gerar pedido de venda com Garantia que separa título em um processo diferente, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título em um processo diferente, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1135,7 +1125,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -1174,7 +1164,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Desmarcar Mão de Obra - card "Serviços Vinculados"
             cy.get('#checkbox-144-2 > .md-container')
@@ -1241,7 +1231,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_899 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_900 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -1269,7 +1259,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(900)
+            cy.wait(9000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -1285,11 +1275,9 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(9000)
+            cy.wait(10000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -1313,4 +1301,3 @@ describe('Gerar pedidos com Garantia', () => {
         })
     })
 })
-

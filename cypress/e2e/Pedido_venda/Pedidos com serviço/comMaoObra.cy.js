@@ -68,7 +68,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -107,7 +107,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Desmarcar garantia que já veio automaticamente
             cy.get('#checkbox-141-2 > .md-container')
@@ -179,11 +179,9 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(4000)
+            cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -264,7 +262,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -303,7 +301,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Desmarcar garantia que já veio automaticamente
             cy.get('#checkbox-141-2 > .md-container')
@@ -378,8 +376,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(5000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -460,7 +456,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -499,7 +495,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Desmarcar garantia que já veio marcada automaticamente
             cy.get('#checkbox-141-2 > .md-container')
@@ -565,11 +561,9 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(5000)
+            cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -653,7 +647,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -692,7 +686,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Desmarcar garantia que já veio automaticamente
             cy.get('#checkbox-141-2 > .md-container')
@@ -816,11 +810,9 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(4000)
+            cy.wait(10000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -901,7 +893,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -940,7 +932,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Desmarcar garantia que já veio automaticamente
             cy.get('#checkbox-141-2 > .md-container')
@@ -1013,7 +1005,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_899 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_900 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -1049,7 +1041,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(900)
+            cy.wait(9000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -1065,11 +1057,9 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(9000)
+            cy.wait(10000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -1150,7 +1140,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .wait(1500)
                 .type('1860')
            
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -1189,7 +1179,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
+            cy.wait(2500)
     
             //Desmarcar garantia que já veio marcada automaticamente
             cy.get('#checkbox-141-2 > .md-container')
@@ -1256,7 +1246,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_899 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_900 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -1308,11 +1298,9 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(9000)
+            cy.wait(10000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')

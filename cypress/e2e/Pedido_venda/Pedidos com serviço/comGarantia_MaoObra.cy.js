@@ -10,7 +10,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.clearAllSessionStorage();
         })
     
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -69,7 +69,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -108,7 +108,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -152,7 +152,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             // tela de GERAR PARCELAS
 
-            cy.wait(10000)
+            cy.wait(13000)
 
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -180,11 +180,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -207,7 +205,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -266,7 +264,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -305,7 +303,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -402,7 +400,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -461,7 +459,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -500,7 +498,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -572,11 +570,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -599,7 +595,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it('Gerar pedido de venda com Garantia que não separa e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -658,7 +654,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -697,7 +693,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-143-1 > .md-container')
@@ -769,11 +765,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -796,7 +790,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -855,7 +849,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -894,7 +888,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
@@ -966,11 +960,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -993,7 +985,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1052,7 +1044,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -1091,7 +1083,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
@@ -1163,11 +1155,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -1190,7 +1180,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1249,7 +1239,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -1288,7 +1278,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
             //cy.get('#checkbox-141-2 > .md-container')
@@ -1360,11 +1350,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -1387,7 +1375,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1446,7 +1434,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -1485,7 +1473,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
             //cy.get('#checkbox-141-2 > .md-container')
@@ -1557,12 +1545,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -1584,7 +1569,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1643,7 +1628,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -1682,7 +1667,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
             //cy.get('#checkbox-141-2 > .md-container')
@@ -1754,11 +1739,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -1843,7 +1826,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -1882,7 +1865,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -2010,8 +1993,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-            cy.wait(1000)
-
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
@@ -2092,7 +2073,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -2131,7 +2112,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -2254,11 +2235,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -2340,7 +2319,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -2379,7 +2358,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -2502,11 +2481,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -2587,7 +2564,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -2626,7 +2603,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-143-1 > .md-container')
@@ -2749,11 +2726,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -2834,7 +2809,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -2873,7 +2848,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
@@ -2996,11 +2971,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -3081,7 +3054,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -3120,7 +3093,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
@@ -3243,11 +3216,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -3328,7 +3299,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -3367,7 +3338,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
             //cy.get('#checkbox-141-2 > .md-container')
@@ -3490,11 +3461,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -3576,7 +3545,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -3615,7 +3584,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
             //cy.get('#checkbox-141-2 > .md-container')
@@ -3738,11 +3707,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(8500)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            cy.wait(1000)
 
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -3824,7 +3791,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .wait(1500)
                 .type('1860')
         
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
@@ -3863,7 +3830,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
 
-            cy.wait(3500)
+            cy.wait(2500)
 
             //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
             //cy.get('#checkbox-141-2 > .md-container')
@@ -3986,7 +3953,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(12000)
+            cy.wait(10000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 

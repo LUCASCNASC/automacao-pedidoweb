@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar, titulopagina } from '../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar, titulopagina } from '../../../support/uiUtils';
 
 describe('Gerar pedido normal', () => {
 

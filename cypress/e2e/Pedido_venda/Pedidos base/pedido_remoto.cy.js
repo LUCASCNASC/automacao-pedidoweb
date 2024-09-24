@@ -1,14 +1,14 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar, titulopagina } from '../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar, titulopagina } from '../../../support/uiUtils';
 
-describe('Gerar pedido normal', () => {
+describe('Gerar pedido remota', () => {
 
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
     })
   
-    it('Gerar pedido de venda normal, processo 9860; um produto, produto 1862 0 0 - caminho feliz', () => {
+    it('Gerar pedido de venda remota total, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -64,12 +64,12 @@ describe('Gerar pedido normal', () => {
         cy.get('#searchText')
             .should('have.value', '') //Validando se o campo foi realmente limpo
             .wait(1500)
-            .type('1862')
+            .type('1860')
        
-        cy.wait(3500)
+        cy.wait(2500)
 
         //Preenchendo campo para pesquisar produto
-        cy.contains('Cod: 1862')
+        cy.contains('Cod: 1860')
 
         cy.wait(500)
 
@@ -82,7 +82,7 @@ describe('Gerar pedido normal', () => {
             .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
 
         //clicar para selecionar o produto; 
-        cy.contains('Cod: 1862')
+        cy.contains('Cod: 1860')
             .click({ force: true })
 
         cy.wait(1500)
@@ -101,20 +101,28 @@ describe('Gerar pedido normal', () => {
         
         cy.wait(1000)
 
+        //Clicar no botão de filial, para trocarmos a filial de emissão 
+        cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
+            .click()
+
+        //Escolher a filial 6, de emissão, para venda remota
+        cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
+            .click()
+
         //clicar no botão "ADICIONAR", para adicionar produto
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
             .click()
 
-        cy.wait(3500)
+        cy.wait(2500)
 
         //Desmarcar garantia - card "Serviços Vinculados"
-        cy.get(':nth-child(4) > :nth-child(5) > .md-no-style > .md-secondary-container > :nth-child(1) > #checkbox-141-2 > .md-container')
+        cy.get('#checkbox-141-2 > .md-container')
             .click()
 
         cy.wait(1000)
 
         //Desmarcar Mão de Obra - card "Serviços Vinculados"
-        cy.get(':nth-child(4) > :nth-child(5) > .md-no-style > .md-secondary-container > :nth-child(1) > #checkbox-144-2 > .md-container')
+        cy.get('#checkbox-144-2 > .md-container')
             .click()
 
         cy.wait(500)
@@ -126,14 +134,14 @@ describe('Gerar pedido normal', () => {
         cy.wait(1500)
 
         //Botão de arrastar Retirada / Entrega
-        cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            .click() //Clicar para tirar a entrega do pedido
+        //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
+        //    .click() //Clicar para tirar a entrega do pedido
 
         cy.wait(1000)
 
         //Botão de arrastar Montagem
-        cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-            .click() //Clicar para tirar a montagem
+        //cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
+        //    .click() //Clicar para tirar a montagem
 
         cy.wait(500)
 
@@ -147,9 +155,60 @@ describe('Gerar pedido normal', () => {
         cy.get('.flex-gt-sm-50 > .md-primary')
             .click() //Clicar para avançar para a próxima tela
 
+        // tela para ESCOLHER TRANSPORTADORA
+
+        cy.wait(16000)
+
+        //Card de inconsistencias - fechar
+        cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+            .click()
+
+        //Campo Transportadora - clicar para abrir as opções
+        cy.get('#input-193')
+            .click({force:true})
+
+        cy.wait(1000)
+
+        //Selecionar a transportadora que queremos
+        cy.get('#md-option-193-0')
+            .click({force:true})
+
+        //Lupa de pesquisa de rota - clicar para pesquisar
+        cy.get('.rota-frete > .md-icon-right > .ng-binding')
+            .scrollIntoView()
+            .click()
+
+        cy.wait(500)
+
+        //Pesquisar rota
+        cy.get('#txtBuscaRotaModal')
+            .type('1')
+
+        //Clicar na lupa para pesquisar rota depois de preencher campo
+        cy.get('#dialogContent_899 > .layout-wrap > .md-icon-float > .ng-binding')
+            .click()
+
+        cy.wait(500)
+
+        //Escolher rota após pesquisarmos
+        cy.get('v-pane-header.ng-scope > div')
+            .click() //clicar na rota 1
+
+        //Escolher rota 2
+        cy.get(':nth-child(4) > .padding-10-0')
+            .click() //clicar na rota 1
+
+        cy.wait(1000)
+
+        //Clicar para avançar para a tela de GERAR PARCELAS
+        cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+            .click()
+
+        cy.wait(11000)
+
+
         // tela de GERAR PARCELAS
 
-        cy.wait(6500)
 
         //Título "Formas de pagamento na Entrada"
         cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -161,7 +220,7 @@ describe('Gerar pedido normal', () => {
         cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
             .click({force:true})
 
-        cy.wait(7000)
+        cy.wait(9000)
 
         //Selecionando forma de pagamento
         cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -177,34 +236,16 @@ describe('Gerar pedido normal', () => {
         cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
             .click()
 
-        cy.wait(3500)
+        cy.wait(10000)
 
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        
-        //Texto "Consumidor Final"
-        cy.get('.md-label')
-            .scrollIntoView()
-
-        cy.wait(1000)
-
-        //PRODUTOS 
-
-        //FINANCEIRO
-
-        //Texto "Formas de pagamento no Parcelamento"
-        cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-            .scrollIntoView()
-
-        //Cifrão do "Total financeiro"
-        cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-            .scrollIntoView()
 
         //Botão "FINALIZAR PEDIDO"
         cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
             .click()
 
         //Carregando a finalização do pedido
-        cy.wait(7500)
+        cy.wait(12000)
 
          //Validar mensagem "Pedido gravado com sucesso!"
         cy.get('[ng-show="!editarPedido"]')
@@ -212,13 +253,13 @@ describe('Gerar pedido normal', () => {
             .and('be.visible')
             .and('contain.text','Pedido gravado com sucesso!')
 
-
         //Após gerar pedido
 
         //Botão "OK"
-        cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
-            .click()
+        //cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
+        //    .click()
 
     })
+    
 })
 

@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar, titulopagina } from '../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar, titulopagina } from '../../../support/uiUtils';
 
 describe('Gerar pedido normal', () => {
 
@@ -8,13 +8,14 @@ describe('Gerar pedido normal', () => {
         cy.clearAllSessionStorage();
     })
   
-    it('Gerar pedido de venda normal, processo 9860; um produto, produto 1862 0 0 - caminho feliz', () => {
+    it('Gerar pedido de venda com dois produtos, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
+    
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()
-        
+
         cy.wait(1000);
 
         //clicar para aparecer as opções de processo
@@ -25,12 +26,12 @@ describe('Gerar pedido normal', () => {
         
         //rolar para o meio das opções de processo
         cy.get('#select_listbox_12')
-            .scrollTo('bottom')
+            .scrollTo('center')
 
         cy.wait(1000)
 
-        //selecionar processo de venda "9862"
-        cy.get('#select_option_61 > .md-text')
+        //selecionar processo de venda "9860"
+        cy.get('#select_option_59 > .md-text')
             .click({force: true})
 
         cy.wait(1000)
@@ -66,7 +67,7 @@ describe('Gerar pedido normal', () => {
             .wait(1500)
             .type('1860')
        
-        cy.wait(3500)
+        cy.wait(2000)
 
         //Preenchendo campo para pesquisar produto
         cy.contains('Cod: 1860')
@@ -135,11 +136,64 @@ describe('Gerar pedido normal', () => {
         cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
             .click() //Clicar para tirar a montagem
 
+        cy.wait(1000)
+
+        //Buscar segundo produto
+        cy.get('#searchText')
+            .clear()
+            .type('1870')
+
+        //Validando informações do segundo produto após pesquisar
+        cy.get('.md-list-item-text > .ng-scope')
+            .should('exist') //Validando existencia do "Saldo disponível"
+            .and('be.visible') //Validando se elemento "Saldo disponível" está visível
+            .and('have.text','Saldo disponivel') //Verificando texto
+            .invoke('css', 'color') // Obtém a cor do elemento
+            .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+
+        //clicar para selecionar o segundo produto; 
+        cy.contains('Cod: 1870')
+            .click({ force: true })
+
+        cy.wait(1000)
+
+        //Escolhendo voltagem do segundo produto
+        cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+            .click()
+
+        //clicar no botão "ADICIONAR", para adicionar o segundo produto
+        cy.get('[style="padding: 0px 5px;"] > .md-primary')
+            .click()
+
+        cy.wait(1500)
+
+        //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
+        cy.get('#checkbox-141-2 > .md-container')
+            .click()
+
+        cy.wait(1000)
+
+        //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
+        cy.get('#checkbox-144-2 > .md-container')
+            .click()
+
         cy.wait(500)
 
-        //rolagem para baixo
-        cy.get('.containerSabium')
-            .scrollTo("center")
+        //Botão "OK" - Serviços Vinculados - segundo produto
+        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
+            .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+
+        cy.wait(1500)
+
+        //Botão de arrastar Retirada / Entrega
+        cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
+            .click({force:true}) //Clicar para tirar a entrega do pedido
+
+        cy.wait(1000)
+
+        //Botão de arrastar Montagem
+        cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
+            .click({force:true}) //Clicar para tirar a montagem
 
         cy.wait(500)
 
@@ -149,7 +203,7 @@ describe('Gerar pedido normal', () => {
 
         // tela de GERAR PARCELAS
 
-        cy.wait(6500)
+        cy.wait(7000)
 
         //Título "Formas de pagamento na Entrada"
         cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -177,34 +231,17 @@ describe('Gerar pedido normal', () => {
         cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
             .click()
 
-        cy.wait(3500)
+        cy.wait(7000)
 
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
         
-        //Texto "Consumidor Final"
-        cy.get('.md-label')
-            .scrollIntoView()
-
-        cy.wait(1000)
-
-        //PRODUTOS 
-
-        //FINANCEIRO
-
-        //Texto "Formas de pagamento no Parcelamento"
-        cy.get('[ng-show="(formasPagamentoParcelar.length > 0)"] > .md-primary > h4')
-            .scrollIntoView()
-
-        //Cifrão do "Total financeiro"
-        cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-            .scrollIntoView()
 
         //Botão "FINALIZAR PEDIDO"
         cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
             .click()
 
         //Carregando a finalização do pedido
-        cy.wait(7500)
+        cy.wait(12000)
 
          //Validar mensagem "Pedido gravado com sucesso!"
         cy.get('[ng-show="!editarPedido"]')
@@ -217,7 +254,7 @@ describe('Gerar pedido normal', () => {
 
         //Botão "OK"
         //cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
-        //   .click()
+        //    .click()
 
     })
 })
