@@ -17,32 +17,32 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()
             
-            cy.wait(1000);
+            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
                 .click()
     
-            cy.wait(1000)
+            cy.wait(800)
             
             //rolar para o meio das opções de processo
             cy.get('#select_listbox_12')
                 .scrollTo('bottom')
     
-            cy.wait(1000)
+            cy.wait(800)
     
             //selecionar processo de venda "9863"
             cy.get('#select_option_62 > .md-text')
                 .click({force: true})
     
-            cy.wait(1000)
+            cy.wait(800)
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-                .wait(1500)
+                .wait(1300)
                 .type('48976249089 {downArrow}') //Inserindo CPF no campo "INFORME O CLIENTE"
             
-            cy.wait(1000)
+            cy.wait(800)
             
             //clicar na lupa de pesquisa de clientes
             cy.get('.md-block > .ng-binding')
@@ -65,7 +65,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.get('#searchText')
                 .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1500)
+                .wait(1300)
                 .type('1860')
            
             cy.wait(2500)
@@ -73,7 +73,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
     
-            cy.wait(500)
+            cy.wait(100)
     
             //Validando informações do produto após pesquisar
             cy.get('.md-list-item-text > .ng-scope')
@@ -87,7 +87,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.contains('Cod: 1860')
                 .click({ force: true })
     
-            cy.wait(1500)
+            cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
     
@@ -95,13 +95,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Função criada para clicar no botão detalher venda, que baixa o PDF
             detalhevendaclicar()
     
-            cy.wait(1000)
+            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(1000)
+            cy.wait(800)
     
             //clicar no botão "ADICIONAR", para adicionar produto
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
@@ -113,37 +113,37 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('#checkbox-141-2 > .md-container')
                 .click()
     
-            cy.wait(1000)
+            cy.wait(800)
     
             //Desmarcar Mão de Obra - card "Serviços Vinculados"
             cy.get('#checkbox-144-2 > .md-container')
                 .click()
     
-            cy.wait(500)
+            cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1500)
+            cy.wait(1300)
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click() //Clicar para tirar a entrega do pedido
     
-            cy.wait(1000)
+            cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
                 .click() //Clicar para tirar a montagem
     
-            cy.wait(500)
+            cy.wait(400)
     
             //rolagem para baixo
             cy.get('.containerSabium')
                 .scrollTo("center")
     
-            cy.wait(500)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
@@ -157,7 +157,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(500)
+            cy.wait(400)
     
             //Botão "GERAR PARCELAS"
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
@@ -173,7 +173,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(1000)
+            cy.wait(800)
     
             //Botão "AVANÇAR"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -196,12 +196,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('contain.text','Pedido gravado com sucesso!')
-    
-            //Após gerar pedido
-    
-            //Botão "OK"
-            //cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
-            //    .click()
         })
     })
     
@@ -214,32 +208,32 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()
             
-            cy.wait(1000);
+            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
                 .click()
     
-            cy.wait(1000)
+            cy.wait(800)
             
             //rolar para o meio das opções de processo
             cy.get('#select_listbox_12')
                 .scrollTo('bottom')
     
-            cy.wait(1000)
+            cy.wait(800)
     
             //selecionar processo de venda "9863"
             cy.get('#select_option_62 > .md-text')
                 .click({force: true})
     
-            cy.wait(1000)
+            cy.wait(800)
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-                .wait(1500)
+                .wait(1300)
                 .type('48976249089 {downArrow}') //Inserindo CPF no campo "INFORME O CLIENTE"
             
-            cy.wait(1000)
+            cy.wait(800)
             
             //clicar na lupa de pesquisa de clientes
             cy.get('.md-block > .ng-binding')
@@ -262,7 +256,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.get('#searchText')
                 .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1500)
+                .wait(1300)
                 .type('1860')
            
             cy.wait(2500)
@@ -270,7 +264,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Preenchendo campo para pesquisar produto
             cy.contains('Cod: 1860')
     
-            cy.wait(500)
+            cy.wait(100)
     
             //Validando informações do produto após pesquisar
             cy.get('.md-list-item-text > .ng-scope')
@@ -284,7 +278,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.contains('Cod: 1860')
                 .click({ force: true })
     
-            cy.wait(1500)
+            cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
     
@@ -292,13 +286,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Função criada para clicar no botão detalher venda, que baixa o PDF
             detalhevendaclicar()
     
-            cy.wait(1000)
+            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(1000)
+            cy.wait(800)
     
             //clicar no botão "ADICIONAR", para adicionar produto
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
@@ -310,37 +304,37 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('#checkbox-141-2 > .md-container')
                 .click()
     
-            cy.wait(1000)
+            cy.wait(800)
     
             //Desmarcar Mão de Obra - card "Serviços Vinculados"
             cy.get('#checkbox-144-2 > .md-container')
                 .click()
     
-            cy.wait(500)
+            cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1500)
+            cy.wait(1300)
     
             //Botão de arrastar Retirada / Entrega
             //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
             //    .click() //Clicar para tirar a entrega do pedido
     
-            cy.wait(1000)
+            cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
                 .click() //Clicar para tirar a montagem
     
-            cy.wait(500)
+            cy.wait(400)
     
             //rolagem para baixo
             cy.get('.containerSabium')
                 .scrollTo("center")
     
-            cy.wait(500)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
@@ -349,26 +343,26 @@ describe('Gerar pedido com financeiro na baixa', () => {
             // tela para ESCOLHER TRANSPORTADORA
 
 
-            cy.wait(13000)
+            cy.wait(12000)
 
             //Lupa de pesquisa de rota - clicar para pesquisar
             cy.get('.rota-frete > .md-icon-right > .ng-binding')
                 .scrollIntoView()
                 .click()
 
-            cy.wait(500)
+            cy.wait(400)
 
             //Pesquisar rota
             cy.get('#txtBuscaRotaModal')
                 .type('1')
 
-            cy.wait(500)
+            cy.wait(400)
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
             cy.get('#dialogContent_894 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
-            cy.wait(500)
+            cy.wait(400)
 
             //Escolher rota após pesquisarmos
             cy.get('v-pane-header.ng-scope > div')
@@ -378,7 +372,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get(':nth-child(4) > .padding-10-0')
                 .click() //clicar na rota 1
 
-            cy.wait(1000)
+            cy.wait(800)
 
             //Clicar para avançar para a tela de GERAR PARCELAS
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -394,7 +388,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
 
-            cy.wait(500)
+            cy.wait(400)
 
             //Botão "GERAR PARCELAS"
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
@@ -410,7 +404,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
 
-            cy.wait(1000)
+            cy.wait(800)
 
             //Botão "AVANÇAR"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -425,7 +419,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
                 .click()
 
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(9000)
 
             //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
