@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar, titulopagina } from '../../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar, titulopagina, saldodisponivel } from '../../../support/uiUtils';
 
 describe('Gerar pedido normal', () => {
 
@@ -77,12 +77,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             //Validando informações do produto após pesquisar
-            cy.get('.md-list-item-text > .ng-scope')
-                .should('exist') //Validando existencia do "Saldo disponível"
-                .and('be.visible') //Validando se elemento "Saldo disponível" está visível
-                .and('have.text','Saldo disponivel') //Verificando texto
-                .invoke('css', 'color') // Obtém a cor do elemento
-                .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+            saldodisponivel()
     
             //clicar para selecionar o produto; 
             cy.contains('Cod: 1860')
@@ -266,12 +261,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             //Validando informações do produto após pesquisar
-            cy.get('.md-list-item-text > .ng-scope')
-                .should('exist') //Validando existencia do "Saldo disponível"
-                .and('be.visible') //Validando se elemento "Saldo disponível" está visível
-                .and('have.text','Saldo disponivel') //Verificando texto
-                .invoke('css', 'color') // Obtém a cor do elemento
-                .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+            saldodisponivel()
     
             //clicar para selecionar o produto; 
             cy.contains('Cod: 1860')
@@ -335,12 +325,7 @@ describe('Gerar pedido normal', () => {
                 .type('1870')
     
             //Validando informações do segundo produto após pesquisar
-            cy.get('.md-list-item-text > .ng-scope')
-                .should('exist') //Validando existencia do "Saldo disponível"
-                .and('be.visible') //Validando se elemento "Saldo disponível" está visível
-                .and('have.text','Saldo disponivel') //Verificando texto
-                .invoke('css', 'color') // Obtém a cor do elemento
-                .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+            saldodisponivel()
     
             //clicar para selecionar o segundo produto; 
             cy.contains('Cod: 1870')
@@ -511,12 +496,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             //Validando informações do produto após pesquisar
-            cy.get('.md-list-item-text > .ng-scope')
-                .should('exist') //Validando existencia do "Saldo disponível"
-                .and('be.visible') //Validando se elemento "Saldo disponível" está visível
-                .and('have.text','Saldo disponivel') //Verificando texto
-                .invoke('css', 'color') // Obtém a cor do elemento
-                .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+            saldodisponivel()
     
             //clicar para selecionar o produto; 
             cy.contains('Cod: 1860')
@@ -750,12 +730,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             //Validando informações do produto após pesquisar
-            cy.get('.md-list-item-text > .ng-scope')
-                .should('exist') //Validando existencia do "Saldo disponível"
-                .and('be.visible') //Validando se elemento "Saldo disponível" está visível
-                .and('have.text','Saldo disponivel') //Verificando texto
-                .invoke('css', 'color') // Obtém a cor do elemento
-                .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+            saldodisponivel()
     
             //clicar para selecionar o produto; 
             cy.contains('Cod: 1860')
@@ -819,12 +794,7 @@ describe('Gerar pedido normal', () => {
                 .type('1870')
     
             //Validando informações do segundo produto após pesquisar
-            cy.get('.md-list-item-text > .ng-scope')
-                .should('exist') //Validando existencia do "Saldo disponível"
-                .and('be.visible') //Validando se elemento "Saldo disponível" está visível
-                .and('have.text','Saldo disponivel') //Verificando texto
-                .invoke('css', 'color') // Obtém a cor do elemento
-                .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+            saldodisponivel()
     
             //clicar para selecionar o segundo produto; 
             cy.contains('Cod: 1870')
