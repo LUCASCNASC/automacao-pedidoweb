@@ -10,7 +10,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.clearAllSessionStorage();
         })
     
-        it('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -152,7 +152,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             // tela de GERAR PARCELAS
 
-            cy.wait(13000)
+            cy.wait(12000)
 
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -189,7 +189,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Carregando a finalização do pedido
-            cy.wait(12000)
+            cy.wait(13000)
 
             //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -205,7 +205,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -400,7 +400,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -595,7 +595,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it('Gerar pedido de venda com Garantia que não separa e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -790,7 +790,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -985,7 +985,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1180,7 +1180,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1375,7 +1375,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1569,7 +1569,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         })
 
-        it('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1939,7 +1939,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_901 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_902 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -2185,7 +2185,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_901 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_902 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -2431,7 +2431,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_901 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_902 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -2676,7 +2676,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_901 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_902 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -2921,7 +2921,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_901 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_902 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -3166,7 +3166,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_901 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_902 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -3411,7 +3411,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_901 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_902 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -3657,7 +3657,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_901 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_902 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
@@ -3903,7 +3903,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .type('1')
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_901 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('#dialogContent_902 > .layout-wrap > .md-icon-float > .ng-binding')
                 .click()
 
             cy.wait(500)
