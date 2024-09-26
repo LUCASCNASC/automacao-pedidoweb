@@ -733,7 +733,7 @@ describe('Gerar pedido remota', () => {
             .and('be.visible')
             .and('contain.text','Pedido gravado com sucesso!')
     })
-
+    //fazer - produto 1875 não está aparecendo
     it('Gerar pedido de venda remota total, processo 9860; dois kits, produtos 1860 0 0 e 1875 0 0 - caminho feliz', () => {
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
