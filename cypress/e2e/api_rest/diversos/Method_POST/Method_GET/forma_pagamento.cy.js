@@ -1,11 +1,11 @@
 
 
-describe('/v3/cliente_anexo/{idcnpj_cpf}', () => {
+describe('/v3/forma_pagamento', () => {
 
     it('200 - Deve realizar a ação corretamente',() => {
       cy.request({
-        method: 'DELETE',
-        url: 'http://localhost:8000/Cliente/v3_cliente_anexo_delete',
+        method: 'GET',
+        url: 'http://localhost:8000/Diversos/v2_diversos_forma_pagamento',
         body: {
                 
               }

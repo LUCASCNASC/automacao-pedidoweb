@@ -1,11 +1,11 @@
 
 
-describe('/v3/cliente_anexo/{idcnpj_cpf}', () => {
+describe('/v3/ecommerce_finalizar', () => {
 
     it('200 - Deve realizar a ação corretamente',() => {
       cy.request({
-        method: 'DELETE',
-        url: 'http://localhost:8000/Cliente/v3_cliente_anexo_delete',
+        method: 'POST',
+        url: 'http://localhost:8000/E-commerce/v3_ecommerce_finalizar',
         body: {
                 
               }

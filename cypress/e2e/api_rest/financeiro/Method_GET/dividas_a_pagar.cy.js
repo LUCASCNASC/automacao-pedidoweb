@@ -1,11 +1,11 @@
 
 
-describe('/v3/cliente_anexo/{idcnpj_cpf}', () => {
+describe('/v3/dividas_a_pagar/{idFilial}/{cpf_cnpj}', () => {
 
     it('200 - Deve realizar a ação corretamente',() => {
       cy.request({
-        method: 'DELETE',
-        url: 'http://localhost:8000/Cliente/v3_cliente_anexo_delete',
+        method: 'GET',
+        url: 'http://localhost:8000/Financeiro/v3_financeiro_dividas_pagar',
         body: {
                 
               }
