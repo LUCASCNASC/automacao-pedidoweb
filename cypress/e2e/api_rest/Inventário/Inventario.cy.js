@@ -29,4 +29,3 @@ describe('API - teste funcional de inventário', () => {
     })
   });  
 });
-  

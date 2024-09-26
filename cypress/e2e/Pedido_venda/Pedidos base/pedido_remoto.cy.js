@@ -84,9 +84,6 @@ describe('Gerar pedido remota', () => {
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-        
-        //Função criada para clicar no botão detalher venda, que baixa o PDF
-        detalhevendaclicar()
 
         cy.wait(800)
                   

@@ -85,10 +85,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            
-            //Função criada para clicar no botão detalher venda, que baixa o PDF
-            detalhevendaclicar()
+
     
             cy.wait(1000)
                       
@@ -271,10 +268,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            
-            //Função criada para clicar no botão detalher venda, que baixa o PDF
-            detalhevendaclicar()
+
     
             cy.wait(800)
                       

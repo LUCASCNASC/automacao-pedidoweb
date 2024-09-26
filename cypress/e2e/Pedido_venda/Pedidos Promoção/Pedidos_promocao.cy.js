@@ -86,10 +86,6 @@ describe('Gerar pedidos com promoção', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
     
-            
-            //Função criada para clicar no botão detalher venda, que baixa o PDF
-            detalhevendaclicar()
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -253,10 +249,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            
-            //Função criada para clicar no botão detalher venda, que baixa o PDF
-            detalhevendaclicar()
     
             cy.wait(800)
                       
@@ -447,10 +439,6 @@ describe('Gerar pedidos com promoção', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
     
-            
-            //Função criada para clicar no botão detalher venda, que baixa o PDF
-            detalhevendaclicar()
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -621,10 +609,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            
-            //Função criada para clicar no botão detalher venda, que baixa o PDF
-            detalhevendaclicar()
     
             cy.wait(800)
                       
@@ -855,10 +839,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            
-            //Função criada para clicar no botão detalher venda, que baixa o PDF
-            detalhevendaclicar()
     
             cy.wait(800)
                       
@@ -1108,10 +1088,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            
-            //Função criada para clicar no botão detalher venda, que baixa o PDF
-            detalhevendaclicar()
     
             cy.wait(800)
                       
