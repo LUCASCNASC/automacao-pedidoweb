@@ -1,6 +1,6 @@
 
 
-describe('/v3/cliente_anexo/{idcnpj_cpf}', () => {
+describe('/v3/cliente_anexo/{idcnpj_cpf} - Excluir anexo', () => {
 
     it('200 - Deve realizar a ação corretamente',() => {
       cy.request({

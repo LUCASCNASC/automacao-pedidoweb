@@ -1,6 +1,6 @@
 
 
-describe('/v3/cliente/{cliente}', () => {
+describe('/v3/cliente/{cliente} - Dados do cliente', () => {
 
     it('200 - Deve realizar a ação corretamente',() => {
       cy.request({

@@ -1,12 +1,13 @@
 
 
-describe('/v3/local_entrega - Local de entrega', () => {
+describe('/v3/rota - Rotas', () => {
 
     it('200 - Deve realizar a ação corretamente',() => {
       cy.request({
         method: 'GET',
-        url: 'http://localhost:8000/Diversos/v2_diversos_local_entrega',
+        url: 'http://localhost:8000/Diversos/v3_diversos_rota',
         body: {
+                "idgruporota": 0,
                 "idrota": 0,
                 "descricao": "string",
                 "local_entrega": [

@@ -1,6 +1,6 @@
 
 
-describe('/api/session', () => {
+describe('/api/session - Sessões', () => {
 
     it('200 - Deve realizar a ação corretamente',() => {
       cy.request({
