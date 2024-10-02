@@ -915,7 +915,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-195-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -1146,7 +1146,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-198-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -1393,7 +1393,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-195-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -1674,7 +1674,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-349-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar

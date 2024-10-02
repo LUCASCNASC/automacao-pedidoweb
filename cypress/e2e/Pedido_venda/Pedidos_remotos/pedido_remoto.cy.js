@@ -149,7 +149,7 @@ describe('Gerar pedido remota - caminho feliz', () => {
         cy.wait(800)
 
         //Selecionar a transportadora que queremos
-        cy.get('#md-option-193-0')
+        cy.contains('1')
             .click({force:true})
 
         //Lupa de pesquisa de rota - clicar para pesquisar
@@ -421,7 +421,7 @@ describe('Gerar pedido remota - caminho feliz', () => {
         cy.wait(800)
 
         //Selecionar a transportadora que queremos
-        cy.get('#md-option-347-0')
+        cy.contains('1')
             .click({force:true})
 
         //Lupa de pesquisa de rota - clicar para pesquisar
@@ -650,7 +650,7 @@ describe('Gerar pedido remota - caminho feliz', () => {
         cy.wait(800)
 
         //Selecionar a transportadora que queremos
-        cy.get('#md-option-193-0')
+        cy.contains('1')
             .click({force:true})
 
         //Lupa de pesquisa de rota - clicar para pesquisar
@@ -922,7 +922,7 @@ describe('Gerar pedido remota - caminho feliz', () => {
         cy.wait(800)
 
         //Selecionar a transportadora que queremos
-        cy.get('#md-option-347-0')
+        cy.contains('1')
             .click({force:true})
 
         //Lupa de pesquisa de rota - clicar para pesquisar

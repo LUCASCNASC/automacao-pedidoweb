@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar, titulopagina, saldodisponivel } from '../../../support/uiUtils';
+import { detalhevenda, detalhevendaclicar, titulopagina, saldodisponivel, escolherTransportadora, escolherRota } from '../../../support/uiUtils';
 
 describe('Gerar pedidos com Mão de obra', () => {
 
@@ -1376,45 +1376,16 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('input[name="transportadora"]')
-                .click({force:true})
+            cy.wait(14000)
 
-            cy.wait(800)
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
 
-            //Selecionar a transportadora que queremos
-            cy.get('#md-option-194-0')
-                .click({force:true})
+            //Função criada para clicar no campo transportadora e escolher a trasportadora
+            escolherTransportadora()
     
-            //Lupa de pesquisa de rota - clicar para pesquisar
-            cy.get('.rota-frete > .md-icon-right > .ng-binding')
-                .scrollIntoView()
-                .click()
-
-            cy.wait(400)
-
-            //Pesquisar rota
-            cy.get('#txtBuscaRotaModal')
-                .type('1')
-
-            //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_899 > .layout-wrap > .md-icon-float > .ng-binding')
-                .click()
-
-            cy.wait(400)
-
-            //Escolher rota após pesquisarmos
-            cy.get('v-pane-header.ng-scope > div')
-                .click() //clicar na rota 1
-
-            //Escolher rota 2
-            cy.get(':nth-child(4) > .padding-10-0')
-                .click() //clicar na rota 1
-
-            cy.wait(800)
-
-            //Clicar para avançar para a tela de GERAR PARCELAS
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            escolherRota()
     
             cy.wait(10000)
 
@@ -1655,46 +1626,10 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
 
-            //Campo Transportadora - clicar para abrir as opções
-            cy.get('input[name="transportadora"]')
-                .click({force:true})
-
-            cy.wait(800)
-
-            //Selecionar a transportadora que queremos
-            cy.get('#md-option-349-0')
-                .click({force:true})
+            //Função criada para clicar no campo transportadora e escolher a trasportadora
+            escolherTransportadora()
     
-            //Lupa de pesquisa de rota - clicar para pesquisar
-            cy.get('.rota-frete > .md-icon-right > .ng-binding')
-                .scrollIntoView()
-                .click()
-
-            cy.wait(400)
-
-            //Pesquisar rota
-            cy.get('#txtBuscaRotaModal')
-                .type('1')
-
-            //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_1054 > .layout-wrap > .md-icon-float > .ng-binding')
-                .click()
-
-            cy.wait(400)
-
-            //Escolher rota após pesquisarmos
-            cy.get('v-pane-header.ng-scope > div')
-                .click() //clicar na rota 1
-
-            //Escolher rota 2
-            cy.get(':nth-child(4) > .padding-10-0')
-                .click() //clicar na rota 1
-
-            cy.wait(800)
-
-            //Clicar para avançar para a tela de GERAR PARCELAS
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            escolherRota()
     
             cy.wait(10000)
 
@@ -1711,7 +1646,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(7500)
+            cy.wait(8000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -1736,7 +1671,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .click()
     
             //Carregando a finalização do pedido
-            cy.wait(9000)
+            cy.wait(11000)
     
              //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -1879,50 +1814,16 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             cy.wait(14000)
 
+            cy.wait(14000)
+
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
 
-            //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-194')
-                .click({force:true})
-
-            cy.wait(800)
-
-            //Selecionar a transportadora que queremos
-            cy.get('#md-option-194-0')
-                .click({force:true})
+            //Função criada para clicar no campo transportadora e escolher a trasportadora
+            escolherTransportadora()
     
-            //Lupa de pesquisa de rota - clicar para pesquisar
-            cy.get('.rota-frete > .md-icon-right > .ng-binding')
-                .scrollIntoView()
-                .click()
-
-            cy.wait(400)
-
-            //Pesquisar rota
-            cy.get('#txtBuscaRotaModal')
-                .type('1')
-
-            //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_900 > .layout-wrap > .md-icon-float > .ng-binding')
-                .click()
-
-            cy.wait(400)
-
-            //Escolher rota após pesquisarmos
-            cy.get('v-pane-header.ng-scope > div')
-                .click() //clicar na rota 1
-
-            //Escolher rota 2
-            cy.get(':nth-child(4) > .padding-10-0')
-                .click() //clicar na rota 1
-
-            cy.wait(800)
-
-            //Clicar para avançar para a tela de GERAR PARCELAS
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            escolherRota()
     
             cy.wait(10000)
 
@@ -2107,47 +2008,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
 
-            //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-194')
-                .click({force:true})
-
-            cy.wait(800)
-
-            //Selecionar a transportadora que queremos
-            cy.get('#md-option-194-0')
-                .click({force:true})
-    
-            //Lupa de pesquisa de rota - clicar para pesquisar
-            cy.get('.rota-frete > .md-icon-right > .ng-binding')
-                .scrollIntoView()
-                .click()
-
-            cy.wait(400)
-
-            //Pesquisar rota
-            cy.get('#txtBuscaRotaModal')
-                .type('1')
-
-            //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_900 > .layout-wrap > .md-icon-float > .ng-binding')
-                .click()
-
-            cy.wait(400)
-
-            //Escolher rota após pesquisarmos
-            cy.get('v-pane-header.ng-scope > div')
-                .click() //clicar na rota 1
-
-            //Escolher rota 2
-            cy.get(':nth-child(4) > .padding-10-0')
-                .click() //clicar na rota 1
-
-            cy.wait(800)
-
-            //Clicar para avançar para a tela de GERAR PARCELAS
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
     
+            //Função criada para clicar no campo transportadora e escolher a trasportadora
+            escolherTransportadora()
+        
+            escolherRota()
+        
             cy.wait(10000)
 
     

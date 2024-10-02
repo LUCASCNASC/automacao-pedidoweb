@@ -691,7 +691,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-194-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -911,7 +911,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-194-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -1129,7 +1129,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-194-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar

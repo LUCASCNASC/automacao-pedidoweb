@@ -531,7 +531,7 @@ describe('Gerar pedidos com promoção', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Usar promoção - Gerar pedido com promoção partida, processo 9860; produtos 1868 0 0 (promoção 152) e 1870 0 0', () => {
+        it.skip('Usar promoção - Gerar pedido com promoção partida, processo 9860; produtos 1868 0 0 (promoção 152) e 1870 0 0 (sem promoção)', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -915,7 +915,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-195-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -1146,7 +1146,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-198-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -1474,7 +1474,7 @@ describe('Gerar pedidos com promoção', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Usar promoção - Gerar pedido com promoção partida, processo 9860; produtos 1868 0 0 (promoção 152) e 1870 0 0', () => {
+        it.skip('Usar promoção - Gerar pedido com promoção partida, processo 9860; produtos 1868 0 0 (promoção 152) e 1870 0 0 (sem promoção)', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1674,7 +1674,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-349-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar

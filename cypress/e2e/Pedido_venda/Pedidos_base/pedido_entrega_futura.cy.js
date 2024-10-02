@@ -567,7 +567,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-192-0')
+            cy.contains('1')
                 .click({force:true})
 
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -855,7 +855,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-345-0')
+            cy.contains('1')
                 .click({force:true})
 
             //Lupa de pesquisa de rota - clicar para pesquisar

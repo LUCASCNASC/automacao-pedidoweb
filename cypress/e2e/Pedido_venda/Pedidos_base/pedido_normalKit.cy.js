@@ -317,7 +317,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-244-0')
+            cy.contains('1')
                 .click({force:true})
 
             //Lupa de pesquisa de rota - clicar para pesquisar

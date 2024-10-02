@@ -1775,7 +1775,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-196-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -2006,7 +2006,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-196-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -2237,7 +2237,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-196-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -2467,7 +2467,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-196-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -2695,7 +2695,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-196-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -2923,7 +2923,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-196-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -3149,7 +3149,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-196-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -3376,7 +3376,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-196-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -3603,7 +3603,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-196-0')
+            cy.contains('1')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar

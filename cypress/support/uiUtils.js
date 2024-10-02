@@ -38,3 +38,51 @@ export function saldodisponivel (selector) {
     .invoke('css', 'color') // Obtém a cor do elemento
     .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
 }
+
+//Função criada para clicar no campo transportadora e escolher a trasportadora
+export function escolherTransportadora (selector) {
+    //Campo Transportadora - clicar para abrir as opções
+    cy.get('input[name="transportadora"]')
+    .click({force:true})
+
+    cy.wait(500)
+
+    //Selecionar a transportadora que queremos
+    cy.get('span[md-highlight-text]')
+        .contains('1')
+        .click({force:true})
+}
+
+//Escolher rota completa, rota maringá
+export function escolherRota (selector) {
+    //Lupa de pesquisa de rota - clicar para pesquisar
+    cy.get('.rota-frete > .md-icon-right > .ng-binding')
+    .scrollIntoView()
+    .click()
+
+    cy.wait(400)
+
+    //Pesquisar rota
+    cy.get('#txtBuscaRotaModal')
+        .type('1')
+
+    //Clicar na lupa para pesquisar rota depois de preencher campo
+    cy.get('md-icon[ng-click="pesquisar()"]')
+        .click()
+
+    cy.wait(400)
+
+    //Escolher rota após pesquisarmos
+    cy.get('v-pane-header.ng-scope > div')
+        .click() //clicar na rota 1
+
+    //Escolher rota 2
+    cy.get(':nth-child(4) > .padding-10-0')
+        .click() //clicar na rota 1
+
+    cy.wait(800)
+
+    //Clicar para avançar para a tela de GERAR PARCELAS
+    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+        .click({force:true})
+}

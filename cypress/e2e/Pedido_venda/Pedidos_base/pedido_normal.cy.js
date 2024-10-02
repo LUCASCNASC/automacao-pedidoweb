@@ -570,7 +570,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-192-0')
+            cy.contains('1')
                 .click({force:true})
 
             //Lupa de pesquisa de rota - clicar para pesquisar
@@ -843,13 +843,13 @@ describe('Gerar pedido normal', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-345')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('input[name="transportadora"]')
+            cy.contains('1')
                 .click({force:true})
 
             //Lupa de pesquisa de rota - clicar para pesquisar
