@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar, titulopagina, saldodisponivel } from '../../../support/uiUtils';
+import { titulopagina, saldodisponivel, escolherClientePedido } from '../../../support/uiUtils';
 
 describe('Gerar pedido com financeiro na baixa', () => {
 
@@ -8,9 +8,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
         cy.clearAllSessionStorage();
     })
   
-    context('Sem entrega - caminho feliz', () => {
+    context('Sem frete/ processo 9863 - caminho feliz', () => {
 
-        it.skip('Gerar pedido com financeiro na baixa, processo 9863; um produto, produto 1860 0 0', () => {
+        it.skip('Pedido de venda: produto 1860 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -37,26 +37,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(800)
     
-            //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
-            cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-                .wait(1300)
-                .type('48976249089 {downArrow}') //Inserindo CPF no campo "INFORME O CLIENTE"
-            
-            cy.wait(800)
-            
-            //clicar na lupa de pesquisa de clientes
-            cy.get('.md-block > .ng-binding')
-                .should('exist') //Validando se a lupa existe
-                .and('be.visible')//Validando se a lupa está visível
-                .click()
-    
-            cy.wait(2000)
-            
-            //após a pesquisa encontrar o cliente, vamos selecionar ele
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .should('exist') //Validando se o cliente existe
-                .and('be.visible')//Validando se o cliente está visível
-                .click()
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
     
             cy.wait(4000)
     
@@ -190,7 +172,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido com financeiro na baixa, processo 9863; produtos 1860 0 0 e 1870 0 0', () => {
+        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -217,26 +199,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(800)
     
-            //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
-            cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-                .wait(1300)
-                .type('48976249089 {downArrow}') //Inserindo CPF no campo "INFORME O CLIENTE"
-            
-            cy.wait(800)
-            
-            //clicar na lupa de pesquisa de clientes
-            cy.get('.md-block > .ng-binding')
-                .should('exist') //Validando se a lupa existe
-                .and('be.visible')//Validando se a lupa está visível
-                .click()
-    
-            cy.wait(2000)
-            
-            //após a pesquisa encontrar o cliente, vamos selecionar ele
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .should('exist') //Validando se o cliente existe
-                .and('be.visible')//Validando se o cliente está visível
-                .click()
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
     
             cy.wait(4000)
     
@@ -429,9 +393,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
         })
     })
     
-    context('Com entrega - caminho feliz', () => {
+    context('Com frete/ processo 9863 - caminho feliz', () => {
 
-        it.skip('Gerar pedido com financeiro na baixa, processo 9863; um produto, produto 1860 0 0', () => {
+        it.skip('Pedido de venda: produto 1860 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -458,26 +422,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(800)
     
-            //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
-            cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-                .wait(1300)
-                .type('48976249089 {downArrow}') //Inserindo CPF no campo "INFORME O CLIENTE"
-            
-            cy.wait(800)
-            
-            //clicar na lupa de pesquisa de clientes
-            cy.get('.md-block > .ng-binding')
-                .should('exist') //Validando se a lupa existe
-                .and('be.visible')//Validando se a lupa está visível
-                .click()
-    
-            cy.wait(2000)
-            
-            //após a pesquisa encontrar o cliente, vamos selecionar ele
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .should('exist') //Validando se o cliente existe
-                .and('be.visible')//Validando se o cliente está visível
-                .click()
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
     
             cy.wait(4000)
     
@@ -581,7 +527,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(400)
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_894 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('md-icon[ng-click="pesquisar()"]')
                 .click()
 
             cy.wait(400)
@@ -650,7 +596,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido com financeiro na baixa, processo 9863; produtos 1860 0 0 e 1870 0 0', () => {
+        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -677,26 +623,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(800)
     
-            //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
-            cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-                .wait(1300)
-                .type('48976249089 {downArrow}') //Inserindo CPF no campo "INFORME O CLIENTE"
-            
-            cy.wait(800)
-            
-            //clicar na lupa de pesquisa de clientes
-            cy.get('.md-block > .ng-binding')
-                .should('exist') //Validando se a lupa existe
-                .and('be.visible')//Validando se a lupa está visível
-                .click()
-    
-            cy.wait(2000)
-            
-            //após a pesquisa encontrar o cliente, vamos selecionar ele
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .should('exist') //Validando se o cliente existe
-                .and('be.visible')//Validando se o cliente está visível
-                .click()
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
     
             cy.wait(4000)
     
@@ -865,7 +793,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(400)
 
             //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_378 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('md-icon[ng-click="pesquisar()"]')
                 .click()
 
             cy.wait(400)

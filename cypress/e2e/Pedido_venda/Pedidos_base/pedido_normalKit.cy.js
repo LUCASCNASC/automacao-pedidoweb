@@ -1,5 +1,5 @@
 //Importando funções 
-import { detalhevenda, detalhevendaclicar, titulopagina, saldodisponivel } from '../../../support/uiUtils';
+import { titulopagina, saldodisponivel, escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/uiUtils';
 
 describe('Gerar pedido normal', () => {
 
@@ -8,9 +8,9 @@ describe('Gerar pedido normal', () => {
         cy.clearAllSessionStorage();
     })
   
-    context('Sem frete - caminho feliz', () => {
+    context('Sem frete/ processo 9860 - caminho feliz', () => {
         
-        it.skip('Gerar pedido de venda normal kit, processo 9860; um produto, produto 1862 0 0', () => {
+        it.skip('Pedido de venda: kit 1862 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -37,26 +37,8 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(800)
     
-            //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
-            cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-                .wait(1300)
-                .type('48976249089 {downArrow}') //Inserindo CPF no campo "INFORME O CLIENTE"
-            
-            cy.wait(800)
-            
-            //clicar na lupa de pesquisa de clientes
-            cy.get('.md-block > .ng-binding')
-                .should('exist') //Validando se a lupa existe
-                .and('be.visible')//Validando se a lupa está visível
-                .click()
-    
-            cy.wait(2000)
-            
-            //após a pesquisa encontrar o cliente, vamos selecionar ele
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .should('exist') //Validando se o cliente existe
-                .and('be.visible')//Validando se o cliente está visível
-                .click()
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
     
             cy.wait(4000)
     
@@ -191,9 +173,9 @@ describe('Gerar pedido normal', () => {
         })
     })
     
-    context('Com frete - caminho feliz', () => {
+    context('Com frete/processo 9860 - caminho feliz', () => {
         
-        it.skip('Gerar pedido de venda normal kit, processo 9860; um produto, produto 1862 0 0', () => {
+        it.skip('Pedido de venda: kit 1862 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -220,26 +202,8 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(800)
     
-            //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
-            cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-                .wait(1300)
-                .type('48976249089 {downArrow}') //Inserindo CPF no campo "INFORME O CLIENTE"
-            
-            cy.wait(800)
-            
-            //clicar na lupa de pesquisa de clientes
-            cy.get('.md-block > .ng-binding')
-                .should('exist') //Validando se a lupa existe
-                .and('be.visible')//Validando se a lupa está visível
-                .click()
-    
-            cy.wait(2000)
-            
-            //após a pesquisa encontrar o cliente, vamos selecionar ele
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .should('exist') //Validando se o cliente existe
-                .and('be.visible')//Validando se o cliente está visível
-                .click()
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
     
             cy.wait(4000)
     
@@ -303,58 +267,17 @@ describe('Gerar pedido normal', () => {
     
             // tela para ESCOLHER TRANSPORTADORA
 
-
             cy.wait(14000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
-
-            //Campo Transportadora - clicar para abrir as opções
-            cy.get('input[name="transportadora"]')
-                .click({force:true})
-
-            cy.wait(800)
-
-            //Selecionar a transportadora que queremos
-            cy.contains('1')
-                .click({force:true})
-
-            //Lupa de pesquisa de rota - clicar para pesquisar
-            cy.get('.rota-frete > .md-icon-right > .ng-binding')
-                .scrollIntoView()
-                .click()
-
-            cy.wait(400)
-
-            //Pesquisar rota
-            cy.get('#txtBuscaRotaModal')
-                .type('1')
-
-            cy.wait(400)
-
-            //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('#dialogContent_950 > .layout-wrap > .md-icon-float > .ng-binding')
-                .click()
-
-            cy.wait(400)
-
-            //Escolher rota após pesquisarmos
-            cy.get('v-pane-header.ng-scope > div')
-                .click() //clicar na rota 1
-
-            cy.wait(400)
-
-            //Escolher rota 2
-            cy.get(':nth-child(4) > .padding-10-0')
-                .click() //clicar na rota 1
-
-            cy.wait(800)
-
-            //Clicar para avançar para a tela de GERAR PARCELAS
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
-
+    
+            //Função criada para clicar no campo transportadora e escolher a trasportadora
+            escolherTransportadora()
+        
+            escolherRota()
+        
             cy.wait(10000)
 
 

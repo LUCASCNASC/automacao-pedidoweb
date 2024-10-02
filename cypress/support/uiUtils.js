@@ -4,14 +4,6 @@ export function titulopagina(selector, expectedText) {
         .should('eq', 'SBX Mobile') //Validando título da página
 }
 
-//Função criada para não ficar repetindo validação de "Aguarde carregando..."
-export function msgaguardecarregando(selector, expectedText) {
-    cy.get('.carregando')
-            .should('contain','Aguarde carregando...') //Validar mensagem de carregamento após escolher processo de venda
-            .and('exist') //Validando se a mensagem existe
-            .and('be.visible')//Validando se a mensagem está visível
-}
-
 //Função para validar o botão PDF, que baixa o PDF
 export function detalhevenda(selector) {
     //Botão para visualizar em PDF
@@ -32,18 +24,19 @@ export function detalhevendaclicar(selector) {
 export function saldodisponivel (selector) {
     //Validando informações do produto após pesquisar
     cy.get('.md-list-item-text > .ng-scope')
-    .should('exist') //Validando existencia do "Saldo disponível"
-    .and('be.visible') //Validando se elemento "Saldo disponível" está visível
-    .and('have.text','Saldo disponivel') //Verificando texto
-    .invoke('css', 'color') // Obtém a cor do elemento
-    .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+        .contains('Saldo disponivel')
+        .should('exist') //Validando existencia do "Saldo disponível"
+        .and('be.visible') //Validando se elemento "Saldo disponível" está visível
+        .and('have.text','Saldo disponivel') //Verificando texto
+        .invoke('css', 'color') // Obtém a cor do elemento
+        .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
 }
 
 //Função criada para clicar no campo transportadora e escolher a trasportadora
 export function escolherTransportadora (selector) {
     //Campo Transportadora - clicar para abrir as opções
     cy.get('input[name="transportadora"]')
-    .click({force:true})
+        .click({force:true})
 
     cy.wait(500)
 
@@ -57,8 +50,8 @@ export function escolherTransportadora (selector) {
 export function escolherRota (selector) {
     //Lupa de pesquisa de rota - clicar para pesquisar
     cy.get('.rota-frete > .md-icon-right > .ng-binding')
-    .scrollIntoView()
-    .click()
+        .scrollIntoView()
+        .click()
 
     cy.wait(400)
 
@@ -85,4 +78,28 @@ export function escolherRota (selector) {
     //Clicar para avançar para a tela de GERAR PARCELAS
     cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
         .click({force:true})
+}
+
+//Função para escolher cliente CPF para gerar pedido de venda
+export function escolherClientePedido (selector) {
+    //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
+    cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
+        .wait(1300)
+        .type('48976249089 {downArrow}') //Inserindo CPF no campo "INFORME O CLIENTE"
+
+    cy.wait(800)
+
+    //clicar na lupa de pesquisa de clientes
+    cy.get('.md-block > .ng-binding')
+        .should('exist') //Validando se a lupa existe
+        .and('be.visible')//Validando se a lupa está visível
+        .click()
+
+    cy.wait(2000)
+
+    //após a pesquisa encontrar o cliente, vamos selecionar ele
+    cy.get('.md-3-line > div.md-button > .md-no-style')
+        .should('exist') //Validando se o cliente existe
+        .and('be.visible')//Validando se o cliente está visível
+        .click()
 }

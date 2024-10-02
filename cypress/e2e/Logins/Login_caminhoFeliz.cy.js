@@ -1,135 +1,293 @@
 //Importando funções 
-import { titulopagina } from '../../../support/uiUtils';
+import { titulopagina } from '../../support/uiUtils';
 
-describe('Validar tela de login', () => {
+describe('Login caminho feliz - usuário normal senha liberada', () => {
 
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
     })
-  
-    it('Tentar logar no pedido web - caminho feliz (deve entrar sem problemas).', () => {
-        
+
+    it.skip('usuário normal senha liberada - caminho feliz', () => {
+
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()
 
-            
-        cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding') //ícone do computador
-            .should('be.visible') //Validando se o ícone está aparecendo
-            .click() //Clicando no ícone do Computador
+        //Validar o logo da empresa
+        cy.get('.logo')
+            .should('exist')
+            .and('be.visible')
 
-        cy.wait(2300)
+        //Ícone do computador
+        cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding')
+            .should('exist')
+            .and('be.visible')
+            .and('not.have.attr', 'disabled')
 
-        cy.get(':nth-child(4) > .ico') //ícone Windows
-            .should('be.visible') //Validando se o ícone está aparecendo
+        //Validando "Usuário" acima do campo informe sue usuário
+        cy.get('label[for="txtusername"]')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Usuário')
 
-
-        cy.get(':nth-child(6) > .ico') //ícone do navegador
-            .should('be.visible') //Validando se o ícone está aparecendo
-
-
-        cy.get('[style="color:#333;font-size:110%;margin:0"]')
-            .should('contain.text','Resolução Disponível') // Validando se o texto "Resolução Disponível" está sendo exibido
-            .and('have.text', 'Resolução Disponível') //Validando se é exatamente o texto "Resolução Disponível"
-
-
-        cy.get('#dialogContent_4 > :nth-child(3)')
-            .should('contain.text','Sistema Operacional') //Validando texto "Sistema Operacional"
-            .and('have.text', 'Sistema Operacional') //Validando se é exatamente o texto "Sistema Operacional"
-
-
-        cy.get('#dialogContent_4 > :nth-child(5)')
-            .should('contain.text','Navegador') //Validando texto "Navegador"
-            .and('have.text', 'Navegador') //Validando se é exatamente o texto "Navegador"
-
-
-        cy.get('#dialogContent_4 > :nth-child(8)')
-            .should('contain.text','Acesso ao Serviço REST') //Validando texto "Acesso ao Serviço REST"
-            .and('have.text', 'Acesso ao Serviço REST') //Validando se é exatamente o texto "Acesso ao Serviço REST"
-
-
-        cy.get('#dialogContent_4 > .layout-align-center-center > .md-raised')
-            .should('contain','Ok') //Validando texto do botão "OK"
-            .and('be.visible') //Validando se botão está visível
-            .and('not.be.disabled') //Validando se botão está habilitado
-            .click() //Clicando no botão "Ok"
-
-
-        cy.get('.ng-pristine.flex-100 > .layout-column')
-            .should('contain','Usuário') //Validando texto "Usuário"
-            .and('contain','Senha') //Validando texto "Senha"
-            .and('contain','Esqueceu a senha?') //Validando texto "Esqueceu a senha?"
-
-
-        //Validar botão antes de inserir usuário e senha: deve estar desabilitado
-        cy.get('.test_btnSalvarCliente')
-            .should('be.visible') //Validando se botão está visível
-            .and('contain','Entrar') //Validando texto do botão
-            .and('be.disabled') //Validando se botão está desabilitado
-        
-        
-        //Passando login do usuário
+        //Ícone do campo informe seu usuário
+        cy.get(':nth-child(3) > .name')
+            .should('exist')
+            .and('be.visible')
+    
+        //Validando campo "informe seu usuário"
         cy.get('#txtusername')
-            .should('have.attr', 'placeholder', 'Informe seu usuário') //Validando texto "Informe seu usuário" dentro do campo Usuário
-            .type('sabium.automacao') //Passando usuário dentro do campo "Informe seu usuário"
-            .should('have.value', 'sabium.automacao') //Validando se o usuário inserido é o mesmo exibido no campo
-            .and('contain.value', 'sabium.automacao') //Validando se o texto foi realmente inserido
-            .clear() //Limpando o campo
-            .should('have.value', '') //Validando se o campo foi realmente limpo
-            .type('sabium.automacao') //Inserindo o usuário correto novamente
+            .should('exist')
+            .and('be.visible')
+            .and('have.value','')
+            .type('sabium.automacao')
+            .invoke('attr', 'placeholder')
+            .should('equal', 'Informe seu usuário')
 
+        //Validando "Senha" acima do campo informe sua senha
+        cy.get('label[for="txtpassword"]')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Senha')
+ 
+        //Ícone de senha
+        cy.get('.md-icon-right > .name')
+            .should('exist')
+            .and('be.visible')
 
-        cy.wait(2000)
-
-
-        //Validar botão antes de inserir senha: deve estar desabilitado
-        cy.get('.test_btnSalvarCliente')
-            .should('be.visible') //Validando se botão está visível
-            .and('contain','Entrar') //Validando texto do botão
-            .and('be.disabled') //Validando se botão está desabilitado
-
-
-        //Passando senha do usuário
+        //Campo Informe sua senha
         cy.get('#txtpassword')
-            .should('have.attr', 'placeholder', 'Informe sua senha') //Validando texto "Informe sua senha" dentro do campo Senha
-            .type('123.automacao') //Passando senha dentro do campo "Informe sua senha"
-            .should('have.value', '123.automacao') //Validando se o usuário inserido é o mesmo exibido no campo
-            .and('contain.value', '123.automacao') //Validando se o texto foi realmente inserido
-            .clear() //Limpando o campo
-            .should('have.value', '') //Validando se o campo foi realmente limpo
-            .type('123.automacao') //Inserindo o usuário correto novamente
+            .should('exist')
+            .and('be.visible')
+            .and('have.value','')
+            .type('123.automacao')
+            .invoke('attr', 'placeholder')
+            .should('equal', 'Informe sua senha')
 
+        //ícone de olho, para ver a senha
+        cy.get('.md-icon-right > .md-primary')
+            .should('exist')
+            .and('be.visible')
+            .and('not.have.attr', 'disabled')
 
-        cy.wait(1500)
+        //Botão/mensagem "Esqueceu a senha?"
+        cy.get('div[ng-click="modalSenhaNovaOpen()"]')
+            .contains('Esqueceu a senha?')
+            .should('exist')
+            .and('be.visible')
+            .and('not.have.attr', 'disabled')
 
-
-        cy.get('.md-icon-right > .md-primary') 
-            .should('be.visible')//Validando a existencia do botão
-            .click() //Clicando no botão para visualizar a senha
-            .wait(1500)
-            .click() //Clicando no botão para parar de visualizar a senha
-
-
-        cy.wait(2000)
-
-
+        //Botão ENTRAR
         cy.get('.test_btnSalvarCliente')
-            .should('be.visible') //Validando se botão está visível
-            .and('contain','Entrar') //Validando texto do botão
-            .and('not.be.disabled') //Validando se botão está habilitado
-            .click() //Clicando para entrar no sistema
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Entrar')
+            .and('not.have.attr', 'disabled')
 
+        //Clicar no botão ENTRAR
+        cy.get('.test_btnSalvarCliente')
+            .click({force:true})
 
+        //Mensagem "Entrando no sistema"
         cy.get('.ng-scope > .ng-binding')
-            .should('contain.text','Entrando no sistema') //Validando mensagem "Entrando no sistema" logo após clicarmos no botão Entrar
-            .and('be.visible') //Verificar se mensagem está visível
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Entrando no sistema')
 
+        cy.wait(9000)
 
-        cy.wait(6000)
-
-
-        cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-            .should('contain','Cliente') //Validando algum elemento de dentro, para validar se realmente entrou
+        //Validando botão INICIAR ATENDIMENTO, para ver se logou
+        cy.get('.md-raised > .truncate')
+            .should('exist')
+            .and('be.visible')
     })
 
+    it('usuário normal senha liberada - passar usuário errado', () => {
+
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
+
+        //Validar o logo da empresa
+        cy.get('.logo')
+            .should('exist')
+            .and('be.visible')
+
+        //Ícone do computador
+        cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding')
+            .should('exist')
+            .and('be.visible')
+            .and('not.have.attr', 'disabled')
+
+        //Validando "Usuário" acima do campo informe sue usuário
+        cy.get('label[for="txtusername"]')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Usuário')
+
+        //Ícone do campo informe seu usuário
+        cy.get(':nth-child(3) > .name')
+            .should('exist')
+            .and('be.visible')
+    
+        //Validando campo "informe seu usuário"
+        cy.get('#txtusername')
+            .should('exist')
+            .and('be.visible')
+            .and('have.value','')
+            .type('sabium.automacao')
+            .invoke('attr', 'placeholder')
+            .should('equal', 'Informe seu usuário')
+
+        //Validando "Senha" acima do campo informe sua senha
+        cy.get('label[for="txtpassword"]')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Senha')
+ 
+        //Ícone de senha
+        cy.get('.md-icon-right > .name')
+            .should('exist')
+            .and('be.visible')
+
+        //Campo Informe sua senha
+        cy.get('#txtpassword')
+            .should('exist')
+            .and('be.visible')
+            .and('have.value','')
+            .type('123.automacao')
+            .invoke('attr', 'placeholder')
+            .should('equal', 'Informe sua senha')
+
+        //ícone de olho, para ver a senha
+        cy.get('.md-icon-right > .md-primary')
+            .should('exist')
+            .and('be.visible')
+            .and('not.have.attr', 'disabled')
+
+        //Botão/mensagem "Esqueceu a senha?"
+        cy.get('div[ng-click="modalSenhaNovaOpen()"]')
+            .contains('Esqueceu a senha?')
+            .should('exist')
+            .and('be.visible')
+            .and('not.have.attr', 'disabled')
+
+        //Botão ENTRAR
+        cy.get('.test_btnSalvarCliente')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Entrar')
+            .and('not.have.attr', 'disabled')
+
+        //Clicar no botão ENTRAR
+        cy.get('.test_btnSalvarCliente')
+            .click({force:true})
+
+        //Mensagem "Entrando no sistema"
+        cy.get('.ng-scope > .ng-binding')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Entrando no sistema')
+
+        cy.wait(9000)
+
+        //Validando botão INICIAR ATENDIMENTO, para ver se logou
+        cy.get('.md-raised > .truncate')
+            .should('exist')
+            .and('be.visible')
+    })
+
+    it('usuário normal senha liberada - passar senha', () => {
+
+        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        titulopagina()
+
+        //Validar o logo da empresa
+        cy.get('.logo')
+            .should('exist')
+            .and('be.visible')
+
+        //Ícone do computador
+        cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding')
+            .should('exist')
+            .and('be.visible')
+            .and('not.have.attr', 'disabled')
+
+        //Validando "Usuário" acima do campo informe sue usuário
+        cy.get('label[for="txtusername"]')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Usuário')
+
+        //Ícone do campo informe seu usuário
+        cy.get(':nth-child(3) > .name')
+            .should('exist')
+            .and('be.visible')
+    
+        //Validando campo "informe seu usuário"
+        cy.get('#txtusername')
+            .should('exist')
+            .and('be.visible')
+            .and('have.value','')
+            .type('sabium.teste123')
+            .invoke('attr', 'placeholder')
+            .should('equal', 'Informe seu usuário')
+
+        //Validando "Senha" acima do campo informe sua senha
+        cy.get('label[for="txtpassword"]')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Senha')
+ 
+        //Ícone de senha
+        cy.get('.md-icon-right > .name')
+            .should('exist')
+            .and('be.visible')
+
+        //Campo Informe sua senha
+        cy.get('#txtpassword')
+            .should('exist')
+            .and('be.visible')
+            .and('have.value','')
+            .type('1435.automacao')
+            .invoke('attr', 'placeholder')
+            .should('equal', 'Informe sua senha')
+
+        //ícone de olho, para ver a senha
+        cy.get('.md-icon-right > .md-primary')
+            .should('exist')
+            .and('be.visible')
+            .and('not.have.attr', 'disabled')
+
+        //Botão/mensagem "Esqueceu a senha?"
+        cy.get('div[ng-click="modalSenhaNovaOpen()"]')
+            .contains('Esqueceu a senha?')
+            .should('exist')
+            .and('be.visible')
+            .and('not.have.attr', 'disabled')
+
+        //Botão ENTRAR
+        cy.get('.test_btnSalvarCliente')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Entrar')
+            .and('not.have.attr', 'disabled')
+
+        //Clicar no botão ENTRAR
+        cy.get('.test_btnSalvarCliente')
+            .click({force:true})
+
+        //Mensagem "Entrando no sistema"
+        cy.get('.ng-scope > .ng-binding')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Entrando no sistema')
+
+        cy.wait(9000)
+
+        //Validando botão INICIAR ATENDIMENTO, para ver se logou
+        cy.get('.md-raised > .truncate')
+            .should('exist')
+            .and('be.visible')
+    })
+    
 })
