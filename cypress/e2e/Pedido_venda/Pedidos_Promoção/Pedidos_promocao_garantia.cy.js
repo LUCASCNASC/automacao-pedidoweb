@@ -10,7 +10,7 @@ describe('Gerar pedidos com promoção', () => {
   
     context('Sem entrega - caminho feliz', () => {
 
-        it.skip('Usar promoção - Gerar pedido com promoção partida, processo 9860; um produto, produto 1868 0 0 (promoção 152)', () => {
+        it.skip('Usar promoção - Gerar pedido com promoção partida, processo 9860; produto 1868 0 0 (promoção 152)', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -174,7 +174,7 @@ describe('Gerar pedidos com promoção', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
     
-        it.skip('Usar promoção - Gerar pedido com promoção a prazo com entrada, processo 9860; um produto, produto 1866 0 0 (promoção 150)', () => {
+        it.skip('Usar promoção - Gerar pedido com promoção a prazo com entrada, processo 9860; produto 1866 0 0 (promoção 150)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -363,7 +363,7 @@ describe('Gerar pedidos com promoção', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
     
-        it.skip('Usar promoção - Gerar pedido com promoção a prazo parcelado, processo 9860; um produto, produto 1867 0 0 (promoção 151)', () => {
+        it.skip('Usar promoção - Gerar pedido com promoção a prazo parcelado, processo 9860; produto 1867 0 0 (promoção 151)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -764,7 +764,7 @@ describe('Gerar pedidos com promoção', () => {
 
     context('Com entrega - caminho feliz', () => {
 
-        it.skip('Usar promoção - Gerar pedido com promoção partida, processo 9860; um produto, produto 1868 0 0 (promoção 152)', () => {
+        it.skip('Usar promoção - Gerar pedido com promoção partida, processo 9860; produto 1868 0 0 (promoção 152)', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -994,7 +994,7 @@ describe('Gerar pedidos com promoção', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
     
-        it.skip('Usar promoção - Gerar pedido com promoção a prazo com entrada, processo 9860; um produto, produto 1866 0 0 (promoção 150)', () => {
+        it.skip('Usar promoção - Gerar pedido com promoção a prazo com entrada, processo 9860; produto 1866 0 0 (promoção 150)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1243,7 +1243,7 @@ describe('Gerar pedidos com promoção', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Usar promoção - Gerar pedido com promoção a prazo parcelado, processo 9860; um produto, produto 1867 0 0 (promoção 151)', () => {
+        it.skip('Usar promoção - Gerar pedido com promoção a prazo parcelado, processo 9860; produto 1867 0 0 (promoção 151)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1387,13 +1387,13 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('input[name="transportadora"]')
+            cy.get('#input-195')
                 .click({force:true})
 
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-195-0')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
     
             //Lupa de pesquisa de rota - clicar para pesquisar

@@ -189,7 +189,7 @@ describe('Gerar pedido de entrega futura', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
         
-        it.skip('Gerar pedido de entrega futura, processo 9860; produtos 1860 0 0 e 1870 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de entrega futura, processo 9860; produtos 1860 0 0 e 1870 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -421,9 +421,9 @@ describe('Gerar pedido de entrega futura', () => {
         })
     })
     
-    context('Com entrega', () => {
+    context('Com entrega - caminho feliz', () => {
 
-        it.skip('Gerar pedido de entrega futura, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de entrega futura, processo 9860; um produto, produto 1860 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -561,7 +561,7 @@ describe('Gerar pedido de entrega futura', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-192')
+            ccy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -653,7 +653,7 @@ describe('Gerar pedido de entrega futura', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })    
         
-        it.skip('Gerar pedido de entrega futura, processo 9860; produtos 1860 0 0 e 1870 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de entrega futura, processo 9860; produtos 1860 0 0 e 1870 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -849,7 +849,7 @@ describe('Gerar pedido de entrega futura', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-345')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)

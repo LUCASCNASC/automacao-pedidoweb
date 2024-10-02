@@ -8,9 +8,9 @@ describe('Gerar pedido normal', () => {
         cy.clearAllSessionStorage();
     })
 
-    context('Sem frete', () => {
+    context('Sem frete - caminho feliz', () => {
 
-        it.skip('Gerar pedido de venda normal com um produto, processo 9860; produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda normal com um produto, processo 9860; produto 1860 0 0', () => {
 
      
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -191,7 +191,7 @@ describe('Gerar pedido normal', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda normal com dois produtos, processo 9860; produtos 1860 0 0 e 1870 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda normal com dois produtos, processo 9860; produtos 1860 0 0 e 1870 0 0', () => {
 
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -421,9 +421,9 @@ describe('Gerar pedido normal', () => {
         })
     })
 
-    context('Com frete', () => {
+    context('Com frete - caminho feliz', () => {
 
-        it.skip('Gerar pedido de venda normal com um produto, processo 9860; produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda normal com um produto, processo 9860; produto 1860 0 0', () => {
 
      
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -564,7 +564,7 @@ describe('Gerar pedido normal', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-192')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -654,7 +654,7 @@ describe('Gerar pedido normal', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda normal com dois produtos, processo 9860; produtos 1860 0 0 e 1870 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda normal com dois produtos, processo 9860; produtos 1860 0 0 e 1870 0 0', () => {
 
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -849,7 +849,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(800)
 
             //Selecionar a transportadora que queremos
-            cy.get('#md-option-345-0')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             //Lupa de pesquisa de rota - clicar para pesquisar

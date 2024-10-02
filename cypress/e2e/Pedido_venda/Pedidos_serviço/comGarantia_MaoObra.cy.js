@@ -3,14 +3,14 @@ import { detalhevenda, detalhevendaclicar, titulopagina, saldodisponivel } from 
 
 describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
-    context('Sem frete', () => {
+    context('Sem frete - caminho feliz', () => {
 
         beforeEach(() => {
             cy.visit('/');
             cy.clearAllSessionStorage();
         })
     
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -190,7 +190,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -370,7 +370,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -550,7 +550,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -730,7 +730,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -910,7 +910,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1090,7 +1090,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1270,7 +1270,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1449,7 +1449,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
@@ -1626,9 +1626,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
         })
     })
 
-    context('Com entrega', () => {
+    context('Com entrega - caminho feliz', () => {
 
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -1769,7 +1769,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-196')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -1858,7 +1858,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -2000,7 +2000,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-196')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -2089,7 +2089,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -2231,7 +2231,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-196')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -2320,7 +2320,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
             
@@ -2461,7 +2461,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-196')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -2550,7 +2550,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0', () => {
             
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -2689,7 +2689,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-196')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -2778,7 +2778,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
             
@@ -2917,7 +2917,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-196')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -3006,7 +3006,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa, processo 9860; um produto, produto 1860 0 0', () => {
             
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -3143,7 +3143,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-196')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -3232,7 +3232,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -3370,7 +3370,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-196')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -3459,7 +3459,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -3597,7 +3597,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-196')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)

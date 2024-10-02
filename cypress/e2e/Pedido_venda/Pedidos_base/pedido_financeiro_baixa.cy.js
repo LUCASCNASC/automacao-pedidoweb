@@ -8,9 +8,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
         cy.clearAllSessionStorage();
     })
   
-    context('Sem entrega', () => {
+    context('Sem entrega - caminho feliz', () => {
 
-        it.skip('Gerar pedido com financeiro na baixa, processo 9863; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido com financeiro na baixa, processo 9863; um produto, produto 1860 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -190,7 +190,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido com financeiro na baixa, processo 9863; produtos 1860 0 0 e 1870 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido com financeiro na baixa, processo 9863; produtos 1860 0 0 e 1870 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -429,9 +429,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
         })
     })
     
-    context('Com entrega', () => {
+    context('Com entrega - caminho feliz', () => {
 
-        it.skip('Gerar pedido com financeiro na baixa, processo 9863; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido com financeiro na baixa, processo 9863; um produto, produto 1860 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -650,7 +650,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido com financeiro na baixa, processo 9863; produtos 1860 0 0 e 1870 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido com financeiro na baixa, processo 9863; produtos 1860 0 0 e 1870 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     

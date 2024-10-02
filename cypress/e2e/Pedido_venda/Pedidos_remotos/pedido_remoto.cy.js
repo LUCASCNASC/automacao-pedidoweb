@@ -1,14 +1,14 @@
 //Importando funções 
 import { detalhevenda, detalhevendaclicar, titulopagina, saldodisponivel } from '../../../support/uiUtils';
 
-describe('Gerar pedido remota', () => {
+describe('Gerar pedido remota - caminho feliz', () => {
 
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
     })
   
-    it.skip('Gerar pedido de venda remota total, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+    it.skip('Gerar pedido de venda remota total, processo 9860; um produto, produto 1860 0 0', () => {
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -143,7 +143,7 @@ describe('Gerar pedido remota', () => {
             .click()
 
         //Campo Transportadora - clicar para abrir as opções
-        cy.get('#input-193')
+        cy.get('input[name="transportadora"]')
             .click({force:true})
 
         cy.wait(800)
@@ -233,7 +233,7 @@ describe('Gerar pedido remota', () => {
             .and('contain.text','Pedido gravado com sucesso!')
     })
 
-    it.skip('Gerar pedido de venda remota total, processo 9860; dois produtos, produtos 1860 0 0 e 1870 0 0 - caminho feliz', () => {
+    it.skip('Gerar pedido de venda remota total, processo 9860; dois produtos, produtos 1860 0 0 e 1870 0 0', () => {
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -415,7 +415,7 @@ describe('Gerar pedido remota', () => {
             .click()
 
         //Campo Transportadora - clicar para abrir as opções
-        cy.get('#input-347')
+        cy.get('input[name="transportadora"]')
             .click({force:true})
 
         cy.wait(800)
@@ -509,7 +509,7 @@ describe('Gerar pedido remota', () => {
             .and('contain.text','Pedido gravado com sucesso!')
     })
     
-    it.skip('Gerar pedido de venda remota total, processo 9860; um kit, kit 1862 0 0 - caminho feliz', () => {
+    it.skip('Gerar pedido de venda remota total, processo 9860; um kit, kit 1862 0 0', () => {
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -644,7 +644,7 @@ describe('Gerar pedido remota', () => {
             .click()
 
         //Campo Transportadora - clicar para abrir as opções
-        cy.get('#input-193')
+        cy.get('input[name="transportadora"]')
             .click({force:true})
 
         cy.wait(800)
@@ -734,7 +734,7 @@ describe('Gerar pedido remota', () => {
             .and('contain.text','Pedido gravado com sucesso!')
     })
     //fazer - produto 1875 não está aparecendo
-    it('Gerar pedido de venda remota total, processo 9860; dois kits, produtos 1860 0 0 e 1875 0 0 - caminho feliz', () => {
+    it('Gerar pedido de venda remota total, processo 9860; dois kits, produtos 1860 0 0 e 1875 0 0', () => {
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -916,7 +916,7 @@ describe('Gerar pedido remota', () => {
             .click()
 
         //Campo Transportadora - clicar para abrir as opções
-        cy.get('#input-347')
+        cy.get('input[name="transportadora"]')
             .click({force:true})
 
         cy.wait(800)

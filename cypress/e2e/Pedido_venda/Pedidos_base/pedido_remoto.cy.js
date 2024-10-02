@@ -1,14 +1,14 @@
 //Importando funções 
 import { detalhevenda, detalhevendaclicar, titulopagina, saldodisponivel } from '../../../support/uiUtils';
 
-describe('Gerar pedido remota', () => {
+describe('Gerar pedido remota - caminho feliz', () => {
 
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
     })
   
-    it('Gerar pedido de venda remota total, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+    it('Gerar pedido de venda remota total, processo 9860; um produto, produto 1860 0 0', () => {
 
         cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -144,7 +144,7 @@ describe('Gerar pedido remota', () => {
             .click()
 
         //Campo Transportadora - clicar para abrir as opções
-        cy.get('#input-193')
+        cy.get('input[name="transportadora"]')
             .click({force:true})
 
         cy.wait(800)

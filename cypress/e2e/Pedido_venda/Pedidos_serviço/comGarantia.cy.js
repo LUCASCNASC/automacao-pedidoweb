@@ -8,9 +8,9 @@ describe('Gerar pedidos com Garantia', () => {
         cy.clearAllSessionStorage();
     })   
 
-    context('Sem entrega', () => {
+    context('Sem entrega - caminho feliz', () => {
 
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo, processo 9860; um produto, produto 1860 0 0', () => {
 
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -190,7 +190,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
     
-        it.skip('Gerar pedido de venda com Garantia que não separa título, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa título, processo 9860; um produto, produto 1860 0 0', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -369,7 +369,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
     
-        it.skip('Gerar pedido de venda com Garantia que separa título em um processo diferente, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título em um processo diferente, processo 9860; um produto, produto 1860 0 0', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -543,9 +543,9 @@ describe('Gerar pedidos com Garantia', () => {
         })
     })
 
-    context('Com entrega', () => {
+    context('Com entrega - caminho feliz', () => {
 
-        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título no mesmo processo, processo 9860; um produto, produto 1860 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -685,7 +685,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-194')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -766,7 +766,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que não separa título, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que não separa título, processo 9860; um produto, produto 1860 0 0', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -905,7 +905,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-194')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
@@ -988,7 +988,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Gerar pedido de venda com Garantia que separa título em um processo diferente, processo 9860; um produto, produto 1860 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda com Garantia que separa título em um processo diferente, processo 9860; um produto, produto 1860 0 0', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1123,7 +1123,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-194')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)

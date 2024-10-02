@@ -8,9 +8,9 @@ describe('Gerar pedido normal', () => {
         cy.clearAllSessionStorage();
     })
   
-    context('Sem frete', () => {
+    context('Sem frete - caminho feliz', () => {
         
-        it.skip('Gerar pedido de venda normal kit, processo 9860; um produto, produto 1862 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda normal kit, processo 9860; um produto, produto 1862 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -191,9 +191,9 @@ describe('Gerar pedido normal', () => {
         })
     })
     
-    context('Com frete', () => {
+    context('Com frete - caminho feliz', () => {
         
-        it.skip('Gerar pedido de venda normal kit, processo 9860; um produto, produto 1862 0 0 - caminho feliz', () => {
+        it.skip('Gerar pedido de venda normal kit, processo 9860; um produto, produto 1862 0 0', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -311,7 +311,7 @@ describe('Gerar pedido normal', () => {
                 .click()
 
             //Campo Transportadora - clicar para abrir as opções
-            cy.get('#input-244')
+            cy.get('input[name="transportadora"]')
                 .click({force:true})
 
             cy.wait(800)
