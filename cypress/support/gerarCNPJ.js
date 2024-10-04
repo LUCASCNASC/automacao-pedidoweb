@@ -5,9 +5,12 @@ function gerarCNPJ() {
     const randomNumber = () => Math.floor(Math.random() * 10);
 
     // Gera a base do CNPJ (12 primeiros dígitos)
-    const cnpjBase = `${randomNumber()}${randomNumber()}${randomNumber()}${randomNumber()}${randomNumber()}${randomNumber()}` +
-                     `${randomNumber()}${randomNumber()}${randomNumber()}${randomNumber()}`;
+    let cnpjBase = '';
+    for (let i = 0; i < 12; i++) {
+        cnpjBase += randomNumber();
+    }
 
+    // Função para calcular o dígito verificador
     const calcularDigito = (cnpj, peso) => {
         let soma = 0;
         for (let i = 0; i < cnpj.length; i++) {
@@ -24,7 +27,7 @@ function gerarCNPJ() {
     const primeiroDigito = calcularDigito(cnpjBase, 5);
     const segundoDigito = calcularDigito(cnpjBase + primeiroDigito, 6);
 
-    // Monta o CNPJ completo
+    // Monta o CNPJ completo, com os últimos 4 dígitos fixos em "0001"
     const cnpjCompleto = `${cnpjBase}${primeiroDigito}${segundoDigito}0001`;
     
     // Formata o CNPJ no padrão XX.XXX.XXX/0001-XX
