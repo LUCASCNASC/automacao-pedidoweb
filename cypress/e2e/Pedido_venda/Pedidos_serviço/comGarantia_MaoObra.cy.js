@@ -10,7 +10,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.clearAllSessionStorage();
         })
     
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -171,7 +171,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -384,7 +384,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -545,7 +545,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -758,7 +758,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -919,7 +919,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -1132,7 +1132,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -1293,7 +1293,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -1506,7 +1506,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -1667,7 +1667,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -1880,7 +1880,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -2041,7 +2041,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -2258,7 +2258,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -2419,7 +2419,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -2631,7 +2631,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -2791,7 +2791,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -3004,7 +3004,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -3161,7 +3161,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -3374,7 +3374,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
         context('Com entrega/processo 9860 - caminho feliz', () => {
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
 
                 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -3549,7 +3549,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -3773,7 +3773,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
                 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -3949,7 +3949,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -4173,7 +4173,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
 
                 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -4349,7 +4349,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -4573,7 +4573,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -4748,7 +4748,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -4972,7 +4972,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
                 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -5145,7 +5145,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -5369,7 +5369,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -5542,7 +5542,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -5772,7 +5772,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
                 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
 
@@ -5943,7 +5943,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -6167,7 +6167,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
                 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -6339,7 +6339,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 
@@ -6563,7 +6563,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
 
                 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -6737,7 +6737,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .and('contain.text','Pedido gravado com sucesso!')
             })  
 
-            it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
                 cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
                 

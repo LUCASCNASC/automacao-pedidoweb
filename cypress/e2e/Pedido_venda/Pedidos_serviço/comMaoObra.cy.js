@@ -10,7 +10,7 @@ describe('Gerar pedidos com Mão de obra', () => {
   
     context('Sem entrega/processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -103,13 +103,13 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -171,7 +171,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -264,13 +264,13 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
 
@@ -386,7 +386,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
     
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -479,13 +479,13 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -547,7 +547,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -640,13 +640,13 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
 
@@ -762,7 +762,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
     
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -849,13 +849,13 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -917,7 +917,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1004,13 +1004,13 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
 
@@ -1129,7 +1129,7 @@ describe('Gerar pedidos com Mão de obra', () => {
 
     context('Com entrega/processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título)', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1222,11 +1222,11 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
+            //    .click({force:true}) //Clicar para tirar a entrega do pedido
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1310,7 +1310,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
         
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1403,11 +1403,11 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
+            //    .click({force:true}) //Clicar para tirar a entrega do pedido
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
 
@@ -1536,7 +1536,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1629,11 +1629,11 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
+            //    .click({force:true}) //Clicar para tirar a entrega do pedido
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1714,7 +1714,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1803,17 +1803,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
             //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
+            //    .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
 
@@ -1996,7 +1994,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -2083,11 +2081,11 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
+            //    .click({force:true}) //Clicar para tirar a entrega do pedido
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -2170,7 +2168,7 @@ describe('Gerar pedidos com Mão de obra', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })   
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -2257,13 +2255,13 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
 

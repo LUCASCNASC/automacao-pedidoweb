@@ -108,13 +108,13 @@ describe('Gerar pedidos com promoção', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -256,13 +256,13 @@ describe('Gerar pedidos com promoção', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -425,13 +425,13 @@ describe('Gerar pedidos com promoção', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -578,13 +578,13 @@ describe('Gerar pedidos com promoção', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
 
             cy.wait(800)
     
@@ -1015,13 +1015,13 @@ describe('Gerar pedidos com promoção', () => {
     
             //Botão de arrastar Retirada / Entrega
             //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
+            //    .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1194,11 +1194,11 @@ describe('Gerar pedidos com promoção', () => {
     
             //Botão de arrastar Retirada / Entrega
             //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
+            //    .click({force:true}) //Clicar para tirar a entrega do pedido
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1386,11 +1386,11 @@ describe('Gerar pedidos com promoção', () => {
     
             //Botão de arrastar Retirada / Entrega
             //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
+            //    .click({force:true}) //Clicar para tirar a entrega do pedido
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
