@@ -53,12 +53,20 @@ describe('Cadastrar cliente completo', () => {
                 .scrollIntoView()
                 .click({force:true})
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCpfCnpj"]')
+                .should('have.text', 'CPF')
+
             //Campo CPF 
             cy.get('#txtCpfCnpj')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type(cpf, { force: true })
+
+            //Campo Nome - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtRazaoSocial"]')
+                .should('have.text', 'Nome') 
 
             //Campo Nome Completo
             cy.get('#txtRazaoSocial')
@@ -73,6 +81,10 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Data Nascimento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtDataNasc"]')
+                .should('have.text', 'Data Nascimento') 
+
             //Campo data de nascimento
             cy.get('#input_96')
                 .should('exist')
@@ -81,7 +93,11 @@ describe('Cadastrar cliente completo', () => {
                 .wait(200)
                 .type("30/09/1998", {force:true})
 
-            //Campo Tipo de sexo
+            //Campo Sexo - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtSexo"]')
+                .should('have.text', 'Sexo') 
+
+            //Campo Tipo de Sexo
             cy.get('#txtSexo')
                 .should('exist')
                 .and('be.visible')
@@ -157,6 +173,10 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'not.disabled')
 
+            //Campo Tipo de Endereço - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtTpEndereco"]')
+                .should('have.text', 'Tipo de Endereço') 
+
             //Validando campo vazio - Tipo de Endereço
             cy.get('#txtTpEndereco')
                 .should('exist')
@@ -169,11 +189,19 @@ describe('Cadastrar cliente completo', () => {
             cy.get('#select_option_229')
                 .click({force:true})
 
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCepEndereco"]')
+                .should('have.text', 'CEP') 
+
             //Validando campo vazio - CEP
             cy.get('#txtCepEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Endereço - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtRuaEndereco"]')
+                .should('have.text', 'Endereço') 
 
             //Validando campo vazio - Endereço
             cy.get('#txtRuaEndereco')
@@ -181,11 +209,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumEndereco"]')
+                .should('have.text', 'Número') 
+
             //Validando campo vazio - Número
             cy.get('#txtNumEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Complemento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtComplEndereco"]')
+                .should('have.text', 'Complemento') 
 
             //Validando campo vazio - Complemento
             cy.get('#txtComplEndereco')
@@ -193,11 +229,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Bairro - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBairroEndereco"]')
+                .should('have.text', 'Bairro') 
+
             //Validando campo vazio - Bairro
             cy.get('#txtBairroEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Caixa Postal - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCxPostEndereco"]')
+                .should('have.text', 'Caixa Postal') 
 
             //Validando campo vazio - Caixa Postal
             cy.get('#txtCxPostEndereco')
@@ -205,11 +249,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Estado - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtUfEndereco"]')
+                .should('have.text', 'Estado')
+
             //Validando campo vazio - Estado
             cy.get('#txtUfEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Cidade - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCidEndereco"]')
+                .should('have.text', 'Cidade')
 
             //Validando campo vazio - Cidade
             cy.get('#txtCidEndereco')
@@ -323,7 +375,11 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
-            //Card Rotas - Campo tipo de endereço
+            //Campo Tipo de endereço - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtTpEnderecoRota"]')
+                .should('have.text', 'Tipo de endereço')
+
+            //Card Rotas - Campo Tipo de endereço
             cy.get('#txtTpEnderecoRota')
                 .should('exist')
                 .and('be.visible')
@@ -348,7 +404,11 @@ describe('Cadastrar cliente completo', () => {
             cy.get('#select_option_2313')
                 .click({force:true})
 
-            //Inserindo rota 
+            //Campo Rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtRota"]')
+                .should('have.text', 'Rota')
+
+            //Inserindo Rota 
             cy.get('#txtRota')
                 .type('1')
 
@@ -428,17 +488,29 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Tipo de telefone - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtTpTel"]')
+                .should('have.text', 'Tipo de telefone')
+
             //Card Telefone - campo tipo de telefone
             cy.get('#txtTpTel')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtNumTel"]')
+                .should('have.text', 'Número')
+
             //Card Telefone - campo número
             cy.get('#txtNumTel')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Ramal - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtRamalTel"]')
+                .should('have.text', 'Ramal')
 
             //Card Telefone - campo ramal
             cy.get('#txtRamalTel')
@@ -598,12 +670,20 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.text', 'Endereço')
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCpfCnpj"]')
+                .should('have.text', 'CPF')
+
             //Campo CPF 
             cy.get('#txtCpfCnpj')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type(cpf, { force: true })
+
+            //Campo Nome - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtRazaoSocial"]')
+                .should('have.text', 'Nome') 
 
             //Campo Nome Completo
             cy.get('#txtRazaoSocial')
@@ -618,6 +698,10 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Data Nascimento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtDataNasc"]')
+                .should('have.text', 'Data Nascimento') 
+
             //Campo data de nascimento
             cy.get('#input_96')
                 .should('exist')
@@ -625,6 +709,10 @@ describe('Cadastrar cliente completo', () => {
                 //.and('have.value','')
                 .wait(200)
                 .type("30/09/1998", {force:true})
+
+            //Campo Sexo - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtSexo"]')
+                .should('have.text', 'Sexo') 
 
             //Campo Tipo de sexo
             cy.get('#txtSexo')
@@ -721,6 +809,10 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'not.disabled')
 
+            //Campo Tipo de Endereço - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtTpEndereco"]')
+                .should('have.text', 'Tipo de Endereço') 
+
             //Validando campo vazio - Tipo de Endereço
             cy.get('#txtTpEndereco')
                 .should('exist')
@@ -733,11 +825,19 @@ describe('Cadastrar cliente completo', () => {
             cy.get('#select_option_229')
                 .click({force:true})
 
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCepEndereco"]')
+                .should('have.text', 'CEP')
+
             //Validando campo vazio - CEP
             cy.get('#txtCepEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Endereço - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtRuaEndereco"]')
+                .should('have.text', 'Endereço') 
 
             //Validando campo vazio - Endereço
             cy.get('#txtRuaEndereco')
@@ -745,11 +845,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumEndereco"]')
+                .should('have.text', 'Número') 
+
             //Validando campo vazio - Número
             cy.get('#txtNumEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Complemento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtComplEndereco"]')
+                .should('have.text', 'Complemento') 
 
             //Validando campo vazio - Complemento
             cy.get('#txtComplEndereco')
@@ -757,11 +865,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Bairro - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBairroEndereco"]')
+                .should('have.text', 'Bairro')
+
             //Validando campo vazio - Bairro
             cy.get('#txtBairroEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Caixa Postal - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCxPostEndereco"]')
+                .should('have.text', 'Caixa Postal')
 
             //Validando campo vazio - Caixa Postal
             cy.get('#txtCxPostEndereco')
@@ -769,11 +885,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Estado - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtUfEndereco"]')
+                .should('have.text', 'Estado')
+
             //Validando campo vazio - Estado
             cy.get('#txtUfEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Cidade - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCidEndereco"]')
+                .should('have.text', 'Cidade')
 
             //Validando campo vazio - Cidade
             cy.get('#txtCidEndereco')
@@ -887,11 +1011,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Tipo de endereço - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtTpEnderecoRota"]')
+                .should('have.text', 'Tipo de endereço')
+            
             //Card Rotas - Campo tipo de endereço
             cy.get('#txtTpEnderecoRota')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
+
+            //Campo Rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtRota"]')
+                .should('have.text', 'Rota')
 
             //Card Rotas - Campo Rota
             cy.get('#txtRota')
@@ -992,17 +1124,29 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Tipo de telefone - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtTpTel"]')
+                .should('have.text', 'Tipo de telefone')
+
             //Card Telefone - campo tipo de telefone
             cy.get('#txtTpTel')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtNumTel"]')
+                .should('have.text', 'Número')
+
             //Card Telefone - campo número
             cy.get('#txtNumTel')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Ramal - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtRamalTel"]')
+                .should('have.text', 'Ramal')
 
             //Card Telefone - campo ramal
             cy.get('#txtRamalTel')
@@ -1140,6 +1284,10 @@ describe('Cadastrar cliente completo', () => {
                 .scrollIntoView()
                 .click({force:true})
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCpfCnpj"]')
+                .should('have.text', 'CPF')
+
             //Campo CNPJ
             cy.get('#txtCpfCnpj')
                 .should('exist')
@@ -1147,12 +1295,20 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.value','')
                 .type(cnpj, { force: true })
 
+            //Campo Nome - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtRazaoSocial"]')
+                .should('have.text', 'Nome') 
+
             //Campo Nome Completo
             cy.get('#txtRazaoSocial')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type(nomeClienteCNPJ, { force: true })
+
+            //Campo Nome Fantasia - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNomeFantasia"]')
+                .should('have.text', 'Nome Fantasia') 
 
             cy.get('#txtNomeFantasia')
                 .should('exist')
@@ -1221,7 +1377,11 @@ describe('Cadastrar cliente completo', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'not.disabled')
-
+                
+            //Campo Tipo de Endereço - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtTpEndereco"]')
+                .should('have.text', 'Tipo de Endereço') 
+            
             //Validando campo vazio - Tipo de Endereço
             cy.get('#txtTpEndereco')
                 .should('exist')
@@ -1234,11 +1394,19 @@ describe('Cadastrar cliente completo', () => {
             cy.get('#select_option_229')
                 .click({force:true})
 
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCepEndereco"]')
+                .should('have.text', 'CEP') 
+
             //Validando campo vazio - CEP
             cy.get('#txtCepEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Endereço - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtRuaEndereco"]')
+                .should('have.text', 'Endereço') 
 
             //Validando campo vazio - Endereço
             cy.get('#txtRuaEndereco')
@@ -1246,11 +1414,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumEndereco"]')
+                .should('have.text', 'Número') 
+
             //Validando campo vazio - Número
             cy.get('#txtNumEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Complemento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtComplEndereco"]')
+                .should('have.text', 'Complemento') 
 
             //Validando campo vazio - Complemento
             cy.get('#txtComplEndereco')
@@ -1258,11 +1434,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Bairro - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBairroEndereco"]')
+                .should('have.text', 'Bairro') 
+
             //Validando campo vazio - Bairro
             cy.get('#txtBairroEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Caixa Postal - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCxPostEndereco"]')
+                .should('have.text', 'Caixa Postal')
 
             //Validando campo vazio - Caixa Postal
             cy.get('#txtCxPostEndereco')
@@ -1270,11 +1454,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Estado - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtUfEndereco"]')
+                .should('have.text', 'Estado')
+
             //Validando campo vazio - Estado
             cy.get('#txtUfEndereco')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Cidade - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCidEndereco"]')
+                .should('have.text', 'Cidade')
 
             //Validando campo vazio - Cidade
             cy.get('#txtCidEndereco')
@@ -1388,11 +1580,19 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Tipo de endereço - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtTpEnderecoRota"]')
+                .should('have.text', 'Tipo de endereço')
+
             //Card Rotas - Campo tipo de endereço
             cy.get('#txtTpEnderecoRota')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
+
+            //Campo Rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtRota"]')
+                .should('have.text', 'Rota')
 
             //Card Rotas - Campo Rota
             cy.get('#txtRota')
@@ -1493,17 +1693,29 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Tipo de telefone - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtTpTel"]')
+                .should('have.text', 'Tipo de telefone')
+
             //Card Telefone - campo tipo de telefone
             cy.get('#txtTpTel')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtNumTel"]')
+                .should('have.text', 'Número')
+
             //Card Telefone - campo número
             cy.get('#txtNumTel')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value', '')
+
+            //Campo Ramal - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="#txtRamalTel"]')
+                .should('have.text', 'Ramal')
 
             //Card Telefone - campo ramal
             cy.get('#txtRamalTel')

@@ -112,7 +112,7 @@ describe('Verificar tela de serviços, selecionar cliente e processo de venda de
 
             //Aba título RENOVAÇÕES
             cy.contains('md-tab-item', 'Renovações')
-                .should('have.attr', 'aria-selected', 'false') //valida se ele está selecionado
+                .should('have.attr', 'aria-selected', 'false') //valida se ele não está selecionado
                 .and('have.text', 'Renovações')
                 .and('exist')
                 .and('be.visible')
@@ -351,6 +351,14 @@ describe('Verificar tela de serviços, selecionar cliente e processo de venda de
             cy.contains('md-tab-item', 'Renovações')    
                 .scrollIntoView()
                 .click({force:true})
+
+            //Aba título SERVIÇOS VINCULADOS
+            cy.contains('md-tab-item', 'Serviços Vinculados')
+                .should('have.attr', 'aria-selected', 'false') //valida se ele não está selecionado
+
+            //Aba título RENOVAÇÕES
+            cy.contains('md-tab-item', 'Renovações')
+                .should('have.attr', 'aria-selected', 'true') //valida se ele está selecionado
 
             //Aba SERVIÇOS VINCULADOS - Título Renovações
             cy.contains('h3', 'Renovações')

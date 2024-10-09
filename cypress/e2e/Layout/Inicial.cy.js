@@ -148,7 +148,6 @@ describe('Validações de layout - tela inicial', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
-            
         })
 
     })  

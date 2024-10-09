@@ -56,12 +56,20 @@ describe('Cadastrar cliente simples', () => {
                 .scrollIntoView()
                 .click({force:true})
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCpf"]')
+                .should('have.text', 'CPF')
+
             //Campo CPF 
             cy.get('#txtCpf')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type(cpf, { force: true })
+
+            //Campo Nome Completo - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNomeCompleto"]')
+                .should('have.text', 'Nome Completo')     
 
             //Campo Nome Completo
             cy.get('#txtNomeCompleto')
@@ -76,6 +84,10 @@ describe('Cadastrar cliente simples', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Data de nascimento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[aria-hidden="false"]')
+                .should('have.text', 'Data de nascimento')     
+
             //Campo data de nascimento
             cy.get('#input_124')
                 .should('exist')
@@ -83,6 +95,10 @@ describe('Cadastrar cliente simples', () => {
                 .and('have.value','')
                 .wait(200)
                 .type("30/09/1998", {force:true})
+
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCep"]')
+                .should('have.text', 'CEP')   
 
             //Campo CEP
             cy.get('#txtCep')
@@ -101,6 +117,10 @@ describe('Cadastrar cliente simples', () => {
             cy.get('.md-icon-float > .ng-binding')
                 .click({force:true})
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumero"]')
+                .should('have.text', 'Número') 
+            
             //Campo Número, do endereço
             cy.get('#txtNumero')
                 .should('exist')
@@ -108,6 +128,10 @@ describe('Cadastrar cliente simples', () => {
                 .and('have.value','')
                 .type('66', {force:true})
 
+            //Campo Código da rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="codigo_rota"]')
+                .should('have.text', 'Código da rota') 
+            
             //Preencher campo rota 1
             cy.get('.rota-frete > .md-icon-right > .ng-binding')
                 .should('exist')
@@ -120,6 +144,10 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
+
+            //Campo rota 2 - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBuscaRotaModal"]')
+                .should('have.text', 'Rota') 
 
             //Preencher campo rota 2
             cy.get('#txtBuscaRotaModal')
@@ -211,12 +239,20 @@ describe('Cadastrar cliente simples', () => {
                 .scrollIntoView()
                 .click({force:true})
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCpf"]')
+                .should('have.text', 'CPF')
+
             //Campo CPF 
             cy.get('#txtCpf')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type(cpf, { force: true })
+
+            //Campo Nome Completo - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNomeCompleto"]')
+                .should('have.text', 'Nome Completo')  
 
             //Campo Nome Completo
             cy.get('#txtNomeCompleto')
@@ -231,6 +267,10 @@ describe('Cadastrar cliente simples', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Data de nascimento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[aria-hidden="false"]')
+                .should('have.text', 'Data de nascimento')  
+
             //Campo data de nascimento
             cy.get('#input_124')
                 .should('exist')
@@ -238,6 +278,10 @@ describe('Cadastrar cliente simples', () => {
                 .and('have.value','')
                 .wait(200)
                 .type("30/09/1998", {force:true})
+
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCep"]')
+                .should('have.text', 'CEP') 
 
             //Campo CEP
             cy.get('#txtCep')
@@ -256,12 +300,20 @@ describe('Cadastrar cliente simples', () => {
             cy.get('.md-icon-float > .ng-binding')
                 .click({force:true})
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumero"]')
+                .should('have.text', 'Número') 
+
             //Campo Número, do endereço
             cy.get('#txtNumero')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type('66', {force:true})
+
+            //Campo Código da rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="codigo_rota"]')
+                .should('have.text', 'Código da rota') 
 
             //Preencher campo rota 1
             cy.get('.rota-frete > .md-icon-right > .ng-binding')
@@ -275,6 +327,10 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
+
+            //Campo rota 2 - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBuscaRotaModal"]')
+                .should('have.text', 'Rota') 
 
             //Preencher campo rota 2
             cy.get('#txtBuscaRotaModal')
@@ -422,6 +478,10 @@ describe('Cadastrar cliente simples', () => {
                 .scrollIntoView()
                 .click({force:true})
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCpf"]')
+                .should('have.text', 'CPF')
+
             //Campo CPF 
             cy.get('#txtCpf')
                 .should('exist')
@@ -436,6 +496,10 @@ describe('Cadastrar cliente simples', () => {
                     // Aqui você pode usar 'value' como precisar
                 });
 
+            //Campo Nome Completo - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNomeCompleto"]')
+            .should('have.text', 'Nome Completo')  
+
             //Campo Nome Completo
             cy.get('#txtNomeCompleto')
                 .should('exist')
@@ -449,6 +513,10 @@ describe('Cadastrar cliente simples', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Data de nascimento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[aria-hidden="false"]')
+                .should('have.text', 'Data de nascimento') 
+
             //Campo data de nascimento
             cy.get('#input_124')
                 .should('exist')
@@ -456,6 +524,10 @@ describe('Cadastrar cliente simples', () => {
                 .and('have.value','')
                 .wait(200)
                 .type("30/09/1998", {force:true})
+
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCep"]')
+                .should('have.text', 'CEP') 
 
             //Campo CEP
             cy.get('#txtCep')
@@ -474,12 +546,20 @@ describe('Cadastrar cliente simples', () => {
             cy.get('.md-icon-float > .ng-binding')
                 .click({force:true})
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumero"]')
+                .should('have.text', 'Número') 
+
             //Campo Número, do endereço
             cy.get('#txtNumero')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type('66', {force:true})
+
+            //Campo Código da rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="codigo_rota"]')
+                .should('have.text', 'Código da rota') 
 
             //Preencher campo rota 1
             cy.get('.rota-frete > .md-icon-right > .ng-binding')
@@ -493,6 +573,10 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
+
+            //Campo rota 2 - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBuscaRotaModal"]')
+                .should('have.text', 'Rota') 
 
             //Preencher campo rota 2
             cy.get('#txtBuscaRotaModal')
@@ -817,6 +901,10 @@ describe('Cadastrar cliente simples', () => {
                 .scrollIntoView()
                 .click({force:true})
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCpf"]')
+                .should('have.text', 'CPF')
+
             //Campo CPF 
             cy.get('#txtCpf')
                 .should('exist')
@@ -831,6 +919,10 @@ describe('Cadastrar cliente simples', () => {
                     // Aqui você pode usar 'value' como precisar
                 });
 
+            //Campo Nome Completo - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNomeCompleto"]')
+                .should('have.text', 'Nome Completo')  
+
             //Campo Nome Completo
             cy.get('#txtNomeCompleto')
                 .should('exist')
@@ -843,6 +935,10 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
+
+            //Campo Data de nascimento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[aria-hidden="false"]')
+                .should('have.text', 'Data de nascimento') 
 
             //Campo data de nascimento
             cy.get('#input_124')
@@ -863,6 +959,10 @@ describe('Cadastrar cliente simples', () => {
             cy.get('#select_option_125')
                 .click({force:true})
 
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCep"]')
+                .should('have.text', 'CEP') 
+
             //Campo CEP
             cy.get('#txtCep')
                 .scrollIntoView()
@@ -881,12 +981,20 @@ describe('Cadastrar cliente simples', () => {
             cy.get('.md-icon-float > .ng-binding')
                 .click({force:true})
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumero"]')
+                .should('have.text', 'Número') 
+
             //Campo Número, do endereço
             cy.get('#txtNumero')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type('66', {force:true})
+
+            //Campo Código da rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="codigo_rota"]')
+                .should('have.text', 'Código da rota')
 
             //Preencher campo rota 1
             cy.get('.rota-frete > .md-icon-right > .ng-binding')
@@ -900,6 +1008,10 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
+
+            //Campo rota 2 - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBuscaRotaModal"]')
+                .should('have.text', 'Rota') 
 
             //Preencher campo rota 2
             cy.get('#txtBuscaRotaModal')
@@ -1127,12 +1239,20 @@ describe('Cadastrar cliente simples', () => {
                 .scrollIntoView()
                 .click({force:true})
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCpf"]')
+                .should('have.text', 'CPF')
+
             //Campo CPF 
             cy.get('#txtCpf')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type(cpf, { force: true })
+
+            //Campo Nome Completo - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNomeCompleto"]')
+                .should('have.text', 'Nome Completo') 
 
             //Campo Nome Completo
             cy.get('#txtNomeCompleto')
@@ -1147,6 +1267,10 @@ describe('Cadastrar cliente simples', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
 
+            //Campo Data de nascimento - validando mensagem dentro do campo antes de preencher
+            cy.get('label[aria-hidden="false"]')
+                .should('have.text', 'Data de nascimento')  
+
             //Campo data de nascimento
             cy.get('#input_124')
                 .should('exist')
@@ -1154,6 +1278,10 @@ describe('Cadastrar cliente simples', () => {
                 .and('have.value','')
                 .wait(200)
                 .type("30/09/1998", {force:true})
+
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCep"]')
+                .should('have.text', 'CEP')  
 
             //Campo CEP
             cy.get('#txtCep')
@@ -1172,12 +1300,20 @@ describe('Cadastrar cliente simples', () => {
             cy.get('.md-icon-float > .ng-binding')
                 .click({force:true})
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumero"]')
+                .should('have.text', 'Número')
+
             //Campo Número, do endereço
             cy.get('#txtNumero')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type('66', {force:true})
+
+            //Campo Código da rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="codigo_rota"]')
+                .should('have.text', 'Código da rota') 
 
             //Preencher campo rota 1
             cy.get('.rota-frete > .md-icon-right > .ng-binding')
@@ -1191,6 +1327,10 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
+
+            //Campo rota 2 - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBuscaRotaModal"]')
+                .should('have.text', 'Rota') 
 
             //Preencher campo rota 2
             cy.get('#txtBuscaRotaModal')
@@ -1367,6 +1507,10 @@ describe('Cadastrar cliente simples', () => {
             cy.get('.flex-md-100 > .md-auto-horizontal-margin > .md-label')
                 .click({force:true})
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCNPJ"]')
+                .should('have.text', 'CNPJ')
+
             //Campo CNPJ
             cy.get('#txtCNPJ')
                 .should('exist')
@@ -1374,12 +1518,20 @@ describe('Cadastrar cliente simples', () => {
                 .and('have.value','')
                 .type(cnpj, { force: true })
 
+            //Campo Nome Completo - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNomeCompleto"]')
+                .should('have.text', 'Nome Completo')
+
             //Campo Nome Completo
             cy.get('#txtNomeCompleto')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type(nomeClienteCNPJ, { force: true })
+
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCep"]')
+                .should('have.text', 'CEP')  
 
             //Campo CEP
             cy.get('#txtCep')
@@ -1398,12 +1550,20 @@ describe('Cadastrar cliente simples', () => {
             cy.get('.md-icon-float > .ng-binding')
                 .click({force:true})
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumero"]')
+                .should('have.text', 'Número') 
+
             //Campo Número, do endereço
             cy.get('#txtNumero')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type('66', {force:true})
+
+            //Campo Código da rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="codigo_rota"]')
+                .should('have.text', 'Código da rota')
 
             //Preencher campo rota 1
             cy.get('.rota-frete > .md-icon-right > .ng-binding')
@@ -1417,6 +1577,10 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
+
+            //Campo rota 2 - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBuscaRotaModal"]')
+                .should('have.text', 'Rota') 
 
             //Preencher campo rota 2
             cy.get('#txtBuscaRotaModal')
@@ -1518,6 +1682,10 @@ describe('Cadastrar cliente simples', () => {
             cy.get('.flex-md-100 > .md-auto-horizontal-margin > .md-label')
                 .click({force:true})
 
+            //Campo CPF - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCNPJ"]')
+                .should('have.text', 'CNPJ')
+
             //Campo CNPJ
             cy.get('#txtCNPJ')
                 .should('exist')
@@ -1525,12 +1693,20 @@ describe('Cadastrar cliente simples', () => {
                 .and('have.value','')
                 .type(cnpj, { force: true })
 
+            //Campo Nome Completo - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNomeCompleto"]')
+                .should('have.text', 'Nome Completo') 
+
             //Campo Nome Completo
             cy.get('#txtNomeCompleto')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type(nomeClienteCNPJ, { force: true })
+
+            //Campo CEP - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtCep"]')
+                .should('have.text', 'CEP')
 
             //Campo CEP
             cy.get('#txtCep')
@@ -1549,12 +1725,20 @@ describe('Cadastrar cliente simples', () => {
             cy.get('.md-icon-float > .ng-binding')
                 .click({force:true})
 
+            //Campo Número - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtNumero"]')
+                .should('have.text', 'Número')
+
             //Campo Número, do endereço
             cy.get('#txtNumero')
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
                 .type('66', {force:true})
+
+            //Campo Código da rota - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="codigo_rota"]')
+                .should('have.text', 'Código da rota') 
 
             //Preencher campo rota 1
             cy.get('.rota-frete > .md-icon-right > .ng-binding')
@@ -1568,6 +1752,10 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
+
+            //Campo rota 2 - validando mensagem dentro do campo antes de preencher
+            cy.get('label[for="txtBuscaRotaModal"]')
+                .should('have.text', 'Rota') 
 
             //Preencher campo rota 2
             cy.get('#txtBuscaRotaModal')
