@@ -1,7 +1,7 @@
 //Importando funções 
 import { titulopagina } from '../../support/uiUtils';
 
-const usuSabiumAutomacao = "sabium.automacao";
+const usuSabiumAutomacao = "usu.expirado";
 const senhaautomacao = "123.automacao";
 describe('Senha do sistema expirada', () => {
 
@@ -10,7 +10,7 @@ describe('Senha do sistema expirada', () => {
         cy.clearAllSessionStorage();
     })
 
-    it.skip('Tentar logar com usuário com senha do sistema expirada', () => {
+    it('Tentar logar com usuário com senha do sistema expirada', () => {
 
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()

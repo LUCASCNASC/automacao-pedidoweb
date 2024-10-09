@@ -1,7 +1,7 @@
 //Importando funções 
 import { titulopagina } from '../../support/uiUtils';
 
-const usuSabiumAutomacao = "sabium.automacao";
+const usuSabiumAutomacao = "usu.inativo";
 const senhaautomacao = "123.automacao";
 describe('Usuário inativo', () => {
 
@@ -10,7 +10,7 @@ describe('Usuário inativo', () => {
         cy.clearAllSessionStorage();
     })
 
-    it.skip('Tentar logar com usuário inativo', () => {
+    it('Tentar logar com usuário inativo', () => {
 
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()

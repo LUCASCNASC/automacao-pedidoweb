@@ -53,28 +53,5 @@ Cypress.Commands.add('login', (username, password) => {
 });
 
 
-function generateCNPJ() {
-  const randomDigits = () => Math.floor(Math.random() * 10);
-  
-  // Gera a parte inicial do CNPJ (12 primeiros dígitos)
-  const baseCNPJ = '12' + Array.from({ length: 8 }, randomDigits).join('') + '0001';
-  
-  // Função para calcular o dígito verificador
-  const calculateDigit = (cnpj, weights) => {
-      const sum = cnpj.split('').reduce((acc, digit, index) => {
-          return acc + (parseInt(digit) * weights[index]);
-      }, 0);
-      const remainder = sum % 11;
-      return remainder < 2 ? 0 : 11 - remainder;
-  };
 
-  // Calcula os dois últimos dígitos do CNPJ
-  const firstDigit = calculateDigit(baseCNPJ, [5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]);
-  const secondDigit = calculateDigit(baseCNPJ + firstDigit, [6, 5, 4, 3, 2, 9, 8, 7, 6, 5, 4, 3, 2]);
-
-  return `${baseCNPJ}${firstDigit}${secondDigit}`;
-}
-
-// Adiciona o comando ao Cypress
-Cypress.Commands.add('generateCNPJ', generateCNPJ);
 

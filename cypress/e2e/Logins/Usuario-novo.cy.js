@@ -1,8 +1,8 @@
 //Importando funções 
 import { titulopagina } from '../../support/uiUtils';
 
-const usunovo = "sabium.novousuario";
-const senhausunovo = "|QG00nir";
+const usunovo = "lucasautomacao";
+const senhausunovo = ";MB29ewk";
 const novasenha = "321@Teste";
 describe('Logar com novo usuário', () => {
 
@@ -11,7 +11,7 @@ describe('Logar com novo usuário', () => {
         cy.clearAllSessionStorage();
     })
 
-    it.skip('Novo usuário - clicar em Fechar, não alterando a senha', () => {
+    it('Novo usuário - clicar em Fechar, não alterando a senha', () => {
 
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()
@@ -295,7 +295,7 @@ describe('Logar com novo usuário', () => {
             .and('not.have.attr', 'disabled')
     })
 
-    it.skip('Novo usuário - clicar em CONFIRMAR, alterando a senha', () => {
+    it('Novo usuário - clicar em CONFIRMAR, alterando a senha', () => {
 
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()
@@ -569,7 +569,24 @@ describe('Logar com novo usuário', () => {
             .and('not.have.attr', 'disabled')
             
         //Card Altere Sua Senha Temporária - clicar no botão CONFIRMAR
-        //cy.get(':nth-child(5) > .md-raised')
-        //    .click()
+        cy.get(':nth-child(5) > .md-raised')
+            .click()
+
+        //Card senha alterada 
+        cy.get('.toast')
+            .should('exist')
+            .and('be.visible')
+
+        //Card senha alterada  - tiítulo
+        cy.get('.toast-title')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Aviso')
+
+        //Card senha alterada  - mensagem
+        cy.get('.toast-message')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Senha alterada com sucesso')
     })
 })

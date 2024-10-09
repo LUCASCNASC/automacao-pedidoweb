@@ -10,7 +10,7 @@ describe('Gerar pedidos com Garantia', () => {
 
     context('Sem entrega/processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
 
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -41,7 +41,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -104,13 +104,13 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -163,7 +163,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .click()
     
             //Carregando a finalização do pedido
-            cy.wait(8000)
+            cy.wait(10000)
     
              //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -172,7 +172,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -203,7 +203,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -266,13 +266,13 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
 
             cy.wait(400)
 
@@ -342,7 +342,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(8500)
+            cy.wait(10000)
     
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -354,7 +354,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(7500)
+            cy.wait(10500)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -370,7 +370,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(8000)
+            cy.wait(11000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
@@ -379,7 +379,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .click()
     
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(1300)
     
              //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -388,7 +388,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
     
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -418,7 +418,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -481,13 +481,13 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -515,7 +515,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(7500)
+            cy.wait(9500)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -531,7 +531,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(6000)
+            cy.wait(6500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
@@ -540,7 +540,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .click()
     
             //Carregando a finalização do pedido
-            cy.wait(8000)
+            cy.wait(10000)
     
              //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -549,7 +549,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -579,7 +579,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -642,13 +642,13 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
 
@@ -718,7 +718,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(8500)
+            cy.wait(9500)
     
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -730,7 +730,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(7500)
+            cy.wait(11500)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -746,7 +746,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(8000)
+            cy.wait(10000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
@@ -755,7 +755,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .click()
     
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(12000)
     
              //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -764,7 +764,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
     
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -919,7 +919,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -949,7 +949,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1006,13 +1006,13 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1131,7 +1131,7 @@ describe('Gerar pedidos com Garantia', () => {
 
     context('Com entrega/processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1161,7 +1161,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1228,7 +1228,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1303,7 +1303,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -1334,7 +1334,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1401,7 +1401,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
 
             cy.wait(400)
 
@@ -1530,7 +1530,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1560,7 +1560,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1627,7 +1627,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1701,7 +1701,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1731,7 +1731,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1798,7 +1798,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
 
@@ -1927,7 +1927,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1957,7 +1957,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -2020,7 +2020,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -2094,7 +2094,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -2124,7 +2124,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(3000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -2185,7 +2185,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     

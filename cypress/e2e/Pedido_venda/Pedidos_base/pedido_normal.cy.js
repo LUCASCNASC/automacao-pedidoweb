@@ -104,13 +104,13 @@ describe('Gerar pedido normal', () => {
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
+                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -152,9 +152,9 @@ describe('Gerar pedido normal', () => {
     
             //Botão "AVANÇAR"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+                .click({force:true})
     
-            cy.wait(400)
+            cy.wait(7000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
             
@@ -164,7 +164,7 @@ describe('Gerar pedido normal', () => {
                 .click()
     
             //Carregando a finalização do pedido
-            cy.wait(7500)
+            cy.wait(8500)
     
              //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')

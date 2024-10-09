@@ -1,9 +1,9 @@
 //Importando funções 
 import { titulopagina } from '../../support/uiUtils';
 
-const usuSabiumAutomacao = "sabium.automacao";
-const senhaautomacao = "123.automacao";
-const novasenha = "321@Teste";
+const usuSabiumAutomacao = "usu.expira2dias";
+const senhaautomacao = "321@Teste";
+const novasenha = "123.automacao";
 
 describe('Login com usuário que senha expira em 2 dias', () => {
 
@@ -12,7 +12,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         cy.clearAllSessionStorage();
     })
 
-    it.skip('Login - clicar em NÃO atualizar senha', () => {
+    it('Login - clicar em NÃO atualizar senha', () => {
 
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()
@@ -44,7 +44,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type('sabium.automacao')
+            .type(usuSabiumAutomacao)
             .invoke('attr', 'placeholder')
             .should('equal', 'Informe seu usuário')
 
@@ -64,7 +64,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type('123.automacao')
+            .type(senhaautomacao)
             .invoke('attr', 'placeholder')
             .should('equal', 'Informe sua senha')
 
@@ -133,7 +133,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .and('be.visible')
     })
 
-    it.skip('Login - clicar em SIM atualizar senha - clicar em Fechar a redefinição de senha', () => {
+    it('Login - clicar em SIM atualizar senha - clicar em Fechar a redefinição de senha', () => {
 
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()
@@ -165,7 +165,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type('sabium.automacao')
+            .type(usuSabiumAutomacao)
             .invoke('attr', 'placeholder')
             .should('equal', 'Informe seu usuário')
 
@@ -185,7 +185,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type('123.automacao')
+            .type(senhaautomacao)
             .invoke('attr', 'placeholder')
             .should('equal', 'Informe sua senha')
 
@@ -271,7 +271,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         cy.get(':nth-child(2) > .ng-pristine')
             .should('exist')
             .and('be.visible')
-            .and('have.value',(usuSabiumAutomacao))
+            .and('have.value', usuSabiumAutomacao)
 
         //Card Altere Sua Senha Temporária - texto "Senha Atual"
         cy.get('.senha_nova > :nth-child(4)')
@@ -284,7 +284,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type((senhaautomacao))
+            .type(senhaautomacao)
 
         //Card Altere Sua Senha Temporária - olhos "Senha Atual"
         cy.get('md-icon[ng-click="showPasswordToggle()"]')
@@ -344,7 +344,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .should('be.visible')
             .and('have.value','')
-            .type((novasenha))
+            .type(novasenha)
 
         //Card Altere Sua Senha Temporária - olhos "Nova Senha"
         cy.get('md-icon[ng-click="showPasswordToggle(true)"]')
@@ -440,7 +440,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .and('not.have.attr', 'disabled')
     })
 
-    it.skip('Login - clicar em SIM atualizar senha - clicar em CONFIRMAR a redefinição de senha', () => {
+    it('Login - clicar em SIM atualizar senha - clicar em CONFIRMAR a redefinição de senha', () => {
 
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()
@@ -472,7 +472,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type('sabium.automacao')
+            .type(usuSabiumAutomacao)
             .invoke('attr', 'placeholder')
             .should('equal', 'Informe seu usuário')
 
@@ -492,7 +492,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type('123.automacao')
+            .type(senhaautomacao)
             .invoke('attr', 'placeholder')
             .should('equal', 'Informe sua senha')
 
@@ -578,7 +578,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         cy.get(':nth-child(2) > .ng-pristine')
             .should('exist')
             .and('be.visible')
-            .and('have.value',(usuSabiumAutomacao))
+            .and('have.value', usuSabiumAutomacao)
 
         //Card Altere Sua Senha Temporária - texto "Senha Atual"
         cy.get('.senha_nova > :nth-child(4)')
@@ -591,7 +591,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type((senhaautomacao))
+            .type(senhaautomacao)
 
         //Card Altere Sua Senha Temporária - olhos "Senha Atual"
         cy.get('md-icon[ng-click="showPasswordToggle()"]')
@@ -651,7 +651,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .should('be.visible')
             .and('have.value','')
-            .type((novasenha))
+            .type(novasenha)
 
         //Card Altere Sua Senha Temporária - olhos "Nova Senha"
         cy.get('md-icon[ng-click="showPasswordToggle(true)"]')
@@ -737,7 +737,24 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .and('not.have.attr', 'disabled')
             
         //Card Altere Sua Senha Temporária - clicar no botão CONFIRMAR
-        //cy.get(':nth-child(5) > .md-raised')
-        //    .click()
+        cy.get(':nth-child(5) > .md-raised')
+            .click()
+
+        //Card de Senha alterada com sucesso
+        cy.get('.toast')
+            .should('exist')
+            .and('be.visible')
+        
+        //Card de Senha alterada com sucesso - Aviso
+        cy.get('.toast-title')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Aviso')
+
+        //Card de Senha alterada com sucesso - Senha alterada com sucesso
+        cy.get('.toast-message')
+            .should('exist')
+            .and('be.visible')
+            .and('have.text','Senha alterada com sucesso')
     })
 })

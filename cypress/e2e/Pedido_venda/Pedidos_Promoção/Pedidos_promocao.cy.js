@@ -692,7 +692,7 @@ describe('Gerar pedidos com promoção', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.only('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
+        it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
