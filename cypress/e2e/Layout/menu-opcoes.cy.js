@@ -13,7 +13,7 @@ describe('Validações de layout - menu opções', () => {
 
     context('Menu opções - validar as opções que o menu traz, mas sem entrar nas telas', () => {
 
-        it.skip('Menu opções - validar as opções que o menu traz, mas sem entrar nas telas', () => {
+        it.only('Menu opções - validar as opções que o menu traz, mas sem entrar nas telas', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -32,7 +32,19 @@ describe('Validações de layout - menu opções', () => {
                 .and('not.have.attr', 'disabled')
                 //.and('have.class', 'ng-binding ng-scope material-icons md-default-theme') - aparecendo como undefined
 
-            
+            //Clica no ícone menu de opções
+            cy.get('[aria-label="Menu de opções"] > .ng-binding')
+                .click({force:true})
+
+            //Opção Início no menu de opções
+            cy.get('a[aria-label="Inicio"]')
+                .should('exist')
+                .and('be.visible')
+                .and('not.have.attr', 'disabled')
+
+            //Opção Início no menu de opções
+            cy.get('a[aria-label="Cliente completo"]')
+                .should('have.attr', 'aria-label', 'Início')
         })
 
     })  

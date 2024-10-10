@@ -10,7 +10,7 @@ describe('Verificar tela de serviços, selecionar cliente e processo de venda de
 
     context('Tela de serviços de um cliente', () => {
 
-        it('Tela de serviços de um cliente', () => {
+        it('Tela de serviços de um cliente - sem registros de renovações', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     

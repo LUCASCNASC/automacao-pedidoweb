@@ -376,7 +376,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('not.have.attr', 'disabled')
 
             //Campo Tipo de endereço - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtTpEnderecoRota"]')
+            cy.get('label[for="txtTpEnderecoRota"]')
                 .should('have.text', 'Tipo de endereço')
 
             //Card Rotas - Campo Tipo de endereço
@@ -405,7 +405,7 @@ describe('Cadastrar cliente completo', () => {
                 .click({force:true})
 
             //Campo Rota - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtRota"]')
+            cy.get('label[for="txtRota"]')
                 .should('have.text', 'Rota')
 
             //Inserindo Rota 
@@ -489,7 +489,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('not.have.attr', 'disabled')
 
             //Campo Tipo de telefone - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtTpTel"]')
+            cy.get('label[for="txtTpTel"]')
                 .should('have.text', 'Tipo de telefone')
 
             //Card Telefone - campo tipo de telefone
@@ -499,7 +499,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.value', '')
 
             //Campo Número - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtNumTel"]')
+            cy.get('label[for="txtNumTel"]')
                 .should('have.text', 'Número')
 
             //Card Telefone - campo número
@@ -509,7 +509,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.value', '')
 
             //Campo Ramal - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtRamalTel"]')
+            cy.get('label[for="txtRamalTel"]')
                 .should('have.text', 'Ramal')
 
             //Card Telefone - campo ramal
@@ -1012,7 +1012,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('not.have.attr', 'disabled')
 
             //Campo Tipo de endereço - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtTpEnderecoRota"]')
+            cy.get('label[for="txtTpEnderecoRota"]')
                 .should('have.text', 'Tipo de endereço')
             
             //Card Rotas - Campo tipo de endereço
@@ -1022,7 +1022,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.value','')
 
             //Campo Rota - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtRota"]')
+            cy.get('label[for="txtRota"]')
                 .should('have.text', 'Rota')
 
             //Card Rotas - Campo Rota
@@ -1125,7 +1125,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('not.have.attr', 'disabled')
 
             //Campo Tipo de telefone - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtTpTel"]')
+            cy.get('label[for="txtTpTel"]')
                 .should('have.text', 'Tipo de telefone')
 
             //Card Telefone - campo tipo de telefone
@@ -1135,7 +1135,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.value', '')
 
             //Campo Número - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtNumTel"]')
+            cy.get('label[for="txtNumTel"]')
                 .should('have.text', 'Número')
 
             //Card Telefone - campo número
@@ -1145,7 +1145,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.value', '')
 
             //Campo Ramal - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtRamalTel"]')
+            cy.get('label[for="txtRamalTel"]')
                 .should('have.text', 'Ramal')
 
             //Card Telefone - campo ramal
@@ -1308,7 +1308,7 @@ describe('Cadastrar cliente completo', () => {
 
             //Campo Nome Fantasia - validando mensagem dentro do campo antes de preencher
             cy.get('label[for="txtNomeFantasia"]')
-                .should('have.text', 'Nome Fantasia') 
+                .should('have.text', 'Nome Social') 
 
             cy.get('#txtNomeFantasia')
                 .should('exist')
@@ -1581,7 +1581,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('not.have.attr', 'disabled')
 
             //Campo Tipo de endereço - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtTpEnderecoRota"]')
+            cy.get('label[for="txtTpEnderecoRota"]')
                 .should('have.text', 'Tipo de endereço')
 
             //Card Rotas - Campo tipo de endereço
@@ -1591,7 +1591,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.value','')
 
             //Campo Rota - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtRota"]')
+            cy.get('label[for="txtRota"]')
                 .should('have.text', 'Rota')
 
             //Card Rotas - Campo Rota
@@ -1694,7 +1694,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('not.have.attr', 'disabled')
 
             //Campo Tipo de telefone - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtTpTel"]')
+            cy.get('label[for="txtTpTel"]')
                 .should('have.text', 'Tipo de telefone')
 
             //Card Telefone - campo tipo de telefone
@@ -1704,7 +1704,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.value', '')
 
             //Campo Número - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtNumTel"]')
+            cy.get('label[for="txtNumTel"]')
                 .should('have.text', 'Número')
 
             //Card Telefone - campo número
@@ -1714,7 +1714,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.value', '')
 
             //Campo Ramal - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="#txtRamalTel"]')
+            cy.get('label[for="txtRamalTel"]')
                 .should('have.text', 'Ramal')
 
             //Card Telefone - campo ramal

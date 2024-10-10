@@ -12,6 +12,7 @@ const nomeClienteCNPJ = "Novo cadastro cliente CNPJ"
 const idSupervisorTrial = "393"
 const nomeSupervidorTrial = "T.A. USUÁRIO AUTOMAÇÃO"
 const senhaSupervisor = "123.automacao"
+const numeroCPF = "117.415.410-18" //usado apenas no teste de adicionar pelo botão na pesquisa de cliente
 
 describe('Cadastrar cliente simples', () => {
 
@@ -1638,7 +1639,7 @@ describe('Cadastrar cliente simples', () => {
                 .and('have.text', 'Registro salvo com sucesso!')
         })
 
-        it('Cliente simples CNPJ - alterar Endereço (deve pedir trial)', () => {
+        it('Cliente simples CNPJ - alterar Endereço', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -1885,6 +1886,85 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('have.text', 'Registro salvo com sucesso!')
+        })
+    })
+
+    context('Botão de adicionar cliente, na pesquisa de cliente', () => {
+
+        it('Botão de adicionar cliente, na pesquisa de cliente', () => {
+
+            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+        
+            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+            titulopagina()
+        
+            //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
+            cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
+                .wait(800)
+                .type(numeroCPF,'{downArrow}')
+
+            cy.wait(800)
+
+            //clicar na lupa de pesquisa de clientes
+            cy.get('.md-block > .ng-binding')
+                .should('exist') 
+                .and('be.visible')
+                .click()
+
+                cy.wait(2000)
+
+            //Card inteiro de Clientes
+            cy.get('.md-dialog-fullscreen')
+                .should('exist') 
+                .and('be.visible')
+
+            //Card de clientes - Título Clientes
+            cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .flex')
+                .should('exist')
+                .and('be.visible')
+                .and('have.text', 'Clientes')
+
+            //Card de clientes - Botão X
+            cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .should('exist') 
+                .and('be.visible')
+                .and('not.have.attr', 'disabled')
+
+                //Card de clientes - Texto Digite o nome ou o CPF do cliente para busca
+            cy.get('label[for="txtBuscaClienteModal"]')
+                .should('have.text', 'Digite o nome ou o CPF do cliente para busca')
+                .and('exist') 
+                .and('be.visible')
+
+            //Card de clientes - Botão de cadastrar novo cliente
+            cy.get('[ng-click="novoCliente()"] > .ng-binding')
+                .should('exist') 
+                .and('be.visible')
+                .and('not.have.attr', 'disabled')
+
+            //Card de clientes - Botão comando de voz
+            cy.get('[ng-click="capturarVozCliente()"] > .ng-binding')
+                .should('exist') 
+                .and('be.visible')
+                .and('not.have.attr', 'disabled')
+
+            //Card de clientes - campo para digitar cliente
+            cy.get('#txtBuscaClienteModal')
+                .should('exist') 
+                .and('be.visible')
+                .invoke('val')
+                .should('not.be.empty')
+
+            //Card de clientes - Clicar no botão de cadastrar novo cliente
+            cy.get('[ng-click="novoCliente()"] > .ng-binding')
+                .click({force:true})
+
+            //Tela de Cadastro de Cliente - botão CLIENTE - validar se realmente redirecionou para lá
+            cy.get('.md-default')
+                .should('exist') 
+                .and('be.visible')
+                .and('not.have.attr', 'disabled')
+
         })
     })
 })
