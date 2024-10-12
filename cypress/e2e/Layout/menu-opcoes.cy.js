@@ -4,7 +4,7 @@ import { titulopagina } from '../../support/uiUtils';
 const filial = " 050 - PR - EMISSÃO NFe/NFCe "
 const descricaoUsuario = "T.A. USUÁRIO AUTOMAÇÃO"
 const versaoPW = "4.6.0.0"
-const versaoREST = "16.45.1.9"
+const versaoREST = "16.45.1.11"
 
 describe('Validações de layout - menu opções', () => {
 
@@ -271,6 +271,12 @@ describe('Validações de layout - menu opções', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('have.text', versaoREST)
+
+            //Clicaer na mensagem de Pedido de Venda - final do modal - versão Pedido Web
+            cy.get('#pvProjeto')
+                .click({force:true})
+
+            cy.wait(200)
 
             //Primeiro alerta - card
             cy.get('#toast-container > :nth-child(1)')
