@@ -32,7 +32,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9862"
-            cy.get('#select_option_61 > .md-text')
+            cy.get('#select_option_62 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -193,7 +193,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9862"
-            cy.get('#select_option_61 > .md-text')
+            cy.get('#select_option_62 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -409,7 +409,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9862"
-            cy.get('#select_option_61 > .md-text')
+            cy.get('#select_option_62 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -583,7 +583,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9862"
-            cy.get('#select_option_61 > .md-text')
+            cy.get('#select_option_62 > .md-text')
                 .click({force: true})
     
             cy.wait(800)

@@ -33,7 +33,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -195,7 +195,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -410,7 +410,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -571,7 +571,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -786,7 +786,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -941,7 +941,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -1153,7 +1153,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -1326,7 +1326,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -1552,7 +1552,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -1723,7 +1723,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -1949,7 +1949,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -2116,7 +2116,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)

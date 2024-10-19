@@ -10,7 +10,7 @@ describe('Gerar pedido normal', () => {
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
 
      
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -33,8 +33,9 @@ describe('Gerar pedido normal', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
-                .click({force: true})
+            cy.get('#select_option_60 > .md-text')
+                .click({force:true})
+                
     
             cy.wait(800)
     
@@ -63,38 +64,36 @@ describe('Gerar pedido normal', () => {
     
             //clicar para selecionar o produto; 
             cy.contains('Cod: 1860')
-                .click({ force: true })
+                .click({force: true})
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+                .click({force: true})
             
             cy.wait(800)
     
             //clicar no botão "ADICIONAR", para adicionar produto
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+                .click({force: true})
     
             cy.wait(2500)
     
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
+            // //Desmarcar garantia - card "Serviços Vinculados"
+            // cy.get('#checkbox-141-2 > .md-container')
+            //     .click()
     
-            cy.wait(1000)
+            // cy.wait(1000)
     
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            // //Desmarcar Mão de Obra - card "Serviços Vinculados"
+            // cy.get('#checkbox-144-2 > .md-container')
+            //     .click()
     
-            cy.wait(400)
+            // cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -122,7 +121,7 @@ describe('Gerar pedido normal', () => {
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             // tela de GERAR PARCELAS
     
@@ -196,7 +195,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -410,7 +409,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -587,7 +586,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9860"
-            cy.get('#select_option_59 > .md-text')
+            cy.get('#select_option_60 > .md-text')
                 .click({force: true})
     
             cy.wait(800)

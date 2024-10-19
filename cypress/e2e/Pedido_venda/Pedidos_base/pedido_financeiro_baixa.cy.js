@@ -32,7 +32,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9863"
-            cy.get('#select_option_62 > .md-text')
+            cy.get('#select_option_63 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -194,7 +194,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9863"
-            cy.get('#select_option_62 > .md-text')
+            cy.get('#select_option_63 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -417,7 +417,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9863"
-            cy.get('#select_option_62 > .md-text')
+            cy.get('#select_option_63 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
@@ -618,7 +618,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(800)
     
             //selecionar processo de venda "9863"
-            cy.get('#select_option_62 > .md-text')
+            cy.get('#select_option_63 > .md-text')
                 .click({force: true})
     
             cy.wait(800)
