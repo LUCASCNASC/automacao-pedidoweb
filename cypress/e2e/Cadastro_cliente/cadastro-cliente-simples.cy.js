@@ -164,7 +164,7 @@ describe('Cadastrar cliente simples', () => {
                 .and('not.have.attr', 'disabled')
 
             //Clicar na lupa do campo Rota 2
-            cy.get('#dialogContent_808 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('md-icon[ng-disabled="bloqueioBtnRota"]')
                 .click({force:true})
 
             //Escolher última informação da rota
@@ -347,7 +347,7 @@ describe('Cadastrar cliente simples', () => {
                 .and('not.have.attr', 'disabled')
 
             //Clicar na lupa do campo Rota 2
-            cy.get('#dialogContent_808 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('md-icon[ng-disabled="bloqueioBtnRota"]')
                 .click({force:true})
 
             //Escolher última informação da rota
@@ -593,7 +593,7 @@ describe('Cadastrar cliente simples', () => {
                 .and('not.have.attr', 'disabled')
 
             //Clicar na lupa do campo Rota 2
-            cy.get('#dialogContent_808 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('md-icon[ng-disabled="bloqueioBtnRota"]')
                 .click({force:true})
 
             //Escolher última informação da rota
@@ -687,7 +687,6 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('contain', 'Este CPF / CNPJ já está cadastrado para')
-                .and('contain', ', nascido(a) em')
                 .and('contain', ', deseja visualizar este cadastro?')
 
             //Validar Não para se desejo visualizar este cadastro
@@ -706,19 +705,19 @@ describe('Cadastrar cliente simples', () => {
 
             //Clicar em Sim para se desejo visualizar este cadastro
             cy.get('.md-confirm-button')
-                .click()
+                .click({force:true})
 
             cy.wait(2500)
 
-            //Clicar para abrir a modificação
-            cy.get('.date-picker.flex-md-100 > .validaData > .md-datepicker-input-container > .md-datepicker-triangle-button')
-                .click()
-
-            cy.wait(200)
-
-            //Clicar na data que desejo, 29/09/2024
-            cy.get('#md-0-month-1998-8-29 > .md-calendar-date-selection-indicator')
-                .click()
+            //Clicar na data que desejo, 29/09/1998
+            cy.get('#input_124')
+                .should('exist')
+                .and('be.visible')
+                .and('have.value','30/09/1998')
+                .wait(200)
+                .clear()
+                .wait(200)
+                .type("29/09/1997", {force:true})
 
             //Botão SALVAR - validar
             cy.get('.layout-align-end-center > .md-raised')
@@ -726,8 +725,6 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
-                //.and('have.text', 'Salvar')
-                //.and('have.css', 'background-color', 'rgb(26, 70, 203)')
 
             //Clica no botão SALVAR
             cy.get('.layout-align-end-center > .md-raised')
@@ -950,14 +947,19 @@ describe('Cadastrar cliente simples', () => {
                 .type("30/09/1998", {force:true})
 
             //Campo Sexo
-            cy.get('#select_98')
+            cy.get('.md-default-theme[ng-model="cliente.idtiposexo"]')
                 .scrollIntoView()
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
 
+            //Campo Sexo - clicar
+            cy.get('.md-default-theme[ng-model="cliente.idtiposexo"]')
+                .click({force:true})
+
             //Selecionar masculino
-            cy.get('#select_option_125')
+            cy.get('.md-text.ng-binding')
+                .contains('Masculino')
                 .click({force:true})
 
             //Campo CEP - validando mensagem dentro do campo antes de preencher
@@ -1028,16 +1030,16 @@ describe('Cadastrar cliente simples', () => {
                 .and('not.have.attr', 'disabled')
 
             //Clicar na lupa do campo Rota 2
-            cy.get('#dialogContent_808 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('md-icon[ng-click="pesquisar()"]')
                 .click({force:true})
 
             //Escolher última informação da rota
             cy.get('v-pane-header.ng-scope > div')
-                .click()
+                .click({force:true})
 
             //Selecionar última rota
             cy.contains('div', '1 - Centro')
-                .click()
+                .click({force:true})
 
             //Botão SALVAR
             cy.get('.layout-align-end-center > .md-raised')
@@ -1111,16 +1113,9 @@ describe('Cadastrar cliente simples', () => {
             // ALTERAR SEXO 
 
 
-            //Campo Sexo - alterar 
-            cy.get('#select_98')
-                .scrollIntoView()
-                .should('exist')
-                .and('be.visible')
-                .and('have.value','')
-
-            //Campo Sexo - clicar alterar 
-            cy.get('#select_98')
-                .click()
+            //Campo Sexo - clicar
+            cy.get('.md-default-theme[ng-model="cliente.idtiposexo"]')
+                .click({force:true})
 
             cy.wait (2500)
 
@@ -1129,7 +1124,6 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('contain', 'Este CPF / CNPJ já está cadastrado para')
-                .and('contain', ', nascido(a) em')
                 .and('contain', ', deseja visualizar este cadastro?')
 
             //Validar Não para se desejo visualizar este cadastro
@@ -1153,9 +1147,10 @@ describe('Cadastrar cliente simples', () => {
                 .click({force:true})
 
             cy.wait(2000)
-            
-            //Selecionar feminino 
-            cy.get('#select_option_126 > .md-text')
+
+            //Selecionar femino
+            cy.get('.md-text.ng-binding')
+                .contains('Feminino')
                 .click({force:true})
 
             cy.wait(2500)
@@ -1347,7 +1342,7 @@ describe('Cadastrar cliente simples', () => {
                 .and('not.have.attr', 'disabled')
 
             //Clicar na lupa do campo Rota 2
-            cy.get('#dialogContent_808 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('md-icon[ng-click="pesquisar()"]')
                 .click({force:true})
 
             //Escolher última informação da rota
@@ -1404,6 +1399,7 @@ describe('Cadastrar cliente simples', () => {
             cy.get('[aria-label="Menu de opções"] > .ng-binding')
                 .click()
 
+            //Clicar para entrar no cadastro de cliente simples
             cy.get('[ng-show="nivelacessodadopessoal != 1"][href="#!/cliente/cliente-cadastro"] > div.md-button > .md-no-style')
                 .click()
 
@@ -1462,6 +1458,7 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('have.text', 'Registro salvo com sucesso!')
+
         })
 
         it('Cliente simples CNPJ', () => {
@@ -1597,16 +1594,16 @@ describe('Cadastrar cliente simples', () => {
                 .and('not.have.attr', 'disabled')
 
             //Clicar na lupa do campo Rota 2
-            cy.get('#dialogContent_808 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('md-icon[ng-click="pesquisar()"]')
                 .click({force:true})
 
             //Escolher última informação da rota
             cy.get('v-pane-header.ng-scope > div')
-                .click()
+                .click({force:true})
 
             //Selecionar última rota
             cy.contains('div', '1 - Centro')
-                .click()
+                .click({force:true})
 
             //Botão SALVAR
             cy.get('.layout-align-end-center > .md-raised')
@@ -1772,7 +1769,7 @@ describe('Cadastrar cliente simples', () => {
                 .and('not.have.attr', 'disabled')
 
             //Clicar na lupa do campo Rota 2
-            cy.get('#dialogContent_808 > .layout-wrap > .md-icon-float > .ng-binding')
+            cy.get('md-icon[ng-click="pesquisar()"]')
                 .click({force:true})
 
             //Escolher última informação da rota

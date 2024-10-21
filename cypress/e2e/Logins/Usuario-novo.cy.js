@@ -1,8 +1,8 @@
 //Importando funções 
 import { titulopagina } from '../../support/uiUtils';
 
-const usunovo = "usunovoauto";
-const senhausunovo = "?EA43wco";
+const usunovo = "lucasnovousu";
+const senhausunovo = "{IJ64eyy";
 const novasenha = "321@Teste";
 describe('Logar com novo usuário', () => {
 

@@ -83,18 +83,6 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(2500)
     
-            // //Desmarcar garantia - card "Serviços Vinculados"
-            // cy.get('#checkbox-141-2 > .md-container')
-            //     .click()
-    
-            // cy.wait(1000)
-    
-            // //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            // cy.get('#checkbox-144-2 > .md-container')
-            //     .click()
-    
-            // cy.wait(400)
-    
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
@@ -160,10 +148,10 @@ describe('Gerar pedido normal', () => {
     
             //Botão "FINALIZAR PEDIDO"
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+                .click({force:true})
     
             //Carregando a finalização do pedido
-            cy.wait(8500)
+            cy.wait(9000)
     
              //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -172,7 +160,7 @@ describe('Gerar pedido normal', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
 
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -244,19 +232,7 @@ describe('Gerar pedido normal', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(3500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(2000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -267,13 +243,7 @@ describe('Gerar pedido normal', () => {
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click() //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
-    
+
             cy.wait(800)
     
             //Buscar segundo produto
@@ -293,21 +263,11 @@ describe('Gerar pedido normal', () => {
             //Escolhendo voltagem do segundo produto
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
-    
-            //clicar no botão "ADICIONAR", para adicionar o segundo produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
-    
-            cy.wait(1300)
-    
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
+
             cy.wait(800)
     
             //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
+            cy.get('button[ng-click="adicionarItem()"]')
                 .click()
     
             cy.wait(400)
@@ -336,7 +296,7 @@ describe('Gerar pedido normal', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(7000)
+            cy.wait(8000)
     
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -386,7 +346,7 @@ describe('Gerar pedido normal', () => {
 
     context('Com frete/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
 
      
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -460,29 +420,12 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(2500)
     
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
+            cy.wait(1000)
     
             //Botão de arrastar Montagem
             cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
@@ -563,7 +506,7 @@ describe('Gerar pedido normal', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
 
     
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -594,7 +537,7 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2500)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -635,19 +578,7 @@ describe('Gerar pedido normal', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1300)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -655,21 +586,9 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(1300)
     
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
-    
-            cy.wait(800)
-    
             //Buscar segundo produto
             cy.get('#searchText')
-                .clear()
+                .clear({force: true})
                 .type('1870')
     
             //Validando informações do segundo produto após pesquisar
@@ -691,35 +610,11 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(1300)
     
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
-    
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
             cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
@@ -738,7 +633,7 @@ describe('Gerar pedido normal', () => {
         
             escolherRota()
         
-            cy.wait(10000)
+            cy.wait(9500)
 
 
             // tela de GERAR PARCELAS

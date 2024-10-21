@@ -86,7 +86,7 @@ describe('Cadastrar cliente completo', () => {
                 .should('have.text', 'Data Nascimento') 
 
             //Campo data de nascimento
-            cy.get('#input_96')
+            cy.get('#input_98')
                 .should('exist')
                 .and('be.visible')
                 //.and('have.value','')
@@ -108,7 +108,8 @@ describe('Cadastrar cliente completo', () => {
                 .click({force:true})
 
             //Clicar na opção MASCULINO
-            cy.get('#select_option_128')
+            cy.get('.md-text.ng-binding')
+                .contains('Masculino')
                 .click({force:true})
 
             //Tentar clicar em SALVAR, não deve deixar, pois ainda não tem endereço
@@ -285,7 +286,8 @@ describe('Cadastrar cliente completo', () => {
             cy.wait(300)
             
             //Selecionar Tipo de Endereço Padrão
-            cy.get('#select_option_201 > .md-text')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Preenchendo campo CEP
@@ -300,6 +302,8 @@ describe('Cadastrar cliente completo', () => {
             //Clicar na lupa de pesquisa de CEP
             cy.get('.md-icon-float > .ng-binding')
                 .click({force:true})
+                
+            cy.wait(300)
 
             //Preenchendo campo Número
             cy.get('#txtNumEndereco')
@@ -401,7 +405,8 @@ describe('Cadastrar cliente completo', () => {
                 .click({force:true})
 
             //Clicar no tipo de endereço Padrão
-            cy.get('#select_option_2313')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Campo Rota - validando mensagem dentro do campo antes de preencher
@@ -529,7 +534,8 @@ describe('Cadastrar cliente completo', () => {
                 .click({force:true})
                 
             //Card Telefone - escolher tipo de endereço
-            cy.get('#select_option_2327')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Card Telefone - preencher campo número
@@ -703,7 +709,7 @@ describe('Cadastrar cliente completo', () => {
                 .should('have.text', 'Data Nascimento') 
 
             //Campo data de nascimento
-            cy.get('#input_96')
+            cy.get('#input_98')
                 .should('exist')
                 .and('be.visible')
                 //.and('have.value','')
@@ -725,7 +731,8 @@ describe('Cadastrar cliente completo', () => {
                 .click({force:true})
 
             //Clicar na opção MASCULINO
-            cy.get('#select_option_128')
+            cy.get('.md-text.ng-binding')
+                .contains('Masculino')
                 .click({force:true})
 
             cy.wait(500)
@@ -758,7 +765,7 @@ describe('Cadastrar cliente completo', () => {
                 .scrollIntoView()
                 .click({force:true})
 
-            cy.wait(6000)
+            cy.wait(5000)
 
             //Clicar em salvar, antes de preencher o campo CPF, não deve deixar salvar
             cy.get('.btn')
@@ -822,7 +829,8 @@ describe('Cadastrar cliente completo', () => {
             cy.wait(200)
 
             //Selecionar tipo de endereço
-            cy.get('#select_option_229')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Campo CEP - validando mensagem dentro do campo antes de preencher
@@ -921,7 +929,8 @@ describe('Cadastrar cliente completo', () => {
             cy.wait(300)
             
             //Selecionar Tipo de Endereço Padrão
-            cy.get('#select_option_201 > .md-text')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Preenchendo campo CEP
@@ -1041,7 +1050,8 @@ describe('Cadastrar cliente completo', () => {
                 .click({force:true})
 
             //Clicar no tipo de endereço Padrão
-            cy.get('#select_option_2313')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Inserindo rota 
@@ -1165,7 +1175,8 @@ describe('Cadastrar cliente completo', () => {
                 .click({force:true})
                 
             //Card Telefone - escolher tipo de endereço
-            cy.get('#select_option_2327')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Card Telefone - preencher campo número
@@ -1490,7 +1501,8 @@ describe('Cadastrar cliente completo', () => {
             cy.wait(300)
             
             //Selecionar Tipo de Endereço Padrão
-            cy.get('#select_option_218 > .md-text')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Preenchendo campo CEP
@@ -1610,7 +1622,8 @@ describe('Cadastrar cliente completo', () => {
                 .click({force:true})
 
             //Clicar no tipo de endereço Padrão
-            cy.get('#select_option_1545 > .md-text')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Inserindo rota 
@@ -1734,7 +1747,8 @@ describe('Cadastrar cliente completo', () => {
                 .click({force:true})
                 
             //Card Telefone - escolher tipo de endereço
-            cy.get('#select_option_1559 > .md-text')
+            cy.get('.md-text.ng-binding')
+                .contains('Padrão')
                 .click({force:true})
 
             //Card Telefone - preencher campo número

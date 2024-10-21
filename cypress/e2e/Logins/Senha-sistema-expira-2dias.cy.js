@@ -1,8 +1,8 @@
 //Importando funções 
 import { titulopagina } from '../../support/uiUtils';
 
-const usuSabiumAutomacao = "usu.expira2dias";
-const senhaautomacao = "321@Teste";
+const usuSabiumAutomacao = "usu.expira2dias"; //usuário 419
+const senhaautomacao = "321@teste";
 const novasenha = "123.automacao";
 
 describe('Login com usuário que senha expira em 2 dias', () => {
