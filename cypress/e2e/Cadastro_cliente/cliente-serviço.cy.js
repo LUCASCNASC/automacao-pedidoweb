@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina, escolherClientePedido } from '../../support/uiUtils';
+import { titulopagina, escolherClientePedido } from '../../support/para_todos';
 
 describe('Verificar tela de serviços, selecionar cliente e processo de venda de serviços', () => {
 

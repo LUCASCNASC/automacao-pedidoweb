@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina } from '../../support/uiUtils';
+import { titulopagina } from '../../support/para_todos';
 
 const cpfCliente = "48976249089"
 describe('Menu Pedidos Pendentes', () => {

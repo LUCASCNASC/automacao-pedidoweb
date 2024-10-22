@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina } from '../../support/uiUtils';
+import { titulopagina } from '../../support/para_todos';
 import gerarCpf from '../../support/gerarCPF';
 import gerarCNPJ from '../../support/gerarCNPJ';
 

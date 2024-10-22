@@ -1,23 +1,18 @@
-//Importando funções 
-import { titulopagina, saldodisponivel, escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/uiUtils';
+import { titulopagina, saldodisponivel } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
 
 describe('Gerar pedido normal', () => {
 
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+        titulopagina() //Validar título da aba carregada
     })
   
     context('Sem frete/ processo 9860 - caminho feliz', () => {
         
-        it.skip('Pedido de venda: kit 1862 0 0', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-            
-            cy.wait(800);
+        it.only('Pedido de venda: kit 1862 0 0', () => {
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -40,7 +35,7 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2500)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -83,35 +78,11 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(2500)
     
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get(':nth-child(4) > :nth-child(5) > .md-no-style > .md-secondary-container > :nth-child(1) > #checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get(':nth-child(4) > :nth-child(5) > .md-no-style > .md-secondary-container > :nth-child(1) > #checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
-    
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
             cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
     
             //rolagem para baixo
             cy.get('.containerSabium')
@@ -175,14 +146,7 @@ describe('Gerar pedido normal', () => {
     
     context('Com frete/processo 9860 - caminho feliz', () => {
         
-        it.skip('Pedido de venda: kit 1862 0 0', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-            
-            cy.wait(800);
+        it('Pedido de venda: kit 1862 0 0', () => {
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -232,9 +196,6 @@ describe('Gerar pedido normal', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')

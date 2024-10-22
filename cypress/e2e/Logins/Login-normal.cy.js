@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina } from '../../support/uiUtils';
+import { titulopagina } from '../../support/para_todos';
 
 const usuSabiumAutomacao = "sabium.automacao"; //usuário ERP Sabium (contexto 1)
 const senhaautomacao = "123.automacao"; //senha usuário ERP Sabium (contexto 1)
@@ -15,7 +15,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
 
     context('Usuário contexto 1', () => {
 
-        it('Login - caminho feliz', () => {
+        it.only('Login - caminho feliz', () => {
 
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()

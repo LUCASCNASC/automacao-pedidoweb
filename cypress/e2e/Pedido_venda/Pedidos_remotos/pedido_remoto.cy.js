@@ -1,21 +1,16 @@
-//Importando funções 
-import { titulopagina, saldodisponivel, escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/uiUtils';
+import { titulopagina, saldodisponivel } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
 
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+        titulopagina() //Validar título da aba carregada
     })
   
     it.skip('Pedido de venda remota: produto 1860 0 0', () => {
-
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-
-        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-        titulopagina()
-        
-        cy.wait(800);
 
         //clicar para aparecer as opções de processo
         cy.get('#select_value_label_4 > .md-select-icon')
@@ -84,19 +79,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
             .click()
 
-        cy.wait(2500)
-
-        //Desmarcar garantia - card "Serviços Vinculados"
-        cy.get('#checkbox-141-2 > .md-container')
-            .click()
-
-        cy.wait(800)
-
-        //Desmarcar Mão de Obra - card "Serviços Vinculados"
-        cy.get('#checkbox-144-2 > .md-container')
-            .click()
-
-        cy.wait(400)
+        cy.wait(1000)
 
         //Botão "OK" - Serviços Vinculados
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -179,13 +162,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
     it.skip('Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
 
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-
-        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-        titulopagina()
-        
-        cy.wait(800);
-
         //clicar para aparecer as opções de processo
         cy.get('#select_value_label_4 > .md-select-icon')
             .click()
@@ -255,19 +231,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
             .click()
 
-        cy.wait(2500)
-
-        //Desmarcar garantia - card "Serviços Vinculados"
-        cy.get('#checkbox-141-2 > .md-container')
-            .click()
-
-        cy.wait(800)
-
-        //Desmarcar Mão de Obra - card "Serviços Vinculados"
-        cy.get('#checkbox-144-2 > .md-container')
-            .click()
-
-        cy.wait(400)
+        cy.wait(1000)
 
         //Botão "OK" - Serviços Vinculados
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -307,19 +271,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
             .click()
 
-        cy.wait(2500)
-
-        //Desmarcar garantia - card "Serviços Vinculados"
-        cy.get('#checkbox-141-2 > .md-container')
-            .click()
-
-        cy.wait(800)
-
-        //Desmarcar Mão de Obra - card "Serviços Vinculados"
-        cy.get('#checkbox-144-2 > .md-container')
-            .click()
-
-        cy.wait(400)
+        cy.wait(1000)
 
         //Botão "OK" - Serviços Vinculados
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -397,13 +349,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     
     it.skip('Pedido de venda remota: kit 1862 0 0', () => {
 
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-
-        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-        titulopagina()
-        
-        cy.wait(800);
-
         //clicar para aparecer as opções de processo
         cy.get('#select_value_label_4 > .md-select-icon')
             .click()
@@ -473,19 +418,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
             .click()
 
-        cy.wait(2500)
-
-        //Desmarcar garantia - card "Serviços Vinculados"
-        cy.get('#checkbox-141-2 > .md-container')
-            .click()
-
-        cy.wait(800)
-
-        //Desmarcar Mão de Obra - card "Serviços Vinculados"
-        cy.get('#checkbox-144-2 > .md-container')
-            .click()
-
-        cy.wait(400)
+        cy.wait(1000)
 
         //Botão "OK" - Serviços Vinculados
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -568,13 +501,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     //fazer - produto 1875 não está aparecendo
     it('Pedido de venda remota: kits 1862 0 0 e 1862 0 0 ', () => {
 
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-
-        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-        titulopagina()
-        
-        cy.wait(800);
-
         //clicar para aparecer as opções de processo
         cy.get('#select_value_label_4 > .md-select-icon')
             .click()
@@ -644,19 +570,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
             .click()
 
-        cy.wait(2500)
-
-        //Desmarcar garantia - card "Serviços Vinculados"
-        //cy.get('#checkbox-141-2 > .md-container')
-        //    .click()
-
-        cy.wait(800)
-
-        //Desmarcar Mão de Obra - card "Serviços Vinculados"
-        //cy.get('#checkbox-144-2 > .md-container')
-        //    .click()
-
-        cy.wait(400)
+        cy.wait(1000)
 
         //Botão "OK" - Serviços Vinculados
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')

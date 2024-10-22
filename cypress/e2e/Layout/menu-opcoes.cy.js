@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina } from '../../support/uiUtils';
+import { titulopagina } from '../../support/para_todos';
 
 const filial = " 050 - PR - EMISSÃO NFe/NFCe "
 const descricaoUsuario = "T.A. USUÁRIO AUTOMAÇÃO"

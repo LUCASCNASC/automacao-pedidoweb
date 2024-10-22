@@ -1,24 +1,18 @@
-//Importando funções 
-import { titulopagina, saldodisponivel, escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/uiUtils';
+import { titulopagina, saldodisponivel } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com Garantia', () => {
 
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+        titulopagina() //Validar título da aba carregada
     })   
 
     context('Sem entrega/processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
-
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -41,7 +35,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(3000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -69,7 +63,6 @@ describe('Gerar pedidos com Garantia', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -88,12 +81,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('#checkbox-139-0 > .md-container')
                 .click()
     
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
             cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
@@ -105,12 +92,6 @@ describe('Gerar pedidos com Garantia', () => {
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -173,14 +154,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -231,7 +204,6 @@ describe('Gerar pedidos com Garantia', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -250,12 +222,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('#checkbox-139-0 > .md-container')
                 .click()
     
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
             cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
@@ -267,12 +233,6 @@ describe('Gerar pedidos com Garantia', () => {
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
 
             cy.wait(400)
 
@@ -298,19 +258,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(1300)
-    
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -321,12 +269,6 @@ describe('Gerar pedidos com Garantia', () => {
             //Botão de arrastar Retirada / Entrega
             cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -379,7 +321,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .click()
     
             //Carregando a finalização do pedido
-            cy.wait(1300)
+            cy.wait(13000)
     
              //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -389,13 +331,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -446,7 +381,6 @@ describe('Gerar pedidos com Garantia', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -465,29 +399,17 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('#checkbox-140-1 > .md-container')
                 .click()
     
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
             cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
+            cy.wait(1000)
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -503,7 +425,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(8500)
+            cy.wait(7500)
     
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -515,7 +437,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(9500)
+            cy.wait(7000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -551,13 +473,6 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
-    
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
                 .click()
@@ -607,7 +522,6 @@ describe('Gerar pedidos com Garantia', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -626,12 +540,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('#checkbox-140-1 > .md-container')
                 .click()
     
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
             cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
@@ -645,12 +553,6 @@ describe('Gerar pedidos com Garantia', () => {
                 .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
 
             //Buscar segundo produto
             cy.get('#searchText')
@@ -674,35 +576,17 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(1300)
-    
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
+            cy.wait(1000)
     
             //Botão de arrastar Retirada / Entrega
             cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -718,7 +602,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(9500)
+            cy.wait(8500)
     
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -730,7 +614,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(11500)
+            cy.wait(8000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -766,13 +650,6 @@ describe('Gerar pedidos com Garantia', () => {
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
-    
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
                 .click()
@@ -794,7 +671,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -821,7 +698,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -835,10 +711,10 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
+            cy.wait(2000)
     
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
+            //Marcar Garantia separa titulo em um processo deferente
+            cy.get('#checkbox-141-2 > .md-container')
                 .click()
     
             cy.wait(400)
@@ -847,17 +723,11 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
+            cy.wait(1000)
     
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click() //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -919,14 +789,7 @@ describe('Gerar pedidos com Garantia', () => {
                 .and('contain.text','Pedido gravado com sucesso!')
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
+        it.only('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -976,7 +839,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -992,8 +854,8 @@ describe('Gerar pedidos com Garantia', () => {
     
             cy.wait(2500)
     
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
+            //Marcar Garantia separa titulo em um processo deferente
+            cy.get('#checkbox-141-2 > .md-container')
                 .click()
     
             cy.wait(400)
@@ -1132,13 +994,6 @@ describe('Gerar pedidos com Garantia', () => {
     context('Com entrega/processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -1189,7 +1044,6 @@ describe('Gerar pedidos com Garantia', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -1304,14 +1158,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -1362,7 +1208,6 @@ describe('Gerar pedidos com Garantia', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -1467,7 +1312,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.flex-gt-sm-50 > .md-primary')
                 .click() //Clicar para avançar para a próxima tela
     
-
             // tela para ESCOLHER TRANSPORTADORA
 
             cy.wait(14000)
@@ -1484,7 +1328,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-    
     
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -1531,13 +1374,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-
-            cy.wait(800)
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -1588,7 +1424,6 @@ describe('Gerar pedidos com Garantia', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -1703,13 +1538,6 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
-    
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
                 .click()
@@ -1758,7 +1586,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -1864,7 +1691,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.flex-gt-sm-50 > .md-primary')
                 .click() //Clicar para avançar para a próxima tela
 
-
             // tela para ESCOLHER TRANSPORTADORA
 
             cy.wait(14000)
@@ -1881,7 +1707,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(10000)
     
             // tela de GERAR PARCELAS
-    
     
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -1928,13 +1753,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-            
-            cy.wait(800)
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -1984,7 +1802,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -2096,13 +1913,6 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800)
-    
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
                 .click()
@@ -2152,7 +1962,6 @@ describe('Gerar pedidos com Garantia', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -2251,7 +2060,6 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.flex-gt-sm-50 > .md-primary')
                 .click() //Clicar para avançar para a próxima tela
 
-
             // tela para ESCOLHER TRANSPORTADORA
 
             cy.wait(14000)
@@ -2266,7 +2074,6 @@ describe('Gerar pedidos com Garantia', () => {
             escolherRota()
     
             cy.wait(10000)
-
     
             // tela de GERAR PARCELAS
     

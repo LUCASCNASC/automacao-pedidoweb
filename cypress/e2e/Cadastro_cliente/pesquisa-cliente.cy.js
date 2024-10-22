@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina } from '../../support/uiUtils';
+import { titulopagina } from '../../support/para_todos';
 
 const numeroCPF = "117.415.410-18"
 const numeroCNPJ = "24468163000161"

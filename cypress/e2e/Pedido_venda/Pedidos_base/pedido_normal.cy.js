@@ -1,24 +1,18 @@
-//Importando funções 
-import { titulopagina, saldodisponivel, escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/uiUtils';
+import { titulopagina, saldodisponivel } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
 
 describe('Gerar pedido normal', () => {
 
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+        titulopagina() //Validar título da aba carregada
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
-
-     
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -36,13 +30,12 @@ describe('Gerar pedido normal', () => {
             cy.get('#select_option_60 > .md-text')
                 .click({force:true})
                 
-    
             cy.wait(800)
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2500)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -125,7 +118,7 @@ describe('Gerar pedido normal', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(7000)
+            cy.wait(6000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -141,7 +134,7 @@ describe('Gerar pedido normal', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click({force:true})
     
-            cy.wait(7000)
+            cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
             
@@ -161,14 +154,6 @@ describe('Gerar pedido normal', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -191,7 +176,7 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2500)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -214,9 +199,7 @@ describe('Gerar pedido normal', () => {
             //clicar para selecionar o produto; 
             cy.contains('Cod: 1860')
                 .click({ force: true })
-    
-            cy.wait(1300)
-    
+
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
     
@@ -296,7 +279,7 @@ describe('Gerar pedido normal', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(8000)
+            cy.wait(6500)
     
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -308,7 +291,7 @@ describe('Gerar pedido normal', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(7000)
+            cy.wait(6000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -334,7 +317,7 @@ describe('Gerar pedido normal', () => {
                 .click()
     
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(9000)
     
              //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -347,14 +330,6 @@ describe('Gerar pedido normal', () => {
     context('Com frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
-
-     
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -377,7 +352,7 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2500)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -401,8 +376,6 @@ describe('Gerar pedido normal', () => {
             cy.contains('Cod: 1860')
                 .click({ force: true })
     
-            cy.wait(1300)
-    
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
     
@@ -419,7 +392,6 @@ describe('Gerar pedido normal', () => {
                 .click()
     
             cy.wait(2500)
-    
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -445,7 +417,7 @@ describe('Gerar pedido normal', () => {
     
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(14000)
+            cy.wait(12000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -456,8 +428,7 @@ describe('Gerar pedido normal', () => {
         
             escolherRota()
         
-            cy.wait(10000)
-
+            cy.wait(7500)
 
             // tela de GERAR PARCELAS
 
@@ -472,7 +443,7 @@ describe('Gerar pedido normal', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
 
-            cy.wait(9000)
+            cy.wait(6500)
 
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -488,7 +459,7 @@ describe('Gerar pedido normal', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(10000)
+            cy.wait(7000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
@@ -497,7 +468,7 @@ describe('Gerar pedido normal', () => {
                 .click()
 
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(9000)
 
             //Validar mensagem "Pedido gravado com sucesso!"
             cy.get('[ng-show="!editarPedido"]')
@@ -507,14 +478,6 @@ describe('Gerar pedido normal', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -560,8 +523,6 @@ describe('Gerar pedido normal', () => {
             //clicar para selecionar o produto; 
             cy.contains('Cod: 1860')
                 .click({ force: true })
-    
-            cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
@@ -633,7 +594,7 @@ describe('Gerar pedido normal', () => {
         
             escolherRota()
         
-            cy.wait(9500)
+            cy.wait(8000)
 
 
             // tela de GERAR PARCELAS
@@ -649,7 +610,7 @@ describe('Gerar pedido normal', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
 
-            cy.wait(9000)
+            cy.wait(7000)
 
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')

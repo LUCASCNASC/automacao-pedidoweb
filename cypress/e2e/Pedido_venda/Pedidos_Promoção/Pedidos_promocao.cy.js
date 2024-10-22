@@ -1,23 +1,18 @@
-//Importando funções 
-import { titulopagina, saldodisponivel, escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/uiUtils';
+import { titulopagina, saldodisponivel } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
 
     beforeEach(() => {
         cy.visit('/');
-        cy.clearAllSessionStorage(); 
+        cy.clearAllSessionStorage();
+        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
+        titulopagina() //Validar título da aba carregada
     })
   
     context('Sem entrega/ com promoção/ processo 9860 - caminho feliz', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -86,37 +81,19 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
             cy.wait(1300)
-    
+
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
     
             //rolagem para baixo
             cy.get('.containerSabium')
@@ -157,13 +134,6 @@ describe('Gerar pedidos com promoção', () => {
         })
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-            
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -234,19 +204,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -259,12 +217,6 @@ describe('Gerar pedidos com promoção', () => {
                 .click({force:true}) //Clicar para tirar a entrega do pedido
     
             cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
     
             //rolagem para baixo
             cy.get('.containerSabium')
@@ -328,13 +280,6 @@ describe('Gerar pedidos com promoção', () => {
         })
     
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-            
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -403,19 +348,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -426,12 +359,6 @@ describe('Gerar pedidos com promoção', () => {
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -481,13 +408,6 @@ describe('Gerar pedidos com promoção', () => {
     context('Sem entrega/ com promoção e sem promoção/ processo 9860 - caminho feliz', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -556,19 +476,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -580,12 +488,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
     
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-
             cy.wait(800)
     
             //Buscar segundo produto
@@ -612,18 +514,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1300)
     
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
-    
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
@@ -633,12 +523,6 @@ describe('Gerar pedidos com promoção', () => {
             //Botão de arrastar Retirada / Entrega
             cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             //rolagem para baixo
             cy.get('.containerSabium')
@@ -693,13 +577,6 @@ describe('Gerar pedidos com promoção', () => {
         })
 
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
-    
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-            
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -770,19 +647,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -793,12 +658,6 @@ describe('Gerar pedidos com promoção', () => {
             //Botão de arrastar Retirada / Entrega
             cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click() //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
     
             cy.wait(400)
 
@@ -826,18 +685,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1300)
     
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
-    
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
@@ -847,12 +694,6 @@ describe('Gerar pedidos com promoção', () => {
             //Botão de arrastar Retirada / Entrega
             cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
                 .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             //rolagem para baixo
             cy.get('.containerSabium')
@@ -920,13 +761,6 @@ describe('Gerar pedidos com promoção', () => {
     context('Com entrega /com promoção/ processo 9860 - caminho feliz', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -995,33 +829,11 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1096,13 +908,6 @@ describe('Gerar pedidos com promoção', () => {
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
     
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-            
-            cy.wait(800);
-    
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
                 .click()
@@ -1172,33 +977,11 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1290,13 +1073,6 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-            
-            cy.wait(800);
-    
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
                 .click()
@@ -1364,33 +1140,11 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -1469,13 +1223,6 @@ describe('Gerar pedidos com promoção', () => {
     context('Com entrega/ com promoção e sem promoção/ processo 9860 - caminho feliz', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
-            cy.wait(800);
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -1544,33 +1291,11 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
-    
-            //Desmarcar garantia - card "Serviços Vinculados"
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a montagem
 
             cy.wait(800)
     
@@ -1598,31 +1323,11 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1300)
     
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
-    
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
+                
+            cy.wait(400)
     
             //rolagem para baixo
             cy.get('.containerSabium')

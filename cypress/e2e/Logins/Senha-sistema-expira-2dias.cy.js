@@ -1,5 +1,5 @@
 //Importando funções 
-import { titulopagina } from '../../support/uiUtils';
+import { titulopagina } from '../../support/para_todos';
 
 const usuSabiumAutomacao = "usu.expira2dias"; //usuário 419
 const senhaautomacao = "321@teste";
