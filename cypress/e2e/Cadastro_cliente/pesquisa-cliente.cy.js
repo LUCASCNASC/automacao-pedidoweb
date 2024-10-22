@@ -1,4 +1,3 @@
-//Importando funções 
 import { titulopagina } from '../../support/para_todos';
 
 const numeroCPF = "117.415.410-18"
