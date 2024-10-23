@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido } from '../../../support/para_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
 
@@ -112,9 +112,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     
         cy.wait(10000)
 
-
         // tela de GERAR PARCELAS
-
 
         //Título "Formas de pagamento na Entrada"
         cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -147,17 +145,16 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
         //Botão "FINALIZAR PEDIDO"
-        cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-            .click()
+        botaoFinalizarPedido()
+
+        //Carregamento de pedido
+        finalizandoPedido()
 
         //Carregando a finalização do pedido
         cy.wait(10000)
 
-         //Validar mensagem "Pedido gravado com sucesso!"
-        cy.get('[ng-show="!editarPedido"]')
-            .should('exist')
-            .and('be.visible')
-            .and('contain.text','Pedido gravado com sucesso!')
+        //Validar mensagem "Pedido gravado com sucesso!"
+        pedidoGerado()
     })
 
     it.skip('Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
@@ -283,7 +280,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('.flex-gt-sm-50 > .md-primary')
             .click() //Clicar para avançar para a próxima tela
 
-
         // tela para ESCOLHER TRANSPORTADORA
 
         cy.wait(14000)
@@ -299,9 +295,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     
         cy.wait(10000)
 
-
         // tela de GERAR PARCELAS
-
 
         //Título "Formas de pagamento na Entrada"
         cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -334,17 +328,16 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
         //Botão "FINALIZAR PEDIDO"
-        cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-            .click()
+        botaoFinalizarPedido()
+
+        //Carregamento de pedido
+        finalizandoPedido()
 
         //Carregando a finalização do pedido
         cy.wait(21000)
 
-         //Validar mensagem "Pedido gravado com sucesso!"
-        cy.get('[ng-show="!editarPedido"]')
-            .should('exist')
-            .and('be.visible')
-            .and('contain.text','Pedido gravado com sucesso!')
+        //Validar mensagem "Pedido gravado com sucesso!"
+        pedidoGerado()
     })
     
     it.skip('Pedido de venda remota: kit 1862 0 0', () => {
@@ -451,9 +444,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     
         cy.wait(10000)
 
-
         // tela de GERAR PARCELAS
-
 
         //Título "Formas de pagamento na Entrada"
         cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -486,17 +477,16 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
         //Botão "FINALIZAR PEDIDO"
-        cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-            .click()
+        botaoFinalizarPedido()
+
+        //Carregamento de pedido
+        finalizandoPedido()
 
         //Carregando a finalização do pedido
         cy.wait(10000)
 
-         //Validar mensagem "Pedido gravado com sucesso!"
-        cy.get('[ng-show="!editarPedido"]')
-            .should('exist')
-            .and('be.visible')
-            .and('contain.text','Pedido gravado com sucesso!')
+        //Validar mensagem "Pedido gravado com sucesso!"
+        pedidoGerado()
     })
     //fazer - produto 1875 não está aparecendo
     it('Pedido de venda remota: kits 1862 0 0 e 1862 0 0 ', () => {
@@ -634,7 +624,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('.flex-gt-sm-50 > .md-primary')
             .click() //Clicar para avançar para a próxima tela
 
-
         // tela para ESCOLHER TRANSPORTADORA
 
         cy.wait(14000)
@@ -650,9 +639,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     
         cy.wait(10000)
 
-
         // tela de GERAR PARCELAS
-
 
         //Título "Formas de pagamento na Entrada"
         cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -685,16 +672,15 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
         //Botão "FINALIZAR PEDIDO"
-        cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-            .click()
+        botaoFinalizarPedido()
+
+        //Carregamento de pedido
+        finalizandoPedido()
 
         //Carregando a finalização do pedido
         cy.wait(21000)
 
          //Validar mensagem "Pedido gravado com sucesso!"
-        cy.get('[ng-show="!editarPedido"]')
-            .should('exist')
-            .and('be.visible')
-            .and('contain.text','Pedido gravado com sucesso!')
+         pedidoGerado()
     })
 })

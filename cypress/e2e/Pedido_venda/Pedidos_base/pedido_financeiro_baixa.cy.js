@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido } from '../../../support/para_pedidos';
 
 describe('Gerar pedido com financeiro na baixa', () => {
 
@@ -62,7 +62,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -134,19 +133,17 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-    
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
@@ -199,7 +196,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -329,19 +325,17 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-    
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
     })
     
@@ -397,7 +391,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -430,7 +423,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
                 .click() //Clicar para avançar para a próxima tela
     
             // tela para ESCOLHER TRANSPORTADORA
-
 
             cy.wait(12000)
 
@@ -469,9 +461,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             cy.wait(8000)
 
-
             // tela de GERAR PARCELAS
-
 
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -504,17 +494,16 @@ describe('Gerar pedido com financeiro na baixa', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
 
             //Carregando a finalização do pedido
             cy.wait(9000)
 
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
@@ -567,7 +556,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -669,9 +657,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('.flex-gt-sm-50 > .md-primary')
                 .click() //Clicar para avançar para a próxima tela
     
-    
             // tela para ESCOLHER TRANSPORTADORA
-
 
             cy.wait(12000)
 
@@ -710,9 +696,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             cy.wait(8000)
 
-
             // tela de GERAR PARCELAS
-
 
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -745,17 +729,16 @@ describe('Gerar pedido com financeiro na baixa', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
 
             //Carregando a finalização do pedido
             cy.wait(10000)
 
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
     })
 })

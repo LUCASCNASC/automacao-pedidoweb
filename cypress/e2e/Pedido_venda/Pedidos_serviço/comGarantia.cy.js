@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com Garantia', () => {
 
@@ -12,7 +12,7 @@ describe('Gerar pedidos com Garantia', () => {
 
     context('Sem entrega/processo 9860 - caminho feliz', () => {
 
-        it.only('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -140,17 +140,16 @@ describe('Gerar pedidos com Garantia', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
@@ -317,17 +316,16 @@ describe('Gerar pedidos com Garantia', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(13000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
@@ -458,17 +456,16 @@ describe('Gerar pedidos com Garantia', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
@@ -635,17 +632,16 @@ describe('Gerar pedidos com Garantia', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
@@ -776,17 +772,16 @@ describe('Gerar pedidos com Garantia', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(8000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
@@ -959,23 +954,22 @@ describe('Gerar pedidos com Garantia', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     })
 
     context('Com entrega/processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -1063,7 +1057,7 @@ describe('Gerar pedidos com Garantia', () => {
 
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(25000)
+            cy.wait(14000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -1078,7 +1072,7 @@ describe('Gerar pedidos com Garantia', () => {
         
             escolherRota()
         
-            cy.wait(12000)
+            cy.wait(7500)
 
             // tela de GERAR PARCELAS
     
@@ -1086,7 +1080,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
     
-            cy.wait(8500)
+            cy.wait(8000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -1102,22 +1096,21 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(9000)
+            cy.wait(10000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
@@ -1143,7 +1136,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(3000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1187,29 +1180,12 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
     
             cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
 
             cy.wait(400)
 
@@ -1235,35 +1211,13 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(1300)
-    
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //rolagem para baixo
             cy.get('.containerSabium')
@@ -1288,7 +1242,7 @@ describe('Gerar pedidos com Garantia', () => {
         
             escolherRota()
         
-            cy.wait(10000)
+            cy.wait(9000)
 
             // tela de GERAR PARCELAS
     
@@ -1323,17 +1277,16 @@ describe('Gerar pedidos com Garantia', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
@@ -1359,7 +1312,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(3000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1405,29 +1358,13 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('#checkbox-140-1 > .md-container')
                 .click()
     
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
             cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //rolagem para baixo
             cy.get('.containerSabium')
@@ -1456,8 +1393,7 @@ describe('Gerar pedidos com Garantia', () => {
         
             escolherRota()
         
-            cy.wait(10000)
-
+            cy.wait(9000)
 
             // tela de GERAR PARCELAS
     
@@ -1486,17 +1422,16 @@ describe('Gerar pedidos com Garantia', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
@@ -1522,7 +1457,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(3000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1568,29 +1503,13 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('#checkbox-140-1 > .md-container')
                 .click()
     
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
             cy.wait(400)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
+            cy.wait(1000)
 
             //Buscar segundo produto
             cy.get('#searchText')
@@ -1614,35 +1533,13 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(1300)
-    
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //rolagem para baixo
             cy.get('.containerSabium')
@@ -1697,22 +1594,21 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(8000)
+            cy.wait(9000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(11000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
@@ -1738,7 +1634,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(3000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1778,9 +1674,9 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
+            cy.wait(1000)
     
-            //Marcar Garantia separa titulo em um processo deferente
+            //Marcar Garantia separa titulo em um processo diferente
             cy.get('#checkbox-141-2 > .md-container')
                 .click()
     
@@ -1790,19 +1686,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //rolagem para baixo
             cy.get('.containerSabium')
@@ -1833,7 +1717,6 @@ describe('Gerar pedidos com Garantia', () => {
         
             cy.wait(10000)
 
-
             // tela de GERAR PARCELAS
     
             //Botão "GERAR PARCELAS"
@@ -1861,17 +1744,16 @@ describe('Gerar pedidos com Garantia', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(11000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
@@ -1897,7 +1779,7 @@ describe('Gerar pedidos com Garantia', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(3000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1937,9 +1819,9 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(2500)
+            cy.wait(1000)
     
-            //Marcar Garantia separa titulo em um processo deferente
+            //Marcar Garantia separa titulo em um processo diferente
             cy.get('#checkbox-141-2 > .md-container')
                 .click()
     
@@ -1949,17 +1831,7 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click() //Clicar para tirar a entrega do pedido
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Buscar segundo produto
             cy.get('#searchText')
@@ -1983,33 +1855,11 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(1300)
-    
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            //Botão de arrastar Retirada / Entrega
-            //cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-            //    .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
     
             cy.wait(400)
     
@@ -2025,7 +1875,7 @@ describe('Gerar pedidos com Garantia', () => {
 
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(14000)
+            cy.wait(16000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -2066,22 +1916,21 @@ describe('Gerar pedidos com Garantia', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
     
-            cy.wait(8000)
+            cy.wait(9000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(11000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     })
 })

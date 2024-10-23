@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com Mão de obra', () => {
 
@@ -141,17 +141,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(11000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+             pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
@@ -319,17 +318,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(11000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
@@ -460,17 +458,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(11000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
@@ -637,17 +634,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
@@ -772,17 +768,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(11000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
@@ -943,17 +938,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(11000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     })
 
@@ -1096,17 +1090,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
         
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
@@ -1274,17 +1267,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
@@ -1422,17 +1414,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
@@ -1631,17 +1622,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(14500)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
@@ -1783,17 +1773,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(13000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })   
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
@@ -1961,17 +1950,16 @@ describe('Gerar pedidos com Mão de obra', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     })
 })

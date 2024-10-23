@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido } from '../../../support/para_pedidos';
 
 describe('Gerar pedido normal', () => {
 
@@ -62,8 +62,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                      
+         
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({force: true})
@@ -74,7 +73,7 @@ describe('Gerar pedido normal', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click({force: true})
     
-            cy.wait(2500)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -136,21 +135,19 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(6000)
     
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR          
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click({force:true})
+            botaoFinalizarPedido()
     
+            //Carregamento de pedido
+            finalizandoPedido()
+
             //Carregando a finalização do pedido
             cy.wait(9000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
@@ -202,7 +199,6 @@ describe('Gerar pedido normal', () => {
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-    
             cy.wait(800)
                       
             //Selecionar a voltagem do produto
@@ -310,20 +306,18 @@ describe('Gerar pedido normal', () => {
             cy.wait(7000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(9000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     })
 
@@ -377,7 +371,6 @@ describe('Gerar pedido normal', () => {
                 .click({ force: true })
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -432,7 +425,6 @@ describe('Gerar pedido normal', () => {
 
             // tela de GERAR PARCELAS
 
-
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
@@ -464,17 +456,16 @@ describe('Gerar pedido normal', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
 
             //Carregando a finalização do pedido
             cy.wait(9000)
 
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
@@ -525,7 +516,6 @@ describe('Gerar pedido normal', () => {
                 .click({ force: true })
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
     
             cy.wait(800)
                       
@@ -596,9 +586,7 @@ describe('Gerar pedido normal', () => {
         
             cy.wait(8000)
 
-
             // tela de GERAR PARCELAS
-
 
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -631,17 +619,16 @@ describe('Gerar pedido normal', () => {
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
 
             //Carregando a finalização do pedido
             cy.wait(10000)
 
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
     })
 })

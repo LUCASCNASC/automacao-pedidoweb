@@ -19,7 +19,7 @@ export function escolherRota (selector) {
         .scrollIntoView()
         .click()
 
-    cy.wait(300)
+    cy.wait(400)
 
     //Pesquisar rota
     cy.get('#txtBuscaRotaModal')
@@ -29,7 +29,7 @@ export function escolherRota (selector) {
     cy.get('md-icon[ng-click="pesquisar()"]')
         .click()
 
-    cy.wait(300)
+    cy.wait(400)
 
     //Escolher rota após pesquisarmos
     cy.get('v-pane-header.ng-scope > div')
@@ -39,7 +39,7 @@ export function escolherRota (selector) {
     cy.get(':nth-child(4) > .padding-10-0')
         .click() //clicar na rota 1
 
-    cy.wait(300)
+    cy.wait(400)
 
     //Clicar para avançar para a tela de GERAR PARCELAS
     cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
@@ -75,7 +75,7 @@ export function escolherClientePedido (selector) {
 export function pedidoGerado (selector) {
 
     //Card pedido gravado com sucesso - Título Pedido Concluído
-    cy.get('.md-content-overflow > :nth-child(1) > .md-toolbar-tools > .flex')
+    cy.get('.md-toolbar-tools h2.flex')
         .should('exist')
         .and('be.visible')
         .and('contain','Pedido Concluído')
@@ -96,7 +96,7 @@ export function pedidoGerado (selector) {
     cy.get('.padding-10 > .layout-wrap > .flex-sm-50 > :nth-child(1)')
         .should('exist')
         .and('be.visible')
-        .and('contain','Pedido gerado')
+        .and('contain','Pedido gerado:')
         
     //Card pedido gravado com sucesso - Pedido gravado com sucesso
     cy.get('[ng-show="!editarPedido"]')
@@ -122,5 +122,61 @@ export function pedidoGerado (selector) {
         .and('be.visible')
         .and('contain', 'Ok')
         .and('not.have.attr', 'disabled')
+}
+
+export function botaoFinalizarPedido (selector) {
+
+    //Botão FINALIZAR PEDIDO
+    cy.get('button.md-primary.btn-rounded.md-raised.btn-block.md-default-theme.md-ink-ripple[type="button"][ng-click="confirmarPedido()"]')
+        .scrollIntoView()
+        .wait(200)
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .should('have.text', 'Finalizar pedido')
+
+    //Clicar para finalizar pedido
+    cy.get('button[ng-click="confirmarPedido()"]')
+        .click({force:true})
+}
+
+export function finalizandoPedido (selector) {
+
+    //Card pedido concluído (carregando finalização do pedido) - Título Pedido Concluído
+    cy.get('.md-toolbar-tools h2.flex')
+        .should('exist')
+        .and('be.visible')
+        .and('contain','Pedido Concluído')
+
+    //Card pedido concluído (carregando finalização do pedido) - X para sair da aba
+    cy.get('.md-content-overflow > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.have.attr', 'disabled')
+
+    //Card pedido concluído (carregando finalização do pedido) - girando carregar
+    cy.get('.layout-column > .md-accent')
+        .should('exist')
+        .and('exist')
+
+    //Card pedido concluído (carregando finalização do pedido) - Mensagem Finalizando pedido...
+    cy.get('.layout-column > h4')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Finalizando pedido...')
+
+    //Card pedido concluído (carregando finalização do pedido) - ATENÇÃO
+    cy.get('.layout-column > p > span')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','ATENÇÃO:')
+        .and('have.css', 'color', 'rgb(204, 0, 0)')
+
+    //Card pedido concluído (carregando finalização do pedido) -  Não atualize a página ...
+    cy.get('.layout-column > p')
+        .should('exist')
+        .and('be.visible')
+        .and('contain','Não atualize a página enquanto o pedido estiver sendo finalizado.')
+        .and('have.css', 'color', 'rgb(204, 0, 0)')
 
 }

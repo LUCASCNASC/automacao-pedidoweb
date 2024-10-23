@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
 
@@ -120,17 +120,16 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(7500)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
@@ -266,17 +265,16 @@ describe('Gerar pedidos com promoção', () => {
                 .scrollIntoView()
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            //Validar mensagem "Pedido gravado com sucesso!"
+            pedidoGerado()
         })
     
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
@@ -391,17 +389,16 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(7500)
     
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
     })
 
@@ -536,7 +533,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(14000)
 
-
             //Tela de PARCELAS
 
             //Clicar em GERAR PARCELAS
@@ -564,16 +560,15 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(9000)
             
             //Clicar para finalizar o pedido
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
 
             cy.wait(10000)
     
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
 
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
@@ -705,7 +700,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.flex-gt-sm-50 > .md-primary')
                 .click() //Clicar para avançar para a próxima tela
 
-    
             // tela de GERAR PARCELAS
     
             cy.wait(900)
@@ -744,17 +738,16 @@ describe('Gerar pedidos com promoção', () => {
                 .scrollIntoView()
     
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(10000)
     
              //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+             pedidoGerado()
         })
     })
 
@@ -849,7 +842,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(12000)
 
-
             // tela para ESCOLHER TRANSPORTADORA
 
             cy.wait(14000)
@@ -891,19 +883,17 @@ describe('Gerar pedidos com promoção', () => {
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-    
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click({force:true})
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(9000)
     
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-               .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
@@ -1014,7 +1004,6 @@ describe('Gerar pedidos com promoção', () => {
 
             // tela de GERAR PARCELAS
 
-
             //Escolher forma de pagamento na entrada
             cy.get('#select_929')
                 .click({force:true})
@@ -1028,7 +1017,6 @@ describe('Gerar pedidos com promoção', () => {
             //Botão GERAR PAGAMENTO
             cy.get('.white > .layout-align-center-center > .md-primary')
                 .click({force:true})
-
 
             //Clicar no "GERAR PARCELAS"
             cy.get('.layout-wrap > [style="padding: 0 5px"] > .md-primary')
@@ -1056,19 +1044,17 @@ describe('Gerar pedidos com promoção', () => {
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-    
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click({force:true})
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(9000)
     
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-               .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
 
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
@@ -1160,7 +1146,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(14000)
 
-
             // tela para ESCOLHER TRANSPORTADORA
 
             cy.wait(14000)
@@ -1176,9 +1161,7 @@ describe('Gerar pedidos com promoção', () => {
         
             cy.wait(10000)
 
-
             // tela de GERAR PARCELAS
-
 
             //Clicar no botão GERAR PARCELAS
             cy.get('.layout-wrap > [style="padding: 0 5px"] > .md-primary')
@@ -1202,21 +1185,19 @@ describe('Gerar pedidos com promoção', () => {
 
             cy.wait(8000)
 
-
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
             //Botão "FINALIZAR PEDIDO"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
     
             //Carregando a finalização do pedido
             cy.wait(9000)
     
              //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+             pedidoGerado()
         })  
     }) 
 
@@ -1341,7 +1322,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(14000)
 
-
             // tela para ESCOLHER TRANSPORTADORA
 
             cy.wait(14000)
@@ -1356,7 +1336,6 @@ describe('Gerar pedidos com promoção', () => {
             escolherRota()
         
             cy.wait(10000)
-
 
             //Tela de PARCELAS
 
@@ -1385,16 +1364,15 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(9000)
             
             //Clicar para finalizar o pedido
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
 
             cy.wait(10000)
     
             //Validar mensagem "Pedido gravado com sucesso!"
-            cy.get('[ng-show="!editarPedido"]')
-                .should('exist')
-                .and('be.visible')
-                .and('contain.text','Pedido gravado com sucesso!')
+            pedidoGerado()
         })
     })
 })

@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido } from '../../../support/para_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
 
@@ -61,7 +61,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-
         cy.wait(800)
                   
         //Selecionar a voltagem do produto
@@ -115,9 +114,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     
         cy.wait(10000)
 
-
         // tela de GERAR PARCELAS
-
 
         //Título "Formas de pagamento na Entrada"
         cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -150,16 +147,15 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
         //Botão "FINALIZAR PEDIDO"
-        cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-            .click()
+        botaoFinalizarPedido()
+
+        //Carregamento de pedido
+        finalizandoPedido()
 
         //Carregando a finalização do pedido
         cy.wait(10000)
 
-         //Validar mensagem "Pedido gravado com sucesso!"
-        cy.get('[ng-show="!editarPedido"]')
-            .should('exist')
-            .and('be.visible')
-            .and('contain.text','Pedido gravado com sucesso!')
+        //Validar mensagem "Pedido gravado com sucesso!"
+        pedidoGerado()
     })
 })
