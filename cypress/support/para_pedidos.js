@@ -51,10 +51,10 @@ export function escolherClientePedido (selector) {
 
     //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
     cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
-        .wait(1300)
+        .wait(500)
         .type('48976249089 {downArrow}')
 
-    cy.wait(800)
+    cy.wait(200)
 
     //clicar na lupa de pesquisa de clientes
     cy.get('.md-block > .ng-binding')
@@ -62,7 +62,7 @@ export function escolherClientePedido (selector) {
         .and('be.visible')
         .click()
 
-    cy.wait(2000)
+    cy.wait(1500)
 
     //após a pesquisa encontrar o cliente, vamos selecionar ele
     cy.get('.md-3-line > div.md-button > .md-no-style')
@@ -252,5 +252,61 @@ export function tirarMontagem (selector) {
         .and('be.visible')
         .and('not.be.disabled')
         .and('have.text', ' Montagem ')
+        .click({force:true})
+}
+
+//Botão AVANÇAR, da tela antes de finalizar o pedido
+export function avancarFinal (selector) {
+
+    // //Validando botão avançar
+    // cy.get('button[type="button"][ng-click="avancarParaEtapa4()"]')
+
+    //Botão "AVANÇAR"
+    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('contain','Avançar')
+
+    //Botão "AVANÇAR" - clicar
+    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+        .click({force:true})
+}
+
+//Botão "GERAR PARCELAS"
+export function botaoGerarParcelas (selector) {
+
+    //Botão "GERAR PARCELAS" - validações
+    cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text', 'Gerar parcelas')
+
+    //Botão "GERAR PARCELAS" - clicar
+    cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
+        .click({force:true})
+}
+
+export function processoVendaPrincipal (selector) {
+
+    //clicar para aparecer as opções de processo
+    cy.get('#select_value_label_4 > .md-select-icon')
+    .should('exist')
+    .and('be.visible')
+    .and('not.be.disabled')
+    .click()
+
+    //rolar para o meio das opções de processo
+    cy.get('#select_listbox_12')
+        .should('exist')
+        .and('be.visible')
+        .scrollTo('center')
+
+    //selecionar processo de venda "9860"
+    cy.get('#select_option_60 > .md-text')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
         .click({force:true})
 }

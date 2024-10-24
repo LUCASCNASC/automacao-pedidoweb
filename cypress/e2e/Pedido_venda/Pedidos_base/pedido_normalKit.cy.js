@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas } from '../../../support/para_pedidos';
 
 describe('Gerar pedido normal', () => {
 
@@ -96,11 +96,8 @@ describe('Gerar pedido normal', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(500)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(7000)
     
@@ -112,17 +109,15 @@ describe('Gerar pedido normal', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
-            cy.wait(400)
+            cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
             
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -131,7 +126,6 @@ describe('Gerar pedido normal', () => {
             //Carregando a finalização do pedido
             cy.wait(7500)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     })
@@ -229,11 +223,8 @@ describe('Gerar pedido normal', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
 
-            cy.wait(400)
-
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
 
             cy.wait(8000)
 
@@ -245,17 +236,15 @@ describe('Gerar pedido normal', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
 
-            cy.wait(800)
+            cy.wait(400)
 
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
 
             cy.wait(9000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -264,7 +253,6 @@ describe('Gerar pedido normal', () => {
             //Carregando a finalização do pedido
             cy.wait(10000)
 
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     })

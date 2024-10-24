@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
 
@@ -101,8 +101,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(9000)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(8000)
     
@@ -110,7 +109,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(800)
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -119,7 +117,6 @@ describe('Gerar pedidos com promoção', () => {
             //Carregando a finalização do pedido
             cy.wait(7500)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     
@@ -228,9 +225,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .scrollIntoView()
-                .click()
+            avancarFinal()
     
             cy.wait(6000)
     
@@ -246,7 +241,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
                 .scrollIntoView()
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -255,7 +249,6 @@ describe('Gerar pedidos com promoção', () => {
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     
@@ -348,8 +341,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(800)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(6000)
     
@@ -361,7 +353,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(800)
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -370,7 +361,6 @@ describe('Gerar pedidos com promoção', () => {
             //Carregando a finalização do pedido
             cy.wait(7500)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     })
@@ -518,12 +508,10 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(400)
 
             //Avançar para finalizar o pedido
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click({force:true})
+            avancarFinal()
 
             cy.wait(9000)
             
-            //Clicar para finalizar o pedido
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -531,7 +519,6 @@ describe('Gerar pedidos com promoção', () => {
 
             cy.wait(10000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
 
@@ -674,9 +661,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .scrollIntoView()
-                .click()
+            avancarFinal()
     
             cy.wait(6000)
     
@@ -692,7 +677,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
                 .scrollIntoView()
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -701,7 +685,6 @@ describe('Gerar pedidos com promoção', () => {
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
              pedidoGerado()
         })
     })
@@ -806,8 +789,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(10000)
     
             //Clicar no "GERAR PARCELAS"
-            cy.get('.layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
 
             cy.wait(7500)
 
@@ -821,17 +803,15 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
 
-            cy.wait(800)
+            cy.wait(400)
 
             //Clicar para avançar para a tela de finalizar pedido
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
             
             cy.wait(9000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -840,7 +820,6 @@ describe('Gerar pedidos com promoção', () => {
             //Carregando a finalização do pedido
             cy.wait(9000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     
@@ -958,8 +937,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click({force:true})
 
             //Clicar no "GERAR PARCELAS"
-            cy.get('.layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
 
             cy.wait(7500)
 
@@ -973,17 +951,14 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
 
-            cy.wait(800)
+            cy.wait(400)
 
-            //Clicar para avançar para a tela de finalizar pedido
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
             
             cy.wait(9000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -992,7 +967,6 @@ describe('Gerar pedidos com promoção', () => {
             //Carregando a finalização do pedido
             cy.wait(9000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
 
@@ -1094,8 +1068,7 @@ describe('Gerar pedidos com promoção', () => {
             // tela de GERAR PARCELAS
 
             //Clicar no botão GERAR PARCELAS
-            cy.get('.layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
 
             cy.wait(8000)
 
@@ -1110,14 +1083,12 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
 
             //Clicar no botão AVANÇAR, para ir para a última tela, para finalizar
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
 
             cy.wait(8000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -1126,7 +1097,6 @@ describe('Gerar pedidos com promoção', () => {
             //Carregando a finalização do pedido
             cy.wait(9000)
     
-             //Validar mensagem "Pedido gravado com sucesso!"
              pedidoGerado()
         })  
     }) 
@@ -1261,8 +1231,7 @@ describe('Gerar pedidos com promoção', () => {
             //Tela de PARCELAS
 
             //Clicar em GERAR PARCELAS
-            cy.get('.layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
             
             cy.wait(6500)
 
@@ -1279,12 +1248,10 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(400)
 
             //Avançar para finalizar o pedido
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click({force:true})
+            avancarFinal()
 
             cy.wait(9000)
             
-            //Clicar para finalizar o pedido
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -1292,7 +1259,6 @@ describe('Gerar pedidos com promoção', () => {
 
             cy.wait(10000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     })

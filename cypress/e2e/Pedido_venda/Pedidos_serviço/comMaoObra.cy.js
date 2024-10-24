@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, avancarFinal, botaoGerarParcelas } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com Mão de obra', () => {
 
@@ -96,11 +96,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(7500)
     
@@ -112,17 +109,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal
     
             cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -130,8 +125,7 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Carregando a finalização do pedido
             cy.wait(11000)
-    
-            //Validar mensagem "Pedido gravado com sucesso!"
+
              pedidoGerado()
         })
 
@@ -253,11 +247,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(7500)
     
@@ -269,17 +260,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(8500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            //Botão "FINALIZAR PEDIDO"
+
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -288,7 +277,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(11000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     
@@ -377,11 +365,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(7500)
     
@@ -393,17 +378,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(8500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -412,7 +395,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(11000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
 
@@ -531,11 +513,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(7500)
     
@@ -547,17 +526,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(8500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -566,7 +543,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     
@@ -650,11 +626,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(7500)
     
@@ -666,17 +639,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(8500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -685,7 +656,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(11000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
 
@@ -799,11 +769,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(7500)
     
@@ -815,17 +782,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(8500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -834,7 +799,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(11000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     })
@@ -938,11 +902,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(8000)
     
@@ -954,17 +915,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(9000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -973,7 +932,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
         
@@ -1102,11 +1060,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(9500)
     
@@ -1118,17 +1073,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(10500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -1136,8 +1089,7 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             //Carregando a finalização do pedido
             cy.wait(12000)
-    
-            //Validar mensagem "Pedido gravado com sucesso!"
+
             pedidoGerado()
         })
 
@@ -1236,11 +1188,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(9000)
     
@@ -1252,17 +1201,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(10500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -1271,7 +1218,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
 
@@ -1399,11 +1345,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(10000)
     
@@ -1415,17 +1358,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(13000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -1434,7 +1375,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(14500)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
 
@@ -1536,11 +1476,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(9000)
     
@@ -1552,17 +1489,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(9000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -1571,7 +1506,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(13000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })   
 
@@ -1698,11 +1632,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
                 .scrollIntoView()
     
-            cy.wait(400)
-    
             //Botão "GERAR PARCELAS"
-            cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
     
             cy.wait(8000)
     
@@ -1714,17 +1645,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
-            cy.wait(800)
+            cy.wait(400)
     
             //Botão "AVANÇAR"
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            avancarFinal()
     
             cy.wait(9000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
-            //Botão "FINALIZAR PEDIDO"
             botaoFinalizarPedido()
 
             //Carregamento de pedido
@@ -1733,7 +1662,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Carregando a finalização do pedido
             cy.wait(12000)
     
-            //Validar mensagem "Pedido gravado com sucesso!"
             pedidoGerado()
         })
     })
