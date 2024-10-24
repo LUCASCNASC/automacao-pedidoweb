@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
@@ -78,29 +78,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-139-0 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
+                    
+                tirarEntrega()
 
                 cy.wait(400)
 
@@ -221,23 +209,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-139-0 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
@@ -259,33 +241,22 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
 
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(400)
+                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar)
         
-                //Botão de arrastar Retirada / Entrega
-                cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-        
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 cy.wait(10000)
 
@@ -400,7 +371,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-139-0 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
                 cy.get('#checkbox-143-1 > .md-container')
@@ -412,17 +383,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
+                tirarEntrega()
 
                 cy.wait(400)
 
@@ -543,25 +504,19 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-139-0 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1300)
+                tirarEntrega()
 
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -581,9 +536,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -591,17 +545,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1300)
-        
-                //Botão de arrastar Retirada / Entrega
-                cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -716,35 +666,23 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-139-0 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1300)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -859,23 +797,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-139-0 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente"
                 cy.get('#checkbox-144-2 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
@@ -897,9 +829,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -907,17 +838,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1300)
-        
-                //Botão de arrastar Retirada / Entrega
-                cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -989,7 +916,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Função para escolher cliente para pedido
                 escolherClientePedido()
 
-                cy.wait(4000)
+                cy.wait(2000)
 
                 //Campo "Buscar produtos"
                 cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1032,35 +959,23 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-140-1 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(1300)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
+                    
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -1175,25 +1090,19 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-140-1 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1300)
+                tirarEntrega()
 
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -1213,9 +1122,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -1223,17 +1131,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1300)
-        
-                //Botão de arrastar Retirada / Entrega
-                cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -1348,35 +1252,23 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-140-1 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1300)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -1491,24 +1383,19 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-140-1 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1300)
+                tirarEntrega()
 
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-                cy.wait(400)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -1528,9 +1415,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -1538,17 +1424,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1300)
-        
-                //Botão de arrastar Retirada / Entrega
-                cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -1663,35 +1545,23 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-140-1 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
                 cy.get('#checkbox-144-2 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1300)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -1771,7 +1641,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     .wait(1300)
                     .type('1860')
             
-                cy.wait(2500)
+                cy.wait(2000)
 
                 //Preenchendo campo para pesquisar produto
                 cy.contains('Cod: 1860')
@@ -1804,31 +1674,18 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-140-1 > .md-container')
                     .click()
 
-                cy.wait(800)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
                 cy.get('#checkbox-144-2 > .md-container')
-                    .click()
-
-                cy.wait(400)
 
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                tirarEntrega()
 
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
-
-                cy.wait(400)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -1848,9 +1705,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -1858,17 +1714,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1000)
-        
-                //Botão de arrastar Retirada / Entrega
-                cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -1983,35 +1835,23 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-141-2 > .md-container')
                     .click()
 
-                cy.wait(400)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -2127,23 +1967,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-141-2 > .md-container')
                     .click()
 
-                cy.wait(400)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
@@ -2165,27 +1999,22 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
-        
-                cy.wait(400)
         
                 //Botão "OK" - Serviços Vinculados - segundo produto
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                //Botão de arrastar Retirada / Entrega
-                cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -2300,35 +2129,23 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-141-2 > .md-container')
                     .click()
 
-                cy.wait(400)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
-
-                cy.wait(500)
-
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -2443,23 +2260,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-141-2 > .md-container')
                     .click()
 
-                cy.wait(400)
+                cy.wait(300)
 
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
@@ -2481,9 +2292,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -2491,17 +2301,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1000)
-        
-                //Botão de arrastar Retirada / Entrega
-                cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -2626,23 +2432,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
-
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -2741,8 +2537,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.wait(1300)
 
                 // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
                         
                 //Selecionar a voltagem do produto
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -2757,6 +2551,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-141-2 > .md-container')
                     .click()
 
+                cy.wait(300)
+
                 //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
                 cy.get('#checkbox-144-2 > .md-container')
                     .click()
@@ -2765,11 +2561,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
-
-                //Botão de arrastar Retirada / Entrega
-                cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
@@ -2791,30 +2583,22 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
-                    .click()
-        
-                cy.wait(400)
         
                 //Botão "OK" - Serviços Vinculados - segundo produto
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1300)
-        
-                //Botão de arrastar Retirada / Entrega
-                cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                    .click({force:true}) //Clicar para tirar a entrega do pedido
+                tirarEntrega()
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela de GERAR PARCELAS
 
@@ -2938,17 +2722,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -3082,13 +2864,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -3108,21 +2888,20 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
                 //Botão "OK" - Serviços Vinculados - segundo produto
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                cy.wait(1000)
+
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -3256,23 +3035,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(1000)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -3406,13 +3177,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -3432,9 +3201,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -3442,11 +3210,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -3580,23 +3348,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-144-2 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(1000)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -3730,13 +3490,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-144-2 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(400)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -3756,9 +3514,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -3766,7 +3523,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
@@ -3904,23 +3661,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(1000)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
 
                 cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -4054,13 +3803,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -4080,9 +3827,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -4090,11 +3836,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -4228,23 +3974,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
                 cy.wait(400)
 
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
-
-                cy.wait(400)
-
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -4378,13 +4116,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(400)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -4404,9 +4140,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -4414,7 +4149,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
@@ -4552,23 +4287,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-144-2 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
                 cy.wait(400)
 
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
-
-                cy.wait(400)
-
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -4702,19 +4429,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-144-2 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(400)
-
-                //rolagem para baixo
-                cy.get('.containerSabium')
-                    .scrollTo("center")
-
-                cy.wait(400)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -4734,9 +4453,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -4882,17 +4600,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -5026,13 +4742,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-142-0 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(400)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -5052,9 +4766,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -5062,11 +4775,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -5200,17 +4913,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -5332,7 +5043,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //clicar no botão "ADICIONAR", para adicionar produto
                 botãoAdicionar()
 
-                cy.wait(100)
+                cy.wait(1000)
 
                 //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
                 cy.get('#checkbox-141-2 > .md-container')
@@ -5344,13 +5055,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-143-1 > .md-container')
                     .click()
 
-                cy.wait(400)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(400)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -5370,9 +5079,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -5380,11 +5088,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -5518,17 +5226,15 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('#checkbox-144-2 > .md-container')
                     .click()
 
-                cy.wait(1000)
-
                 //Botão "OK" - Serviços Vinculados
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                cy.wait(800)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 
@@ -5668,7 +5374,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-                cy.wait(1000)
+                cy.wait(800)
 
                 //Buscar segundo produto
                 cy.get('#searchText')
@@ -5688,9 +5394,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click()
         
-                //clicar no botão "ADICIONAR", para adicionar o segundo produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                //clicar no botão "ADICIONAR", para adicionar produto
+                botãoAdicionar()
         
                 cy.wait(1000)
         
@@ -5698,11 +5403,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                     .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
         
-                cy.wait(1000)
+                cy.wait(400)
 
                 //Botão "AVANÇAR"
                 cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+                    .click({force:true}) //Clicar para avançar para a próxima tela
 
                 // tela para ESCOLHER TRANSPORTADORA
 

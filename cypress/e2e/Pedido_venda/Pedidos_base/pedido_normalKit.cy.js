@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem } from '../../../support/para_pedidos';
 
 describe('Gerar pedido normal', () => {
 
@@ -78,11 +78,9 @@ describe('Gerar pedido normal', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
+            tirarEntrega()
+
+            tirarMontagem()
     
             cy.wait(400)
     
@@ -163,7 +161,7 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -204,17 +202,11 @@ describe('Gerar pedido normal', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(800)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
-    
             cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -229,7 +221,7 @@ describe('Gerar pedido normal', () => {
         
             escolherRota()
         
-            cy.wait(10000)
+            cy.wait(8000)
 
             // tela de GERAR PARCELAS
 

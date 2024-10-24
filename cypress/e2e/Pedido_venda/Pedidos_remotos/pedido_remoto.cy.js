@@ -41,7 +41,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
             .wait(1300)
             .type('1860')
        
-        cy.wait(2500)
+        cy.wait(2000)
 
         //Preenchendo campo para pesquisar produto
         cy.contains('Cod: 1860')
@@ -84,17 +84,11 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
             .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-        cy.wait(1300)
-
-        //rolagem para baixo
-        cy.get('.containerSabium')
-            .scrollTo("center")
-
         cy.wait(400)
 
         //Botão "AVANÇAR"
         cy.get('.flex-gt-sm-50 > .md-primary')
-            .click() //Clicar para avançar para a próxima tela
+            .click({force:true}) //Clicar para avançar para a próxima tela
 
         // tela para ESCOLHER TRANSPORTADORA
 
@@ -179,7 +173,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         //Função para escolher cliente para pedido
         escolherClientePedido()
 
-        cy.wait(4000)
+        cy.wait(2000)
 
         //Campo "Buscar produtos"
         cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -232,7 +226,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
             .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-        cy.wait(1300)
+        cy.wait(800)
 
         //Buscar segundo produto
         cy.get('#searchText')
@@ -272,11 +266,11 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
             .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-        cy.wait(5000)
+        cy.wait(400)
 
         //Botão "AVANÇAR"
         cy.get('.flex-gt-sm-50 > .md-primary')
-            .click() //Clicar para avançar para a próxima tela
+            .click({force:true}) //Clicar para avançar para a próxima tela
 
         // tela para ESCOLHER TRANSPORTADORA
 
@@ -361,7 +355,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         //Função para escolher cliente para pedido
         escolherClientePedido()
 
-        cy.wait(4000)
+        cy.wait(2000)
 
         //Campo "Buscar produtos"
         cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -414,17 +408,11 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
             .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-        cy.wait(1300)
-
-        //rolagem para baixo
-        cy.get('.containerSabium')
-            .scrollTo("center")
-
         cy.wait(400)
 
         //Botão "AVANÇAR"
         cy.get('.flex-gt-sm-50 > .md-primary')
-            .click() //Clicar para avançar para a próxima tela
+            .click({force:true}) //Clicar para avançar para a próxima tela
 
         // tela para ESCOLHER TRANSPORTADORA
 
@@ -509,7 +497,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         //Função para escolher cliente para pedido
         escolherClientePedido()
 
-        cy.wait(4000)
+        cy.wait(2000)
 
         //Campo "Buscar produtos"
         cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -562,7 +550,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
             .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-        cy.wait(1300)
+        cy.wait(800)
 
         //Buscar segundo produto
         cy.get('#searchText')
@@ -596,29 +584,17 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('[style="padding: 0px 5px;"] > .md-primary')
             .click()
 
-        cy.wait(2500)
-
-        //Desmarcar garantia - card "Serviços Vinculados"
-        cy.get('#checkbox-141-2 > .md-container')
-            .click()
-
-        cy.wait(800)
-
-        //Desmarcar Mão de Obra - card "Serviços Vinculados"
-        cy.get('#checkbox-144-2 > .md-container')
-            .click()
-
-        cy.wait(400)
+        cy.wait(1000)
 
         //Botão "OK" - Serviços Vinculados
         cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
             .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
 
-        cy.wait(5000)
+        cy.wait(400)
 
         //Botão "AVANÇAR"
         cy.get('.flex-gt-sm-50 > .md-primary')
-            .click() //Clicar para avançar para a próxima tela
+            .click({force:true}) //Clicar para avançar para a próxima tela
 
         // tela para ESCOLHER TRANSPORTADORA
 

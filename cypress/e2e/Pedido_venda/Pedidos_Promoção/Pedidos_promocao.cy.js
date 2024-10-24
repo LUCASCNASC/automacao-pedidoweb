@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
 
@@ -35,7 +35,7 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -86,23 +86,15 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
+            tirarEntrega()
 
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
+            tirarMontagem()
     
             cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             // tela de PAGAMENTO
     
@@ -154,7 +146,7 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -207,23 +199,15 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
+            tirarEntrega()
+
+            tirarMontagem()
     
             cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             // tela de GERAR PARCELAS
     
@@ -298,7 +282,7 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -348,24 +332,16 @@ describe('Gerar pedidos com promoção', () => {
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(400)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
+                
+            tirarEntrega()
+
+            tirarMontagem()
     
             cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             // tela de PAGAMENTO
     
@@ -424,7 +400,7 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -474,12 +450,10 @@ describe('Gerar pedidos com promoção', () => {
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
+                
+            tirarEntrega()
+
+            tirarMontagem()
     
             cy.wait(800)
     
@@ -510,22 +484,16 @@ describe('Gerar pedidos com promoção', () => {
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
+                
+            tirarEntrega()
+
+            tirarMontagem()
     
             cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             cy.wait(14000)
 
@@ -590,7 +558,7 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -642,12 +610,10 @@ describe('Gerar pedidos com promoção', () => {
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+                
+            tirarEntrega()
+
+            tirarMontagem()
     
             cy.wait(400)
 
@@ -673,21 +639,15 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(1300)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
+                
+            tirarEntrega()
+
+            tirarMontagem()
     
             cy.wait(400)
     
@@ -771,7 +731,7 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -824,15 +784,9 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
     
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
-    
-            cy.wait(400)
-    
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             cy.wait(12000)
 
@@ -913,7 +867,7 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -968,21 +922,13 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
     
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
-    
-            cy.wait(400)
-    
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             cy.wait(14000)
 
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(14000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -1073,7 +1019,7 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1126,21 +1072,13 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
     
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
-    
-            cy.wait(400)
-    
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             cy.wait(14000)
 
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(14000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -1218,7 +1156,7 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -1293,29 +1231,21 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(1300)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-                
-            cy.wait(400)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
     
             cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             cy.wait(14000)
 
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(14000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')

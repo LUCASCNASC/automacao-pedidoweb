@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem } from '../../../support/para_pedidos';
 
 describe('Gerar pedido de entrega futura', () => {
 
@@ -35,7 +35,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(3500)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -78,23 +78,9 @@ describe('Gerar pedido de entrega futura', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
+            tirarEntrega()
+
+            tirarMontagem()
     
             cy.wait(400)
     
@@ -172,7 +158,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(3500)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -215,11 +201,9 @@ describe('Gerar pedido de entrega futura', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
+            tirarEntrega()
+
+            tirarMontagem()
 
             cy.wait(800)
     
@@ -358,7 +342,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -401,17 +385,11 @@ describe('Gerar pedido de entrega futura', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
-    
             cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -474,8 +452,6 @@ describe('Gerar pedido de entrega futura', () => {
         })    
         
         it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
             //clicar para aparecer as opções de processo
             cy.get('#select_value_label_4 > .md-select-icon')
@@ -498,7 +474,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(4000)
+            cy.wait(2000)
     
             //Campo "Buscar produtos"
             cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
@@ -565,51 +541,17 @@ describe('Gerar pedido de entrega futura', () => {
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
                 .click()
     
-            cy.wait(1300)
-    
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-    
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados - segundo produto
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
-    
-            cy.wait(400)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
-    
             cy.wait(400)
     
             //Botão "AVANÇAR"
             cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+                .click({force:true}) //Clicar para avançar para a próxima tela
     
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -624,7 +566,7 @@ describe('Gerar pedido de entrega futura', () => {
         
             escolherRota()
         
-            cy.wait(10000)
+            cy.wait(8000)
 
             // tela de GERAR PARCELAS
 
@@ -638,7 +580,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
                 .click({force:true})
 
-            cy.wait(8000)
+            cy.wait(6500)
 
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -654,7 +596,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
                 .click()
 
-            cy.wait(10000)
+            cy.wait(9000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
