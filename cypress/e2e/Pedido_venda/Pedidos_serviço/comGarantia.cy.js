@@ -14,23 +14,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -130,23 +115,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -277,23 +247,8 @@ describe('Gerar pedidos com Garantia', () => {
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -393,23 +348,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -540,23 +480,8 @@ describe('Gerar pedidos com Garantia', () => {
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -657,23 +582,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -808,23 +718,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -935,23 +830,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -1092,23 +972,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -1220,23 +1085,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -1376,23 +1226,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -1503,23 +1338,8 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()

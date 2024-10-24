@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoEntregaFutura } from '../../../support/para_pedidos';
 
 describe('Gerar pedido de entrega futura', () => {
 
@@ -14,23 +14,8 @@ describe('Gerar pedido de entrega futura', () => {
 
         it.skip('Pedido de venda: produto 1860 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('bottom')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9862"
-            cy.get('#select_option_62 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoEntregaFutura()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -131,23 +116,8 @@ describe('Gerar pedido de entrega futura', () => {
         
         it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('bottom')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9862"
-            cy.get('#select_option_62 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoEntregaFutura()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -309,23 +279,8 @@ describe('Gerar pedido de entrega futura', () => {
 
         it.skip('Pedido de venda: produto 1860 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('bottom')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9862"
-            cy.get('#select_option_62 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoEntregaFutura()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -435,23 +390,8 @@ describe('Gerar pedido de entrega futura', () => {
         
         it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('bottom')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9862"
-            cy.get('#select_option_62 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoEntregaFutura()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()

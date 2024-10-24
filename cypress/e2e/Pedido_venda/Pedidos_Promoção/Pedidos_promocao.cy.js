@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoVendaPrincipal } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
 
@@ -14,23 +14,8 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -122,23 +107,8 @@ describe('Gerar pedidos com promoção', () => {
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -254,23 +224,8 @@ describe('Gerar pedidos com promoção', () => {
     
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -369,23 +324,8 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -524,23 +464,8 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -693,23 +618,8 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -825,23 +735,8 @@ describe('Gerar pedidos com promoção', () => {
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -972,23 +867,8 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -1105,23 +985,8 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()

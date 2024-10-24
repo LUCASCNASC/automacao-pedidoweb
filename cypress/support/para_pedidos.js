@@ -288,6 +288,7 @@ export function botaoGerarParcelas (selector) {
         .click({force:true})
 }
 
+//Para escolher processo de venda 9860 normal
 export function processoVendaPrincipal (selector) {
 
     //clicar para aparecer as opções de processo
@@ -305,6 +306,54 @@ export function processoVendaPrincipal (selector) {
 
     //selecionar processo de venda "9860"
     cy.get('#select_option_60 > .md-text')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click({force:true})
+}
+
+//Para escolher processo de venda entrega futura 9862 normal
+export function processoEntregaFutura (selector) {
+
+    //clicar para aparecer as opções de processo
+    cy.get('#select_value_label_4 > .md-select-icon')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+
+    //rolar para o meio das opções de processo
+    cy.get('#select_listbox_12')
+        .should('exist')
+        .and('be.visible')
+        .scrollTo('center')
+
+    //selecionar processo de venda "9862"
+    cy.get('#select_option_62 > .md-text')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click({force:true})
+}
+
+//Para escolher processo de venda financeiro baixa 9863 normal
+export function processoFinanceiroBaixa (selector) {
+
+    //clicar para aparecer as opções de processo
+    cy.get('#select_value_label_4 > .md-select-icon')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+
+    //rolar para o meio das opções de processo
+    cy.get('#select_listbox_12')
+        .should('exist')
+        .and('be.visible')
+        .scrollTo('center')
+
+    //selecionar processo de venda "9863"
+    cy.get('#select_option_63 > .md-text')
         .should('exist')
         .and('be.visible')
         .and('not.be.disabled')

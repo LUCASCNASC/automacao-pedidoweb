@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, avancarFinal, botaoGerarParcelas } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, avancarFinal, botaoGerarParcelas, processoVendaPrincipal } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com Mão de obra', () => {
 
@@ -14,23 +14,8 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -131,23 +116,8 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
             
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -281,23 +251,9 @@ describe('Gerar pedidos com Mão de obra', () => {
         })
     
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
             
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -400,23 +356,8 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -548,23 +489,8 @@ describe('Gerar pedidos com Mão de obra', () => {
     
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -661,23 +587,8 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -807,23 +718,8 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -937,23 +833,8 @@ describe('Gerar pedidos com Mão de obra', () => {
         
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -1095,23 +976,8 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -1223,23 +1089,8 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -1380,23 +1231,8 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
@@ -1511,23 +1347,8 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
     
-            //clicar para aparecer as opções de processo
-            cy.get('#select_value_label_4 > .md-select-icon')
-                .click()
-    
-            cy.wait(800)
-            
-            //rolar para o meio das opções de processo
-            cy.get('#select_listbox_12')
-                .scrollTo('center')
-    
-            cy.wait(800)
-    
-            //selecionar processo de venda "9860"
-            cy.get('#select_option_60 > .md-text')
-                .click({force: true})
-    
-            cy.wait(800)
+            //Escolher processo de venda
+            processoVendaPrincipal()
     
             //Função para escolher cliente para pedido
             escolherClientePedido()
