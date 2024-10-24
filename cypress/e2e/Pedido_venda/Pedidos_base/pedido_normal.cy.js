@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem } from '../../../support/para_pedidos';
 
 describe('Gerar pedido normal', () => {
 
@@ -66,12 +66,9 @@ describe('Gerar pedido normal', () => {
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({force: true})
-            
-            cy.wait(800)
-    
+
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click({force: true})
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -79,23 +76,9 @@ describe('Gerar pedido normal', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
+            tirarEntrega()
     
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            cy.wait(400)
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
+            tirarMontagem()
     
             cy.wait(400)
     
@@ -205,23 +188,18 @@ describe('Gerar pedido normal', () => {
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
+            tirarEntrega()
     
-            //Botão de arrastar Retirada / Entrega
-            cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click() //Clicar para tirar a entrega do pedido
+            tirarMontagem()
 
             cy.wait(800)
     
@@ -255,17 +233,9 @@ describe('Gerar pedido normal', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
+            tirarEntrega()
     
-            //Botão de arrastar Retirada / Entrega
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
+            tirarMontagem()
     
             cy.wait(400)
     
@@ -378,23 +348,16 @@ describe('Gerar pedido normal', () => {
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
-            cy.wait(2500)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1000)
-    
-            //Botão de arrastar Montagem
-            cy.get('[ng-show="itemAtual._permiteMontagem"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
+            tirarMontagem()
     
             cy.wait(400)
     
@@ -523,19 +486,16 @@ describe('Gerar pedido normal', () => {
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
-            cy.wait(1300)
+            cy.wait(1000)
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(1300)
+            cy.wait(800)
     
             //Buscar segundo produto
             cy.get('#searchText')

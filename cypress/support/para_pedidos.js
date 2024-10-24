@@ -180,3 +180,77 @@ export function finalizandoPedido (selector) {
         .and('have.css', 'color', 'rgb(204, 0, 0)')
 
 }
+
+//Botão adicionar produto após selecionar voltagem do produto
+export function botãoAdicionar (selector) {
+
+    //Botão adicionar produto após selecionar voltagem do produto
+    cy.get('button.md-primary.btn-rounded')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('contain','Adicionar')
+
+    //Botão adicionar produto após selecionar voltagem do produto, clicar no botão
+    cy.get('[style="padding: 0px 5px;"] > .md-primary')
+        .click({force:true})
+
+}
+
+//Arrastar botão de Retirada / Entrega
+export function tirarEntrega (selector) {
+
+    //Botão como um todo
+    cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container > .md-bar')
+        .scrollIntoView()
+        .wait(200)
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Retirada / Entrega parte esquerda
+    cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Retirada / Entrega parte direita
+    cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container > .md-thumb-container > .md-thumb')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Retirada / Entrega - texto Retirada / Entrega
+    cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text', ' Retirada / Entrega ')
+        .click({force:true})
+}
+
+//Arrastar botão de Montagem
+export function tirarMontagem (selector) {
+
+    //Botão como um todo
+    cy.get('.produto-nome > .valor > .md-auto-horizontal-margin > .md-container > .md-bar')
+        .scrollIntoView()
+        .wait(200)
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Montagem parte direita
+    cy.get('.produto-nome > .valor > .md-auto-horizontal-margin > .md-container > .md-thumb-container > .md-thumb')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Montagem - texto Montagem
+    cy.get('.produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text', ' Montagem ')
+        .click({force:true})
+}

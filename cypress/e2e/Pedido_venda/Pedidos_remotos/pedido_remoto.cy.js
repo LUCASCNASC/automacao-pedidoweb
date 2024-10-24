@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar } from '../../../support/para_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
 
@@ -76,8 +76,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
             .click()
 
         //clicar no botão "ADICIONAR", para adicionar produto
-        cy.get('[style="padding: 0px 5px;"] > .md-primary')
-            .click()
+        botãoAdicionar()
 
         cy.wait(1000)
 
@@ -225,8 +224,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
             .click()
 
         //clicar no botão "ADICIONAR", para adicionar produto
-        cy.get('[style="padding: 0px 5px;"] > .md-primary')
-            .click()
+        botãoAdicionar()
 
         cy.wait(1000)
 
@@ -408,8 +406,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
             .click()
 
         //clicar no botão "ADICIONAR", para adicionar produto
-        cy.get('[style="padding: 0px 5px;"] > .md-primary')
-            .click()
+        botãoAdicionar()
 
         cy.wait(1000)
 
@@ -557,8 +554,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
             .click()
 
         //clicar no botão "ADICIONAR", para adicionar produto
-        cy.get('[style="padding: 0px 5px;"] > .md-primary')
-            .click()
+        botãoAdicionar()
 
         cy.wait(1000)
 

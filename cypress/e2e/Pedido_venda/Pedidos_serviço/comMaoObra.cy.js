@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com Mão de obra', () => {
 
@@ -62,19 +62,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -203,9 +197,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -214,10 +205,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(800)
     
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
-    
-            cy.wait(1000)
+            botãoAdicionar()
     
             //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
             cy.get('#checkbox-142-0 > .md-container')
@@ -379,19 +367,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -520,8 +502,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -530,10 +510,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(800)
     
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
-    
-            cy.wait(1000)
+            botãoAdicionar()
     
             //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
             cy.get('#checkbox-143-1 > .md-container')
@@ -696,8 +673,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -706,10 +681,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(800)
     
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
-    
-            cy.wait(1000)
+            botãoAdicionar()
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -830,8 +802,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -840,10 +810,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(800)
     
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
-    
-            cy.wait(1000)
+            botãoAdicionar()
     
             //Botão "OK" - Serviços Vinculados
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
@@ -1003,18 +970,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1000)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -1152,18 +1114,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -1329,18 +1286,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1000)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -1476,18 +1428,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1000)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -1684,18 +1631,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(2500)
     
@@ -1835,20 +1777,15 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
-            cy.wait(2500)
+            cy.wait(1000)
     
             //Marcar Mão de obra que não destaca e separa título em processo diferente
             cy.get('#checkbox-144-2 > .md-container')

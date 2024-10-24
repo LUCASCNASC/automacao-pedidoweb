@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, botãoAdicionar } from '../../../support/para_pedidos';
 
 describe('Gerar pedido com financeiro na baixa', () => {
 
@@ -69,11 +69,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -203,11 +200,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -398,11 +392,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -563,11 +554,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click({ force: true })
             
-            cy.wait(800)
-    
             //clicar no botão "ADICIONAR", para adicionar produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            botãoAdicionar()
     
             cy.wait(1000)
     

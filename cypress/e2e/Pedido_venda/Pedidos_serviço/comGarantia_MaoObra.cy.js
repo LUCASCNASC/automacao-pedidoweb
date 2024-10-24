@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar } from '../../../support/para_pedidos';
 
 describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
@@ -69,11 +69,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -146,7 +143,10 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
                 //Botão "FINALIZAR PEDIDO"
-                v
+                botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(11000)
@@ -212,11 +212,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -327,6 +324,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -391,11 +391,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -470,6 +467,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(11000)
 
@@ -534,13 +534,10 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
-                cy.wait(2500)
+                cy.wait(1000)
 
                 //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
                 cy.get('#checkbox-139-0 > .md-container')
@@ -643,6 +640,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -707,11 +707,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -785,6 +782,10 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(11000)
 
@@ -849,11 +850,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -958,6 +956,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -1022,11 +1023,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -1100,6 +1098,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(11000)
@@ -1165,11 +1166,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -1273,6 +1271,10 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -1337,11 +1339,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -1415,6 +1414,10 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(11000)
 
@@ -1479,11 +1482,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -1586,6 +1586,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
@@ -1651,11 +1654,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -1730,6 +1730,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(11000)
 
@@ -1786,20 +1789,16 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-
                 cy.wait(800)
                         
                 //Selecionar a voltagem do produto
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
-                cy.wait(2500)
+                cy.wait(1000)
 
                 //Marcar garantia "T.A. Garantia Não Separa"
                 cy.get('#checkbox-140-1 > .md-container')
@@ -1907,6 +1906,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
@@ -1972,11 +1974,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -2050,6 +2049,10 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(11000)
 
@@ -2115,11 +2118,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -2223,6 +2223,10 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -2287,11 +2291,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -2366,6 +2367,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(11000)
 
@@ -2424,18 +2428,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-
                 cy.wait(800)
                         
                 //Selecionar a voltagem do produto
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -2540,6 +2540,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -2604,11 +2607,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -2680,6 +2680,10 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(11000)
 
@@ -2744,11 +2748,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -2851,6 +2852,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
@@ -2919,11 +2923,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -2998,6 +2999,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(13000)
@@ -3063,11 +3067,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -3172,6 +3173,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
@@ -3237,11 +3241,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -3322,6 +3323,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(13000)
@@ -3387,11 +3391,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -3496,6 +3497,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
@@ -3561,11 +3565,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -3646,6 +3647,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
@@ -3711,11 +3715,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -3821,6 +3822,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -3885,11 +3889,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -3970,6 +3971,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
@@ -4035,11 +4039,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -4144,6 +4145,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
@@ -4209,11 +4213,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -4294,6 +4295,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(13000)
@@ -4359,11 +4363,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -4468,6 +4469,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
@@ -4533,11 +4537,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -4618,6 +4619,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(13000)
@@ -4683,11 +4687,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -4799,6 +4800,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -4863,11 +4867,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -4943,6 +4944,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -5007,11 +5011,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -5117,6 +5118,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -5181,11 +5185,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -5261,6 +5262,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(13000)
 
@@ -5325,11 +5329,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(100)
 
@@ -5435,6 +5436,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -5499,11 +5503,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -5581,6 +5582,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
 
+                //Carregamento de pedido
+                finalizandoPedido()
+
                 //Carregando a finalização do pedido
                 cy.wait(12000)
 
@@ -5645,11 +5649,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                     .click({ force: true })
                 
-                cy.wait(800)
-
                 //clicar no botão "ADICIONAR", para adicionar produto
-                cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                    .click()
+                botãoAdicionar()
 
                 cy.wait(1000)
 
@@ -5752,6 +5753,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
                 //Botão "FINALIZAR PEDIDO"
                 botaoFinalizarPedido()
+
+                //Carregamento de pedido
+                finalizandoPedido()
 
                 //Carregando a finalização do pedido
                 cy.wait(12000)
