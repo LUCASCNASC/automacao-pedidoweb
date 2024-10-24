@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoFinanceiroBaixa } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoFinanceiroBaixa, produtoNormalPrimeiro } from '../../../support/para_pedidos';
 
 describe('Gerar pedido com financeiro na baixa', () => {
 
@@ -19,22 +19,10 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1860')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1860')
-    
-            cy.wait(100)
+            //Pesquisando produto
+            produtoNormalPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -126,22 +114,10 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1860')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1860')
-    
-            cy.wait(100)
+            //Pesquisando produto
+            produtoNormalPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -264,22 +240,10 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1860')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1860')
-    
-            cy.wait(100)
+            //Pesquisando produto
+            produtoNormalPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -398,22 +362,10 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1860')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1860')
-    
-            cy.wait(100)
+            //Pesquisando produto
+            produtoNormalPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()

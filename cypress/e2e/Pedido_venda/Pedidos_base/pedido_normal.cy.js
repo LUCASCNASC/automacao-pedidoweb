@@ -1,5 +1,5 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoVendaPrincipal } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoVendaPrincipal, produtoNormalPrimeiro } from '../../../support/para_pedidos';
 
 describe('Gerar pedido normal', () => {
 
@@ -20,22 +20,10 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2500)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1860')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1860')
-    
-            cy.wait(400)
+            //Pesquisando produto
+            produtoNormalPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -119,22 +107,10 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2500)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1860')
-           
-            cy.wait(2000)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1860')
-    
-            cy.wait(400)
+            //Pesquisando produto
+            produtoNormalPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -257,22 +233,10 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2500)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1860')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1860')
-    
-            cy.wait(400)
+            //Pesquisando produto
+            produtoNormalPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -373,22 +337,10 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2500)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1860')
-           
-            cy.wait(2000)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1860')
-    
-            cy.wait(400)
+            //Pesquisando produto
+            produtoNormalPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()

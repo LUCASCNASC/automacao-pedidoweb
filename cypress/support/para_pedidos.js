@@ -359,3 +359,45 @@ export function processoFinanceiroBaixa (selector) {
         .and('not.be.disabled')
         .click({force:true})
 }
+
+//Escolher primeiro produto normal - 1860 0 0
+export function produtoNormalPrimeiro (selector) {
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type('1860')
+        .wait(100)
+        .should('have.value', '1860')
+}
+
+//Escolher segundo produto normal - 1870 0 0
+export function produtoNormalSegundo (selector) {
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type('1870')
+        .wait(100)
+        .should('have.value', '1870')
+}
