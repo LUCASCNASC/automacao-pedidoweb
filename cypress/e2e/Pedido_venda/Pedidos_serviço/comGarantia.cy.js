@@ -1,5 +1,8 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, avancarFinal, botaoGerarParcelas, produtoNormalPrimeiro } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, avancarFinal,
+         botaoGerarParcelas, produtoNormalPrimeiro, produtoNormalSegundo, tirarEntregaSegundo, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
+        modalServicosVinculados, okServicosVinculados} from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Garantia', () => {
 
@@ -44,21 +47,20 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
+                .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
                 
             tirarEntrega()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -133,22 +135,21 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
+                .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
 
             cy.wait(400)
 
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -167,18 +168,16 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            tirarEntrega()
+            tirarEntregaSegundo()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -253,21 +252,20 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
-    
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+                .click()
+
+            okServicosVinculados()
     
             tirarEntrega()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -342,22 +340,21 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
+                .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
     
             cy.wait(800)
 
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -376,18 +373,16 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            tirarEntrega()
+            tirarEntregaSegundo()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -462,22 +457,20 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar Garantia separa titulo em um processo deferente
             cy.get('#checkbox-141-2 > .md-container')
                 .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -552,23 +545,21 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar Garantia separa titulo em um processo deferente
             cy.get('#checkbox-141-2 > .md-container')
                 .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
     
             cy.wait(800)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -587,18 +578,16 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntregaSegundo()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -675,20 +664,18 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
                 .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
 
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -706,6 +693,8 @@ describe('Gerar pedidos com Garantia', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
             cy.wait(7500)
 
@@ -776,21 +765,19 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
                 .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
 
             cy.wait(800)
 
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -809,16 +796,14 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -832,14 +817,12 @@ describe('Gerar pedidos com Garantia', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
             cy.wait(9000)
 
             // tela de GERAR PARCELAS
-    
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
     
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
@@ -906,20 +889,18 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
                 .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -937,6 +918,8 @@ describe('Gerar pedidos com Garantia', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
             cy.wait(9000)
 
@@ -1007,20 +990,19 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
+                .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(800)
 
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -1039,16 +1021,14 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
 
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -1062,14 +1042,12 @@ describe('Gerar pedidos com Garantia', () => {
             escolherTransportadora()
     
             escolherRota()
+
+            avancarParcelasEntrega()
     
             cy.wait(10000)
     
             // tela de GERAR PARCELAS
-    
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
     
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
@@ -1136,19 +1114,18 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar Garantia separa titulo em um processo diferente
             cy.get('#checkbox-141-2 > .md-container')
+                .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -1166,6 +1143,8 @@ describe('Gerar pedidos com Garantia', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
             cy.wait(10000)
 
@@ -1236,21 +1215,19 @@ describe('Gerar pedidos com Garantia', () => {
             botãoAdicionar()
     
             cy.wait(1000)
+
+            modalServicosVinculados()
     
             //Marcar Garantia separa titulo em um processo diferente
             cy.get('#checkbox-141-2 > .md-container')
                 .click()
     
-            //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(800)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -1276,9 +1253,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
 
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -1292,14 +1267,12 @@ describe('Gerar pedidos com Garantia', () => {
             escolherTransportadora()
     
             escolherRota()
+
+            avancarParcelasEntrega()
     
             cy.wait(10000)
     
             // tela de GERAR PARCELAS
-    
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
     
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()

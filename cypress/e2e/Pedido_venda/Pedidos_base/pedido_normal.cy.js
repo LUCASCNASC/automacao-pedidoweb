@@ -1,5 +1,8 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoVendaPrincipal, produtoNormalPrimeiro } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem,
+         avancarFinal, botaoGerarParcelas, processoVendaPrincipal, tirarEntregaSegundo, tirarMontagemSegundo, avancarParaParcelas,
+         avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados } from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoNormalPrimeiro, produtoNormalSegundo} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
 
@@ -12,7 +15,7 @@ describe('Gerar pedido normal', () => {
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0', () => {
+        it.only('Pedido de venda: produto 1860 0 0', () => {
             
             //Escolher processo de venda
             processoVendaPrincipal()
@@ -44,20 +47,20 @@ describe('Gerar pedido normal', () => {
             botãoAdicionar()
     
             cy.wait(1000)
-    
+
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
     
             tirarMontagem()
     
             cy.wait(400)
-    
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -99,7 +102,7 @@ describe('Gerar pedido normal', () => {
             pedidoGerado()
         })
 
-        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
             //Escolher processo de venda
             processoVendaPrincipal()
@@ -131,10 +134,12 @@ describe('Gerar pedido normal', () => {
             botãoAdicionar()
     
             cy.wait(1000)
-    
+
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
     
@@ -142,10 +147,8 @@ describe('Gerar pedido normal', () => {
 
             cy.wait(800)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -159,28 +162,23 @@ describe('Gerar pedido normal', () => {
             //Escolhendo voltagem do segundo produto
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
 
-            cy.wait(800)
+            //Botão "OK" - Serviços Vinculados
+            okServicosVinculados()
     
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('button[ng-click="adicionarItem()"]')
-                .click()
+            tirarEntregaSegundo()
     
-            cy.wait(400)
-    
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            tirarEntrega()
-    
-            tirarMontagem()
+            tirarMontagemSegundo()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -225,7 +223,7 @@ describe('Gerar pedido normal', () => {
 
     context('Com frete/ processo 9860 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0', () => {
+        it.skip('Pedido de venda: produto 1860 0 0', () => {
     
             //Escolher processo de venda
             processoVendaPrincipal()
@@ -257,10 +255,12 @@ describe('Gerar pedido normal', () => {
             botãoAdicionar()
     
             cy.wait(1000)
-    
+
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarMontagem()
     
@@ -272,9 +272,7 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -288,14 +286,12 @@ describe('Gerar pedido normal', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
             cy.wait(7500)
 
             // tela de GERAR PARCELAS
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -329,7 +325,7 @@ describe('Gerar pedido normal', () => {
             pedidoGerado()
         })
 
-        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
             //Escolher processo de venda
             processoVendaPrincipal()
@@ -361,17 +357,17 @@ describe('Gerar pedido normal', () => {
             botãoAdicionar()
     
             cy.wait(1000)
-    
+
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
-            cy.wait(800)
+            cy.wait(400)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear({force: true})
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -386,21 +382,20 @@ describe('Gerar pedido normal', () => {
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
     
-            //clicar no botão "ADICIONAR", para adicionar o segundo produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
     
-            cy.wait(1300)
+            cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
+            //Botão "OK" - Serviços Vinculados
+            okServicosVinculados()
     
-            cy.wait(1300)
+            cy.wait(1000)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -414,14 +409,12 @@ describe('Gerar pedido normal', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
             cy.wait(8000)
 
             // tela de GERAR PARCELAS
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 

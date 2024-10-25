@@ -1,5 +1,8 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, avancarFinal, botaoGerarParcelas, processoVendaPrincipal, produtoNormalPrimeiro } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, avancarFinal,
+         botaoGerarParcelas, processoVendaPrincipal, avancarParaTransportadora, avancarParaParcelas, 
+         avancarParcelasEntrega} from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
 
@@ -33,8 +36,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.wait(1300)
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-        cy.wait(800)
                   
         //Selecionar a voltagem do produto
         cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -55,15 +56,15 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(1000)
 
+        //validando modal Serviços Vinculados
+        modalServicosVinculados()
+
         //Botão "OK" - Serviços Vinculados
-        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-            .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+        okServicosVinculados()
 
         cy.wait(400)
 
-        //Botão "AVANÇAR"
-        cy.get('.flex-gt-sm-50 > .md-primary')
-            .click({force:true}) //Clicar para avançar para a próxima tela
+        avancarParaTransportadora()
 
         // tela para ESCOLHER TRANSPORTADORA
 
@@ -77,14 +78,12 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         escolherTransportadora()
     
         escolherRota()
+
+        avancarParcelasEntrega()
     
         cy.wait(10000)
 
         // tela de GERAR PARCELAS
-
-        //Título "Formas de pagamento na Entrada"
-        cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-            .scrollIntoView()
 
         //Botão "GERAR PARCELAS"
         botaoGerarParcelas()
@@ -142,8 +141,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.wait(1300)
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-        cy.wait(800)
                   
         //Selecionar a voltagem do produto
         cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -164,16 +161,16 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(1000)
 
+        //validando modal Serviços Vinculados
+        modalServicosVinculados()
+
         //Botão "OK" - Serviços Vinculados
-        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-            .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+        okServicosVinculados()
 
         cy.wait(800)
 
-        //Buscar segundo produto
-        cy.get('#searchText')
-            .clear()
-            .type('1870')
+        //Pesquisando segundo produto
+        produtoNormalSegundo()
 
         //Validando informações do segundo produto após pesquisar
         saldodisponivel()
@@ -198,21 +195,19 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
             .click()
 
-        //clicar no botão "ADICIONAR", para adicionar produto
-        cy.get('[style="padding: 0px 5px;"] > .md-primary')
-            .click()
+        botãoAdicionar()
 
         cy.wait(1000)
 
+        //validando modal Serviços Vinculados
+        modalServicosVinculados()
+
         //Botão "OK" - Serviços Vinculados
-        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-            .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+        okServicosVinculados()
 
         cy.wait(400)
 
-        //Botão "AVANÇAR"
-        cy.get('.flex-gt-sm-50 > .md-primary')
-            .click({force:true}) //Clicar para avançar para a próxima tela
+        avancarParaTransportadora()
 
         // tela para ESCOLHER TRANSPORTADORA
 
@@ -226,14 +221,12 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         escolherTransportadora()
     
         escolherRota()
+
+        avancarParcelasEntrega()
     
         cy.wait(10000)
 
         // tela de GERAR PARCELAS
-
-        //Título "Formas de pagamento na Entrada"
-        cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-            .scrollIntoView()
 
         //Botão "GERAR PARCELAS"
         botaoGerarParcelas()
@@ -291,8 +284,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.wait(1300)
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-        cy.wait(800)
                   
         //Selecionar a voltagem do produto
         cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -313,15 +304,15 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(1000)
 
+        //validando modal Serviços Vinculados
+        modalServicosVinculados()
+
         //Botão "OK" - Serviços Vinculados
-        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-            .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+        okServicosVinculados()
 
         cy.wait(400)
 
-        //Botão "AVANÇAR"
-        cy.get('.flex-gt-sm-50 > .md-primary')
-            .click({force:true}) //Clicar para avançar para a próxima tela
+        avancarParaTransportadora()
 
         // tela para ESCOLHER TRANSPORTADORA
 
@@ -335,14 +326,12 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         escolherTransportadora()
     
         escolherRota()
+
+        avancarParcelasEntrega()
     
         cy.wait(10000)
 
         // tela de GERAR PARCELAS
-
-        //Título "Formas de pagamento na Entrada"
-        cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-            .scrollIntoView()
 
         //Botão "GERAR PARCELAS"
         botaoGerarParcelas()
@@ -400,8 +389,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.wait(1300)
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-        cy.wait(800)
                   
         //Selecionar a voltagem do produto
         cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -484,14 +471,12 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         escolherTransportadora()
     
         escolherRota()
+
+        avancarParcelasEntrega()
     
         cy.wait(10000)
 
         // tela de GERAR PARCELAS
-
-        //Título "Formas de pagamento na Entrada"
-        cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-            .scrollIntoView()
 
         //Botão "GERAR PARCELAS"
         botaoGerarParcelas()

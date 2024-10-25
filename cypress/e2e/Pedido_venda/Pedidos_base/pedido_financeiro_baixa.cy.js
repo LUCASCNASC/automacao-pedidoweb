@@ -1,5 +1,8 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoFinanceiroBaixa, produtoNormalPrimeiro } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, finalizandoPedido, botaoFinalizarPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal,
+        botaoGerarParcelas, processoFinanceiroBaixa, tirarEntregaSegundo, tirarMontagemSegundo, avancarParaParcelas,
+        avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados } from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido com financeiro na baixa', () => {
 
@@ -46,9 +49,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
 
@@ -56,15 +61,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(400)
     
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
-    
-            cy.wait(400)
-    
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -77,7 +74,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
-            cy.wait(7000)
+            cy.wait(5500)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -102,7 +99,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             finalizandoPedido()
     
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(7000)
     
             pedidoGerado()
         })
@@ -141,9 +138,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
 
@@ -151,10 +150,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(800)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -169,29 +166,28 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
     
-            //clicar no botão "ADICIONAR", para adicionar o segundo produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
     
             cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            tirarEntrega()
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
 
-            tirarMontagem()
+            //Botão "OK" - Serviços Vinculados
+            okServicosVinculados()
+    
+            tirarEntregaSegundo()
+
+            tirarMontagemSegundo()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
-            cy.wait(7500)
+            cy.wait(7000)
     
             //Título "Formas de pagamento na Entrada"
             cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
@@ -200,7 +196,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
-            cy.wait(7000)
+            cy.wait(6000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -225,7 +221,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             finalizandoPedido()
     
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(8500)
     
             pedidoGerado()
         })
@@ -267,60 +263,28 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
             cy.wait(12000)
 
-            //Lupa de pesquisa de rota - clicar para pesquisar
-            cy.get('.rota-frete > .md-icon-right > .ng-binding')
-                .scrollIntoView()
-                .click()
+            escolherRota()
 
-            cy.wait(400)
-
-            //Pesquisar rota
-            cy.get('#txtBuscaRotaModal')
-                .type('1')
-
-            cy.wait(400)
-
-            //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('md-icon[ng-click="pesquisar()"]')
-                .click()
-
-            cy.wait(400)
-
-            //Escolher rota após pesquisarmos
-            cy.get('v-pane-header.ng-scope > div')
-                .click() //clicar na rota 1
-
-            //Escolher rota 2
-            cy.get(':nth-child(4) > .padding-10-0')
-                .click() //clicar na rota 1
-
-            cy.wait(800)
+            cy.wait(6000)
 
             //Clicar para avançar para a tela de GERAR PARCELAS
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
-
-            cy.wait(8000)
+            avancarParcelasEntrega()
 
             // tela de GERAR PARCELAS
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
@@ -350,7 +314,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             finalizandoPedido()
 
             //Carregando a finalização do pedido
-            cy.wait(9000)
+            cy.wait(10000)
 
             pedidoGerado()
         })
@@ -377,8 +341,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -389,9 +351,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
@@ -401,10 +365,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             cy.wait(800)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -419,66 +381,33 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
     
-            //clicar no botão "ADICIONAR", para adicionar o segundo produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
     
             cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
+            //Botão "OK" - Serviços Vinculados
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(12000)
+            cy.wait(13000)
 
-            //Lupa de pesquisa de rota - clicar para pesquisar
-            cy.get('.rota-frete > .md-icon-right > .ng-binding')
-                .scrollIntoView()
-                .click()
-
-            cy.wait(400)
-
-            //Pesquisar rota
-            cy.get('#txtBuscaRotaModal')
-                .type('1')
-
-            cy.wait(400)
-
-            //Clicar na lupa para pesquisar rota depois de preencher campo
-            cy.get('md-icon[ng-click="pesquisar()"]')
-                .click()
-
-            cy.wait(400)
-
-            //Escolher rota após pesquisarmos
-            cy.get('v-pane-header.ng-scope > div')
-                .click() //clicar na rota 1
-
-            //Escolher rota 2
-            cy.get(':nth-child(4) > .padding-10-0')
-                .click() //clicar na rota 1
-
-            cy.wait(800)
-
-            //Clicar para avançar para a tela de GERAR PARCELAS
-            cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-                .click()
+            escolherRota()
 
             cy.wait(8000)
 
-            // tela de GERAR PARCELAS
+            //Clicar para avançar para a tela de GERAR PARCELAS
+            avancarParcelasEntrega()
 
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
+            // tela de GERAR PARCELAS
 
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()

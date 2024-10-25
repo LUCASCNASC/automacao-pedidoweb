@@ -38,12 +38,6 @@ export function escolherRota (selector) {
     //Escolher rota 2
     cy.get(':nth-child(4) > .padding-10-0')
         .click() //clicar na rota 1
-
-    cy.wait(400)
-
-    //Clicar para avançar para a tela de GERAR PARCELAS
-    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
-        .click({force:true})
 }
 
 //Função para escolher cliente CPF para gerar pedido de venda
@@ -124,6 +118,7 @@ export function pedidoGerado (selector) {
         .and('not.have.attr', 'disabled')
 }
 
+//Botão para finalizar o pedido
 export function botaoFinalizarPedido (selector) {
 
     //Botão FINALIZAR PEDIDO
@@ -140,6 +135,7 @@ export function botaoFinalizarPedido (selector) {
         .click({force:true})
 }
 
+//Validando card de carregamento da finalização do pedido
 export function finalizandoPedido (selector) {
 
     //Card pedido concluído (carregando finalização do pedido) - Título Pedido Concluído
@@ -203,7 +199,6 @@ export function tirarEntrega (selector) {
     //Botão como um todo
     cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container > .md-bar')
         .scrollIntoView()
-        .wait(200)
         .should('exist')
         .and('be.visible')
         .and('not.be.disabled')
@@ -255,21 +250,60 @@ export function tirarMontagem (selector) {
         .click({force:true})
 }
 
-//Botão AVANÇAR, da tela antes de finalizar o pedido
-export function avancarFinal (selector) {
+//Arrastar botão de Retirada / Entrega do segundo produto
+export function tirarEntregaSegundo (selector) {
 
-    // //Validando botão avançar
-    // cy.get('button[type="button"][ng-click="avancarParaEtapa4()"]')
-
-    //Botão "AVANÇAR"
-    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+    //Botão como um todo
+    cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container > .md-bar')
+        .scrollIntoView()
         .should('exist')
         .and('be.visible')
         .and('not.be.disabled')
-        .and('contain','Avançar')
 
-    //Botão "AVANÇAR" - clicar
-    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+    //Botão Retirada / Entrega parte esquerda
+    cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Retirada / Entrega parte direita
+    cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container > .md-thumb-container > .md-thumb')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Retirada / Entrega - texto Retirada / Entrega
+    cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text', ' Retirada / Entrega ')
+        .click({force:true})
+}
+
+//Arrastar botão de Montagem do segundo produto
+export function tirarMontagemSegundo (selector) {
+
+    //Botão como um todo
+    cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-container > .md-bar')
+        .scrollIntoView()
+        .wait(200)
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Montagem parte direita
+    cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-container > .md-thumb-container > .md-thumb')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Montagem - texto Montagem
+    cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text', ' Montagem ')
         .click({force:true})
 }
 
@@ -278,9 +312,11 @@ export function botaoGerarParcelas (selector) {
 
     //Botão "GERAR PARCELAS" - validações
     cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
+        .scrollIntoView()
+        .wait(200)
         .should('exist')
         .and('be.visible')
-        .and('not.be.disabled')
+        .should('not.be.disabled')
         .and('have.text', 'Gerar parcelas')
 
     //Botão "GERAR PARCELAS" - clicar
@@ -330,6 +366,7 @@ export function processoEntregaFutura (selector) {
 
     //selecionar processo de venda "9862"
     cy.get('#select_option_62 > .md-text')
+        .scrollIntoView()
         .should('exist')
         .and('be.visible')
         .and('not.be.disabled')
@@ -354,50 +391,138 @@ export function processoFinanceiroBaixa (selector) {
 
     //selecionar processo de venda "9863"
     cy.get('#select_option_63 > .md-text')
+        .scrollIntoView()
         .should('exist')
         .and('be.visible')
         .and('not.be.disabled')
         .click({force:true})
 }
 
-//Escolher primeiro produto normal - 1860 0 0
-export function produtoNormalPrimeiro (selector) {
+//Botão para avançar para a tela de Gerar parcelas
+export function avancarParaParcelas (selector) {
 
-    //Validando campo Buscar produto
-    cy.get('#searchText')
+    cy.wait(500)
+
+    cy.get('.flex-gt-sm-50 > .md-primary')
+        .scrollIntoView()
+        .wait(200)
         .should('exist')
         .and('be.visible')
-        .and('have.value', '')
         .and('not.be.disabled')
+        .and('contain','Avançar')
 
-    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
-    cy.get('label[for="searchText"]')
-        .should('have.text', 'Buscar produtos')
-
-    //Prenchendo campo Buscar produto
-    cy.get('#searchText')
-        .type('1860')
-        .wait(100)
-        .should('have.value', '1860')
+    //Clicar para avançar para a tela de GERAR PARCELAS
+    cy.get('.flex-gt-sm-50 > .md-primary')
+        .click({force:true})
 }
 
-//Escolher segundo produto normal - 1870 0 0
-export function produtoNormalSegundo (selector) {
+//Botão para avançar para a tela de escolher transportadora e rota
+export function avancarParaTransportadora (selector) {
 
-    //Validando campo Buscar produto
-    cy.get('#searchText')
+    cy.get('.flex-gt-sm-50 > .md-primary')
+        .scrollIntoView()
+        .wait(200)
         .should('exist')
         .and('be.visible')
-        .and('have.value', '')
+        .and('not.be.disabled')
+        .and('contain','Avançar')
+
+    //Clicar para avançar para a tela de GERAR PARCELAS
+    cy.get('.flex-gt-sm-50 > .md-primary')
+        .click({force:true})
+}
+
+//Botão para avançar para a tela de Gerar parcelas
+export function avancarParcelasEntrega (selector) {
+
+    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+        .scrollIntoView()
+        .wait(200)
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('contain','Avançar')
+
+    //Clicar para avançar para a tela de GERAR PARCELAS
+    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+        .click({force:true})
+}
+
+//Botão AVANÇAR, da tela antes de finalizar o pedido
+export function avancarFinal (selector) {
+
+    //Botão "AVANÇAR"
+    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+        .scrollIntoView()
+        .wait(200)
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('contain','Avançar')
+
+    //Botão "AVANÇAR" - clicar
+    cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
+        .click({force:true})
+}
+
+//Validações card de serviços
+export function modalServicosVinculados (selector) {
+
+    //Título do modal - Serviços Vinculados
+    cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Serviços Vinculados')
+
+    //botão x do modal Serviços Vinculados
+    cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
         .and('not.be.disabled')
 
-    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
-    cy.get('label[for="searchText"]')
-        .should('have.text', 'Buscar produtos')
+    //ícone check verde do modal Serviços Vinculados
+    cy.get('.icon')
+        .should('exist')
+        .and('be.visible')
 
-    //Prenchendo campo Buscar produto
-    cy.get('#searchText')
-        .type('1870')
-        .wait(100)
-        .should('have.value', '1870')
+    //mensagem do modal Serviços Vinculados - "O item foi adicionado ao carrinho"
+    cy.get('.ng-scope.flex-100 > .layout-wrap > :nth-child(2) > h2')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'O item foi adicionado ao carrinho')
+
+    //mensagem do modal Serviços Vinculados - "Aproveite para adicionar os serviços abaixo"
+    cy.get('.ng-scope.flex-100 > .layout-wrap > :nth-child(2) > h4')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Aproveite para adicionar os serviços abaixo')
+
+    //mensagem do modal Serviços Vinculados - "Garantias"
+    cy.get('p.ng-binding')
+        .contains('Garantias')
+        .should('exist')
+        .and('be.visible')
+
+    //mensagem do modal Serviços Vinculados - "Garantias"
+    cy.get('p.ng-binding')
+        .contains('Mão de Obra')
+        .scrollIntoView()
+        .wait(200)
+        .should('exist')
+        .and('be.visible')
+}
+
+//botão OK modal Serviços Vinculados
+export function okServicosVinculados (selector) {
+
+    //validando botão
+    cy.get('button[ng-click="salvar()"]')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text',' Ok ')
+
+    //clicar no botão
+    cy.get('button[ng-click="salvar()"]')
+        .click({force:true})
 }

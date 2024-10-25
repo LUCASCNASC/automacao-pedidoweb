@@ -1,5 +1,8 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoEntregaFutura, produtoNormalPrimeiro } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem,
+         avancarFinal, botaoGerarParcelas, processoEntregaFutura, tirarEntregaSegundo, tirarMontagemSegundo, avancarParaParcelas,
+         avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados } from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido de entrega futura', () => {
 
@@ -35,8 +38,6 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -47,9 +48,11 @@ describe('Gerar pedido de entrega futura', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
 
@@ -57,9 +60,7 @@ describe('Gerar pedido de entrega futura', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -72,7 +73,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
-            cy.wait(7000)
+            cy.wait(5500)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -87,7 +88,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Botão "AVANÇAR"
             avancarFinal()
     
-            cy.wait(6000)
+            cy.wait(5500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
@@ -125,8 +126,6 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -137,9 +136,11 @@ describe('Gerar pedido de entrega futura', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
 
@@ -147,10 +148,8 @@ describe('Gerar pedido de entrega futura', () => {
 
             cy.wait(800)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -165,49 +164,24 @@ describe('Gerar pedido de entrega futura', () => {
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
     
-            //clicar no botão "ADICIONAR", para adicionar o segundo produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
     
-            cy.wait(1300)
+            cy.wait(1000)
     
-            //Desmarcar garantia - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
+            //Botão "OK" - Serviços Vinculados
+            okServicosVinculados()
+                
+            tirarEntregaSegundo()
     
-            cy.wait(800)
-    
-            //Desmarcar Mão de Obra - card "Serviços Vinculados" - segundo produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
-    
-            cy.wait(400)
-    
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
-            cy.wait(1300)
-    
-            //Botão de arrastar Retirada / Entrega
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a entrega do pedido
-    
-            cy.wait(800)
-    
-            //Botão de arrastar Montagem
-            cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > .produto-nome > .valor > .md-auto-horizontal-margin > .md-label')
-                .click({force:true}) //Clicar para tirar a montagem
-    
-            //rolagem para baixo
-            cy.get('.containerSabium')
-                .scrollTo("center")
+            tirarMontagemSegundo()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -220,7 +194,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
-            cy.wait(8000)
+            cy.wait(5000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -235,7 +209,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Botão "AVANÇAR"
             avancarFinal()
     
-            cy.wait(8500)
+            cy.wait(7500)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
     
@@ -245,7 +219,7 @@ describe('Gerar pedido de entrega futura', () => {
             finalizandoPedido()
     
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(9000)
     
             pedidoGerado()
         })
@@ -276,8 +250,6 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -288,19 +260,19 @@ describe('Gerar pedido de entrega futura', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(14000)
+            cy.wait(13000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -310,19 +282,17 @@ describe('Gerar pedido de entrega futura', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
-            cy.wait(10000)
+            cy.wait(7000)
 
             // tela de GERAR PARCELAS
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
 
-            cy.wait(8000)
+            cy.wait(5500)
 
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -337,7 +307,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Botão "AVANÇAR"
             avancarFinal()
 
-            cy.wait(10000)
+            cy.wait(6500)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
@@ -347,7 +317,7 @@ describe('Gerar pedido de entrega futura', () => {
             finalizandoPedido()
 
             //Carregando a finalização do pedido
-            cy.wait(10000)
+            cy.wait(8500)
 
             pedidoGerado()
         })    
@@ -375,8 +345,6 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -387,16 +355,16 @@ describe('Gerar pedido de entrega futura', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
-            cy.wait(1300)
+            cy.wait(800)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -411,21 +379,20 @@ describe('Gerar pedido de entrega futura', () => {
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
     
-            //clicar no botão "ADICIONAR", para adicionar o segundo produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
     
             cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
+            //Botão "OK" - Serviços Vinculados
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -439,14 +406,12 @@ describe('Gerar pedido de entrega futura', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
             cy.wait(8000)
 
             // tela de GERAR PARCELAS
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()

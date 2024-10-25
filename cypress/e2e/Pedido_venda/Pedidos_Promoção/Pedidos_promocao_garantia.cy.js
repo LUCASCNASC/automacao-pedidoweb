@@ -1,5 +1,8 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido,pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoVendaPrincipal } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem,
+         avancarFinal, botaoGerarParcelas, processoVendaPrincipal, tirarMontagemSegundo, tirarEntregaSegundo, avancarParaParcelas,
+         avancarParaTransportadora, avancarParcelasEntrega} from '../../../support/para_pedidos/gerais_pedidos'
+import { produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
 

@@ -1,5 +1,8 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoVendaPrincipal } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem,
+         avancarFinal, botaoGerarParcelas, processoVendaPrincipal, tirarMontagemSegundo, tirarEntregaSegundo, avancarParaParcelas,
+         avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados} from '../../../support/para_pedidos/gerais_pedidos'
+import { produtoNormalSegundo, produtoPromoPartida, produtoPromoPrazoEntrada, produtoPromoPrazoParcelado } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
 
@@ -20,22 +23,9 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1868')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1868')
-    
-            cy.wait(400)
+            produtoPromoPartida()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -47,8 +37,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -59,7 +47,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
     
             //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_119 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -67,9 +55,11 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
 
@@ -77,9 +67,7 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de PAGAMENTO
     
@@ -91,8 +79,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(8000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            cy.wait(800)
     
             botaoFinalizarPedido()
 
@@ -113,22 +99,9 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1866')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1866')
-    
-            cy.wait(400)
+            produtoPromoPrazoEntrada()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -140,8 +113,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -154,7 +125,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
     
             //Card de Formas de pagamento - escolher forma de pagamento
-            cy.get('#dialogContent_122 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_124 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -162,9 +133,11 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
 
@@ -172,20 +145,18 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
+
+            cy.wait(7500)
     
             // tela de GERAR PARCELAS
     
-            cy.wait(8500)
-    
             //Abrir opções de processos a receber entrada
-            cy.get('#select_215')
+            cy.get('#select_191')
                 .click
     
             //Escolher processo a receber de entrada
-            cy.get('#select_option_227 > .md-text')
+            cy.get('#select_option_203 > .md-text')
                 .click({force:true})
     
             //Botão "GERAR PAGAMENTO"
@@ -230,22 +201,9 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1867')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1867')
-    
-            cy.wait(400)
+            produtoPromoPrazoParcelado()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -257,19 +215,17 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+                .click({force: true})
     
             //Usar promoção, no card "Promoções"
             cy.get('.md-3-line > div.md-button > .md-no-style')
                 .click()
     
             //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_119 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -277,9 +233,11 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
                 
             tirarEntrega()
 
@@ -287,13 +245,11 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de PAGAMENTO
     
-            cy.wait(800)
+            cy.wait(14000)
     
             //Botão "AVANÇAR"
             avancarFinal()
@@ -301,12 +257,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
-            //Texto "Consumidor Final"
-            cy.get('.md-label')
-                .scrollIntoView()
-    
-            cy.wait(800)
     
             botaoFinalizarPedido()
 
@@ -330,22 +280,9 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1868')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1868')
-    
-            cy.wait(400)
+            produtoPromoPartida()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -357,8 +294,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -369,7 +304,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
     
             //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_119 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -377,9 +312,11 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
                 
             tirarEntrega()
 
@@ -387,10 +324,8 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(800)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -405,47 +340,43 @@ describe('Gerar pedidos com promoção', () => {
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
     
-            //clicar no botão "ADICIONAR", para adicionar o segundo produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
     
-            cy.wait(1300)
+            cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-                
-            tirarEntrega()
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
 
-            tirarMontagem()
+            //Botão "OK" - Serviços Vinculados
+            okServicosVinculados()
+                
+            tirarEntregaSegundo()
+
+            tirarMontagemSegundo()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             cy.wait(14000)
 
             //Tela de PARCELAS
 
             //Clicar em GERAR PARCELAS
-            cy.get('.layout-wrap > [style="padding: 0 5px"] > .md-primary')
-                .click({force:true})
+            botaoGerarParcelas()
             
             cy.wait(6500)
 
-            //Escolher forma de pagemento
+            //Escolher forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
                 .click()
-
-            cy.wait(400)
 
             //Escolher parcelamento
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
 
-            cy.wait(400)
+            cy.wait(1000)
 
             //Avançar para finalizar o pedido
             avancarFinal()
@@ -470,22 +401,9 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1866')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1866')
-    
-            cy.wait(400)
+            produtoPromoPrazoEntrada()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -497,8 +415,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -511,7 +427,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
     
             //Card de Formas de pagamento - escolher forma de pagamento
-            cy.get('#dialogContent_122 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_124 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -519,9 +435,11 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
                 
             tirarEntrega()
 
@@ -547,40 +465,53 @@ describe('Gerar pedidos com promoção', () => {
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
     
-            //clicar no botão "ADICIONAR", para adicionar o segundo produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
     
             cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-                
-            tirarEntrega()
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
 
-            tirarMontagem()
+            //Botão "OK" - Serviços Vinculados
+            okServicosVinculados()
+                
+            tirarEntregaSegundo()
+
+            tirarMontagemSegundo()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
 
             // tela de GERAR PARCELAS
     
-            cy.wait(900)
+            cy.wait(14000)
     
             //Abrir opções de processos a receber entrada
-            cy.get('#select_215')
-                .click()
+            cy.get('#select_348')
+                .click({force:true})
     
             //Escolher processo a receber de entrada
-            cy.get('#select_option_227 > .md-text')
+            cy.contains('div.md-text', '3861 - T.A. A Receber A Vista')
                 .click({force:true})
     
             //Botão "GERAR PAGAMENTO"
             cy.get('.white > .layout-align-center-center > .md-primary')
+                .click({force:true})
+    
+            cy.wait(400)
+
+            botaoGerarParcelas()
+
+            cy.wait(6000)
+    
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+    
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
                 .click()
     
             cy.wait(400)
@@ -588,19 +519,7 @@ describe('Gerar pedidos com promoção', () => {
             //Botão "AVANÇAR"
             avancarFinal()
     
-            cy.wait(6000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
-            //Texto "Consumidor Final"
-            cy.get('.md-label')
-                .scrollIntoView()
-    
-            cy.wait(800)
-    
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
+            cy.wait(8000)
     
             botaoFinalizarPedido()
 
@@ -610,7 +529,7 @@ describe('Gerar pedidos com promoção', () => {
             //Carregando a finalização do pedido
             cy.wait(10000)
     
-             pedidoGerado()
+            pedidoGerado()
         })
     })
 
@@ -624,22 +543,9 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1868')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1868')
-    
-            cy.wait(400)
+            produtoPromoPartida()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -651,8 +557,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -663,7 +567,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
     
             //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_119 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -671,21 +575,17 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
-            cy.wait(400)
+            avancarParaTransportadora()
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
-    
-            cy.wait(12000)
+            cy.wait(14000)
 
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(14000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -695,19 +595,19 @@ describe('Gerar pedidos com promoção', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
-            cy.wait(10000)
+            cy.wait(15000)
     
             //Clicar no "GERAR PARCELAS"
             botaoGerarParcelas()
 
-            cy.wait(7500)
+            cy.wait(6500)
 
             //Escolher "Forma de pagamento"
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
                 .click()
-
-            cy.wait(800)
 
             //Escolher parcelamento
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
@@ -741,22 +641,9 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1866')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1866')
-    
-            cy.wait(400)
+            produtoPromoPrazoEntrada()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -768,8 +655,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -782,7 +667,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
     
             //Card de Formas de pagamento - escolher forma de pagamento
-            cy.get('#dialogContent_122 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_124 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -790,15 +675,15 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             cy.wait(14000)
 
@@ -812,18 +697,20 @@ describe('Gerar pedidos com promoção', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
-            cy.wait(10000)
+            cy.wait(15000)
 
             // tela de GERAR PARCELAS
 
             //Escolher forma de pagamento na entrada
-            cy.get('#select_929')
+            cy.get('#select_931')
                 .click({force:true})
 
             //Escolher o processo para a forma de pagamento de entrada
-            cy.get('#select_option_941')
-                .click()
+            cy.get('#select_option_943')
+                .click({force:true})
 
             cy.wait(400)
 
@@ -839,8 +726,6 @@ describe('Gerar pedidos com promoção', () => {
             //Escolher "Forma de pagamento"
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
                 .click()
-
-            cy.wait(800)
 
             //Escolher parcelamento
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
@@ -873,22 +758,9 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1867')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1867')
-    
-            cy.wait(400)
+            produtoPromoPrazoParcelado()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -900,8 +772,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -912,7 +782,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
     
             //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_119 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -920,15 +790,15 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             cy.wait(14000)
 
@@ -942,25 +812,27 @@ describe('Gerar pedidos com promoção', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
-            cy.wait(10000)
+            cy.wait(15000)
 
             // tela de GERAR PARCELAS
 
             //Clicar no botão GERAR PARCELAS
             botaoGerarParcelas()
 
-            cy.wait(8000)
+            cy.wait(7000)
 
             //Escolher a forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-
-            cy.wait(800)
+                .click({force:true})
 
             //Escolher a forma de pagamento/parcelas
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+                .click({force:true})
+
+            cy.wait(400)
 
             //Clicar no botão AVANÇAR, para ir para a última tela, para finalizar
             avancarFinal()
@@ -977,7 +849,7 @@ describe('Gerar pedidos com promoção', () => {
             //Carregando a finalização do pedido
             cy.wait(9000)
     
-             pedidoGerado()
+            pedidoGerado()
         })  
     }) 
 
@@ -991,22 +863,9 @@ describe('Gerar pedidos com promoção', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1868')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1868')
-    
-            cy.wait(400)
+            produtoPromoPartida()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -1018,8 +877,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(800)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -1030,7 +887,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
     
             //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_119 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -1038,16 +895,16 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
 
             cy.wait(800)
     
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
@@ -1062,9 +919,8 @@ describe('Gerar pedidos com promoção', () => {
             cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
                 .click()
     
-            //clicar no botão "ADICIONAR", para adicionar o segundo produto
-            cy.get('[style="padding: 0px 5px;"] > .md-primary')
-                .click()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
     
             cy.wait(1000)
     
@@ -1072,13 +928,9 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
                 .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
     
-            cy.wait(400)
+            avancarParaTransportadora()
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
-    
-            cy.wait(14000)
+            cy.wait(16000)
 
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -1090,8 +942,10 @@ describe('Gerar pedidos com promoção', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
-            cy.wait(10000)
+            cy.wait(17000)
 
             //Tela de PARCELAS
 
@@ -1103,8 +957,6 @@ describe('Gerar pedidos com promoção', () => {
             //Escolher forma de pagemento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
                 .click()
-
-            cy.wait(400)
 
             //Escolher parcelamento
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')

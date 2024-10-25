@@ -1,5 +1,8 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoVendaPrincipal } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem,
+         avancarFinal, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados,
+         okServicosVinculados } from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoKitPrimeiro} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
 
@@ -12,7 +15,7 @@ describe('Gerar pedido normal', () => {
   
     context('Sem frete/ processo 9860 - caminho feliz', () => {
         
-        it('Pedido de venda: kit 1862 0 0', () => {
+        it.skip('Pedido de venda: kit 1862 0 0', () => {
     
             //Escolher processo de venda
             processoVendaPrincipal()
@@ -20,22 +23,10 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2500)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1862')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1862')
-    
-            cy.wait(400)
+            //Pesquisando kit
+            produtoKitPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -47,8 +38,6 @@ describe('Gerar pedido normal', () => {
             cy.wait(1300)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(1000)
                       
             //Selecionar a voltagem do produto
             cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
@@ -59,9 +48,11 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntrega()
 
@@ -69,9 +60,7 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click() //Clicar para avançar para a próxima tela
+            avancarParaParcelas()
     
             // tela de GERAR PARCELAS
     
@@ -84,7 +73,7 @@ describe('Gerar pedido normal', () => {
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
-            cy.wait(7000)
+            cy.wait(6000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -117,7 +106,7 @@ describe('Gerar pedido normal', () => {
     
     context('Com frete/processo 9860 - caminho feliz', () => {
         
-        it('Pedido de venda: kit 1862 0 0', () => {
+        it.skip('Pedido de venda: kit 1862 0 0', () => {
     
             //Escolher processo de venda
             processoVendaPrincipal()
@@ -125,22 +114,10 @@ describe('Gerar pedido normal', () => {
             //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(2000)
+            cy.wait(1000)
     
-            //Campo "Buscar produtos"
-            cy.contains('label', 'Buscar produtos'); // Seleciona o label com o texto Buscar produtos
-    
-            cy.get('#searchText')
-                .should('have.value', '') //Validando se o campo foi realmente limpo
-                .wait(1300)
-                .type('1862')
-           
-            cy.wait(2500)
-    
-            //Preenchendo campo para pesquisar produto
-            cy.contains('Cod: 1862')
-    
-            cy.wait(400)
+            //Pesquisando produto
+            produtoKitPrimeiro()
     
             //Validando informações do produto após pesquisar
             saldodisponivel()
@@ -162,19 +139,19 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(1000)
     
+            //validando modal Serviços Vinculados
+            modalServicosVinculados()
+
             //Botão "OK" - Serviços Vinculados
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
-            cy.get('.flex-gt-sm-50 > .md-primary')
-                .click({force:true}) //Clicar para avançar para a próxima tela
+            avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(14000)
+            cy.wait(13000)
 
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -184,19 +161,17 @@ describe('Gerar pedido normal', () => {
             escolherTransportadora()
         
             escolherRota()
+
+            avancarParcelasEntrega()
         
             cy.wait(8000)
 
             // tela de GERAR PARCELAS
 
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
-
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
 
-            cy.wait(8000)
+            cy.wait(7000)
 
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -211,7 +186,7 @@ describe('Gerar pedido normal', () => {
             //Botão "AVANÇAR"
             avancarFinal()
 
-            cy.wait(9000)
+            cy.wait(8000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 

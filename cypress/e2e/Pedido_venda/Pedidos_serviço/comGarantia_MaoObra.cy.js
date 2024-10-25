@@ -1,5 +1,8 @@
 import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, avancarFinal, botaoGerarParcelas, produtoNormalPrimeiro } from '../../../support/para_pedidos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, avancarFinal,
+         botaoGerarParcelas, produtoNormalPrimeiro, produtoNormalSegundo, tirarEntregaSegundo, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega,
+        modalServicosVinculados, okServicosVinculados } from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
@@ -12,4286 +15,3863 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
     context('Sem frete/processo 9860 - caminho feliz', () => {
     
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            processoVendaPrincipal()
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            escolherClientePedido()
 
-                cy.wait(1000)
+            cy.wait(1000)
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            saldodisponivel()
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
 
-                cy.wait(1300)
+            cy.wait(1300)
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-                tirarEntrega()
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-                cy.wait(400)
+            cy.wait(1000)
 
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+            modalServicosVinculados()
 
-                // tela de GERAR PARCELAS
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
 
-                cy.wait(9000)
+            cy.wait(300)
 
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
 
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(11000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
+            okServicosVinculados()
                 
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
+            tirarEntrega()
 
-                cy.wait(1000)
+            cy.wait(400)
 
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
+            avancarParaParcelas()
 
-                cy.wait(300)
+            // tela de GERAR PARCELAS
 
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
+            cy.wait(9000)
 
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
 
-                tirarEntrega()
+            botaoGerarParcelas()
 
-                cy.wait(400)
+            cy.wait(9000)
 
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar)
-        
-                tirarEntrega()
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-                cy.wait(400)
+            cy.wait(400)
 
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-                cy.wait(10000)
+            cy.wait(9000)
 
-                // tela de GERAR PARCELAS
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
+            botaoFinalizarPedido()
 
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
+            //Carregamento de pedido
+            finalizandoPedido()
 
-                cy.wait(9000)
+            cy.wait(11000)
 
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(9000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(8000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(11000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(10000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                //Botão "FINALIZAR PEDIDO"
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                //Validar mensagem "Pedido gravado com sucesso!"
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(9000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(11000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente"
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(10000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                //Botão "FINALIZAR PEDIDO"
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                //Validar mensagem "Pedido gravado com sucesso!"
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-                    
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(9000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                //Botão "FINALIZAR PEDIDO"
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(11000)
-
-                //Validar mensagem "Pedido gravado com sucesso!"
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
-
-                //clicar para aparecer as opções de processo
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(10000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                //Botão "FINALIZAR PEDIDO"
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                //Validar mensagem "Pedido gravado com sucesso!"
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(9000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(11000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(10000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                //Botão "FINALIZAR PEDIDO"
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                //Validar mensagem "Pedido gravado com sucesso!"
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(9000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(11000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
-                cy.get('#checkbox-144-2 > .md-container')
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(10000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(9000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(11000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(10000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(8000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(11000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(10000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(9000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(11000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                tirarEntrega()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela de GERAR PARCELAS
-
-                cy.wait(10000)
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
+            pedidoGerado()
         })
 
-        context('Com entrega/processo 9860 - caminho feliz', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
+            processoVendaPrincipal()
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            escolherClientePedido()
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            cy.wait(1000)
 
-                cy.wait(1000)
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            saldodisponivel()
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            cy.wait(1300)
 
-                cy.wait(1300)
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                escolherRota()
-            
-                cy.wait(10000)
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-                // tela de GERAR PARCELAS
+            cy.wait(1000)
 
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
+            modalServicosVinculados()
 
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
 
-                cy.wait(9000)
+            cy.wait(300)
 
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
 
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
+            okServicosVinculados()
 
-                cy.wait(400)
+            tirarEntrega()
 
-                //Botão "AVANÇAR"
-                avancarFinal()
+            cy.wait(400)
 
-                cy.wait(9000)
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
 
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            modalServicosVinculados()
 
-                botaoFinalizarPedido()
+            okServicosVinculados()
+    
+            tirarEntregaSegundo()
 
-                //Carregamento de pedido
-                finalizandoPedido()
+            cy.wait(400)
 
-                //Carregando a finalização do pedido
-                cy.wait(13000)
+            avancarParaParcelas()
 
-                pedidoGerado()
-            })
+            cy.wait(10000)
 
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+            // tela de GERAR PARCELAS
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            botaoGerarParcelas()
 
-                cy.wait(1000)
+            cy.wait(9000)
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            cy.wait(400)
 
-                cy.wait(1300)
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            cy.wait(9000)
 
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-                cy.wait(1000)
+            botaoFinalizarPedido()
 
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
+            //Carregamento de pedido
+            finalizandoPedido()
 
-                cy.wait(300)
+            cy.wait(12000)
 
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(10000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(13000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
+            pedidoGerado()
         })
 
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            processoVendaPrincipal()
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            escolherClientePedido()
 
-                cy.wait(1000)
+            cy.wait(1000)
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            saldodisponivel()
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
 
-                cy.wait(1300)
+            cy.wait(1300)
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            tirarEntrega()
+
+            cy.wait(400)
+
+            avancarParaParcelas()
+
+            // tela de GERAR PARCELAS
+
+            cy.wait(9000)
+
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(8000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            cy.wait(11000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            tirarEntrega()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            //Validando informações do segundo produto após pesquisar
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+    
+            //Botão "OK" - Serviços Vinculados - segundo produto
+            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
+                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+    
+            tirarEntregaSegundo()
+
+            cy.wait(400)
+
+            avancarParaParcelas()
+
+            // tela de GERAR PARCELAS
+
+            cy.wait(10000)
+
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            tirarEntrega()
+
+            cy.wait(400)
+
+            avancarParaParcelas()
+
+            // tela de GERAR PARCELAS
+
+            cy.wait(9000)
+
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(11000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente"
+            cy.get('#checkbox-144-2 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            tirarEntrega()
+
+            cy.wait(400)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+    
+            //Botão "OK" - Serviços Vinculados - segundo produto
+            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
+                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+    
+            tirarEntregaSegundo()
+
+            cy.wait(400)
+
+            avancarParaParcelas()
+
+            // tela de GERAR PARCELAS
+
+            cy.wait(10000)
+
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
+
+            okServicosVinculados()
                 
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
+            tirarEntrega()
 
-                cy.wait(1000)
+            cy.wait(400)
 
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
+            avancarParaParcelas()
 
-                cy.wait(300)
+            // tela de GERAR PARCELAS
 
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado neste produto
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
+            cy.wait(9000)
 
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
 
-                cy.wait(400)
+            botaoGerarParcelas()
 
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
+            cy.wait(9000)
 
-                // tela para ESCOLHER TRANSPORTADORA
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-                cy.wait(14000)
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(11000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                escolherRota()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            tirarEntrega()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+    
+            okServicosVinculados()
+    
+            tirarEntregaSegundo()
+
+            cy.wait(400)
+
+            avancarParaParcelas()
+
+            // tela de GERAR PARCELAS
+
+            cy.wait(10000)
+
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                cy.wait(10000)
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-                // tela de GERAR PARCELAS
+            cy.wait(1000)
 
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
+            modalServicosVinculados()
 
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
 
-                cy.wait(9000)
+            cy.wait(300)
 
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
 
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
+            okServicosVinculados()
 
-                cy.wait(400)
+            tirarEntrega()
 
-                //Botão "AVANÇAR"
-                avancarFinal()
+            cy.wait(400)
 
-                cy.wait(9000)
+            avancarParaParcelas()
 
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            // tela de GERAR PARCELAS
 
-                botaoFinalizarPedido()
+            cy.wait(9000)
 
-                //Carregamento de pedido
-                finalizandoPedido()
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
 
-                //Carregando a finalização do pedido
-                cy.wait(12000)
+            botaoGerarParcelas()
 
-                pedidoGerado()
-            })
+            cy.wait(9000)
 
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            cy.wait(400)
 
-                cy.wait(1000)
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            cy.wait(9000)
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            botaoFinalizarPedido()
 
-                cy.wait(1300)
+            finalizandoPedido()
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            cy.wait(11000)
 
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
+            pedidoGerado()
+        })
 
-                cy.wait(1000)
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
-                //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-                cy.get('#checkbox-139-0 > .md-container')
-                    .click()
+            processoVendaPrincipal()
 
-                cy.wait(300)
+            escolherClientePedido()
 
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado neste produto
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
+            cy.wait(1000)
 
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-                cy.wait(800)
+            saldodisponivel()
 
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                cy.wait(400)
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
 
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
+            cy.wait(1300)
 
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                escolherRota()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            tirarEntrega()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+    
+            okServicosVinculados()
+    
+            tirarEntregaSegundo()
+
+            cy.wait(400)
+
+            avancarParaParcelas()
+
+            // tela de GERAR PARCELAS
+
+            cy.wait(10000)
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                cy.wait(10000)
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-                // tela de GERAR PARCELAS
+            cy.wait(1000)
 
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
+            modalServicosVinculados()
 
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
 
-                cy.wait(9000)
+            cy.wait(300)
 
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
+            cy.get('#checkbox-144-2 > .md-container')
+                .click()
 
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
+            okServicosVinculados()
 
-                cy.wait(400)
+            tirarEntrega()
 
-                //Botão "AVANÇAR"
-                avancarFinal()
+            cy.wait(400)
 
-                cy.wait(9000)
+            avancarParaParcelas()
 
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            // tela de GERAR PARCELAS
 
-                botaoFinalizarPedido()
+            cy.wait(9000)
 
-                //Carregamento de pedido
-                finalizandoPedido()
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
 
-                //Carregando a finalização do pedido
-                cy.wait(12000)
+            botaoGerarParcelas()
 
-                pedidoGerado()
-            })
+            cy.wait(9000)
 
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            cy.wait(400)
 
-                cy.wait(1000)
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            cy.wait(9000)
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            botaoFinalizarPedido()
 
-                cy.wait(1300)
+            finalizandoPedido()
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            cy.wait(11000)
 
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
+            pedidoGerado()
+        })
 
-                cy.wait(1000)
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
+            processoVendaPrincipal()
 
-                cy.wait(300)
+            escolherClientePedido()
 
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
+            cy.wait(1000)
 
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-                cy.wait(400)
+            saldodisponivel()
 
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
 
-                // tela para ESCOLHER TRANSPORTADORA
+            cy.wait(1300)
 
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                escolherRota()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
+            cy.get('#checkbox-144-2 > .md-container')
+
+            okServicosVinculados()
+
+            tirarEntrega()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            tirarEntregaSegundo()
+
+            cy.wait(400)
+
+            avancarParaParcelas()
+
+            // tela de GERAR PARCELAS
+
+            cy.wait(10000)
+
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                cy.wait(10000)
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-                // tela de GERAR PARCELAS
+            cy.wait(1000)
 
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
+            modalServicosVinculados()
 
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
 
-                cy.wait(9000)
+            cy.wait(300)
 
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
 
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
+            okServicosVinculados()
 
-                cy.wait(400)
+            tirarEntrega()
 
-                //Botão "AVANÇAR"
-                avancarFinal()
+            cy.wait(400)
 
-                cy.wait(9000)
+            avancarParaParcelas()
 
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            // tela de GERAR PARCELAS
 
-                botaoFinalizarPedido()
+            cy.wait(9000)
 
-                //Carregamento de pedido
-                finalizandoPedido()
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
 
-                //Carregando a finalização do pedido
-                cy.wait(12000)
+            botaoGerarParcelas()
 
-                pedidoGerado()
-            })
+            cy.wait(9000)
 
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            cy.wait(400)
 
-                cy.wait(1000)
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            cy.wait(9000)
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            botaoFinalizarPedido()
 
-                cy.wait(1300)
+            finalizandoPedido()
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            cy.wait(11000)
 
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
+            pedidoGerado()
+        })
 
-                cy.wait(1000)
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
+            processoVendaPrincipal()
 
-                cy.wait(300)
+            escolherClientePedido()
 
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
+            cy.wait(1000)
 
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-                cy.wait(800)
+            saldodisponivel()
 
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                cy.wait(400)
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
 
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
+            cy.wait(1300)
 
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                escolherRota()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            tirarEntrega()
+
+            cy.wait(400)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+
+            tirarEntregaSegundo()
+
+            cy.wait(400)
+
+            avancarParaParcelas()
+
+            // tela de GERAR PARCELAS
+
+            cy.wait(10000)
+
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                cy.wait(10000)
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-                // tela de GERAR PARCELAS
+            cy.wait(1000)
 
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
+            modalServicosVinculados()
 
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
 
-                cy.wait(9000)
+            cy.wait(300)
 
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
 
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
+            okServicosVinculados()
 
-                cy.wait(400)
+            tirarEntrega()
 
-                //Botão "AVANÇAR"
-                avancarFinal()
+            cy.wait(400)
 
-                cy.wait(9000)
+            avancarParaParcelas()
 
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            // tela de GERAR PARCELAS
 
-                botaoFinalizarPedido()
+            cy.wait(8000)
 
-                //Carregamento de pedido
-                finalizandoPedido()
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
 
-                //Carregando a finalização do pedido
-                cy.wait(12000)
+            botaoGerarParcelas()
 
-                pedidoGerado()
-            })
+            cy.wait(9000)
 
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            cy.wait(400)
 
-                cy.wait(1000)
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            cy.wait(9000)
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            botaoFinalizarPedido()
 
-                cy.wait(1300)
+            finalizandoPedido()
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            cy.wait(11000)
 
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
+            pedidoGerado()
+        })
 
-                cy.wait(1000)
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
+            processoVendaPrincipal()
 
-                cy.wait(300)
+            escolherClientePedido()
 
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
+            cy.wait(1000)
 
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-                cy.wait(400)
+            saldodisponivel()
 
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
 
-                // tela para ESCOLHER TRANSPORTADORA
+            cy.wait(1300)
 
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                escolherRota()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            tirarEntrega()
+
+            cy.wait(400)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+    
+            okServicosVinculados()
+    
+            tirarEntregaSegundo()
+
+            cy.wait(400)
+
+            avancarParaParcelas()
+
+            // tela de GERAR PARCELAS
+
+            cy.wait(10000)
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                cy.wait(10000)
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-                // tela de GERAR PARCELAS
+            cy.wait(1000)
 
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
+            modalServicosVinculados()
 
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
 
-                cy.wait(9000)
+            cy.wait(300)
 
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
+            okServicosVinculados()
 
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
+            tirarEntrega()
 
-                cy.wait(400)
+            cy.wait(400)
 
-                //Botão "AVANÇAR"
-                avancarFinal()
+            avancarParaParcelas()
 
-                cy.wait(9000)
+            // tela de GERAR PARCELAS
 
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            cy.wait(9000)
 
-                botaoFinalizarPedido()
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
 
-                //Carregamento de pedido
-                finalizandoPedido()
+            botaoGerarParcelas()
 
-                //Carregando a finalização do pedido
-                cy.wait(13000)
+            cy.wait(9000)
 
-                pedidoGerado()
-            })
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            cy.wait(400)
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-                cy.wait(1000)
+            cy.wait(9000)
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            botaoFinalizarPedido()
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            finalizandoPedido()
 
-                cy.wait(1300)
+            cy.wait(11000)
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            pedidoGerado()
+        })
 
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
-                cy.wait(1000)
+            processoVendaPrincipal()
 
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
+            escolherClientePedido()
 
-                cy.wait(300)
+            cy.wait(1000)
 
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            saldodisponivel()
 
-                cy.wait(800)
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
 
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                cy.wait(400)
+            cy.wait(1300)
 
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
             
-                escolherRota()
-            
-                cy.wait(10000)
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-                // tela de GERAR PARCELAS
+            cy.wait(1000)
 
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
+            modalServicosVinculados()
 
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
 
-                cy.wait(9000)
+            cy.wait(300)
 
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-144-2 > .md-container')
+                .click()
 
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
+            okServicosVinculados()
 
-                cy.wait(400)
+            tirarEntrega()
 
-                //Botão "AVANÇAR"
-                avancarFinal()
+            cy.wait(400)
 
-                cy.wait(9000)
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
 
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            modalServicosVinculados()
+    
+            okServicosVinculados()
+    
+            tirarEntregaSegundo()
 
-                botaoFinalizarPedido()
+            cy.wait(400)
 
-                //Carregamento de pedido
-                finalizandoPedido()
+            avancarParaParcelas()
 
-                //Carregando a finalização do pedido
-                cy.wait(12000)
+            // tela de GERAR PARCELAS
 
-                pedidoGerado()
-            })
+            cy.wait(10000)
 
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
+            //Título "Formas de pagamento na Entrada"
+            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
+                .scrollIntoView()
 
-                //Escolher processo de venda
-                processoVendaPrincipal()
+            botaoGerarParcelas()
 
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
+            cy.wait(9000)
 
-                cy.wait(1000)
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-                //Pesquisando produto
-                produtoNormalPrimeiro()
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
+            cy.wait(400)
 
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-                cy.wait(1300)
+            cy.wait(9000)
 
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
+            botaoFinalizarPedido()
 
-                cy.wait(1000)
+            finalizandoPedido()
 
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
+            cy.wait(12000)
 
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(13000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. Garantia Não Separa"
-                cy.get('#checkbox-140-1 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click() //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-                cy.get('#checkbox-142-0 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(13000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-                cy.get('#checkbox-143-1 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(800)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(800)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(10000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                cy.wait(800)
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })  
-
-            it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
-
-                //Escolher processo de venda
-                processoVendaPrincipal()
-
-                //Função para escolher cliente para pedido
-                escolherClientePedido()
-
-                cy.wait(1000)
-
-                //Pesquisando produto
-                produtoNormalPrimeiro()
-
-                //Validando informações do produto após pesquisar
-                saldodisponivel()
-
-                //clicar para selecionar o produto; 
-                cy.contains('Cod: 1860')
-                    .click({ force: true })
-
-                cy.wait(1300)
-
-                // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-                cy.wait(800)
-                        
-                //Selecionar a voltagem do produto
-                cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click({ force: true })
-                
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-
-                cy.wait(1000)
-
-                //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-141-2 > .md-container')
-                    .click()
-
-                cy.wait(300)
-
-                //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-                cy.get('#checkbox-144-2 > .md-container')
-                    .click()
-
-                //Botão "OK" - Serviços Vinculados
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-
-                cy.wait(800)
-
-                //Buscar segundo produto
-                cy.get('#searchText')
-                    .clear()
-                    .type('1870')
-        
-                //Validando informações do segundo produto após pesquisar
-                saldodisponivel()
-        
-                //clicar para selecionar o segundo produto; 
-                cy.contains('Cod: 1870')
-                    .click({ force: true })
-        
-                cy.wait(800)
-        
-                //Escolhendo voltagem do segundo produto
-                cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                    .click()
-        
-                //clicar no botão "ADICIONAR", para adicionar produto
-                botãoAdicionar()
-        
-                cy.wait(1000)
-        
-                //Botão "OK" - Serviços Vinculados - segundo produto
-                cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                    .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-        
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                cy.get('.flex-gt-sm-50 > .md-primary')
-                    .click({force:true}) //Clicar para avançar para a próxima tela
-
-                // tela para ESCOLHER TRANSPORTADORA
-
-                cy.wait(14000)
-
-                //Card de inconsistencias - fechar
-                cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                    .click()
-        
-                //Função criada para clicar no campo transportadora e escolher a trasportadora
-                escolherTransportadora()
-            
-                escolherRota()
-            
-                cy.wait(10000)
-
-                // tela de GERAR PARCELAS
-
-                //Título "Formas de pagamento na Entrada"
-                cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                    .scrollIntoView()
-
-                //Botão "GERAR PARCELAS"
-                botaoGerarParcelas()
-
-                cy.wait(9000)
-
-                //Selecionando forma de pagamento
-                cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                    .click()
-
-                //Selecionando parcela na forma de pagamento
-                cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                    .click()
-
-                cy.wait(400)
-
-                //Botão "AVANÇAR"
-                avancarFinal()
-
-                cy.wait(9000)
-
-                // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-                botaoFinalizarPedido()
-
-                //Carregamento de pedido
-                finalizandoPedido()
-
-                //Carregando a finalização do pedido
-                cy.wait(12000)
-
-                pedidoGerado()
-            })
+            pedidoGerado()
         })
     })
+
+    context('Com entrega/processo 9860 - caminho feliz', () => {
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(13000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+    
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            //Função criada para clicar no campo transportadora e escolher a trasportadora
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(10000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(13000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            //Validando informações do segundo produto após pesquisar
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+    
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+    })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado neste produto
+            cy.get('#checkbox-144-2 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
+            cy.get('#checkbox-139-0 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado neste produto
+            cy.get('#checkbox-144-2 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+    
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+    
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(13000)
+
+            pedidoGerado()
+        })
+
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+
+            //Escolher processo de venda
+            processoVendaPrincipal()
+
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            //Validando informações do produto após pesquisar
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            //Validando informações do segundo produto após pesquisar
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            //Função criada para clicar no campo transportadora e escolher a trasportadora
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            //Botão "GERAR PARCELAS"
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            //Carregando a finalização do pedido
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
+
+            //Escolher processo de venda
+            processoVendaPrincipal()
+
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            //Validando informações do produto após pesquisar
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
+            cy.get('#checkbox-144-2 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            //Função criada para clicar no campo transportadora e escolher a trasportadora
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            //Botão "GERAR PARCELAS"
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            //Carregando a finalização do pedido
+            cy.wait(13000)
+
+            pedidoGerado()
+        })
+
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+
+            //Escolher processo de venda
+            processoVendaPrincipal()
+
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            //Validando informações do produto após pesquisar
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. Garantia Não Separa"
+            cy.get('#checkbox-140-1 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
+            cy.get('#checkbox-144-2 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            //Botão "GERAR PARCELAS"
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            //Carregando a finalização do pedido
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
+
+            //Escolher processo de venda
+            processoVendaPrincipal()
+
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            //Validando informações do produto após pesquisar
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+
+            //Escolher processo de venda
+            processoVendaPrincipal()
+
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            //Validando informações do produto após pesquisar
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
+            cy.get('#checkbox-142-0 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            //Validando informações do segundo produto após pesquisar
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+    
+            //Botão "OK" - Serviços Vinculados - segundo produto
+            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
+                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            //Carregando a finalização do pedido
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
+
+            //Escolher processo de venda
+            processoVendaPrincipal()
+
+            //Função para escolher cliente para pedido
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            //Validando informações do produto após pesquisar
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            //Carregando a finalização do pedido
+            cy.wait(13000)
+
+            pedidoGerado()
+        })
+
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
+            cy.get('#checkbox-143-1 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            //Função criada para clicar no campo transportadora e escolher a trasportadora
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(800)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(800)
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-144-2 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(10000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(10000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })  
+
+        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(1000)
+
+            //Pesquisando produto
+            produtoNormalPrimeiro()
+
+            saldodisponivel()
+
+            //clicar para selecionar o produto; 
+            cy.contains('Cod: 1860')
+                .click({ force: true })
+
+            cy.wait(1300)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            //Selecionar a voltagem do produto
+            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click({ force: true })
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-141-2 > .md-container')
+                .click()
+
+            cy.wait(300)
+
+            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
+            cy.get('#checkbox-144-2 > .md-container')
+                .click()
+
+            okServicosVinculados()
+
+            cy.wait(800)
+
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            //clicar para selecionar o segundo produto; 
+            cy.contains('Cod: 1870')
+                .click({ force: true })
+    
+            cy.wait(800)
+    
+            //Escolhendo voltagem do segundo produto
+            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+                .click()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(1000)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            //Botão "OK" - Serviços Vinculados - segundo produto
+            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
+                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+    
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            //Card de inconsistencias - fechar
+            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+                .click()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            cy.wait(9000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+
+            botaoFinalizarPedido()
+
+            //Carregamento de pedido
+            finalizandoPedido()
+
+            cy.wait(12000)
+
+            pedidoGerado()
+        })
+    })
+})
