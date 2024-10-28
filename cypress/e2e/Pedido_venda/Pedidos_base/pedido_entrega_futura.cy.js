@@ -2,7 +2,7 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, 
     finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, 
     processoEntregaFutura, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos';
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsApenasTransp } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido de entrega futura', () => {
@@ -227,9 +227,7 @@ describe('Gerar pedido de entrega futura', () => {
 
             cy.wait(13000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsApenasTransp()
     
             escolherTransportadora()
         
@@ -331,9 +329,7 @@ describe('Gerar pedido de entrega futura', () => {
 
             cy.wait(14000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsApenasTransp()
     
             escolherTransportadora()
         

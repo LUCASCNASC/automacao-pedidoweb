@@ -1,7 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, 
     finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos'
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos'
 import { produtoNormalSegundo, produtoPromoPartida, produtoPromoPrazoEntrada, produtoPromoPrazoParcelado } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
@@ -479,7 +479,7 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
     
             //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('#dialogContent_119 > .white > [style=""] > div.md-button > .md-no-style')
                 .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
@@ -487,7 +487,7 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalInconsRotaTransp()
 
             okServicosVinculados()
     
@@ -497,9 +497,7 @@ describe('Gerar pedidos com promoção', () => {
 
             // tela para ESCOLHER TRANSPORTADORA
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsApenasRota()
     
             escolherTransportadora()
         
@@ -586,9 +584,7 @@ describe('Gerar pedidos com promoção', () => {
 
             // tela para ESCOLHER TRANSPORTADORA
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
     
             escolherTransportadora()
         
@@ -688,9 +684,7 @@ describe('Gerar pedidos com promoção', () => {
 
             // tela para ESCOLHER TRANSPORTADORA
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
 
             escolherTransportadora()
         
@@ -782,18 +776,14 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
             cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             avancarParaTransportadora()
     
@@ -801,9 +791,7 @@ describe('Gerar pedidos com promoção', () => {
 
             // tela para ESCOLHER TRANSPORTADORA
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
     
             escolherTransportadora()
         
@@ -815,7 +803,6 @@ describe('Gerar pedidos com promoção', () => {
 
             //Tela de PARCELAS
 
-            //Clicar em GERAR PARCELAS
             botaoGerarParcelas()
             
             cy.wait(6500)

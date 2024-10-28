@@ -49,6 +49,8 @@ export function escolherRota (selector) {
     //Escolher rota 2
     cy.get(':nth-child(4) > .padding-10-0')
         .click() //clicar na rota 1
+
+    cy.wait (200)
 }
 
 //Função para escolher cliente CPF para gerar pedido de venda - inserir cliente 
@@ -478,6 +480,17 @@ export function avancarParaParcelas (selector) {
     //Clicar para avançar para a tela de GERAR PARCELAS
     cy.get('.flex-gt-sm-50 > .md-primary')
         .click({force:true})
+
+    //Validando carregamento do ícone de "Adicionando produtos/serviços..."
+    cy.get('.conteudo > .layout-align-center-center > .md-accent')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando mensagem de carregamento -  "Adicionando produtos/serviços..."
+    cy.get('h3')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Adicionando produtos/serviços...')
 }
 
 //Botão para avançar para a tela de escolher transportadora e rota
@@ -494,6 +507,17 @@ export function avancarParaTransportadora (selector) {
     //Clicar para avançar para a tela de GERAR PARCELAS
     cy.get('.flex-gt-sm-50 > .md-primary')
         .click({force:true})
+
+    //Validando carregamento do ícone de "Adicionando produtos/serviços..."
+    cy.get('.conteudo > .layout-align-center-center > .md-accent')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando mensagem de carregamento -  "Adicionando produtos/serviços..."
+    cy.get('h3')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Adicionando produtos/serviços...')
 }
 
 //Botão para avançar para a tela de Gerar parcelas
@@ -536,7 +560,7 @@ export function modalServicosVinculados (selector) {
     cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .flex')
         .should('exist')
         .and('be.visible')
-        .and('have.text', 'Serviços Vinculados')
+        .and('contain', 'Serviços Vinculados')
 
     //botão x do modal Serviços Vinculados
     cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .md-icon-button > .ng-binding')
@@ -591,6 +615,7 @@ export function okServicosVinculados (selector) {
         .click({force:true})
 }
 
+//Clicar para selecionar o produto que queremos adicionar ao pedido
 export function escolherProdutoPesquisa (selector) {
 
     //Imagem do produto
@@ -637,6 +662,7 @@ export function escolherProdutoPesquisa (selector) {
 
 }
 
+//Clicar para selecionar a voltagem que queremos adicionar ao pedido
 export function escolherVoltagemProduto (selector) {
 
     //Mensagem "Selecione a cor, a voltagem e o local de saldo "
@@ -662,5 +688,184 @@ export function escolherVoltagemProduto (selector) {
 
     //Card de voltagem - clicar
     cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Trocar filial de faturamento - faturamento remoto da filial 50 para 6
+export function trocarFilialFaturamento (selector) {
+
+    const filial_local = '50 - PR - EMISSÃO NFe/NFCe'
+    const filial_remota = '6 - GAZIN - IND. E COM. DE MÓVEIS E ELETROD. LTDA.'
+
+    //ícone dentro do botão de filial de saldo
+    cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"] > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+
+    //Botão filial de faturamento
+    cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', filial_local)
+        .click({force:true})
+
+    //Card Filial de faturamento - título
+    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Filial')
+    
+    //Card Filial de faturamento - X para sair do card
+    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+
+    //Card Filial de faturamento - filial 50
+    cy.get('p.ng-binding')
+        .contains(filial_local)
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Card Filial de faturamento - filial 6
+    cy.get('p.ng-binding')
+        .contains(filial_remota)
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        
+    //Card Filial de faturamento - clicar na filial 6
+    cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
+        .click()
+}
+
+//Card Inconsistências - rota e transportadora
+export function modalInconsRotaTransp (selector) {
+
+    //Título Inconsistências
+    cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Inconsistências')
+
+    //Mensagem dentro do modal - "Restriçoes geradas (triais), por favor comunique à seu gerente:"
+    cy.get(':nth-child(1) > h3')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Restriçoes geradas (triais), por favor comunique à seu gerente:')
+
+    //Título Processo de venda - Processo de venda
+    cy.get('.ng-scope.flex-100 > .md-primary > .md-toolbar-tools > h2')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Processo de venda')
+
+    //Primeiro ícone Inconsistências
+    cy.get(':nth-child(1) > .md-avatar-icon')
+        .should('exist')
+        .and('be.visible')
+
+    //Mensagem "A Rota é obrigatória."
+    cy.get(':nth-child(1) > .md-list-item-text > .no-truncate')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'A Rota é obrigatória.')
+
+    //Segundo ícone Inconsistências
+    cy.get(':nth-child(1) > .md-avatar-icon')
+        .should('exist')
+        .and('be.visible')
+
+    //Mensagem "Pedidos referêntes a NFC-e com definição de entrega deverão possuir entidade transportadora preenchida, favor verificar."
+    cy.get(':nth-child(2) > .md-list-item-text > .no-truncate')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Pedidos referêntes a NFC-e com definição de entrega deverão possuir entidade transportadora preenchida, favor verificar.')
+    
+    //Botão X para fechar
+    cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click({force:true})
+}
+
+//Card Inconsistências - apenas transportadora
+export function modalInconsApenasTransp (selector) {
+
+    //Título Inconsistências
+    cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Inconsistências')
+
+    //Mensagem dentro do modal - "Restriçoes geradas (triais), por favor comunique à seu gerente:"
+    cy.get(':nth-child(1) > h3')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Restriçoes geradas (triais), por favor comunique à seu gerente:')
+
+    //Título Processo de venda - Processo de venda
+    cy.get('.ng-scope.flex-100 > .md-primary > .md-toolbar-tools > h2')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Processo de venda')
+
+    //Ícone Inconsistências
+    cy.get('.md-avatar-icon')
+        .should('exist')
+        .and('be.visible')
+
+    //Mensagem "Pedidos referêntes a NFC-e com definição de entrega deverão possuir entidade transportadora preenchida, favor verificar."
+    cy.get('.no-truncate')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Pedidos referêntes a NFC-e com definição de entrega deverão possuir entidade transportadora preenchida, favor verificar.')
+    
+    //Botão X para fechar
+    cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click({force:true})
+}
+
+//Card Inconsistências - apenas transportadora
+export function modalInconsApenasRota (selector) {
+
+    //Título Inconsistências
+    cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Inconsistências')
+
+    //Mensagem dentro do modal - "Restriçoes geradas (triais), por favor comunique à seu gerente:"
+    cy.get(':nth-child(1) > h3')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Restriçoes geradas (triais), por favor comunique à seu gerente:')
+
+    //Título Processo de venda - Processo de venda
+    cy.get('.ng-scope.flex-100 > .md-primary > .md-toolbar-tools > h2')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Processo de venda')
+
+    //Ícone Inconsistências
+    cy.get('.md-avatar-icon')
+        .should('exist')
+        .and('be.visible')
+
+    //Mensagem "Pedidos referêntes a NFC-e com definição de entrega deverão possuir entidade transportadora preenchida, favor verificar."
+    cy.get('.no-truncate')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'A Rota é obrigatória.')
+    
+    //Botão X para fechar
+    cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
         .click({force:true})
 }

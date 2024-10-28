@@ -1,7 +1,8 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido,  pedidoGerado, botaoFinalizarPedido,
     finalizandoPedido, botãoAdicionar, botaoGerarParcelas, processoVendaPrincipal, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos';
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, 
+    trocarFilialFaturamento, avancarParaTransportadora, modalInconsApenasRota} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
@@ -13,7 +14,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         titulopagina() //Validar título da aba carregada
     })
   
-    it.only('Pedido de venda remota: produto 1860 0 0', () => {
+    it.skip('Pedido de venda remota: produto 1860 0 0', () => {
 
         processoVendaPrincipal()
 
@@ -34,76 +35,66 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
                   
         escolherVoltagemProduto()
         
-        cy.wait(800)
+        cy.wait(400)
 
-        // //Clicar no botão de filial, para trocarmos a filial de emissão 
-        // cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
-        //     .click()
+        trocarFilialFaturamento()
 
-        // //Escolher a filial 6, de emissão, para venda remota
-        // cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
-        //     .click()
+        //clicar no botão "ADICIONAR", para adicionar produto
+        botãoAdicionar()
 
-        // //clicar no botão "ADICIONAR", para adicionar produto
-        // botãoAdicionar()
+        cy.wait(500)
 
-        // cy.wait(500)
+        modalServicosVinculados()
 
-        // modalServicosVinculados()
+        okServicosVinculados()
 
-        // okServicosVinculados()
+        cy.wait(400)
 
-        // cy.wait(400)
+        avancarParaTransportadora()
 
-        // //Botão "AVANÇAR"
-        // cy.get('.flex-gt-sm-50 > .md-primary')
-        //     .click({force:true}) //Clicar para avançar para a próxima tela
+        // tela para ESCOLHER TRANSPORTADORA
 
-        // // tela para ESCOLHER TRANSPORTADORA
+        cy.wait(13000)
 
-        // cy.wait(13000)
+        modalInconsApenasRota()
 
-        // //Card de inconsistencias - fechar
-        // cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-        //     .click()
-
-        // escolherTransportadora()
+        escolherTransportadora()
     
-        // escolherRota()
+        escolherRota()
 
-        // avancarParcelasEntrega()
+        avancarParcelasEntrega()
     
-        // cy.wait(7000)
+        cy.wait(7000)
 
-        // // tela de GERAR PARCELAS
+        // tela de GERAR PARCELAS
 
-        // botaoGerarParcelas()
+        botaoGerarParcelas()
 
-        // cy.wait(7000)
+        cy.wait(7000)
 
-        // //Selecionando forma de pagamento
-        // cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-        //     .click()
+        //Selecionando forma de pagamento
+        cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+            .click()
 
-        // //Selecionando parcela na forma de pagamento
-        // cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-        //     .click()
+        //Selecionando parcela na forma de pagamento
+        cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+            .click()
 
-        // cy.wait(400)
+        cy.wait(400)
 
-        // //Botão "AVANÇAR"
-        // avancarFinal()
+        //Botão "AVANÇAR"
+        avancarFinal()
 
-        // cy.wait(7500)
+        cy.wait(7500)
 
-        // // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
 
-        // botaoFinalizarPedido()
+        botaoFinalizarPedido()
 
-        // finalizandoPedido()
+        finalizandoPedido()
 
-        // cy.wait(9000)
+        cy.wait(9000)
 
-        // pedidoGerado()
+        pedidoGerado()
     })
 })

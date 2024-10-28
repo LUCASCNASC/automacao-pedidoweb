@@ -1,7 +1,8 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, 
     finalizandoPedido, botãoAdicionar, botaoGerarParcelas, processoVendaPrincipal, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos';
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, trocarFilialFaturamento, 
+    modalInconsApenasRota } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
@@ -34,15 +35,9 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
                   
         escolherVoltagemProduto()
         
-        cy.wait(800)
+        cy.wait(400)
 
-        //Clicar no botão de filial, para trocarmos a filial de emissão 
-        cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
-            .click()
-
-        //Escolher a filial 6, de emissão, para venda remota
-        cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
-            .click()
+        trocarFilialFaturamento()
 
         //clicar no botão "ADICIONAR", para adicionar produto
         botãoAdicionar()
@@ -61,9 +56,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(14000)
 
-        //Card de inconsistencias - fechar
-        cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-            .click()
+        modalInconsApenasRota()
 
         escolherTransportadora()
     
@@ -126,15 +119,9 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
                   
         escolherVoltagemProduto()
         
-        cy.wait(800)
+        cy.wait(400)
 
-        //Clicar no botão de filial, para trocarmos a filial de emissão 
-        cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
-            .click()
-
-        //Escolher a filial 6, de emissão, para venda remota
-        cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
-            .click()
+        trocarFilialFaturamento()
 
         //clicar no botão "ADICIONAR", para adicionar produto
         botãoAdicionar()
@@ -158,13 +145,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(800)
 
-        //Clicar no botão de filial, para trocarmos a filial de emissão 
-        cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
-            .click()
-
-        //Escolher a filial 6, de emissão, para venda remota
-        cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
-            .click()
+        trocarFilialFaturamento()
 
         botãoAdicionar()
 
@@ -182,9 +163,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(14000)
 
-        //Card de inconsistencias - fechar
-        cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-            .click()
+        modalInconsApenasRota()
 
         escolherTransportadora()
     
@@ -247,15 +226,9 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
                   
         escolherVoltagemProduto()
         
-        cy.wait(800)
+        cy.wait(400)
 
-        //Clicar no botão de filial, para trocarmos a filial de emissão 
-        cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
-            .click()
-
-        //Escolher a filial 6, de emissão, para venda remota
-        cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
-            .click()
+        trocarFilialFaturamento()
 
         //clicar no botão "ADICIONAR", para adicionar produto
         botãoAdicionar()
@@ -274,9 +247,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(14000)
 
-        //Card de inconsistencias - fechar
-        cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-            .click()
+        modalInconsApenasRota()
 
         escolherTransportadora()
     

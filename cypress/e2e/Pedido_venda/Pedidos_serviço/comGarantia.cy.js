@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-         modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, botãoAdicionar, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, avancarFinal, finalizandoPedido } from '../../../support/para_pedidos/gerais_pedidos';
+         modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, botãoAdicionar, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, avancarFinal, finalizandoPedido, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Garantia', () => {
@@ -574,13 +574,7 @@ describe('Gerar pedidos com Garantia', () => {
 
             cy.wait(14000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
-
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
     
             escolherTransportadora()
         
@@ -667,7 +661,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             cy.wait(800)
     
-            v
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -686,9 +680,7 @@ describe('Gerar pedidos com Garantia', () => {
 
             cy.wait(14000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
     
             escolherTransportadora()
         
@@ -772,13 +764,7 @@ describe('Gerar pedidos com Garantia', () => {
 
             cy.wait(14000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
-
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
 
             escolherTransportadora()
         
@@ -885,9 +871,7 @@ describe('Gerar pedidos com Garantia', () => {
 
             cy.wait(14000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
 
             escolherTransportadora()
     
@@ -972,13 +956,7 @@ describe('Gerar pedidos com Garantia', () => {
 
             cy.wait(14000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
-
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
     
             escolherTransportadora()
         
@@ -1082,11 +1060,8 @@ describe('Gerar pedidos com Garantia', () => {
 
             cy.wait(16000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
 
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
     
             escolherRota()

@@ -1,7 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, 
     finalizandoPedido, botãoAdicionar, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos';
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Mão de obra', () => {
@@ -574,9 +574,7 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             cy.wait(14000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
 
             cy.wait(1000)
 
@@ -684,9 +682,7 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             cy.wait(18000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
 
             escolherTransportadora()
     
@@ -770,9 +766,7 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             cy.wait(17000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
 
             escolherTransportadora()
     
@@ -878,9 +872,7 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             cy.wait(15000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
 
             escolherTransportadora()
     
@@ -959,18 +951,12 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(400)
     
             avancarParaTransportadora()
+
+            cy.wait(14000)
                 
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(14000)
-
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
-
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
     
             escolherTransportadora()
         
@@ -1072,13 +1058,11 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             avancarParaTransportadora()
 
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(15000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            // tela para ESCOLHER TRANSPORTADORA
+
+            modalInconsRotaTransp()
 
             escolherTransportadora()
     

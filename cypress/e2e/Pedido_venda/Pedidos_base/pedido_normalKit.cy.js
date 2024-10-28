@@ -1,7 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
-     processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos';
+     processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, finalizandoPedido,
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, botãoAdicionar, botaoGerarParcelas, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoKitPrimeiro} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
@@ -128,9 +128,7 @@ describe('Gerar pedido normal', () => {
 
             cy.wait(13000)
 
-            //Card de inconsistencias - fechar
-            cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-                .click()
+            modalInconsRotaTransp()
     
             escolherTransportadora()
         
