@@ -1,8 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar,
-        tirarEntrega, avancarFinal, botaoGerarParcelas, produtoNormalPrimeiro, produtoNormalSegundo, tirarEntregaSegundo, avancarParaParcelas,
-        avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, saldodisponivel,
-        escolherProdutoPesquisa, escolherVoltagemProduto } from '../../../support/para_pedidos/gerais_pedidos';
+import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, 
+    finalizandoPedido, botãoAdicionar, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Garantia e Mão de Obra', () => {

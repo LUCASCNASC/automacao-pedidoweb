@@ -1,7 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar,
-     avancarFinal, botaoGerarParcelas, processoVendaPrincipal, avancarParaTransportadora, avancarParaParcelas, avancarParcelasEntrega,
-      saldodisponivel, escolherProdutoPesquisa, escolherVoltagemProduto} from '../../../support/para_pedidos/gerais_pedidos';
+import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, 
+    finalizandoPedido, botãoAdicionar, botaoGerarParcelas, processoVendaPrincipal, avancarParaTransportadora, avancarParcelasEntrega, 
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
