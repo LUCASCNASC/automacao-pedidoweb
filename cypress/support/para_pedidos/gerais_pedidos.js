@@ -12,6 +12,17 @@ export function escolherTransportadora (selector) {
         .click({force:true})
 }
 
+export function saldodisponivel (selector) {
+    //Validando informações do produto após pesquisar
+    cy.get('.md-list-item-text > .ng-scope')
+        .contains('Saldo disponivel')
+        .should('exist') //Validando existencia do "Saldo disponível"
+        .and('be.visible') //Validando se elemento "Saldo disponível" está visível
+        .and('have.text','Saldo disponivel') //Verificando texto
+        .invoke('css', 'color') // Obtém a cor do elemento
+        .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+}
+
 //Escolher rota completa, rota maringá
 export function escolherRota (selector) {
     //Lupa de pesquisa de rota - clicar para pesquisar
@@ -40,8 +51,61 @@ export function escolherRota (selector) {
         .click() //clicar na rota 1
 }
 
-//Função para escolher cliente CPF para gerar pedido de venda
+//Função para escolher cliente CPF para gerar pedido de venda - inserir cliente 
 export function escolherClientePedido (selector) {
+    
+    //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
+    cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
+        .wait(500)
+        .type('    48976249089{enter}')
+
+    cy.wait(300)
+
+    //Carregando cliente, ícone carregamento
+    cy.get('svg path')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando mensagem de carregamento do cliente
+    cy.get('#dialogContent_90 > .layout-align-center-center > h3')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Aguarde carregando...')
+
+    cy.wait(2200)
+
+    //Card Intenções de Compra - título "Intenções de Compra"
+    cy.get('.md-title')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Intenções de Compra')
+
+    //Card Intenções de Compra - mensagem dentro do card
+    cy.get('.md-dialog-content-body > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'O cliente selecionado possui produtos adicionados nas intenções de compra, deseja acessá-los?')
+
+    //Card Intenções de Compra - validando botão SIM
+    cy.get('.md-confirm-button')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .should('have.text', 'Sim')
+
+    //Card Intenções de Compra - validando botão NÃO
+    cy.get('.md-cancel-button')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .should('have.text', 'Não')
+        .click({force:true})
+
+
+}
+
+//Função para escolher cliente CPF para gerar pedido de venda - pesquisa por cliente
+export function escolherClientePedido2 (selector) {
 
     //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
     cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -524,5 +588,79 @@ export function okServicosVinculados (selector) {
 
     //clicar no botão
     cy.get('button[ng-click="salvar()"]')
+        .click({force:true})
+}
+
+export function escolherProdutoPesquisa (selector) {
+
+    //Imagem do produto
+    cy.get('.resultado-imagem')
+        .should('exist')
+        .and('be.visible')
+
+    //Nome do produto
+    cy.get('.md-resultado-titulo')
+        .should('exist')
+        .and('be.visible')
+
+    //Saldo disponível
+    cy.get('.md-list-item-text > .ng-scope')
+        .should('exist')
+        .and('be.visible')
+
+    //Código do produto
+    cy.get('.badge-saldo.ng-binding')
+        .should('exist')
+        .and('be.visible')
+
+    //Cifrão do valor do produto
+    cy.get('sup')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'R$')
+
+    //Valor do produto
+    cy.get('.valor-busca')
+        .should('exist')
+        .and('be.visible')
+
+    //Check box do produto
+    cy.get('.expandeIcone')
+        .should('exist')
+        .and('be.visible')
+
+    //Clicar para adicionar no carrinho
+    cy.get('.md-list-item-text')
+        .should('exist')
+        .and('be.visible')
+        .click({force:true})
+
+}
+
+export function escolherVoltagemProduto (selector) {
+
+    //Mensagem "Selecione a cor, a voltagem e o local de saldo "
+    cy.get('md-list.md-default-theme > .md-no-sticky > .md-subheader-inner > .md-subheader-content')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Selecione a cor, a voltagem e o local de saldo ')
+
+    //Card de voltagem - Cifrão
+    cy.get('.md-secondary-container > div > .ng-binding > sup')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'R$')
+
+    //Card de voltagem 
+    cy.get('.md-list-item-inner')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Cód. Fabricante:')
+        .and('contain', 'Filial:')
+        .and('contain', 'Saldo Local:')
+        .and('contain', 'Saldo Depósito:')
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
         .click({force:true})
 }

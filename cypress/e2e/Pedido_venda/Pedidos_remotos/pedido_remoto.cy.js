@@ -1,7 +1,7 @@
-import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, avancarFinal,
-         botaoGerarParcelas, processoVendaPrincipal, avancarParaTransportadora, avancarParaParcelas, 
-         avancarParcelasEntrega} from '../../../support/para_pedidos/gerais_pedidos';
+import { titulopagina } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar,
+     avancarFinal, botaoGerarParcelas, processoVendaPrincipal, avancarParaTransportadora, avancarParaParcelas, avancarParcelasEntrega,
+      saldodisponivel, escolherProdutoPesquisa, escolherVoltagemProduto} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
@@ -15,31 +15,24 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
   
     it.skip('Pedido de venda remota: produto 1860 0 0', () => {
 
-        //Escolher processo de venda
         processoVendaPrincipal()
 
-        //Função para escolher cliente para pedido
         escolherClientePedido()
 
-        cy.wait(1000)
+        cy.wait(500)
 
         //Pesquisando produto
         produtoNormalPrimeiro()
 
-        //Validando informações do produto após pesquisar
         saldodisponivel()
 
-        //clicar para selecionar o produto; 
-        cy.contains('Cod: 1860')
-            .click({ force: true })
+        escolherProdutoPesquisa()
 
-        cy.wait(1300)
+        cy.wait(200)
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                   
-        //Selecionar a voltagem do produto
-        cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-            .click({ force: true })
+        escolherVoltagemProduto()
         
         cy.wait(800)
 
@@ -54,12 +47,10 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         //clicar no botão "ADICIONAR", para adicionar produto
         botãoAdicionar()
 
-        cy.wait(1000)
+        cy.wait(500)
 
-        //validando modal Serviços Vinculados
         modalServicosVinculados()
 
-        //Botão "OK" - Serviços Vinculados
         okServicosVinculados()
 
         cy.wait(400)
@@ -74,7 +65,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
             .click()
 
-        //Função criada para clicar no campo transportadora e escolher a trasportadora
         escolherTransportadora()
     
         escolherRota()
@@ -85,7 +75,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         // tela de GERAR PARCELAS
 
-        //Botão "GERAR PARCELAS"
         botaoGerarParcelas()
 
         cy.wait(8000)
@@ -109,10 +98,8 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         botaoFinalizarPedido()
 
-        //Carregamento de pedido
         finalizandoPedido()
 
-        //Carregando a finalização do pedido
         cy.wait(10000)
 
         pedidoGerado()
@@ -120,31 +107,24 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
     it.skip('Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
 
-        //Escolher processo de venda
         processoVendaPrincipal()
 
-        //Função para escolher cliente para pedido
         escolherClientePedido()
 
-        cy.wait(1000)
+        cy.wait(500)
 
         //Pesquisando produto
         produtoNormalPrimeiro()
 
-        //Validando informações do produto após pesquisar
         saldodisponivel()
 
-        //clicar para selecionar o produto; 
-        cy.contains('Cod: 1860')
-            .click({ force: true })
+        escolherProdutoPesquisa()
 
-        cy.wait(1300)
+        cy.wait(200)
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                   
-        //Selecionar a voltagem do produto
-        cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-            .click({ force: true })
+        escolherVoltagemProduto()
         
         cy.wait(800)
 
@@ -159,12 +139,10 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         //clicar no botão "ADICIONAR", para adicionar produto
         botãoAdicionar()
 
-        cy.wait(1000)
+        cy.wait(500)
 
-        //validando modal Serviços Vinculados
         modalServicosVinculados()
 
-        //Botão "OK" - Serviços Vinculados
         okServicosVinculados()
 
         cy.wait(800)
@@ -172,18 +150,11 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         //Pesquisando segundo produto
         produtoNormalSegundo()
 
-        //Validando informações do segundo produto após pesquisar
         saldodisponivel()
 
-        //clicar para selecionar o segundo produto; 
-        cy.contains('Cod: 1870')
-            .click({ force: true })
+        escolherProdutoPesquisa()
 
-        cy.wait(800)
-
-        //Escolhendo voltagem do segundo produto
-        cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-            .click()
+        escolherVoltagemProduto()
 
         cy.wait(800)
 
@@ -199,10 +170,8 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(1000)
 
-        //validando modal Serviços Vinculados
         modalServicosVinculados()
 
-        //Botão "OK" - Serviços Vinculados
         okServicosVinculados()
 
         cy.wait(400)
@@ -217,7 +186,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
             .click()
 
-        //Função criada para clicar no campo transportadora e escolher a trasportadora
         escolherTransportadora()
     
         escolherRota()
@@ -228,7 +196,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         // tela de GERAR PARCELAS
 
-        //Botão "GERAR PARCELAS"
         botaoGerarParcelas()
 
         cy.wait(12000)
@@ -252,10 +219,8 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         botaoFinalizarPedido()
 
-        //Carregamento de pedido
         finalizandoPedido()
 
-        //Carregando a finalização do pedido
         cy.wait(21000)
 
         pedidoGerado()
@@ -263,31 +228,24 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     
     it.skip('Pedido de venda remota: kit 1862 0 0', () => {
 
-        //Escolher processo de venda
         processoVendaPrincipal()
 
-        //Função para escolher cliente para pedido
         escolherClientePedido()
 
-        cy.wait(1000)
+        cy.wait(500)
 
         //Pesquisando produto
         produtoNormalPrimeiro()
 
-        //Validando informações do produto após pesquisar
         saldodisponivel()
 
-        //clicar para selecionar o produto; 
-        cy.contains('Cod: 1862')
-            .click({ force: true })
+        escolherProdutoPesquisa()
 
-        cy.wait(1300)
+        cy.wait(200)
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                   
-        //Selecionar a voltagem do produto
-        cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-            .click({ force: true })
+        escolherVoltagemProduto()
         
         cy.wait(800)
 
@@ -302,12 +260,10 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         //clicar no botão "ADICIONAR", para adicionar produto
         botãoAdicionar()
 
-        cy.wait(1000)
+        cy.wait(500)
 
-        //validando modal Serviços Vinculados
         modalServicosVinculados()
 
-        //Botão "OK" - Serviços Vinculados
         okServicosVinculados()
 
         cy.wait(400)
@@ -322,7 +278,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
             .click()
 
-        //Função criada para clicar no campo transportadora e escolher a trasportadora
         escolherTransportadora()
     
         escolherRota()
@@ -333,7 +288,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         // tela de GERAR PARCELAS
 
-        //Botão "GERAR PARCELAS"
         botaoGerarParcelas()
 
         cy.wait(8000)
@@ -357,10 +311,8 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         botaoFinalizarPedido()
 
-        //Carregamento de pedido
         finalizandoPedido()
 
-        //Carregando a finalização do pedido
         cy.wait(10000)
 
         pedidoGerado()
@@ -368,33 +320,26 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     //fazer - produto 1875 não está aparecendo
     it('Pedido de venda remota: kits 1862 0 0 e 1862 0 0 ', () => {
 
-        //Escolher processo de venda
         processoVendaPrincipal()
 
-        //Função para escolher cliente para pedido
         escolherClientePedido()
 
-        cy.wait(1000)
+        cy.wait(500)
 
         //Pesquisando produto
         produtoNormalPrimeiro()
 
-        //Validando informações do produto após pesquisar
         saldodisponivel()
 
-        //clicar para selecionar o produto; 
-        cy.contains('Cod: 1862')
-            .click({ force: true })
+        escolherProdutoPesquisa()
 
-        cy.wait(1300)
+        cy.wait(200)
 
         // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                   
-        //Selecionar a voltagem do produto
-        cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-            .click({ force: true })
+        escolherVoltagemProduto()
         
-        cy.wait(800)
+        cy.wait(500)
 
         //Clicar no botão de filial, para trocarmos a filial de emissão 
         cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
@@ -420,7 +365,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
             .clear()
             .type('1875')
 
-        //Validando informações do segundo produto após pesquisar
         saldodisponivel()
 
         //clicar para selecionar o segundo produto; 

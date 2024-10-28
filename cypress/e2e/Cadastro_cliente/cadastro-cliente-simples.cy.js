@@ -66,7 +66,7 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
-                .type(cpf, { force: true })
+                .type(cpf, {force: true})
 
             //Campo Nome Completo - validando mensagem dentro do campo antes de preencher
             cy.get('label[for="txtNomeCompleto"]')
@@ -77,7 +77,7 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist')
                 .and('be.visible')
                 .and('have.value','')
-                .type(nomeClienteCPF, { force: true })
+                .type(nomeClienteCPF, {force: true})
 
             //Ícone de data de nascimento
             cy.get('.date-picker.flex-md-100 > .validaData > .md-datepicker-button')

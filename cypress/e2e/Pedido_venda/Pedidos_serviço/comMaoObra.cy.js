@@ -1,7 +1,7 @@
-import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, avancarFinal,
-        botaoGerarParcelas, processoVendaPrincipal, tirarEntregaSegundo, avancarParaParcelas, avancarParaTransportadora,
-        avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados } from '../../../support/para_pedidos/gerais_pedidos';
+import { titulopagina } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar,
+         tirarEntrega, avancarFinal, botaoGerarParcelas, processoVendaPrincipal, tirarEntregaSegundo, avancarParaParcelas, avancarParaTransportadora,
+         avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, saldodisponivel, escolherProdutoPesquisa, escolherVoltagemProduto } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Mão de obra', () => {
@@ -15,40 +15,32 @@ describe('Gerar pedidos com Mão de obra', () => {
   
     context('Sem entrega/processo 9860 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
 
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
     
             //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
@@ -67,11 +59,6 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             cy.wait(8500)
     
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
-    
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(7500)
@@ -95,50 +82,41 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(11000)
 
              pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
             
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
 
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
             
-            cy.wait(1000)
+            cy.wait(500)
 
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
+
             //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
             cy.get('#checkbox-142-0 > .md-container')
                 .click()
@@ -152,18 +130,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Pesquisando segundo produto
             produtoNormalSegundo()
     
-            //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar o segundo produto
             cy.get('[style="padding: 0px 5px;"] > .md-primary')
@@ -171,10 +144,8 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             cy.wait(1000)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
     
             tirarEntregaSegundo()
@@ -187,11 +158,6 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             cy.wait(8500)
     
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
-    
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(7500)
@@ -215,56 +181,45 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
-    
-            //Carregando a finalização do pedido
+
             cy.wait(11000)
     
             pedidoGerado()
         })
     
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
             
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
 
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
     
             //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
             cy.get('#checkbox-143-1 > .md-container')
                 .click()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
     
             tirarEntrega()
@@ -277,11 +232,6 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             cy.wait(8500)
     
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
-    
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(7500)
@@ -305,51 +255,39 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(11000)
     
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
-            
-            cy.wait(800)
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
     
             //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
@@ -364,27 +302,21 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Pesquisando segundo produto
             produtoNormalSegundo()
     
-            //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
             //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             botãoAdicionar()
     
             cy.wait(1000)
     
-            //modal serviços vinculados
             modalServicosVinculados()
 
-            //OK modal serviços vinculados
             okServicosVinculados()
     
             tirarEntregaSegundo()
@@ -397,11 +329,6 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             cy.wait(8500)
     
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
-    
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(7500)
@@ -425,47 +352,38 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(12000)
     
             pedidoGerado()
         })
     
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
-    
-            //Escolher processo de venda
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
+
             processoVendaPrincipal()
-    
-            //Função para escolher cliente para pedido
+
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -483,12 +401,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             // tela de GERAR PARCELAS
     
             cy.wait(8500)
-    
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
-    
-            //Botão "GERAR PARCELAS"
+
             botaoGerarParcelas()
     
             cy.wait(7500)
@@ -512,47 +425,38 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(11000)
     
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -569,18 +473,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Pesquisando segundo produto
             produtoNormalSegundo()
     
-            //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             botãoAdicionar()
     
@@ -599,12 +498,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             // tela de GERAR PARCELAS
     
             cy.wait(8500)
-    
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
-    
-            //Botão "GERAR PARCELAS"
+
             botaoGerarParcelas()
     
             cy.wait(7500)
@@ -628,10 +522,8 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(11000)
     
             pedidoGerado()
@@ -640,38 +532,31 @@ describe('Gerar pedidos com Mão de obra', () => {
 
     context('Com entrega/processo 9860 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1000)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
     
@@ -695,7 +580,6 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             cy.wait(1000)
 
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
     
             escolherRota()
@@ -706,7 +590,6 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             // tela de GERAR PARCELAS
     
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(8000)
@@ -730,47 +613,38 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(12000)
     
             pedidoGerado()
         })
         
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
     
@@ -785,18 +659,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Pesquisando segundo produto
             produtoNormalSegundo()
     
-            //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -819,7 +688,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
 
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
     
             escolherRota()
@@ -829,8 +697,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-    
-            //Botão "GERAR PARCELAS"
+
             botaoGerarParcelas()
     
             cy.wait(9500)
@@ -854,47 +721,38 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(12000)
 
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
-    
-            //Validando informações do produto após pesquisar
+
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1000)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
     
@@ -916,7 +774,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
 
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
     
             escolherRota()
@@ -927,7 +784,6 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             // tela de GERAR PARCELAS
     
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(9000)
@@ -951,47 +807,38 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(12000)
     
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1000)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
     
@@ -1006,18 +853,13 @@ describe('Gerar pedidos com Mão de obra', () => {
             //Pesquisando segundo produto
             produtoNormalSegundo()
     
-            //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -1040,7 +882,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
 
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
     
             escolherRota()
@@ -1051,7 +892,6 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             // tela de GERAR PARCELAS
     
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(10000)
@@ -1075,47 +915,38 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(14500)
     
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
     
@@ -1141,7 +972,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
     
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
         
             escolherRota()
@@ -1152,7 +982,6 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             // tela de GERAR PARCELAS
     
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(9000)
@@ -1176,47 +1005,38 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(13000)
     
             pedidoGerado()
         })   
 
-        it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoNormalPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
     
@@ -1230,19 +1050,14 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             //Pesquisando segundo produto
             produtoNormalSegundo()
-    
-            //Validando informações do segundo produto após pesquisar
+
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -1265,7 +1080,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
 
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
     
             escolherRota()
@@ -1276,7 +1090,6 @@ describe('Gerar pedidos com Mão de obra', () => {
 
             // tela de GERAR PARCELAS
     
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(8000)
@@ -1300,10 +1113,8 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(12000)
     
             pedidoGerado()

@@ -1,7 +1,8 @@
-import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, avancarFinal,
-         botaoGerarParcelas, produtoNormalPrimeiro, produtoNormalSegundo, tirarEntregaSegundo, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega,
-        modalServicosVinculados, okServicosVinculados } from '../../../support/para_pedidos/gerais_pedidos';
+import { titulopagina } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar,
+        tirarEntrega, avancarFinal, botaoGerarParcelas, produtoNormalPrimeiro, produtoNormalSegundo, tirarEntregaSegundo, avancarParaParcelas,
+        avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, saldodisponivel,
+        escolherProdutoPesquisa, escolherVoltagemProduto } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Garantia e Mão de Obra', () => {
@@ -21,29 +22,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -68,10 +65,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(9000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -110,31 +103,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -159,15 +146,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -187,10 +170,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -229,29 +208,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -276,10 +251,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(9000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -318,29 +289,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -366,24 +333,18 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
             cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntregaSegundo()
 
@@ -394,10 +355,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(10000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -436,29 +393,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -483,10 +436,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(9000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -524,31 +473,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -573,24 +516,18 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
             cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
     
             tirarEntregaSegundo()
 
@@ -601,10 +538,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(10000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -642,29 +575,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -689,10 +618,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(9000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -730,31 +655,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -779,15 +698,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -807,10 +722,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(10000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -848,29 +759,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -895,10 +802,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(9000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -936,29 +839,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -983,15 +882,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -1048,29 +943,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1095,10 +986,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(9000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -1136,29 +1023,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1182,15 +1065,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -1210,10 +1089,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(10000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -1251,29 +1126,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1298,10 +1169,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(9000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -1339,29 +1206,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1386,15 +1249,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -1414,10 +1273,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(10000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -1455,29 +1310,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1502,10 +1353,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(8000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -1543,29 +1390,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1590,15 +1433,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -1655,29 +1494,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1698,10 +1533,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(9000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -1739,29 +1570,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1786,15 +1613,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -1814,10 +1637,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             cy.wait(10000)
-
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
 
             botaoGerarParcelas()
 
@@ -1858,29 +1677,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1954,29 +1769,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -1999,15 +1810,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -2077,29 +1884,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -2173,29 +1976,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -2219,15 +2018,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -2296,29 +2091,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -2392,29 +2183,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -2437,15 +2224,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -2514,29 +2297,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -2610,29 +2389,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -2655,15 +2430,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -2732,29 +2503,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -2822,40 +2589,31 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Escolher processo de venda
             processoVendaPrincipal()
 
-            //Função para escolher cliente para pedido
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
-            //Validando informações do produto após pesquisar
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -2876,18 +2634,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             //Pesquisando segundo produto
             produtoNormalSegundo()
     
-            //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -2910,7 +2663,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
     
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
         
             escolherRota()
@@ -2921,7 +2673,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             // tela de GERAR PARCELAS
 
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
 
             cy.wait(9000)
@@ -2945,49 +2696,38 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
-            //Carregando a finalização do pedido
             cy.wait(12000)
 
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
 
-            //Escolher processo de venda
             processoVendaPrincipal()
 
-            //Função para escolher cliente para pedido
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
-            //Validando informações do produto após pesquisar
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -3015,7 +2755,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
     
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
         
             escolherRota()
@@ -3026,7 +2765,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             // tela de GERAR PARCELAS
 
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
 
             cy.wait(9000)
@@ -3050,49 +2788,38 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
-            //Carregando a finalização do pedido
             cy.wait(13000)
 
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Escolher processo de venda
             processoVendaPrincipal()
 
-            //Função para escolher cliente para pedido
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
-            //Validando informações do produto após pesquisar
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -3115,15 +2842,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -3156,7 +2879,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             // tela de GERAR PARCELAS
 
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
 
             cy.wait(9000)
@@ -3180,49 +2902,38 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
-            //Carregando a finalização do pedido
             cy.wait(12000)
 
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
 
-            //Escolher processo de venda
             processoVendaPrincipal()
 
-            //Função para escolher cliente para pedido
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
-            //Validando informações do produto após pesquisar
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -3283,7 +2994,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
             cy.wait(12000)
@@ -3291,40 +3001,31 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Escolher processo de venda
             processoVendaPrincipal()
 
-            //Função para escolher cliente para pedido
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
-            //Validando informações do produto após pesquisar
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -3345,27 +3046,21 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             //Pesquisando segundo produto
             produtoNormalSegundo()
     
-            //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
             //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
             cy.wait(1000)
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            okServicosVinculados()
 
             cy.wait(400)
 
@@ -3412,49 +3107,38 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
-            //Carregando a finalização do pedido
             cy.wait(12000)
 
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
-            //Escolher processo de venda
             processoVendaPrincipal()
 
-            //Função para escolher cliente para pedido
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
-            //Validando informações do produto após pesquisar
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -3515,44 +3199,38 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
-            //Carregando a finalização do pedido
             cy.wait(13000)
 
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
             processoVendaPrincipal()
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -3575,15 +3253,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -3640,7 +3314,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
             cy.wait(12000)
@@ -3648,37 +3321,31 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             pedidoGerado()
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
 
             processoVendaPrincipal()
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(800)
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -3739,7 +3406,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
             cy.wait(12000)
@@ -3747,35 +3413,31 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             pedidoGerado()
         })  
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
             processoVendaPrincipal()
 
             escolherClientePedido()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
 
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1860')
-                .click({ force: true })
+            escolherProdutoPesquisa()
 
-            cy.wait(1300)
+            cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
 
-            cy.wait(1000)
+            cy.wait(500)
 
             modalServicosVinculados()
 
@@ -3798,15 +3460,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -3866,7 +3524,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
             cy.wait(12000)

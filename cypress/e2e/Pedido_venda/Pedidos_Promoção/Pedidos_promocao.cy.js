@@ -1,7 +1,8 @@
-import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem,
-         avancarFinal, botaoGerarParcelas, processoVendaPrincipal, tirarMontagemSegundo, tirarEntregaSegundo, avancarParaParcelas,
-         avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados} from '../../../support/para_pedidos/gerais_pedidos'
+import { titulopagina } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar,
+         tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoVendaPrincipal, tirarMontagemSegundo, tirarEntregaSegundo,
+         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, saldodisponivel,
+         escolherProdutoPesquisa, escolherVoltagemProduto} from '../../../support/para_pedidos/gerais_pedidos'
 import { produtoNormalSegundo, produtoPromoPartida, produtoPromoPrazoEntrada, produtoPromoPrazoParcelado } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
@@ -17,30 +18,23 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             produtoPromoPartida()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1868')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
     
             //Usar promoção, no card "Promoções"
             cy.get('.md-3-line > div.md-button > .md-no-style')
@@ -53,12 +47,10 @@ describe('Gerar pedidos com promoção', () => {
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
     
             tirarEntrega()
@@ -82,10 +74,8 @@ describe('Gerar pedidos com promoção', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(7500)
     
             pedidoGerado()
@@ -93,30 +83,23 @@ describe('Gerar pedidos com promoção', () => {
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             produtoPromoPrazoEntrada()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1866')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             cy.wait(400)
     
@@ -131,12 +114,10 @@ describe('Gerar pedidos com promoção', () => {
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
     
             tirarEntrega()
@@ -171,23 +152,11 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(6000)
     
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
-            //Texto "Consumidor Final"
-            cy.get('.md-label')
-                .scrollIntoView()
-    
-            cy.wait(800)
-    
-            //Cifrão do "Total financeiro"
-            cy.get(':nth-child(3) > .md-default-theme > .md-2-line > .md-secondary-container > div > .ng-binding > sup')
-                .scrollIntoView()
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(10000)
     
             pedidoGerado()
@@ -195,30 +164,23 @@ describe('Gerar pedidos com promoção', () => {
     
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             produtoPromoPrazoParcelado()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1867')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({force: true})
+            escolherVoltagemProduto()
     
             //Usar promoção, no card "Promoções"
             cy.get('.md-3-line > div.md-button > .md-no-style')
@@ -231,12 +193,10 @@ describe('Gerar pedidos com promoção', () => {
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
                 
             tirarEntrega()
@@ -260,10 +220,8 @@ describe('Gerar pedidos com promoção', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(7500)
     
             pedidoGerado()
@@ -274,30 +232,23 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             produtoPromoPartida()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1868')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
     
             //Usar promoção, no card "Promoções"
             cy.get('.md-3-line > div.md-button > .md-no-style')
@@ -310,12 +261,10 @@ describe('Gerar pedidos com promoção', () => {
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
                 
             tirarEntrega()
@@ -327,28 +276,21 @@ describe('Gerar pedidos com promoção', () => {
             //Pesquisando segundo produto
             produtoNormalSegundo()
     
-            //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
-    
-            //validando modal Serviços Vinculados
+            cy.wait(500)
+
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
                 
             tirarEntregaSegundo()
@@ -363,7 +305,6 @@ describe('Gerar pedidos com promoção', () => {
 
             //Tela de PARCELAS
 
-            //Clicar em GERAR PARCELAS
             botaoGerarParcelas()
             
             cy.wait(6500)
@@ -385,7 +326,6 @@ describe('Gerar pedidos com promoção', () => {
             
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
             cy.wait(10000)
@@ -395,30 +335,23 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             produtoPromoPrazoEntrada()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1866')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             cy.wait(400)
     
@@ -433,12 +366,10 @@ describe('Gerar pedidos com promoção', () => {
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
                 
             tirarEntrega()
@@ -447,33 +378,24 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
 
-            //Buscar segundo produto
-            cy.get('#searchText')
-                .clear()
-                .type('1870')
+            escolherProdutoPesquisa()
     
             //Validando informações do segundo produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
-            cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click()
+            escolherVoltagemProduto()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
                 
             tirarEntregaSegundo()
@@ -523,10 +445,8 @@ describe('Gerar pedidos com promoção', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(10000)
     
             pedidoGerado()
@@ -537,30 +457,23 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             produtoPromoPartida()
-    
-            //Validando informações do produto após pesquisar
+
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1868')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
     
             //Usar promoção, no card "Promoções"
             cy.get('.md-3-line > div.md-button > .md-no-style')
@@ -573,12 +486,10 @@ describe('Gerar pedidos com promoção', () => {
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
     
             avancarParaTransportadora()
@@ -591,7 +502,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
     
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
         
             escolherRota()
@@ -600,7 +510,6 @@ describe('Gerar pedidos com promoção', () => {
         
             cy.wait(15000)
     
-            //Clicar no "GERAR PARCELAS"
             botaoGerarParcelas()
 
             cy.wait(6500)
@@ -624,41 +533,32 @@ describe('Gerar pedidos com promoção', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(9000)
     
             pedidoGerado()
         })
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
-    
-            //Escolher processo de venda
+
             processoVendaPrincipal()
-    
-            //Função para escolher cliente para pedido
+
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             produtoPromoPrazoEntrada()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1866')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             cy.wait(400)
     
@@ -673,12 +573,10 @@ describe('Gerar pedidos com promoção', () => {
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
     
             cy.wait(400)
@@ -693,7 +591,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
     
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
         
             escolherRota()
@@ -718,7 +615,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.white > .layout-align-center-center > .md-primary')
                 .click({force:true})
 
-            //Clicar no "GERAR PARCELAS"
             botaoGerarParcelas()
 
             cy.wait(7500)
@@ -741,10 +637,8 @@ describe('Gerar pedidos com promoção', () => {
     
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(9000)
     
             pedidoGerado()
@@ -752,30 +646,23 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             produtoPromoPrazoParcelado()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1867')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
     
             //Usar promoção, no card "Promoções"
             cy.get('.md-3-line > div.md-button > .md-no-style')
@@ -788,12 +675,10 @@ describe('Gerar pedidos com promoção', () => {
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
     
             cy.wait(400)
@@ -807,8 +692,7 @@ describe('Gerar pedidos com promoção', () => {
             //Card de inconsistencias - fechar
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
-    
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
+
             escolherTransportadora()
         
             escolherRota()
@@ -819,7 +703,6 @@ describe('Gerar pedidos com promoção', () => {
 
             // tela de GERAR PARCELAS
 
-            //Clicar no botão GERAR PARCELAS
             botaoGerarParcelas()
 
             cy.wait(7000)
@@ -843,10 +726,8 @@ describe('Gerar pedidos com promoção', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(9000)
     
             pedidoGerado()
@@ -857,30 +738,23 @@ describe('Gerar pedidos com promoção', () => {
 
         it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             produtoPromoPartida()
-    
-            //Validando informações do produto após pesquisar
+
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1868')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
     
             //Usar promoção, no card "Promoções"
             cy.get('.md-3-line > div.md-button > .md-no-style')
@@ -893,25 +767,19 @@ describe('Gerar pedidos com promoção', () => {
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
 
             cy.wait(800)
     
-            //Pesquisando segundo produto
             produtoNormalSegundo()
-    
-            //Validando informações do segundo produto após pesquisar
+
             saldodisponivel()
     
-            //clicar para selecionar o segundo produto; 
-            cy.contains('Cod: 1870')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
             cy.wait(800)
     
@@ -938,7 +806,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
     
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
         
             escolherRota()
@@ -971,7 +838,6 @@ describe('Gerar pedidos com promoção', () => {
             
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
             cy.wait(10000)

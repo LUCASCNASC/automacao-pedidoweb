@@ -1,7 +1,8 @@
-import { titulopagina, saldodisponivel } from '../../../support/para_todos';
-import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem,
-         avancarFinal, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados,
-         okServicosVinculados } from '../../../support/para_pedidos/gerais_pedidos';
+import { titulopagina } from '../../../support/para_todos';
+import { escolherTransportadora, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, botãoAdicionar,
+         tirarEntrega, tirarMontagem, avancarFinal, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora,
+         avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, saldodisponivel, escolherProdutoPesquisa, escolherVoltagemProduto, 
+         escolherVoltagemProduto } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoKitPrimeiro} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
@@ -17,41 +18,32 @@ describe('Gerar pedido normal', () => {
         
         it.skip('Pedido de venda: kit 1862 0 0', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando kit
             produtoKitPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1862')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
     
             tirarEntrega()
@@ -66,11 +58,6 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(6500)
     
-            //Título "Formas de pagamento na Entrada"
-            cy.get('[flex="100"][ng-show="(exibeBoxFormasPgtoEntrada)"] > .md-primary > .md-toolbar-tools > .flex')
-                .scrollIntoView()
-    
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
     
             cy.wait(6000)
@@ -94,10 +81,8 @@ describe('Gerar pedido normal', () => {
             
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
     
-            //Carregando a finalização do pedido
             cy.wait(7500)
     
             pedidoGerado()
@@ -108,41 +93,32 @@ describe('Gerar pedido normal', () => {
         
         it.skip('Pedido de venda: kit 1862 0 0', () => {
     
-            //Escolher processo de venda
             processoVendaPrincipal()
     
-            //Função para escolher cliente para pedido
             escolherClientePedido()
     
-            cy.wait(1000)
+            cy.wait(500)
     
             //Pesquisando produto
             produtoKitPrimeiro()
     
-            //Validando informações do produto após pesquisar
             saldodisponivel()
     
-            //clicar para selecionar o produto; 
-            cy.contains('Cod: 1862')
-                .click({ force: true })
+            escolherProdutoPesquisa()
     
-            cy.wait(1300)
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
-            //Selecionar a voltagem do produto
-            cy.get('.padding-5 > :nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-                .click({ force: true })
+            escolherVoltagemProduto()
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
-            cy.wait(1000)
+            cy.wait(500)
     
-            //validando modal Serviços Vinculados
             modalServicosVinculados()
 
-            //Botão "OK" - Serviços Vinculados
             okServicosVinculados()
     
             cy.wait(400)
@@ -157,7 +133,6 @@ describe('Gerar pedido normal', () => {
             cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
                 .click()
     
-            //Função criada para clicar no campo transportadora e escolher a trasportadora
             escolherTransportadora()
         
             escolherRota()
@@ -168,7 +143,6 @@ describe('Gerar pedido normal', () => {
 
             // tela de GERAR PARCELAS
 
-            //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
 
             cy.wait(7000)
@@ -192,10 +166,8 @@ describe('Gerar pedido normal', () => {
 
             botaoFinalizarPedido()
 
-            //Carregamento de pedido
             finalizandoPedido()
 
-            //Carregando a finalização do pedido
             cy.wait(10000)
 
             pedidoGerado()
