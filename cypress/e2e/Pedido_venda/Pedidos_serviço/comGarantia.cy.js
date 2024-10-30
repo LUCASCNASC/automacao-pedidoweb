@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-         modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, botãoAdicionar, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, avancarFinal, finalizandoPedido, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos';
+         modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, botãoAdicionar, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, avancarFinal, finalizandoPedido, modalInconsRotaTransp, carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Garantia', () => {
@@ -59,6 +59,8 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(8500)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -157,6 +159,8 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(10000)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(10500)
     
@@ -231,6 +235,8 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(7500)
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7000)
     
@@ -328,6 +334,8 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(8500)
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(8000)
     
@@ -402,6 +410,8 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(8500)
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -500,6 +510,8 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(8500)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -587,6 +599,8 @@ describe('Gerar pedidos com Garantia', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(8000)
     
@@ -693,6 +707,8 @@ describe('Gerar pedidos com Garantia', () => {
             // tela de GERAR PARCELAS
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -777,6 +793,8 @@ describe('Gerar pedidos com Garantia', () => {
             // tela de GERAR PARCELAS
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(8500)
     
@@ -885,6 +903,8 @@ describe('Gerar pedidos com Garantia', () => {
     
             //Botão "GERAR PARCELAS"
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -969,6 +989,8 @@ describe('Gerar pedidos com Garantia', () => {
             // tela de GERAR PARCELAS
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(9000)
     
@@ -1073,6 +1095,8 @@ describe('Gerar pedidos com Garantia', () => {
             // tela de GERAR PARCELAS
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     

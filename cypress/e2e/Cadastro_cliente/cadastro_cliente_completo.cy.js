@@ -1,13 +1,13 @@
 //Importando funções 
 import { titulopagina } from '../../support/para_todos';
+import { iconeMenuOpcoes, opcaoClienteCompleto, preecherDataNascimento, selecionarSexoCliente, preencherNomeCompleto, preencherNomeCNPJ,
+         clicarSalvarCliente, clicarAbaEndereco, preencherCPFcliente, preencherCNPJcliente, messEnderecoIncluidoSucesso } from '../../support/para_cadastro_cliente/para_cliente_completo';
 import gerarCpf from '../../support/gerarCPF';
 import gerarCNPJ from '../../support/gerarCNPJ';
 
-const cpf = gerarCpf(); // Gera um CPF válido
-const cnpj = gerarCNPJ();
+
+
 const CEPcadastro = "87065300"
-const nomeClienteCPF = "Novo cadastro cliente CPF"
-const nomeClienteCNPJ = "Novo cadastro cliente CNPJ"
 
 
 describe('Cadastrar cliente completo', () => {
@@ -26,95 +26,19 @@ describe('Cadastrar cliente completo', () => {
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()
     
-            //Ícone do menu de opções
-            cy.get('[aria-label="Menu de opções"] > .ng-binding')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
+            iconeMenuOpcoes()
 
-            // Validar HINT menu de opções ***
-                        
-            //Clicar ni ícone do menu de opções
-            cy.get('[aria-label="Menu de opções"] > .ng-binding')
-                .click()
+            opcaoClienteCompleto()
 
-            //Opção Cliente completo no menu de opções
-            cy.get('a[aria-label="Cliente completo"]')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
+            preencherCPFcliente()
 
-            //Opção Cliente completo no menu de opções
-            cy.get('a[aria-label="Cliente completo"]')
-                .should('have.attr', 'aria-label', 'Cliente completo')
+            preencherNomeCompleto()
 
-            //Opção Cliente completo no menu de opções
-            cy.get('a[aria-label="Cliente completo"]')
-                .scrollIntoView()
-                .click({force:true})
+            preecherDataNascimento()
 
-            //Campo CPF - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtCpfCnpj"]')
-                .should('have.text', 'CPF')
+            selecionarSexoCliente()
 
-            //Campo CPF 
-            cy.get('#txtCpfCnpj')
-                .should('exist')
-                .and('be.visible')
-                .and('have.value','')
-                .type(cpf, { force: true })
-
-            //Campo Nome - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtRazaoSocial"]')
-                .should('have.text', 'Nome') 
-
-            //Campo Nome Completo
-            cy.get('#txtRazaoSocial')
-                .should('exist')
-                .and('be.visible')
-                .and('have.value','')
-                .type(nomeClienteCPF, { force: true })
-
-            //Ícone de data de nascimento
-            cy.get('#txtDataNasc > .md-datepicker-button')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
-
-            //Campo Data Nascimento - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtDataNasc"]')
-                .should('have.text', 'Data Nascimento') 
-
-            //Campo data de nascimento
-            cy.get('#input_98')
-                .should('exist')
-                .and('be.visible')
-                //.and('have.value','')
-                .wait(200)
-                .type("30/09/1998", {force:true})
-
-            //Campo Sexo - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtSexo"]')
-                .should('have.text', 'Sexo') 
-
-            //Campo Tipo de Sexo
-            cy.get('#txtSexo')
-                .should('exist')
-                .and('be.visible')
-                //.and('have.value','')
-
-            //Clicar no campo Tipo de sexo
-            cy.get('#txtSexo')
-                .click({force:true})
-
-            //Clicar na opção MASCULINO
-            cy.get('.md-text.ng-binding')
-                .contains('Masculino')
-                .click({force:true})
-
-            //Tentar clicar em SALVAR, não deve deixar, pois ainda não tem endereço
-            cy.get('.btn > .ng-scope')
-                .click()
+            clicarSalvarCliente()
 
             cy.wait(500)
             
@@ -135,16 +59,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.text', 'Um endereço do tipo padrão é obrigatório.')
 
-            //Aba Endereço
-            cy.get('#menu_items_pri > :nth-child(2)')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Endereço')
-
-            //Clicar na aba Endereço
-            cy.get('#menu_items_pri > :nth-child(2)')
-                .scrollIntoView()
-                .click({force:true})
+            clicarAbaEndereco()
 
             //Botão +, para adicionar um novo endereço
             cy.get('.layout-align-end-end > .md-fab')
@@ -566,33 +481,9 @@ describe('Cadastrar cliente completo', () => {
 
             cy.wait(8000)
 
-            //Card Endereço incluído com sucesso.
-            cy.get('.toast-success')
-                .should('exist')
-                .and('be.visible')
-
-            //Card Endereço incluído com sucesso. - Aviso
-            cy.get(':nth-child(1) > .toast-title')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Aviso')
-
-            //Card Endereço incluído com sucesso. - Endereço incluído com sucesso.
-            cy.get('.toast-success > .toast-message')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Telefone incluído com sucesso.')
+            messEnderecoIncluidoSucesso()
                 
-            //Botão SALVAR
-            cy.get('.btn')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
-                //.and('have.text', 'Salvar')
-                
-            //Clicar no botão SALVAR
-            cy.get('.btn')
-                .click()
+            clicarSalvarCliente()
 
             cy.wait(2000)
 
@@ -627,32 +518,9 @@ describe('Cadastrar cliente completo', () => {
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()
     
-            //Ícone do menu de opções
-            cy.get('[aria-label="Menu de opções"] > .ng-binding')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
+            iconeMenuOpcoes()
 
-            // Validar HINT menu de opções ***
-                        
-            //Clicar no ícone do menu de opções
-            cy.get('[aria-label="Menu de opções"] > .ng-binding')
-                .click()
-
-            //Opção Cliente completo no menu de opções
-            cy.get('a[aria-label="Cliente completo"]')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
-
-            //Opção Cliente completo no menu de opções
-            cy.get('a[aria-label="Cliente completo"]')
-                .should('have.attr', 'aria-label', 'Cliente completo')
-
-            //Opção Cliente completo no menu de opções
-            cy.get('a[aria-label="Cliente completo"]')
-                .scrollIntoView()
-                .click({force:true})
+            opcaoClienteCompleto()
 
             //Clicar em salvar, antes de preencher o campo CPF, não deve deixar salvar
             cy.get('.btn')
@@ -676,64 +544,13 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.text', 'Endereço')
 
-            //Campo CPF - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtCpfCnpj"]')
-                .should('have.text', 'CPF')
+            preencherCPFcliente()
 
-            //Campo CPF 
-            cy.get('#txtCpfCnpj')
-                .should('exist')
-                .and('be.visible')
-                .and('have.value','')
-                .type(cpf, { force: true })
+            preencherNomeCompleto()
 
-            //Campo Nome - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtRazaoSocial"]')
-                .should('have.text', 'Nome') 
+            preecherDataNascimento()
 
-            //Campo Nome Completo
-            cy.get('#txtRazaoSocial')
-                .should('exist')
-                .and('be.visible')
-                .and('have.value','')
-                .type(nomeClienteCPF, { force: true })
-
-            //Ícone de data de nascimento
-            cy.get('#txtDataNasc > .md-datepicker-button')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
-
-            //Campo Data Nascimento - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtDataNasc"]')
-                .should('have.text', 'Data Nascimento') 
-
-            //Campo data de nascimento
-            cy.get('#input_98')
-                .should('exist')
-                .and('be.visible')
-                //.and('have.value','')
-                .wait(200)
-                .type("30/09/1998", {force:true})
-
-            //Campo Sexo - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtSexo"]')
-                .should('have.text', 'Sexo') 
-
-            //Campo Tipo de sexo
-            cy.get('#txtSexo')
-                .should('exist')
-                .and('be.visible')
-                //.and('have.value','')
-
-            //Clicar no campo Tipo de sexo
-            cy.get('#txtSexo')
-                .click({force:true})
-
-            //Clicar na opção MASCULINO
-            cy.get('.md-text.ng-binding')
-                .contains('Masculino')
-                .click({force:true})
+            selecionarSexoCliente()
 
             cy.wait(500)
             
@@ -754,16 +571,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.text', 'Um endereço do tipo padrão é obrigatório.')
 
-            //Aba Endereço
-            cy.get('#menu_items_pri > :nth-child(2)')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Endereço')
-
-            //Clicar na aba Endereço
-            cy.get('#menu_items_pri > :nth-child(2)')
-                .scrollIntoView()
-                .click({force:true})
+            clicarAbaEndereco()
 
             cy.wait(5000)
 
@@ -1207,33 +1015,9 @@ describe('Cadastrar cliente completo', () => {
 
             cy.wait(8000)
 
-            //Card Endereço incluído com sucesso.
-            cy.get('.toast-success')
-                .should('exist')
-                .and('be.visible')
-
-            //Card Endereço incluído com sucesso. - Aviso
-            cy.get(':nth-child(1) > .toast-title')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Aviso')
-
-            //Card Endereço incluído com sucesso. - Endereço incluído com sucesso.
-            cy.get('.toast-success > .toast-message')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Telefone incluído com sucesso.')
+            messEnderecoIncluidoSucesso()
                 
-            //Botão SALVAR
-            cy.get('.btn')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
-                //.and('have.text', 'Salvar')
-                
-            //Clicar no botão SALVAR
-            cy.get('.btn')
-                .click()
+            clicarSalvarCliente()
 
             cy.wait(2000)
 
@@ -1268,54 +1052,13 @@ describe('Cadastrar cliente completo', () => {
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()
     
-            //Ícone do menu de opções
-            cy.get('[aria-label="Menu de opções"] > .ng-binding')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
+            iconeMenuOpcoes()
 
-            // Validar HINT menu de opções ***
-                        
-            //Clicar ni ícone do menu de opções
-            cy.get('[aria-label="Menu de opções"] > .ng-binding')
-                .click()
+            opcaoClienteCompleto()
 
-            //Opção Cliente completo no menu de opções
-            cy.get('a[aria-label="Cliente completo"]')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
+            preencherCNPJcliente()
 
-            //Opção Cliente completo no menu de opções
-            cy.get('a[aria-label="Cliente completo"]')
-                .should('have.attr', 'aria-label', 'Cliente completo')
-
-            //Opção Cliente completo no menu de opções
-            cy.get('a[aria-label="Cliente completo"]')
-                .scrollIntoView()
-                .click({force:true})
-
-            //Campo CPF - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtCpfCnpj"]')
-                .should('have.text', 'CPF')
-
-            //Campo CNPJ
-            cy.get('#txtCpfCnpj')
-                .should('exist')
-                .and('be.visible')
-                .and('have.value','')
-                .type(cnpj, { force: true })
-
-            //Campo Nome - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtRazaoSocial"]')
-                .should('have.text', 'Nome') 
-
-            //Campo Nome Completo
-            cy.get('#txtRazaoSocial')
-                .should('exist')
-                .and('be.visible')
-                .and('have.value','')
-                .type(nomeClienteCNPJ, { force: true })
+            preencherNomeCNPJ()
 
             //Campo Nome Fantasia - validando mensagem dentro do campo antes de preencher
             cy.get('label[for="txtNomeFantasia"]')
@@ -1350,16 +1093,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('be.visible')
                 .and('have.text', 'Um endereço do tipo padrão é obrigatório.')
 
-            //Aba Endereço
-            cy.get('#menu_items_pri > :nth-child(2)')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Endereço')
-
-            //Clicar na aba Endereço
-            cy.get('#menu_items_pri > :nth-child(2)')
-                .scrollIntoView()
-                .click({force:true})
+            clicarAbaEndereco()
 
             //Botão +, para adicionar um novo endereço
             cy.get('.layout-align-end-end > .md-fab')
@@ -1779,33 +1513,9 @@ describe('Cadastrar cliente completo', () => {
 
             cy.wait(8000)
 
-            //Card Endereço incluído com sucesso.
-            cy.get('.toast-success')
-                .should('exist')
-                .and('be.visible')
-
-            //Card Endereço incluído com sucesso. - Aviso
-            cy.get(':nth-child(1) > .toast-title')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Aviso')
-
-            //Card Endereço incluído com sucesso. - Endereço incluído com sucesso.
-            cy.get('.toast-success > .toast-message')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Telefone incluído com sucesso.')
+            messEnderecoIncluidoSucesso()
                 
-            //Botão SALVAR
-            cy.get('.btn')
-                .should('exist')
-                .and('be.visible')
-                .and('not.have.attr', 'disabled')
-                //.and('have.text', 'Salvar')
-                
-            //Clicar no botão SALVAR
-            cy.get('.btn')
-                .click()
+            clicarSalvarCliente()
 
             cy.wait(2000)
 

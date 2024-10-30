@@ -1,7 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
 import { saldodisponivel, escolherRota, escolherClientePedido, escolherClientePedido2, pedidoGerado, botaoFinalizarPedido, 
     finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoFinanceiroBaixa, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos';
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido com financeiro na baixa', () => {
@@ -58,6 +58,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(6500)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(5500)
     
@@ -156,6 +158,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(7000)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(6000)
     
@@ -236,6 +240,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
 
             cy.wait(7000)
 
@@ -335,6 +341,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
 
             cy.wait(7000)
 

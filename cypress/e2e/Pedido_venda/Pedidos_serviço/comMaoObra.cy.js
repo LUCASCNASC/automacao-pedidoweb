@@ -1,7 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, 
     finalizandoPedido, botãoAdicionar, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos';
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Mão de obra', () => {
@@ -60,6 +60,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(8500)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -159,6 +161,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(8500)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -233,6 +237,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(8500)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -330,6 +336,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(8500)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -403,6 +411,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(8500)
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -500,6 +510,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             cy.wait(8500)
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(7500)
     
@@ -589,6 +601,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             // tela de GERAR PARCELAS
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(8000)
     
@@ -695,6 +709,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(9500)
     
@@ -779,6 +795,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             // tela de GERAR PARCELAS
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(9000)
     
@@ -885,6 +903,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             // tela de GERAR PARCELAS
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(10000)
     
@@ -969,6 +989,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             // tela de GERAR PARCELAS
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(9000)
     
@@ -1075,6 +1097,8 @@ describe('Gerar pedidos com Mão de obra', () => {
             // tela de GERAR PARCELAS
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(8000)
     

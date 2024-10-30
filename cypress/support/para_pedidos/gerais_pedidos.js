@@ -1,5 +1,8 @@
 //Função criada para clicar no campo transportadora e escolher a trasportadora
 export function escolherTransportadora (selector) {
+
+    const transportadora_id = '1'
+
     //Campo Transportadora - clicar para abrir as opções
     cy.get('input[name="transportadora"]')
         .click({force:true})
@@ -25,6 +28,7 @@ export function saldodisponivel (selector) {
 
 //Escolher rota completa, rota maringá
 export function escolherRota (selector) {
+
     //Lupa de pesquisa de rota - clicar para pesquisar
     cy.get('.rota-frete > .md-icon-right > .ng-binding')
         .scrollIntoView()
@@ -54,7 +58,7 @@ export function escolherRota (selector) {
 }
 
 //Função para escolher cliente CPF para gerar pedido de venda - inserir cliente 
-export function escolherClientePedido (selector) {
+export function escolherClientePedido2 (selector) {
     
     //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
     cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -107,7 +111,7 @@ export function escolherClientePedido (selector) {
 }
 
 //Função para escolher cliente CPF para gerar pedido de venda - pesquisa por cliente
-export function escolherClientePedido2 (selector) {
+export function escolherClientePedido (selector) {
 
     //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
     cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -129,6 +133,34 @@ export function escolherClientePedido2 (selector) {
         .should('exist')
         .and('be.visible')
         .click()
+}
+
+//Carregamento de forma de pagamento, quando clicamos no botão Gerar parcelas
+export function carregandoFormaPagamento (selector) {
+
+    //Modal Forma de pagamento - título Forma de pagamento
+    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Forma de pagamento')
+
+    //botão x do modal Serviços Vinculados
+    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Ícone carregamendo de formas de pagamento
+    cy.get('.md-dialog-fullscreen > .layout-align-center-center > .md-accent')
+        .should('exist')
+        .and('be.visible')
+
+    //Mensagem "Aguarde carregando..."
+    cy.get('.carregando')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Aguarde carregando...')
+
 }
 
 //Função para validar card de Pedido Concluído
@@ -256,7 +288,6 @@ export function botãoAdicionar (selector) {
     //Botão adicionar produto após selecionar voltagem do produto, clicar no botão
     cy.get('[style="padding: 0px 5px;"] > .md-primary')
         .click({force:true})
-
 }
 
 //Arrastar botão de Retirada / Entrega
@@ -506,7 +537,9 @@ export function avancarParaTransportadora (selector) {
 
     //Clicar para avançar para a tela de GERAR PARCELAS
     cy.get('.flex-gt-sm-50 > .md-primary')
-        .click({force:true})
+        .dblclick({force:true})
+
+    cy.wait(2000)
 
     //Validando carregamento do ícone de "Adicionando produtos/serviços..."
     cy.get('.conteudo > .layout-align-center-center > .md-accent')
@@ -534,6 +567,17 @@ export function avancarParcelasEntrega (selector) {
     //Clicar para avançar para a tela de GERAR PARCELAS
     cy.get('.layout-align-end-end > :nth-child(2) > .md-primary')
         .click({force:true})
+
+    //Validando carregamento do ícone de "Adicionando dados de entrega..."
+    cy.get('.layout-align-center-center > .md-accent')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando mensagem de carregamento -  "Adicionando dados de entrega..."
+    cy.get('h3')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Adicionando dados de entrega...')
 }
 
 //Botão AVANÇAR, da tela antes de finalizar o pedido
@@ -783,6 +827,14 @@ export function modalInconsRotaTransp (selector) {
         .and('have.text', 'Pedidos referêntes a NFC-e com definição de entrega deverão possuir entidade transportadora preenchida, favor verificar.')
     
     //Botão X para fechar
+    cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click({force:true})
+
+    cy.wait(5000)
+
     cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
         .should('exist')
         .and('be.visible')

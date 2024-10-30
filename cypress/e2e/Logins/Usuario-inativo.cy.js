@@ -1,5 +1,7 @@
 //Importando funções 
 import { titulopagina } from '../../support/para_todos';
+import { logoEmpresaLogin, iconeComputadorLogin, usuarioTextoIcone, senhaTextoIcone, iconeOlhosSenha, botaoEsqueceuSenha, botaoEntrarHabilitado, 
+         botaoEntrarDesabilitado, clicarBotaoEntrar, mensagemEntrandoSistema } from '../../support/para_logins/para_login';
 
 const usuSabiumAutomacao = "usu.inativo";
 const senhaautomacao = "123.automacao";
@@ -15,27 +17,11 @@ describe('Usuário inativo', () => {
         //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
         titulopagina()
 
-        //Validar o logo da empresa
-        cy.get('.logo')
-            .should('exist')
-            .and('be.visible')
+        logoEmpresaLogin()
 
-        //Ícone do computador
-        cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding')
-            .should('exist')
-            .and('be.visible')
-            .and('not.have.attr', 'disabled')
+        iconeComputadorLogin()
 
-        //Validando "Usuário" acima do campo informe sue usuário
-        cy.get('label[for="txtusername"]')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','Usuário')
-
-        //Ícone do campo informe seu usuário
-        cy.get(':nth-child(3) > .name')
-            .should('exist')
-            .and('be.visible')
+        usuarioTextoIcone()
     
         //Validando campo "informe seu usuário"
         cy.get('#txtusername')
@@ -46,16 +32,7 @@ describe('Usuário inativo', () => {
             .invoke('attr', 'placeholder')
             .should('equal', 'Informe seu usuário')
 
-        //Validando "Senha" acima do campo informe sua senha
-        cy.get('label[for="txtpassword"]')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','Senha')
- 
-        //Ícone de senha
-        cy.get('.md-icon-right > .name')
-            .should('exist')
-            .and('be.visible')
+        senhaTextoIcone()
 
         //Campo Informe sua senha
         cy.get('#txtpassword')
@@ -66,29 +43,13 @@ describe('Usuário inativo', () => {
             .invoke('attr', 'placeholder')
             .should('equal', 'Informe sua senha')
 
-        //ícone de olho, para ver a senha
-        cy.get('.md-icon-right > .md-primary')
-            .should('exist')
-            .and('be.visible')
-            .and('not.have.attr', 'disabled')
+        iconeOlhosSenha()
 
-        //Botão/mensagem "Esqueceu a senha?"
-        cy.get('div[ng-click="modalSenhaNovaOpen()"]')
-            .contains('Esqueceu a senha?')
-            .should('exist')
-            .and('be.visible')
-            .and('not.have.attr', 'disabled')
+        botaoEsqueceuSenha()
 
-        //Botão ENTRAR
-        cy.get('.test_btnSalvarCliente')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','Entrar')
-            .and('not.have.attr', 'disabled')
+        botaoEntrarHabilitado()
 
-        //Clicar no botão ENTRAR
-        cy.get('.test_btnSalvarCliente')
-            .click({force:true})
+        clicarBotaoEntrar()
 
         //Card de mensagem 
         cy.get('.toast')
@@ -113,10 +74,6 @@ describe('Usuário inativo', () => {
             .should('exist')
             .and('be.visible')
 
-        //Ícone do computador - para validar se realmente continuou na tela de login.
-        cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding')
-            .should('exist')
-            .and('be.visible')
-            .and('not.have.attr', 'disabled')
+        iconeComputadorLogin()
     })
 })

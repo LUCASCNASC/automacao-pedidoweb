@@ -1,7 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
      processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, finalizandoPedido,
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, botãoAdicionar, botaoGerarParcelas, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos';
+    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, botãoAdicionar, botaoGerarParcelas, modalInconsRotaTransp,carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoKitPrimeiro} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
@@ -58,6 +58,8 @@ describe('Gerar pedido normal', () => {
             cy.wait(6500)
     
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
     
             cy.wait(6000)
     
@@ -141,6 +143,8 @@ describe('Gerar pedido normal', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
+
+            carregandoFormaPagamento()
 
             cy.wait(7000)
 
