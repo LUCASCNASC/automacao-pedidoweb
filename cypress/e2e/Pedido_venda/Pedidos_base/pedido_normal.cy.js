@@ -1,8 +1,9 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, 
-    finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, 
-    carregaAddProdutosServicos, carregandoFormaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
+import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
+         botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
+         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos,
+         carregandoFormaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {

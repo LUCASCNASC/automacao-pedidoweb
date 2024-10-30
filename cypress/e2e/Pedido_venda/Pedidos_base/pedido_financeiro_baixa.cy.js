@@ -1,7 +1,8 @@
 import { titulopagina } from '../../../support/para_todos';
-import { saldodisponivel, escolherRota, escolherClientePedido, escolherClientePedido2, pedidoGerado, botaoFinalizarPedido, 
-    finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoFinanceiroBaixa, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
+import { saldodisponivel, escolherRota, escolherClientePedido, escolherClientePedido2, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
+         botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoFinanceiroBaixa,
+         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido com financeiro na baixa', () => {

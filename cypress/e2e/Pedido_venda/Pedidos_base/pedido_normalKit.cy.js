@@ -1,7 +1,8 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
-     processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, finalizandoPedido,
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, botãoAdicionar, botaoGerarParcelas, modalInconsRotaTransp,carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
+import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,processoVendaPrincipal,
+         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, finalizandoPedido,modalServicosVinculados, okServicosVinculados,
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, botãoAdicionar, botaoGerarParcelas, modalInconsRotaTransp,
+         carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoKitPrimeiro} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {

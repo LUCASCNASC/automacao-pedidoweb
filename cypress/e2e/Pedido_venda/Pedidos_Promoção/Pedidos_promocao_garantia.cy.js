@@ -1,8 +1,8 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, escolherClientePedido2, pedidoGerado, botaoFinalizarPedido, 
-    finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, 
-    processoEntregaFutura, processoFinanceiroBaixa, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, 
-    modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto} from '../../../support/para_pedidos/gerais_pedidos'
+import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, escolherClientePedido2, pedidoGerado, botaoFinalizarPedido,
+         finalizandoPedido, botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas,
+         processoEntregaFutura, processoFinanceiroBaixa, processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora,
+         avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto} from '../../../support/para_pedidos/gerais_pedidos'
 import { produtoNormalSegundo, produtoPromoPartida, produtoPromoPrazoEntrada, produtoPromoPrazoParcelado } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com promoção', () => {
