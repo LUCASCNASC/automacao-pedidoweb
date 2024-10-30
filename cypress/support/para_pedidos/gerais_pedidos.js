@@ -15,15 +15,47 @@ export function escolherTransportadora (selector) {
         .click({force:true})
 }
 
+//Validando produto com saldo disponível
 export function saldodisponivel (selector) {
-    //Validando informações do produto após pesquisar
-    cy.get('.md-list-item-text > .ng-scope')
-        .contains('Saldo disponivel')
-        .should('exist') //Validando existencia do "Saldo disponível"
-        .and('be.visible') //Validando se elemento "Saldo disponível" está visível
-        .and('have.text','Saldo disponivel') //Verificando texto
-        .invoke('css', 'color') // Obtém a cor do elemento
-        .should('equal', 'rgb(255, 255, 255)'); // Verifica a cor (RGB)
+    
+    //Validando imagem
+    cy.get('.resultado-imagem')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando "Saldo disponivel"
+    cy.get('.label')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Saldo disponivel')
+        .invoke('css', 'background-color') // Obtém a cor do elemento
+        .should('equal', 'rgb(92, 184, 92)')
+
+    //Validando nome do produto dentro card
+    cy.get('.md-resultado-titulo')
+        .should('exist')
+        .and('be.visible')
+
+    //Validado código do produto dentro do card
+    cy.get('.badge-saldo.ng-binding')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando R$ dentro do card
+    cy.get('sup')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','R$')
+
+    //Validando valor do produto dentro do card
+    cy.get('.valor-busca')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando check box dentro do card
+    cy.get('.expandeIcone')
+        .should('exist')
+        .and('be.visible')
 }
 
 //Escolher rota completa, rota maringá
@@ -207,6 +239,8 @@ export function pedidoGerado (selector) {
         .and('be.visible')
         .and('contain', 'Imprimir')
         .and('not.have.attr', 'disabled')
+        //.invoke('css', 'background-color') // Obtém a cor do elemento
+        //.should('equal', 'rgb(28, 202, 19)')
 
     //Card pedido gravado com sucesso - Botão OK
     cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
@@ -214,6 +248,8 @@ export function pedidoGerado (selector) {
         .and('be.visible')
         .and('contain', 'Ok')
         .and('not.have.attr', 'disabled')
+        //.invoke('css', 'background-color') // Obtém a cor do elemento
+        //.should('equal', 'rgb(36, 13, 105)')
 }
 
 //Botão para finalizar o pedido

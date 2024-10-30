@@ -141,3 +141,26 @@ export function produtoPromoPrazoParcelado (selector) {
         .wait(100)
         .should('have.value', produto_promocao_prazo_parcelado)
 }
+
+//Escolher primeiro produto normal - 1869 0 0
+export function produtoSemSaldo (selector) {
+
+    const produto_sem_saldo = '1869'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(produto_sem_saldo)
+        .wait(100)
+        .should('have.value', produto_sem_saldo)
+}

@@ -17,7 +17,7 @@ describe('Gerar pedido normal', () => {
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
+        it.only('Pedido de venda: produto 1860 0 0', () => {
             
             processoVendaPrincipal()
     
