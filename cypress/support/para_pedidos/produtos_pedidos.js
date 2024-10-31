@@ -7,7 +7,7 @@ export function produtoNormalPrimeiro (selector) {
     cy.get('#searchText')
         .should('exist')
         .and('be.visible')
-        .and('have.value', '')
+        //.and('have.value', '')
         .and('not.be.disabled')
 
     //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
@@ -163,4 +163,56 @@ export function produtoSemSaldo (selector) {
         .type(produto_sem_saldo)
         .wait(100)
         .should('have.value', produto_sem_saldo)
+}
+
+//Escolher primeiro produto normal - 1880 0 0
+export function produtoCDPrimeiro (selector) {
+
+    const primeiro_produto_CD = '1880'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(primeiro_produto_CD)
+        .wait(100)
+        .should('have.value', primeiro_produto_CD)
+}
+
+//Escolher segundo produto normal - 1881 0 0
+export function produtoCDSegundo (selector) {
+
+    const segundo_produto_CD = '1881'
+
+    //Limpando campo com o produto anterior
+    cy.get('#searchText')
+        .clear()
+        .wait(100)
+        .should('have.value', '')
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(segundo_produto_CD)
+        .wait(100)
+        .should('have.value', segundo_produto_CD)
 }

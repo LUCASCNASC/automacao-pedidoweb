@@ -5,7 +5,7 @@ import { escolherTransportadora, saldodisponivel, escolherRota, escolherClienteP
          carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
-describe('Remoto/processo 9860 - caminho feliz', () => {
+describe('Remoto/processo 9860 - caminho feliz - Regra de saldo Parâmetro 36 = 4 - Parâmetro 139 = 4 - Trial 653 não configurado', () => {
 
     beforeEach(() => {
         cy.visit('/');
@@ -88,16 +88,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         avancarFinal()
 
         cy.wait(9000)
-
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-        botaoFinalizarPedido()
-
-        finalizandoPedido()
-
-        cy.wait(10000)
-
-        pedidoGerado()
     })
 
     it.skip('Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
@@ -197,16 +187,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         avancarFinal()
 
         cy.wait(18000)
-
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-        botaoFinalizarPedido()
-
-        finalizandoPedido()
-
-        cy.wait(21000)
-
-        pedidoGerado()
     })
     
     it.skip('Pedido de venda remota: kit 1862 0 0', () => {
@@ -283,16 +263,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         avancarFinal()
 
         cy.wait(9000)
-
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-        botaoFinalizarPedido()
-
-        finalizandoPedido()
-
-        cy.wait(10000)
-
-        pedidoGerado()
     })
     //fazer - produto 1875 não está aparecendo
     it('Pedido de venda remota: kits 1862 0 0 e 1862 0 0 ', () => {
@@ -431,4 +401,12 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
          pedidoGerado()
     })
+
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(9000)
+        pedidoGerado()
+      });
 })

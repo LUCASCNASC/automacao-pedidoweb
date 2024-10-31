@@ -80,16 +80,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(6000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(10000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
@@ -180,16 +170,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(11000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(13000)
-
-            pedidoGerado()
         })
     
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
@@ -256,16 +236,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(6500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(10000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
@@ -355,16 +325,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(10000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(12000)
-
-            pedidoGerado()
         })
     
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
@@ -431,16 +391,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(6000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(8000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
@@ -531,16 +481,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(8000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(10000)
-
-            pedidoGerado()
         })
     })
 
@@ -620,16 +560,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(10000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(10000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
@@ -728,16 +658,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(8000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(10000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
@@ -814,16 +734,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(9000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(10000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
@@ -924,16 +834,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(9000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(11000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
@@ -1010,16 +910,6 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(9000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(11000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
@@ -1116,16 +1006,14 @@ describe('Gerar pedidos com Garantia', () => {
             avancarFinal()
     
             cy.wait(9000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(11000)
-    
-            pedidoGerado()
         })
     })
+
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(9000)
+        pedidoGerado()
+      });
 })

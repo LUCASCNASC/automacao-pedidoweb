@@ -1,10 +1,15 @@
 import { titulopagina } from '../../../support/para_todos';
-import {processoVendaServicoAvulso, escolherClientePedido, iconeMenuOpcoes, clicarPedidosPendentesMenu } from '../../../support/para_pedidos/para_servicos_avulsos';
-import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
+import {processoVendaServicoAvulso, escolherClientePedido, iconeMenuOpcoes, clienteCompletoOpcaoMenu, clicarMenuClienteCompleto,
+        clicarOpcaoServicos, aguardeCarregandoServico, botaoAddMaoObra, botaoAddGarantias, clicarAddGarantias, clicarAddMaoObra, 
+        modalGarantiasServicosVinculados, modalMaoObraServicosVinculados, okServicosVinculados, messServicoAdicionadoSucesso, 
+        botaoSalvarServico, messAguardeCarregando, messRegistroSalvoSucesso, messGarantiaJaAdicionada, clicarCarrinhoCompras, 
+        botaoAvancarPedido } from '../../../support/para_pedidos/para_servicos_avulsos';
+import { botaoGerarParcelas, avancarFinal, botaoFinalizarPedido, finalizandoPedido, pedidoGerado } from '../../../support/para_pedidos/gerais_pedidos';
 
+//o valor deve ser alterado para o is do produto que fechamos e baixamos.
 const numero_pedido = '7708'
 
-describe('Gerar pedido normal', () => {
+describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
 
     beforeEach(() => {
         cy.visit('/');
@@ -13,9 +18,9 @@ describe('Gerar pedido normal', () => {
         titulopagina() //Validar título da aba carregada
     })
 
-    context('Sem frete/ processo 9860 - caminho feliz', () => {
+    context('Processo 9888 - caminho feliz', () => {
 
-        it.only('Pedido de venda: produto 1860 0 0', () => {
+        it.skip('Venda de garantia - 139 (T.A. Garantia Separa Mesmo Processo)', () => {
             
             processoVendaServicoAvulso() 
             
@@ -23,20 +28,87 @@ describe('Gerar pedido normal', () => {
 
             iconeMenuOpcoes()
 
-            clicarPedidosPendentesMenu()
+            clienteCompletoOpcaoMenu()
 
-            //Campo Cliente ou pedido - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="input_96"]')
-                .should('have.text', 'Cliente ou pedido')     
+            clicarMenuClienteCompleto()
 
-            //Campo Cliente ou pedido
-            cy.get('#input_96')
+            clicarOpcaoServicos()
+
+            aguardeCarregandoServico()
+
+            //Validando campo
+            cy.get('form.ng-pristine > .ng-pristine')
                 .should('exist')
                 .and('be.visible')
-                .and('have.value','')
-                .type(numero_pedido, {force: true})
+                .and('have.text', '')
 
+            //Inserindo número do pedido no campo 
+            cy.get('form.ng-pristine > .ng-pristine')
+                .type(numero_pedido, {force:true})
 
+            //Validando número do pedido
+            cy.get('[ng-show="filtroShow(pedidoAtual)"][aria-hidden="false"] > .md-list-item-text > h3 > .ng-binding')
+                .should('have.text', numero_pedido)
+
+            botaoAddMaoObra()
+
+            botaoAddGarantias()
+
+            clicarAddGarantias()
+
+            modalGarantiasServicosVinculados()
+
+            //clicar na primeira garantia - Garantia Separa Mesmo Processo
+            cy.get('#checkbox-139-0 > .md-container')
+                .click({force:true})
+
+            okServicosVinculados()
+
+            messServicoAdicionadoSucesso()
+
+            botaoSalvarServico()
+
+            messAguardeCarregando()
+
+            messRegistroSalvoSucesso()
+
+            //Clicando novamente para validar que não deixa adicionar mais grantias
+            clicarAddGarantias()
+
+            //Mensagem de "O Serviço Garantias já foi adicionado à esse produto.", quando tentamos adicionar novamente
+            messGarantiaJaAdicionada()
+
+            clicarCarrinhoCompras()
+
+            botaoAvancarPedido()
+
+            cy.wait(3000)
+
+            botaoGerarParcelas()
+
+            cy.wait(2000)
+    
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+    
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            avancarFinal()
+
+            cy.wait(4000)
         })
     })
+
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(4000)
+        pedidoGerado()
+      });
 })

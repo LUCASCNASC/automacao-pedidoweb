@@ -78,16 +78,6 @@ describe('Gerar pedido de entrega futura', () => {
             avancarFinal()
     
             cy.wait(5500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(7500)
-    
-            pedidoGerado()
         })
         
         it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
@@ -178,16 +168,6 @@ describe('Gerar pedido de entrega futura', () => {
             avancarFinal()
     
             cy.wait(7500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(9000)
-    
-            pedidoGerado()
         })
     })
     
@@ -263,16 +243,6 @@ describe('Gerar pedido de entrega futura', () => {
             avancarFinal()
 
             cy.wait(6500)
-
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-
-            cy.wait(8500)
-
-            pedidoGerado()
         })    
         
         it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
@@ -367,16 +337,14 @@ describe('Gerar pedido de entrega futura', () => {
             avancarFinal()
 
             cy.wait(9000)
-
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-
-            cy.wait(10000)
-
-            pedidoGerado()
         })  
     })
+
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(9000)
+        pedidoGerado()
+      });
 })

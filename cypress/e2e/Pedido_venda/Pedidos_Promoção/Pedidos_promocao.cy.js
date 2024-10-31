@@ -69,16 +69,6 @@ describe('Gerar pedidos com promoção', () => {
             avancarFinal()
     
             cy.wait(8000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(7500)
-    
-            pedidoGerado()
         })
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
@@ -150,16 +140,6 @@ describe('Gerar pedidos com promoção', () => {
             avancarFinal()
     
             cy.wait(6000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(10000)
-    
-            pedidoGerado()
         })
     
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
@@ -215,16 +195,6 @@ describe('Gerar pedidos com promoção', () => {
             avancarFinal()
     
             cy.wait(6000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(7500)
-    
-            pedidoGerado()
         })
     })
 
@@ -323,14 +293,6 @@ describe('Gerar pedidos com promoção', () => {
             avancarFinal()
 
             cy.wait(9000)
-            
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-
-            cy.wait(10000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
@@ -442,14 +404,6 @@ describe('Gerar pedidos com promoção', () => {
             avancarFinal()
     
             cy.wait(8000)
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(10000)
-    
-            pedidoGerado()
         })
     })
 
@@ -526,16 +480,6 @@ describe('Gerar pedidos com promoção', () => {
             avancarFinal()
             
             cy.wait(9000)
-
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(9000)
-    
-            pedidoGerado()
         })
     
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
@@ -628,16 +572,6 @@ describe('Gerar pedidos com promoção', () => {
             avancarFinal()
             
             cy.wait(9000)
-
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(9000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
@@ -715,16 +649,6 @@ describe('Gerar pedidos com promoção', () => {
             avancarFinal()
 
             cy.wait(8000)
-
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(9000)
-    
-            pedidoGerado()
         })  
     }) 
 
@@ -822,14 +746,14 @@ describe('Gerar pedidos com promoção', () => {
             avancarFinal()
 
             cy.wait(9000)
-            
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-
-            cy.wait(10000)
-    
-            pedidoGerado()
         })
     })
+
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(9000)
+        pedidoGerado()
+      });
 })

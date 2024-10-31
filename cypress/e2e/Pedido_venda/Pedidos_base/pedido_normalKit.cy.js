@@ -78,16 +78,6 @@ describe('Gerar pedido normal', () => {
             avancarFinal()
     
             cy.wait(6000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(7500)
-    
-            pedidoGerado()
         })
     })
     
@@ -163,16 +153,14 @@ describe('Gerar pedido normal', () => {
             avancarFinal()
 
             cy.wait(8000)
-
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-
-            cy.wait(10000)
-
-            pedidoGerado()
         })
     })
+
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(9000)
+        pedidoGerado()
+      });
 })

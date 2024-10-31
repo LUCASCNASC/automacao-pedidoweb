@@ -3,7 +3,7 @@ import { escolherClientePedido, processoVendaPrincipal, escolherProdutoPesquisa,
 import { semSaldodisponivel } from '../../../support/para_pedidos/para_sem_saldo';
 import { produtoSemSaldo} from '../../../support/para_pedidos/produtos_pedidos';
 
-describe('Tentar gerar pedido de venda com produto sem saldo', () => {
+describe('Tentar gerar pedido de venda com produto sem saldo - Regra de saldo Parâmetro 36 = 4 - Parâmetro 139 = 4 - Trial 653 não configurado', () => {
 
     beforeEach(() => {
         cy.visit('/');

@@ -15,7 +15,7 @@ export function escolherTransportadora (selector) {
         .click({force:true})
 }
 
-//Validando produto com saldo disponível
+//Validando produto com saldo disponível local
 export function saldodisponivel (selector) {
     
     //Validando imagem
@@ -30,6 +30,49 @@ export function saldodisponivel (selector) {
         .and('have.text','Saldo disponivel')
         .invoke('css', 'background-color') // Obtém a cor do elemento
         .should('equal', 'rgb(92, 184, 92)')
+
+    //Validando nome do produto dentro card
+    cy.get('.md-resultado-titulo')
+        .should('exist')
+        .and('be.visible')
+
+    //Validado código do produto dentro do card
+    cy.get('.badge-saldo.ng-binding')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando R$ dentro do card
+    cy.get('sup')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','R$')
+
+    //Validando valor do produto dentro do card
+    cy.get('.valor-busca')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando check box dentro do card
+    cy.get('.expandeIcone')
+        .should('exist')
+        .and('be.visible')
+}
+
+//Validando produto com saldo disponível no CD 
+export function saldoCDDisponivel (selector) {
+    
+    //Validando imagem
+    cy.get('.resultado-imagem')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando "Saldo disponivel"
+    cy.get('.label')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Saldo disponivel')
+        .invoke('css', 'background-color') // Obtém a cor do elemento
+        .should('equal', 'rgb(240, 173, 78)')
 
     //Validando nome do produto dentro card
     cy.get('.md-resultado-titulo')
@@ -671,7 +714,7 @@ export function modalServicosVinculados (selector) {
         .should('exist')
         .and('be.visible')
 
-    //mensagem do modal Serviços Vinculados - "Garantias"
+    //mensagem do modal Serviços Vinculados - "Mão de Obra"
     cy.get('p.ng-binding')
         .contains('Mão de Obra')
         .scrollIntoView()

@@ -80,16 +80,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(6000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(11000)
-
-             pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
@@ -181,16 +171,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(8500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-
-            cy.wait(11000)
-    
-            pedidoGerado()
         })
     
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
@@ -257,16 +237,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(8500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(11000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
@@ -356,16 +326,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(8500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(12000)
-    
-            pedidoGerado()
         })
     
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
@@ -431,16 +391,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(8500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(11000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
@@ -530,16 +480,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(8500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(11000)
-    
-            pedidoGerado()
         })
     })
 
@@ -621,16 +561,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(9000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(12000)
-    
-            pedidoGerado()
         })
         
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
@@ -729,16 +659,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(10500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(12000)
-
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
@@ -815,16 +735,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(10500)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(12000)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
@@ -923,16 +833,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(13000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(14500)
-    
-            pedidoGerado()
         })
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
@@ -1009,16 +909,6 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(9000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(13000)
-    
-            pedidoGerado()
         })   
 
         it.skip('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
@@ -1117,16 +1007,14 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarFinal()
     
             cy.wait(9000)
-    
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    
-            botaoFinalizarPedido()
-
-            finalizandoPedido()
-    
-            cy.wait(12000)
-    
-            pedidoGerado()
         })
     })
+
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(9000)
+        pedidoGerado()
+      });
 })

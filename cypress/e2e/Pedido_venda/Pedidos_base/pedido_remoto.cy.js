@@ -88,15 +88,13 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         avancarFinal()
 
         cy.wait(7500)
-
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-
-        botaoFinalizarPedido()
-
-        finalizandoPedido()
-
-        cy.wait(9000)
-
-        pedidoGerado()
     })
+
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(9000)
+        pedidoGerado()
+      });
 })

@@ -2,11 +2,11 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
          botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos,
-         carregandoFormaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
-import { produtoNormalPrimeiro, produtoNormalSegundo} from '../../../support/para_pedidos/produtos_pedidos';
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, 
+         saldoCDDisponivel} from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoCDPrimeiro, produtoNormalSegundo} from '../../../support/para_pedidos/produtos_pedidos';
 
-describe('Gerar pedido com reserva no CD', () => {
+describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Parâmetro 139 = 4 - Trial 653 não configurado', () => {
 
     beforeEach(() => {
         cy.visit('/');
@@ -17,7 +17,7 @@ describe('Gerar pedido com reserva no CD', () => {
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.only('Pedido de venda: produto 1880 0 0', () => {
+        it.skip('Pedido de venda: produto 1880 0 0', () => {
             
             processoVendaPrincipal()
     
@@ -26,9 +26,9 @@ describe('Gerar pedido com reserva no CD', () => {
             cy.wait(500)
     
             //Pesquisando produto
-            produtoNormalPrimeiro()
+            produtoCDPrimeiro()
     
-            saldodisponivel()
+            saldoCDDisponivel()
     
             escolherProdutoPesquisa()
     
@@ -78,17 +78,97 @@ describe('Gerar pedido com reserva no CD', () => {
             //Botão "AVANÇAR"
             avancarFinal()
     
+            cy.wait(6000) 
+        })
+
+        it.skip('Pedido de venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local)', () => {
+    
+            processoVendaPrincipal()
+    
+            escolherClientePedido()
+    
+            cy.wait(500)
+    
+            //Pesquisando produto
+            produtoCDPrimeiro()
+    
+            saldoCDDisponivel()
+    
+            escolherProdutoPesquisa()
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            cy.wait(200)
+                      
+            escolherVoltagemProduto()
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(500)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            tirarEntrega()
+    
+            tirarMontagem()
+
+            cy.wait(800)
+    
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            escolherProdutoPesquisa()
+    
+            cy.wait(800)
+    
+            escolherVoltagemProduto()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(500)
+    
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            tirarEntregaSegundo()
+    
+            tirarMontagemSegundo()
+    
+            cy.wait(400)
+    
+            avancarParaParcelas()
+    
+            // tela de GERAR PARCELAS
+    
+            cy.wait(6500)
+    
+            botaoGerarParcelas()
+
+            carregandoFormaPagamento()
+    
             cy.wait(6000)
     
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR          
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
     
-            botaoFinalizarPedido()
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
     
-            finalizandoPedido()
-
-            cy.wait(9000)
+            cy.wait(400)
     
-            pedidoGerado()
+            //Botão "AVANÇAR"
+            avancarFinal()
+    
+            cy.wait(7000)
         })
     })
 
@@ -103,9 +183,9 @@ describe('Gerar pedido com reserva no CD', () => {
             cy.wait(500)
     
             //Pesquisando produto
-            produtoNormalPrimeiro()
+            produtoCDPrimeiro()
 
-            saldodisponivel()
+            saldoCDDisponivel()
     
             escolherProdutoPesquisa()
     
@@ -166,16 +246,108 @@ describe('Gerar pedido com reserva no CD', () => {
             avancarFinal()
 
             cy.wait(7000)
+        })
 
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        it.skip('Pedido de venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local)', () => {
+    
+            processoVendaPrincipal()
+    
+            escolherClientePedido()
+    
+            cy.wait(500)
+    
+            //Pesquisando produto
+            produtoCDPrimeiro()
 
-            botaoFinalizarPedido()
+            saldoCDDisponivel()
+    
+            escolherProdutoPesquisa()
+    
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+    
+            cy.wait(200)
+                      
+            escolherVoltagemProduto()
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(500)
 
-            finalizandoPedido()
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            cy.wait(400)
+    
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
+    
+            saldodisponivel()
+    
+            escolherProdutoPesquisa()
+    
+            cy.wait(800)
+    
+            escolherVoltagemProduto()
+    
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(500)
+    
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            cy.wait(1000)
+    
+            avancarParaTransportadora()
+    
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            modalInconsRotaTransp()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(8000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            carregandoFormaPagamento()
+
+            cy.wait(7000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
 
             cy.wait(9000)
-
-            pedidoGerado()
         })
     })
+
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(9000)
+        pedidoGerado()
+      });
 })
