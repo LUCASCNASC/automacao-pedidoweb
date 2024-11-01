@@ -398,14 +398,18 @@ export function finalizandoPedido (selector) {
 }
 
 //Botão adicionar produto após selecionar voltagem do produto
-export function botãoAdicionar (selector) {
+export function botãoAdicionarProduto (selector) {
 
-    //Botão adicionar produto após selecionar voltagem do produto
-    cy.get('button.md-primary.btn-rounded')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-        .and('contain','Adicionar')
+    cy.wait (500)
+
+    // //Botão adicionar produto após selecionar voltagem do produto
+    // cy.get('button.md-primary.btn-rounded')
+    //     .scrollIntoView()
+    //     .wait(200)
+    //     .should('exist')
+    //     .and('be.visible')
+    //     .and('not.be.disabled')
+    //     .and('contain','Adicionar')
 
     //Botão adicionar produto após selecionar voltagem do produto, clicar no botão
     cy.get('[style="padding: 0px 5px;"] > .md-primary')
@@ -902,7 +906,7 @@ export function trocarFilialFaturamento (selector) {
         
     //Card Filial de faturamento - clicar na filial 6
     cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
-        .click()
+        .click({force:true})
 }
 
 //Card Inconsistências - rota e transportadora
@@ -1053,5 +1057,114 @@ export function modalInconsApenasRota (selector) {
 
     //Botão X para fechar
     cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .click({force:true})
+}
+
+//primeiro produto
+export function produtoPrincipal (selector) {
+
+    const produto_principal = '1889'
+
+    //Limpando campo com o produto anterior
+    cy.get('#searchText')
+        .clear()
+        .wait(400)
+        .should('have.value', '')
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(produto_principal)
+        .wait(100)
+        .should('have.value', produto_principal)
+}
+
+//Clicar para selecionar a voltagem 1899 0 0
+export function primeiroProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > [style=""] > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Clicar para selecionar a voltagem 1899 1 1
+export function segundoProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > :nth-child(3) > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Clicar para selecionar a voltagem 1899 2 2
+export function terceiroProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > :nth-child(4) > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Clicar para selecionar a voltagem 1899 3 3
+export function quartoProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > :nth-child(5) > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Clicar para selecionar a voltagem 1899 4 4
+export function quintoProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > :nth-child(6) > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Clicar para selecionar a voltagem 1899 5 5
+export function sextoProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > :nth-child(7) > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Clicar para selecionar a voltagem 1899 6 6
+export function setimoProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > :nth-child(8) > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Clicar para selecionar a voltagem 1899 7 7
+export function oitavoProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > :nth-child(9) > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Clicar para selecionar a voltagem 1899 8 8
+export function nonoProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > :nth-child(10) > div.md-button > .md-no-style')
+        .click({force:true})
+}
+
+//Clicar para selecionar a voltagem 1899 9 9
+export function decimoProdutoEscolher (selector) {
+
+    //Card de voltagem - clicar
+    cy.get(':nth-child(1) > md-list.md-default-theme > :nth-child(11) > div.md-button > .md-no-style')
         .click({force:true})
 }

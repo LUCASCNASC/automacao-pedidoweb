@@ -1,6 +1,5 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherClientePedido, processoVendaPrincipal, escolherProdutoPesquisa, escolherVoltagemProduto } from '../../../support/para_pedidos/gerais_pedidos';
-import { semSaldodisponivel } from '../../../support/para_pedidos/para_sem_saldo';
+import { escolherClientePedido, processoVendaPrincipal, escolherProdutoPesquisa, escolherVoltagemProduto, semSaldodisponivel } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoSemSaldo} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Tentar gerar pedido de venda com produto sem saldo - Regra de saldo Parâmetro 36 = 4 - Parâmetro 139 = 4 - Trial 653 não configurado', () => {

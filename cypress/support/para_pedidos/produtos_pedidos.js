@@ -216,3 +216,49 @@ export function produtoCDSegundo (selector) {
         .wait(100)
         .should('have.value', segundo_produto_CD)
 }
+
+//Escolher produto remoto com saldo em seu CD (filial 1)
+export function produtoRemotoComCD (selector) {
+
+    const remoto_saldo_CD = '1883'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(remoto_saldo_CD)
+        .wait(100)
+        .should('have.value', remoto_saldo_CD)
+}
+
+//Escolher produto remoto com saldo em seu CD (filial 1)
+export function produtoRemotoSemCD (selector) {
+
+    const remoto__sem_saldo_CD = '1882'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(remoto__sem_saldo_CD)
+        .wait(100)
+        .should('have.value', remoto__sem_saldo_CD)
+}

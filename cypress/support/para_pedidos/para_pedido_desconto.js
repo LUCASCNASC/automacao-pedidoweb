@@ -142,3 +142,139 @@ export function aplicarDescontoValorFixo (selector) {
     cy.get('button[ng-click="aplicarSubSobre()"]')
         .click({force:true})
 }
+
+//Desconto juros - arrastar forma de pagamento escolhida para aparecer desconto - AJUSTAR
+export function arrastarFormaPagamento (selector) {
+    
+    cy.get('.md-whiteframe-2dp')
+        .trigger('mousedown', { which: 1 })
+        .trigger('mousemove', { clientX: 100, clientY: 0 }) // Ajuste clientX para a posição desejada
+        .trigger('mouseup');
+}
+
+//Clicar no botão R$
+export function clicarAlterarValor (selector) {
+
+    //Validar botão como completo
+    cy.get('.btn-remove-item-list > :nth-child(1) > .md-raised')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Validar ícone dentro do botão
+    cy.get('.btn-remove-item-list > :nth-child(1) > .md-raised > .ng-scope')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click({force:true})
+}
+
+//validar modal Alterar o valor
+export function modalAlterarValor (selector) {
+
+    //validando título "Alterar o valor"
+    cy.get('.md-transition-in > ._md > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Alterar o valor')
+
+    //validando botão X 
+    cy.get('.md-transition-in > ._md > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+    
+    //validando texto Valor da parcela
+    cy.contains('Valor da parcela')
+        .should('exist')
+        .and('be.visible')
+
+    //validando campo do Valor da parcela
+    cy.get('[ng-model="formaPgtoValor"]')
+        .should('exist')
+        .and('be.visible')
+        .and('be.enabled')
+
+    //validando Min: e Máx do Valor da parcela
+    cy.get('#dialogContent_208 > :nth-child(1) > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Min:')
+        .and('contain', 'Máx:')
+
+    //validando texto Número de parcelas
+    cy.contains('Numero de parcelas')
+        .should('exist')
+        .and('be.visible')
+
+    //validando campo do Número de parcelas
+    cy.get('[ng-model="formaPgtoQtdVezes"]')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.enabled')
+
+    //validando texto Subtotal
+    cy.contains('Subtotal')
+        .should('exist')
+        .and('be.visible')
+    
+    //validando campo do Subtotal
+    cy.get('[ng-model="formaPgtoSubtotal"]')
+        .should('exist')
+        .and('be.visible')
+        .and('be.enabled')
+
+    //validando Min: e Máx do Subtotal
+    cy.get('#dialogContent_208 > :nth-child(3) > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Min:')
+        .and('contain', 'Máx:')
+
+    //Botão APLICAR
+    cy.get('button.md-raised.md-primary')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', ' Aplicar ')
+        //.and('not.be.disabled')
+}
+
+//alterar valor para baixo
+export function alterarValorParaBaixo (selector) {
+
+    //campo Valor da parcela
+    cy.get('[ng-model="formaPgtoValor"]')
+        .clear()
+        .wait(200)
+        .type('137800')
+
+    //campo Subtotal
+    cy.get('[ng-model="formaPgtoSubtotal"]')
+        .clear()
+        .wait(200)
+        .type('137800')
+
+    //clicar no botão APLICAR
+    cy.get('button[ng-click="aplicarAlterarValor()"]')
+        .click({force: true})
+}
+
+//alterar valor para cima
+export function alterarValorParaCima (selector) {
+
+    //campo Valor da parcela
+    cy.get('[ng-model="formaPgtoValor"]')
+        .clear()
+        .wait(200)
+        .type('137900')
+
+    //campo Subtotal
+    cy.get('[ng-model="formaPgtoSubtotal"]')
+        .clear()
+        .wait(200)
+        .type('137900')
+
+    //clicar no botão APLICAR
+    cy.get('button[ng-click="aplicarAlterarValor()"]')
+        .click({force: true})
+}

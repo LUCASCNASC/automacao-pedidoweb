@@ -2,10 +2,10 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
          botãoAdicionar, botaoGerarParcelas, processoVendaPrincipal, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados,
          okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, trocarFilialFaturamento, modalInconsApenasRota,
-         carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
-import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
+         carregandoFormaPagamento, semSaldodisponivel} from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoNormalPrimeiro, produtoNormalSegundo, produtoRemotoComCD, produtoRemotoSemCD } from '../../../support/para_pedidos/produtos_pedidos';
 
-describe('Remoto/processo 9860 - caminho feliz - Regra de saldo Parâmetro 36 = 4 - Parâmetro 139 = 4 - Trial 653 não configurado', () => {
+describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 139 = 4 - Trial 653 não configurado', () => {
 
     beforeEach(() => {
         cy.visit('/');
@@ -14,399 +14,420 @@ describe('Remoto/processo 9860 - caminho feliz - Regra de saldo Parâmetro 36 = 
         titulopagina() //Validar título da aba carregada
     })
   
-    it.skip('Pedido de venda remota: produto 1860 0 0', () => {
+    context('Pedido de venda remotO normal', () => {
 
-        processoVendaPrincipal()
+        it.skip('Pedido de venda remota: produto 1860 0 0', () => {
 
-        escolherClientePedido()
+            processoVendaPrincipal()
 
-        cy.wait(500)
+            escolherClientePedido()
 
-        //Pesquisando produto
-        produtoNormalPrimeiro()
+            cy.wait(500)
 
-        saldodisponivel()
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-        escolherProdutoPesquisa()
+            saldodisponivel()
 
-        cy.wait(200)
+            escolherProdutoPesquisa()
 
-        // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                  
-        escolherVoltagemProduto()
+            cy.wait(200)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            escolherVoltagemProduto()
+            
+            cy.wait(400)
+
+            trocarFilialFaturamento()
+
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(500)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            modalInconsApenasRota()
+
+            escolherTransportadora()
         
-        cy.wait(400)
+            escolherRota()
 
-        trocarFilialFaturamento()
-
-        //clicar no botão "ADICIONAR", para adicionar produto
-        botãoAdicionar()
-
-        cy.wait(500)
-
-        modalServicosVinculados()
-
-        okServicosVinculados()
-
-        cy.wait(400)
-
-        avancarParaTransportadora()
-
-        // tela para ESCOLHER TRANSPORTADORA
-
-        cy.wait(14000)
-
-        modalInconsApenasRota()
-
-        escolherTransportadora()
-    
-        escolherRota()
-
-        avancarParcelasEntrega()
-    
-        cy.wait(10000)
-
-        // tela de GERAR PARCELAS
-
-        botaoGerarParcelas()
-
-        carregandoFormaPagamento()
-
-        cy.wait(8000)
-
-        //Selecionando forma de pagamento
-        cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-            .click()
-
-        //Selecionando parcela na forma de pagamento
-        cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-            .click()
-
-        cy.wait(400)
-
-        //Botão "AVANÇAR"
-        avancarFinal()
-
-        cy.wait(9000)
-    })
-
-    it.skip('Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
-
-        processoVendaPrincipal()
-
-        escolherClientePedido()
-
-        cy.wait(500)
-
-        //Pesquisando produto
-        produtoNormalPrimeiro()
-
-        saldodisponivel()
-
-        escolherProdutoPesquisa()
-
-        cy.wait(200)
-
-        // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                  
-        escolherVoltagemProduto()
+            avancarParcelasEntrega()
         
-        cy.wait(400)
+            cy.wait(10000)
 
-        trocarFilialFaturamento()
+            // tela de GERAR PARCELAS
 
-        //clicar no botão "ADICIONAR", para adicionar produto
-        botãoAdicionar()
+            botaoGerarParcelas()
 
-        cy.wait(500)
+            carregandoFormaPagamento()
 
-        modalServicosVinculados()
+            cy.wait(8000)
 
-        okServicosVinculados()
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-        cy.wait(800)
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-        //Pesquisando segundo produto
-        produtoNormalSegundo()
+            cy.wait(400)
 
-        saldodisponivel()
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-        escolherProdutoPesquisa()
+            cy.wait(9000)
 
-        escolherVoltagemProduto()
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            botaoFinalizarPedido()
 
-        cy.wait(800)
+            finalizandoPedido()
 
-        trocarFilialFaturamento()
+            cy.wait(7000)
 
-        botãoAdicionar()
+            pedidoGerado()
+        })
 
-        cy.wait(1000)
+        it.skip('Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
 
-        modalServicosVinculados()
+            processoVendaPrincipal()
 
-        okServicosVinculados()
+            escolherClientePedido()
 
-        cy.wait(400)
+            cy.wait(500)
 
-        avancarParaTransportadora()
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-        // tela para ESCOLHER TRANSPORTADORA
+            saldodisponivel()
 
-        cy.wait(14000)
+            escolherProdutoPesquisa()
 
-        modalInconsApenasRota()
+            cy.wait(200)
 
-        escolherTransportadora()
-    
-        escolherRota()
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            escolherVoltagemProduto()
+            
+            cy.wait(400)
 
-        avancarParcelasEntrega()
-    
-        cy.wait(10000)
+            trocarFilialFaturamento()
 
-        // tela de GERAR PARCELAS
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-        botaoGerarParcelas()
+            cy.wait(500)
 
-        carregandoFormaPagamento()
+            modalServicosVinculados()
 
-        cy.wait(12000)
+            okServicosVinculados()
 
-        //Selecionando forma de pagamento
-        cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-            .click()
+            cy.wait(800)
 
-        //Selecionando parcela na forma de pagamento
-        cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-            .click()
+            //Pesquisando segundo produto
+            produtoNormalSegundo()
 
-        cy.wait(400)
+            saldodisponivel()
 
-        //Botão "AVANÇAR"
-        avancarFinal()
+            escolherProdutoPesquisa()
 
-        cy.wait(18000)
-    })
-    
-    it.skip('Pedido de venda remota: kit 1862 0 0', () => {
+            escolherVoltagemProduto()
 
-        processoVendaPrincipal()
+            cy.wait(800)
 
-        escolherClientePedido()
+            trocarFilialFaturamento()
 
-        cy.wait(500)
+            botãoAdicionar()
 
-        //Pesquisando produto
-        produtoNormalPrimeiro()
+            cy.wait(1000)
 
-        saldodisponivel()
+            modalServicosVinculados()
 
-        escolherProdutoPesquisa()
+            okServicosVinculados()
 
-        cy.wait(200)
+            cy.wait(400)
 
-        // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                  
-        escolherVoltagemProduto()
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(14000)
+
+            modalInconsApenasRota()
+
+            escolherTransportadora()
         
-        cy.wait(400)
+            escolherRota()
 
-        trocarFilialFaturamento()
-
-        //clicar no botão "ADICIONAR", para adicionar produto
-        botãoAdicionar()
-
-        cy.wait(500)
-
-        modalServicosVinculados()
-
-        okServicosVinculados()
-
-        cy.wait(400)
-
-        avancarParaTransportadora()
-
-        // tela para ESCOLHER TRANSPORTADORA
-
-        cy.wait(14000)
-
-        modalInconsApenasRota()
-
-        escolherTransportadora()
-    
-        escolherRota()
-
-        avancarParcelasEntrega()
-    
-        cy.wait(10000)
-
-        // tela de GERAR PARCELAS
-
-        botaoGerarParcelas()
-
-        carregandoFormaPagamento()
-
-        cy.wait(8000)
-
-        //Selecionando forma de pagamento
-        cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-            .click()
-
-        //Selecionando parcela na forma de pagamento
-        cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-            .click()
-
-        cy.wait(400)
-
-        //Botão "AVANÇAR"
-        avancarFinal()
-
-        cy.wait(9000)
-    })
-    //fazer - produto 1875 não está aparecendo
-    it('Pedido de venda remota: kits 1862 0 0 e 1862 0 0 ', () => {
-
-        processoVendaPrincipal()
-
-        escolherClientePedido()
-
-        cy.wait(500)
-
-        //Pesquisando produto
-        produtoNormalPrimeiro()
-
-        saldodisponivel()
-
-        escolherProdutoPesquisa()
-
-        cy.wait(200)
-
-        // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                  
-        escolherVoltagemProduto()
+            avancarParcelasEntrega()
         
-        cy.wait(500)
+            cy.wait(10000)
 
-        //Clicar no botão de filial, para trocarmos a filial de emissão 
-        cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
-            .click()
+            // tela de GERAR PARCELAS
 
-        //Escolher a filial 6, de emissão, para venda remota
-        cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
-            .click()
+            botaoGerarParcelas()
 
-        //clicar no botão "ADICIONAR", para adicionar produto
-        botãoAdicionar()
+            carregandoFormaPagamento()
 
-        cy.wait(1000)
+            cy.wait(12000)
 
-        //Botão "OK" - Serviços Vinculados
-        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-            .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
 
-        cy.wait(800)
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
 
-        //Buscar segundo produto
-        cy.get('#searchText')
-            .clear()
-            .type('1875')
+            cy.wait(400)
 
-        saldodisponivel()
+            //Botão "AVANÇAR"
+            avancarFinal()
 
-        //clicar para selecionar o segundo produto; 
-        cy.contains('Cod: 1875')
-            .click({ force: true })
+            cy.wait(18000)
 
-        cy.wait(800)
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            botaoFinalizarPedido()
 
-        //Escolhendo voltagem do segundo produto
-        cy.get(':nth-child(1) > md-list.md-default-theme > .md-2-line > div.md-button > .md-no-style')
-            .click()
+            finalizandoPedido()
 
-        cy.wait(800)
+            cy.wait(7000)
 
-        //Clicar no botão de filial, para trocarmos a filial de emissão 
-        cy.get('[ng-click="openModalFilial(itemClicado.grade, false);"]')
-            .click()
+            pedidoGerado()
+        })
+        
+        it.skip('Pedido de venda remota: kit 1862 0 0', () => {
 
-        //Escolher a filial 6, de emissão, para venda remota
-        cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
-            .click()
+            processoVendaPrincipal()
 
-        //clicar no botão "ADICIONAR", para adicionar produto
-        cy.get('[style="padding: 0px 5px;"] > .md-primary')
-            .click()
+            escolherClientePedido()
 
-        cy.wait(1000)
+            cy.wait(500)
 
-        //Botão "OK" - Serviços Vinculados
-        cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-            .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
+            //Pesquisando produto
+            produtoNormalPrimeiro()
 
-        cy.wait(400)
+            saldodisponivel()
 
-        //Botão "AVANÇAR"
-        cy.get('.flex-gt-sm-50 > .md-primary')
-            .click({force:true}) //Clicar para avançar para a próxima tela
+            escolherProdutoPesquisa()
 
-        // tela para ESCOLHER TRANSPORTADORA
+            cy.wait(200)
 
-        cy.wait(14000)
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            escolherVoltagemProduto()
+            
+            cy.wait(400)
 
-        //Card de inconsistencias - fechar
-        cy.get('.md-dialog-fullscreen > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
-            .click()
+            trocarFilialFaturamento()
 
-        //Função criada para clicar no campo transportadora e escolher a trasportadora
-        escolherTransportadora()
-    
-        escolherRota()
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
 
-        avancarParcelasEntrega()
-    
-        cy.wait(10000)
+            cy.wait(500)
 
-        // tela de GERAR PARCELAS
+            modalServicosVinculados()
 
-        //Botão "GERAR PARCELAS"
-        botaoGerarParcelas()
+            okServicosVinculados()
 
-        cy.wait(12000)
+            cy.wait(400)
 
-        //Selecionando forma de pagamento
-        cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-            .click()
+            avancarParaTransportadora()
 
-        //Selecionando parcela na forma de pagamento
-        cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-            .click()
+            // tela para ESCOLHER TRANSPORTADORA
 
-        cy.wait(400)
+            cy.wait(14000)
 
-        //Botão "AVANÇAR"
-        avancarFinal()
+            modalInconsApenasRota()
 
-        cy.wait(18000)
+            escolherTransportadora()
+        
+            escolherRota()
 
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            avancarParcelasEntrega()
+        
+            cy.wait(10000)
 
-        botaoFinalizarPedido()
+            // tela de GERAR PARCELAS
 
-        //Carregamento de pedido
-        finalizandoPedido()
+            botaoGerarParcelas()
 
-        //Carregando a finalização do pedido
-        cy.wait(21000)
+            carregandoFormaPagamento()
 
-         pedidoGerado()
+            cy.wait(8000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(9000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(7000)
+
+            pedidoGerado()
+        })
     })
+    
+    context('Pedido de venda remoto sem saldo remoto, pegar CD', () => {
 
-    afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
-        finalizandoPedido()
-        cy.wait(9000)
-        pedidoGerado()
-      });
+        it.skip('Pedido de venda remoto - com saldo no CD (filial 1) - deve permitir fazer o pedido', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(500)
+
+            //Pesquisando produto
+            produtoRemotoComCD()
+
+            semSaldodisponivel()
+
+            escolherProdutoPesquisa()
+
+            cy.wait(200)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            escolherVoltagemProduto()
+            
+            cy.wait(400)
+
+            trocarFilialFaturamento()
+
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(500)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+
+            cy.wait(400)
+
+            avancarParaTransportadora()
+
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(10000)
+
+            modalInconsApenasRota()
+
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(6000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            carregandoFormaPagamento()
+
+            cy.wait(5000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(6000)
+
+            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            botaoFinalizarPedido()
+
+            finalizandoPedido()
+
+            cy.wait(7000)
+
+            pedidoGerado()
+        })    
+        
+        it.skip('Pedido de venda remoto - SEM saldo no CD (filial 1) - NÃO deve permitir fazer o pedido', () => {
+
+            processoVendaPrincipal()
+
+            escolherClientePedido()
+
+            cy.wait(500)
+
+            //Pesquisando produto
+            produtoRemotoSemCD()
+
+            semSaldodisponivel()
+
+            escolherProdutoPesquisa()
+
+            cy.wait(200)
+
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+                    
+            escolherVoltagemProduto()
+            
+            cy.wait(400)
+
+            trocarFilialFaturamento()
+
+            //Validando mensagem "Este produto não possui saldo na filial selecionada."
+            cy.get('[ng-if="semSaldoCD"][style=""] > p')
+                .should('exist')
+                .and('be.visible')
+                .and('have.text','Este produto não possui saldo na filial selecionada.')
+                .invoke('css', 'color') // Obtém a cor do elemento
+                .should('equal', 'rgb(244, 67, 54)')
+
+            //Validando mensagem "Este produto não possui saldo na filial selecionada, será permitido apenas a simulação da venda."
+            cy.get('[ng-show="(itemGradeSelecionado && itemGradeSelecionado.valor > 0)"] > :nth-child(1) > .mensagem-erro-centralizada > p')
+                .should('exist')
+                .and('be.visible')
+                .and('have.text','Este produto não possui saldo na filial selecionada, será permitido apenas a simulação da venda.')
+                .invoke('css', 'color') // Obtém a cor do elemento
+                .should('equal', 'rgb(244, 67, 54)')
+
+            //Validando botão Adicionar para Simulação
+            cy.get('.md-primary.btn-rounded.md-raised.btn-block')
+                .should('exist')
+                .and('not.be.disabled')
+                .and('contain',' Adicionar para Simulação')
+        })    
+    })
 })
