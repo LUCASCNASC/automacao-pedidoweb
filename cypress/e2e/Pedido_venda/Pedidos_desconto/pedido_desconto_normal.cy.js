@@ -18,7 +18,7 @@ describe('Gerar pedido de venda com desconto', () => {
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / R$', () => {
+        it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / R$', () => {
             
             processoVendaPrincipal()
     
@@ -88,7 +88,7 @@ describe('Gerar pedido de venda com desconto', () => {
             cy.wait(6000)
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / % (Pocentagem)', () => {
+        it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / % (Pocentagem)', () => {
             
             processoVendaPrincipal()
     
@@ -158,7 +158,7 @@ describe('Gerar pedido de venda com desconto', () => {
             cy.wait(6000)
         })
 
-        it.skip('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / VALOR FIXO', () => {
+        it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / VALOR FIXO', () => {
             
             processoVendaPrincipal()
     

@@ -17,7 +17,7 @@ describe('Gerar pedidos com promoção', () => {
   
     context('Sem entrega/ com promoção/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
+        it('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -68,7 +68,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(8000)
         })
     
-        it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
+        it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -134,7 +134,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(6000)
         })
     
-        it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
+        it('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -188,7 +188,7 @@ describe('Gerar pedidos com promoção', () => {
 
     context('Sem entrega/ com promoção e sem promoção/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
+        it('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
             processoVendaPrincipal()
     
@@ -279,7 +279,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(8000)
         })
 
-        it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
+        it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
             processoVendaPrincipal()
     
@@ -390,7 +390,7 @@ describe('Gerar pedidos com promoção', () => {
 
     context('Com entrega /com promoção/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
+        it('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -459,7 +459,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(9000)
         })
     
-        it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
+        it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
 
             processoVendaPrincipal()
 
@@ -545,7 +545,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(9000)
         })
 
-        it.skip('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
+        it('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -621,7 +621,7 @@ describe('Gerar pedidos com promoção', () => {
 
     context('Com entrega/ com promoção e sem promoção/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
+        it('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
             processoVendaPrincipal()
     

@@ -4,8 +4,8 @@ import { logoEmpresaLogin, iconeComputadorLogin, usuarioTextoIcone, senhaTextoIc
          clicarBotaoEntrar, mensagemEntrandoSistema } from '../../support/para_logins/para_login';
 
 const usuSabiumAutomacao = "usu.expira2dias"; //usuário 419
-const senhaautomacao = "321@teste";
-const novasenha = "123.automacao";
+const senhaautomacao = "123.automacao"; //trocar informação parnova senha e vice-versa
+const novasenha = "321@teste";
 
 describe('Login com usuário que senha expira em 2 dias', () => {
 

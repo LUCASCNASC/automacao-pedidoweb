@@ -121,6 +121,8 @@ describe('Gerar pedido normal', () => {
             produtoNormalSegundo()
     
             saldodisponivel()
+
+            cy.wait(800)
     
             escolherProdutoPesquisa()
     
@@ -284,6 +286,8 @@ describe('Gerar pedido normal', () => {
             produtoNormalSegundo()
     
             saldodisponivel()
+
+            cy.wait(800)
     
             escolherProdutoPesquisa()
     

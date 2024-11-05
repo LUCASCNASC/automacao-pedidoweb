@@ -171,7 +171,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
         botaoFinalizarPedido()
         finalizandoPedido()
-        cy.wait(9000)
+        cy.wait(8000)
         pedidoGerado()
       });
 })

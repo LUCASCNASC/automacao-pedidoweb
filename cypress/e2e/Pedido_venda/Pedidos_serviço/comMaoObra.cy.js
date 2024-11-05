@@ -57,13 +57,13 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(8500)
+            cy.wait(8000)
     
             botaoGerarParcelas()
 
             carregandoFormaPagamento()
     
-            cy.wait(7500)
+            cy.wait(7000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -147,13 +147,13 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(8500)
+            cy.wait(8000)
     
             botaoGerarParcelas()
 
             carregandoFormaPagamento()
     
-            cy.wait(7500)
+            cy.wait(7000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -167,7 +167,7 @@ describe('Gerar pedidos com Mão de obra', () => {
     
             avancarFinal()
     
-            cy.wait(8500)
+            cy.wait(8000)
         })
     
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {

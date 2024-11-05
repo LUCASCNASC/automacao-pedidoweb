@@ -75,7 +75,6 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
 
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(6000) 
@@ -121,6 +120,8 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             produtoNormalSegundo()
     
             saldodisponivel()
+
+            cy.wait(800)
     
             escolherProdutoPesquisa()
     
@@ -165,7 +166,6 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(7000)
@@ -242,7 +242,6 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(7000)
@@ -284,6 +283,8 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             produtoNormalSegundo()
     
             saldodisponivel()
+
+            cy.wait(800)
     
             escolherProdutoPesquisa()
     
@@ -336,7 +337,6 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(9000)

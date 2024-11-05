@@ -24,7 +24,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -56,7 +55,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(6500)
+            cy.wait(5000)
     
             botaoGerarParcelas()
 
@@ -73,8 +72,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
                 .click()
     
             cy.wait(400)
-    
-            //Botão "AVANÇAR"
+
             avancarFinal()
     
             cy.wait(5000)
@@ -88,7 +86,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -116,10 +113,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(800)
     
-            //Pesquisando segundo produto
             produtoNormalSegundo()
 
             saldodisponivel()
+
+            cy.wait(800)
     
             escolherProdutoPesquisa()
     
@@ -152,7 +150,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             carregandoFormaPagamento()
     
-            cy.wait(6000)
+            cy.wait(5000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -164,7 +162,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(7500)
@@ -181,7 +178,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -236,7 +232,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(8000)
@@ -250,7 +245,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -274,10 +268,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(400)
     
-            //Pesquisando segundo produto
             produtoNormalSegundo()
     
             saldodisponivel()
+
+            cy.wait(800)
     
             escolherProdutoPesquisa()
     
@@ -327,7 +322,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(8000)

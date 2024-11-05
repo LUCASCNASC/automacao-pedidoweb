@@ -6,8 +6,8 @@ import {processoVendaServicoAvulso, escolherClientePedido, iconeMenuOpcoes, clie
         botaoAvancarPedido } from '../../../support/para_pedidos/para_servicos_avulsos';
 import { botaoGerarParcelas, avancarFinal, botaoFinalizarPedido, finalizandoPedido, pedidoGerado } from '../../../support/para_pedidos/gerais_pedidos';
 
-//o valor deve ser alterado para o is do produto que fechamos e baixamos.
-const numero_pedido = '7708'
+//o valor deve ser alterado para o id do produto que fechamos e baixamos.
+const numero_pedido = '7804'
 
 describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
 
@@ -20,7 +20,7 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
 
     context('Processo 9888 - caminho feliz', () => {
 
-        it.skip('Venda de garantia - 139 (T.A. Garantia Separa Mesmo Processo)', () => {
+        it('Venda de garantia - 139 (T.A. Garantia Separa Mesmo Processo)', () => {
             
             processoVendaServicoAvulso() 
             

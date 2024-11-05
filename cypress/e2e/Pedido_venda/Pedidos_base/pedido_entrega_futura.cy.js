@@ -56,7 +56,7 @@ describe('Gerar pedido de entrega futura', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(6500)
+            cy.wait(6000)
     
             botaoGerarParcelas()
 
@@ -120,6 +120,8 @@ describe('Gerar pedido de entrega futura', () => {
             produtoNormalSegundo()
     
             saldodisponivel()
+
+            cy.wait(800)
     
             escolherProdutoPesquisa()
     
@@ -281,6 +283,8 @@ describe('Gerar pedido de entrega futura', () => {
             produtoNormalSegundo()
     
             saldodisponivel()
+
+            cy.wait(800)
     
             escolherProdutoPesquisa()
     
@@ -321,7 +325,7 @@ describe('Gerar pedido de entrega futura', () => {
 
             carregandoFormaPagamento()
 
-            cy.wait(6500)
+            cy.wait(6000)
 
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -344,7 +348,7 @@ describe('Gerar pedido de entrega futura', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
         botaoFinalizarPedido()
         finalizandoPedido()
-        cy.wait(7000)
+        cy.wait(8000)
         pedidoGerado()
       });
 })
