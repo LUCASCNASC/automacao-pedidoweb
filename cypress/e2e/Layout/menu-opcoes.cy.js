@@ -2,7 +2,7 @@
 import { titulopagina } from '../../support/para_todos';
 import { iconeMenuOpcoes, inicioOpcaoMenu, departamentoOpcaoMenu, servicosOpcaoMenu, pedidosPendentesOpcaoMenu, servicosOpcaoMenu, 
          clienteCompletoOpcaoMenu, posVendaOpcaoMenu, intencaoCompraOpcaoMenu, propostaCreditoOpcaoMenu, configuracoesOpcaoMenu
-         } from '../../support/para_layout/para_menu_opcoes';
+         } from '../../support/para_layout/para_menu_opcoes.js';
 
 const filial = " 050 - PR - EMISSÃO NFe/NFCe "
 const descricaoUsuario = "T.A. USUÁRIO AUTOMAÇÃO"
@@ -18,7 +18,8 @@ describe('Validações de layout - menu opções', () => {
 
     context('Menu opções - validar as opções que o menu traz, mas sem entrar nas telas', () => {
 
-        it.only('Menu opções - validar as opções que o menu traz, mas sem entrar nas telas', () => {
+        //VERIFICAR ERRO
+        it('Menu opções - validar as opções que o menu traz, mas sem entrar nas telas', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -132,14 +133,12 @@ describe('Validações de layout - menu opções', () => {
             //Primeiro alerta - card
             cy.get('#toast-container > :nth-child(1)')
 
-
             //Primeiro alerta - ALERTA
             cy.get(':nth-child(1) > .toast-title')
 
 
             //Primeiro alerta - mensagem do card
             cy.get(':nth-child(1) > .toast-message')
-
 
             //Primeiro alerta - botão X
             cy.get(':nth-child(1) > .toast-close-button')
@@ -175,7 +174,6 @@ describe('Validações de layout - menu opções', () => {
 
             //Terceiro alerta - mensagem do card
             cy.get(':nth-child(3) > .toast-message')
-
 
             //Terceiro alerta - botão X
             cy.get(':nth-child(3) > .toast-close-button')

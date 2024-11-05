@@ -17,7 +17,7 @@ describe('Gerar pedido normal', () => {
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
             
             processoVendaPrincipal()
     
@@ -57,7 +57,7 @@ describe('Gerar pedido normal', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(6500)
+            cy.wait(5500)
 
             botaoGerarParcelas()
 
@@ -81,7 +81,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(6000)
         })
 
-        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -147,13 +147,13 @@ describe('Gerar pedido normal', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(6500)
+            cy.wait(5500)
     
             botaoGerarParcelas()
 
             carregandoFormaPagamento()
     
-            cy.wait(6000)
+            cy.wait(5000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -174,7 +174,7 @@ describe('Gerar pedido normal', () => {
 
     context('Com frete/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -212,7 +212,7 @@ describe('Gerar pedido normal', () => {
     
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(12000)
+            cy.wait(11000)
 
             modalInconsRotaTransp()
     
@@ -222,7 +222,7 @@ describe('Gerar pedido normal', () => {
 
             avancarParcelasEntrega()
         
-            cy.wait(7500)
+            cy.wait(6500)
 
             // tela de GERAR PARCELAS
 
@@ -230,7 +230,7 @@ describe('Gerar pedido normal', () => {
 
             carregandoFormaPagamento()
 
-            cy.wait(6500)
+            cy.wait(5500)
 
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -248,7 +248,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(7000)
         })
 
-        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -306,7 +306,7 @@ describe('Gerar pedido normal', () => {
     
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(14000)
+            cy.wait(12000)
 
             modalInconsRotaTransp()
     
@@ -316,7 +316,7 @@ describe('Gerar pedido normal', () => {
 
             avancarParcelasEntrega()
         
-            cy.wait(8000)
+            cy.wait(7000)
 
             // tela de GERAR PARCELAS
 
@@ -324,7 +324,7 @@ describe('Gerar pedido normal', () => {
 
             carregandoFormaPagamento()
 
-            cy.wait(7000)
+            cy.wait(6000)
 
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -339,7 +339,7 @@ describe('Gerar pedido normal', () => {
             //Botão "AVANÇAR"
             avancarFinal()
 
-            cy.wait(9000)
+            cy.wait(8000)
         })
     })
 
@@ -347,7 +347,7 @@ describe('Gerar pedido normal', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
         botaoFinalizarPedido()
         finalizandoPedido()
-        cy.wait(9000)
+        cy.wait(8000)
         pedidoGerado()
       });
 })

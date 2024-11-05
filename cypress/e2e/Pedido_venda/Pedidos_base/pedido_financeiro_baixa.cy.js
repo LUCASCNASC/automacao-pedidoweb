@@ -16,7 +16,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
   
     context('Sem frete/ processo 9863 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
     
             processoFinanceiroBaixa()
     
@@ -80,7 +80,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(5000)
         })
 
-        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
             processoFinanceiroBaixa()
     
@@ -173,7 +173,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
     context('Com frete/ processo 9863 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
     
             processoFinanceiroBaixa()
     
@@ -242,7 +242,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(8000)
         })
 
-        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
             processoFinanceiroBaixa()
     

@@ -18,7 +18,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0 - arredondar para baixo', () => {
+        it('Pedido de venda: produto 1860 0 0 - arredondar para baixo', () => {
             
             processoVendaPrincipal()
     
@@ -92,7 +92,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             cy.wait(6000)
         })
 
-        it.skip('Pedido de venda: produtos 1860 0 0 - arredondar para cima', () => {
+        it('Pedido de venda: produtos 1860 0 0 - arredondar para cima', () => {
     
             processoVendaPrincipal()
     

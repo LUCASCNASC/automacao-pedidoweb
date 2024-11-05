@@ -13,7 +13,7 @@ describe('Validações de layout - tela inicial', () => {
 
     context('Tela inicial ao logar no sistema', () => {
 
-        it.skip('Tela inicial ao logar no sistema - cabeçalho', () => {
+        it('Tela inicial ao logar no sistema - cabeçalho', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
     
@@ -149,6 +149,5 @@ describe('Validações de layout - tela inicial', () => {
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
         })
-
     })  
 })

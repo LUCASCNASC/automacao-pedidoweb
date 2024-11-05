@@ -111,15 +111,16 @@ export function preencherNomeCompletoCNPJ (selector) {
     const nomeClienteCNPJ = "Novo cadastro cliente CNPJ"
 
     //Campo CNPJ - validando mensagem dentro do campo antes de preencher
-    cy.get('label[for="txtCNPJ"]')
-        .should('have.text', 'CNPJ')
+    cy.get('label[for="txtNomeCompleto"]')
+        .should('have.text', 'Nome Completo')
 
     //Campo CNPJ
-    cy.get('#txtCNPJ')
+    cy.get('#txtNomeCompleto')
         .should('exist')
         .and('be.visible')
         .and('have.value','')
-        .type(cnpj, { force: true })
+        .wait(200)
+        .type(nomeClienteCNPJ, { force: true })
 }
 
 //Campo CEP - inserir e pesquisar
@@ -133,6 +134,8 @@ export function inserirPesquisarCEP (selector) {
 
     //Campo CEP
     cy.get('#txtCep')
+        .scrollIntoView()
+        .wait(200)
         .should('exist')
         .and('be.visible')
         .and('have.value','')

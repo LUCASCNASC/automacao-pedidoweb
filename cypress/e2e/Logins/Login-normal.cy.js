@@ -17,7 +17,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
 
     context('Usuário contexto 1', () => {
 
-        it.only('Login - caminho feliz', () => {
+        it('Login - caminho feliz', () => {
 
             //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
             titulopagina()

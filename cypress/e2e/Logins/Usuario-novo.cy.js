@@ -3,8 +3,8 @@ import { titulopagina } from '../../support/para_todos';
 import { logoEmpresaLogin, iconeComputadorLogin, usuarioTextoIcone, senhaTextoIcone, iconeOlhosSenha, botaoEsqueceuSenha, botaoEntrarHabilitado, 
          botaoEntrarDesabilitado, clicarBotaoEntrar, mensagemEntrandoSistema } from '../../support/para_logins/para_login';
 
-const usunovo = "lucasnovousu";
-const senhausunovo = "{IJ64eyy";
+const usunovo = "usuautomacaonovo"; //425
+const senhausunovo = ";ZX38rzg";
 const novasenha = "321@Teste";
 describe('Logar com novo usuário', () => {
 

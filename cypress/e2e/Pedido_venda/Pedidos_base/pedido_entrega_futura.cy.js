@@ -16,7 +16,7 @@ describe('Gerar pedido de entrega futura', () => {
 
     context('Sem frete/ processo 9862 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
     
             processoEntregaFutura()
     
@@ -80,7 +80,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(5500)
         })
         
-        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
             processoEntregaFutura()
     
@@ -146,7 +146,7 @@ describe('Gerar pedido de entrega futura', () => {
     
             // tela de GERAR PARCELAS
     
-            cy.wait(7000)
+            cy.wait(6500)
     
             botaoGerarParcelas()
 
@@ -167,13 +167,13 @@ describe('Gerar pedido de entrega futura', () => {
             //Botão "AVANÇAR"
             avancarFinal()
     
-            cy.wait(7500)
+            cy.wait(5500)
         })
     })
     
     context('Com frete/ processo 9862 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
     
             processoEntregaFutura()
     
@@ -209,7 +209,7 @@ describe('Gerar pedido de entrega futura', () => {
     
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(13000)
+            cy.wait(12000)
 
             modalInconsApenasTransp()
     
@@ -219,7 +219,7 @@ describe('Gerar pedido de entrega futura', () => {
 
             avancarParcelasEntrega()
         
-            cy.wait(7000)
+            cy.wait(650)
 
             // tela de GERAR PARCELAS
 
@@ -242,10 +242,10 @@ describe('Gerar pedido de entrega futura', () => {
             //Botão "AVANÇAR"
             avancarFinal()
 
-            cy.wait(6500)
+            cy.wait(5500)
         })    
         
-        it.skip('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
     
             processoEntregaFutura()
     
@@ -303,7 +303,7 @@ describe('Gerar pedido de entrega futura', () => {
     
             // tela para ESCOLHER TRANSPORTADORA
 
-            cy.wait(14000)
+            cy.wait(12000)
 
             modalInconsApenasTransp()
     
@@ -336,7 +336,7 @@ describe('Gerar pedido de entrega futura', () => {
             //Botão "AVANÇAR"
             avancarFinal()
 
-            cy.wait(9000)
+            cy.wait(6000)
         })  
     })
 
@@ -344,7 +344,7 @@ describe('Gerar pedido de entrega futura', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
         botaoFinalizarPedido()
         finalizandoPedido()
-        cy.wait(9000)
+        cy.wait(7000)
         pedidoGerado()
       });
 })

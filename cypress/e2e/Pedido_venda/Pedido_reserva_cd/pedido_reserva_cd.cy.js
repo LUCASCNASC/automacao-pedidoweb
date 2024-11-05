@@ -17,7 +17,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1880 0 0', () => {
+        it('Pedido de venda: produto 1880 0 0', () => {
             
             processoVendaPrincipal()
     
@@ -81,7 +81,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             cy.wait(6000) 
         })
 
-        it.skip('Pedido de venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local)', () => {
+        it('Pedido de venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local)', () => {
     
             processoVendaPrincipal()
     
@@ -174,7 +174,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
 
     context('Com frete/ processo 9860 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1880 0 0', () => {
+        it('Pedido de venda: produto 1880 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -248,7 +248,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             cy.wait(7000)
         })
 
-        it.skip('Pedido de venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local)', () => {
+        it('Pedido de venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local)', () => {
     
             processoVendaPrincipal()
     

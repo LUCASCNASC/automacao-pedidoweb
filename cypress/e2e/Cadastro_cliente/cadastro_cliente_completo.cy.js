@@ -1,7 +1,7 @@
 //Importando funções 
 import { titulopagina } from '../../support/para_todos';
 import { iconeMenuOpcoes, opcaoClienteCompleto, preecherDataNascimento, selecionarSexoCliente, preencherNomeCompleto, preencherNomeCNPJ,
-         clicarSalvarCliente, clicarAbaEndereco, preencherCPFcliente, preencherCNPJcliente, messEnderecoIncluidoSucesso } from '../../support/para_cadastro_cliente/para_cliente_completo';
+         clicarSalvarCliente, clicarAbaEndereco, preencherCPFcliente, preencherCNPJcliente, messEnderecoIncluidoSucesso, preencherNomeFantasiaCNPJ } from '../../support/para_cadastro_cliente/para_cliente_completo';
 import gerarCpf from '../../support/gerarCPF';
 import gerarCNPJ from '../../support/gerarCNPJ';
 
@@ -19,6 +19,7 @@ describe('Cadastrar cliente completo', () => {
 
     context('Cadastro de cliente completo', () => {
 
+        //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
         it('Cliente completo CPF', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -479,7 +480,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('contain', '(44) 9578-7847')
                 .and('contain', '435')
 
-            cy.wait(8000)
+            cy.wait(1000)
 
             messEnderecoIncluidoSucesso()
                 
@@ -511,6 +512,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.text', 'Registro salvo com sucesso!')
         })  
 
+        //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
         it('Cliente completo CPF - mensagem de campos obrigatórios', () => {
 
             cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
@@ -1013,7 +1015,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('contain', '(44) 9578-7847')
                 .and('contain', '435')
 
-            cy.wait(8000)
+            cy.wait(2000)
 
             messEnderecoIncluidoSucesso()
                 
@@ -1060,15 +1062,7 @@ describe('Cadastrar cliente completo', () => {
 
             preencherNomeCNPJ()
 
-            //Campo Nome Fantasia - validando mensagem dentro do campo antes de preencher
-            cy.get('label[for="txtNomeFantasia"]')
-                .should('have.text', 'Nome Social') 
-
-            cy.get('#txtNomeFantasia')
-                .should('exist')
-                .and('be.visible')
-                .and('have.value','')
-                .type(nomeClienteCNPJ, { force: true })
+            preencherNomeFantasiaCNPJ()
 
             //Tentar clicar em SALVAR, não deve deixar, pois ainda não tem endereço
             cy.get('.btn > .ng-scope')
@@ -1511,7 +1505,7 @@ describe('Cadastrar cliente completo', () => {
                 .and('contain', '(44) 9578-7847')
                 .and('contain', '435')
 
-            cy.wait(8000)
+            cy.wait(2000)
 
             messEnderecoIncluidoSucesso()
                 

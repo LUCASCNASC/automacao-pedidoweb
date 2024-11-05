@@ -1,9 +1,9 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,processoVendaPrincipal,
-         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, finalizandoPedido,modalServicosVinculados, okServicosVinculados,
+import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, processoVendaPrincipal,
+         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, finalizandoPedido, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, botãoAdicionar, botaoGerarParcelas, modalInconsRotaTransp,
-         carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
-import { produtoKitPrimeiro} from '../../../support/para_pedidos/produtos_pedidos';
+         carregandoFormaPagamento, tirarEntrega, tirarMontagem } from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoKitPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
 
@@ -16,7 +16,7 @@ describe('Gerar pedido normal', () => {
   
     context('Sem frete/ processo 9860 - caminho feliz', () => {
         
-        it.skip('Pedido de venda: kit 1862 0 0', () => {
+        it('Pedido de venda: kit 1862 0 0', () => {
     
             processoVendaPrincipal()
     
@@ -83,7 +83,7 @@ describe('Gerar pedido normal', () => {
     
     context('Com frete/processo 9860 - caminho feliz', () => {
         
-        it.skip('Pedido de venda: kit 1862 0 0', () => {
+        it('Pedido de venda: kit 1862 0 0', () => {
     
             processoVendaPrincipal()
     

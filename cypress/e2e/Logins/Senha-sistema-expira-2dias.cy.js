@@ -195,7 +195,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type(senhaautomacao)
+            .type(senhaautomacao, {force:true})
 
         //Card Altere Sua Senha Temporária - olhos "Senha Atual"
         cy.get('md-icon[ng-click="showPasswordToggle()"]')
@@ -456,7 +456,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
             .and('have.value','')
-            .type(senhaautomacao)
+            .type(senhaautomacao, {force:true})
 
         //Card Altere Sua Senha Temporária - olhos "Senha Atual"
         cy.get('md-icon[ng-click="showPasswordToggle()"]')

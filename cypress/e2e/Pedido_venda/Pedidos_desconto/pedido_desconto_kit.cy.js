@@ -17,7 +17,7 @@ describe('Gerar pedido de venda Kit com desconto', () => {
   
     context('Sem frete/ processo 9862 - caminho feliz', () => {
         
-        it.skip('Pedido de venda: kit 1862 0 0 com desconto Sub (-) / VALOR FIXO', () => {
+        it('Pedido de venda: kit 1862 0 0 com desconto Sub (-) / VALOR FIXO', () => {
     
             processoVendaPrincipal()
     

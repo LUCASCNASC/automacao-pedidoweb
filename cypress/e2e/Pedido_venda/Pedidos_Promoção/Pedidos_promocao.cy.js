@@ -2,8 +2,9 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
          botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos'
-import { produtoNormalSegundo, produtoPromoPartida, produtoPromoPrazoEntrada, produtoPromoPrazoParcelado } from '../../../support/para_pedidos/produtos_pedidos';
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, modalInconsApenasRota } from '../../../support/para_pedidos/gerais_pedidos'
+import { produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
+import { produtoPromoPartida, produtoPromoPrazoEntrada, produtoPromoPrazoParcelado, clicarUsarPromocao, selecionarFormaPagPromo } from '../../../support/para_pedidos/para_pedidos_promocao';
 
 describe('Gerar pedidos com promoção', () => {
 
@@ -35,14 +36,10 @@ describe('Gerar pedidos com promoção', () => {
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
+
+            clicarUsarPromocao()
     
-            //Usar promoção, no card "Promoções"
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click()
-    
-            //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
-                .click()
+            selecionarFormaPagPromo()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -63,7 +60,7 @@ describe('Gerar pedidos com promoção', () => {
     
             // tela de PAGAMENTO
     
-            cy.wait(9000)
+            cy.wait(12000)
     
             //Botão "AVANÇAR"
             avancarFinal()
@@ -90,16 +87,12 @@ describe('Gerar pedidos com promoção', () => {
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
+
+            clicarUsarPromocao()
+    
+            selecionarFormaPagPromo()
             
             cy.wait(400)
-    
-            //Clicar na promoção escolhida - Card de promoção
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click()
-    
-            //Card de Formas de pagamento - escolher forma de pagamento
-            cy.get('#dialogContent_124 > .white > [style=""] > div.md-button > .md-no-style')
-                .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -118,13 +111,12 @@ describe('Gerar pedidos com promoção', () => {
     
             avancarParaParcelas()
 
-            cy.wait(7500)
+            cy.wait(9000)
     
             // tela de GERAR PARCELAS
-    
-            //Abrir opções de processos a receber entrada
-            cy.get('#select_191')
-                .click
+
+            cy.get('#select_190')
+                .click()
     
             //Escolher processo a receber de entrada
             cy.get('#select_option_203 > .md-text')
@@ -162,13 +154,9 @@ describe('Gerar pedidos com promoção', () => {
                       
             escolherVoltagemProduto()
     
-            //Usar promoção, no card "Promoções"
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click()
+            clicarUsarPromocao()
     
-            //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
-                .click()
+            selecionarFormaPagPromo()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -189,7 +177,7 @@ describe('Gerar pedidos com promoção', () => {
     
             // tela de PAGAMENTO
     
-            cy.wait(14000)
+            cy.wait(11000)
     
             //Botão "AVANÇAR"
             avancarFinal()
@@ -220,13 +208,9 @@ describe('Gerar pedidos com promoção', () => {
                       
             escolherVoltagemProduto()
     
-            //Usar promoção, no card "Promoções"
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click()
+            clicarUsarPromocao()
     
-            //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
-                .click()
+            selecionarFormaPagPromo()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -271,7 +255,7 @@ describe('Gerar pedidos com promoção', () => {
     
             avancarParaParcelas()
     
-            cy.wait(14000)
+            cy.wait(12000)
 
             //Tela de PARCELAS
 
@@ -292,7 +276,7 @@ describe('Gerar pedidos com promoção', () => {
             //Avançar para finalizar o pedido
             avancarFinal()
 
-            cy.wait(9000)
+            cy.wait(8000)
         })
 
         it.skip('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
@@ -314,16 +298,12 @@ describe('Gerar pedidos com promoção', () => {
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
+
+            clicarUsarPromocao()
+    
+            selecionarFormaPagPromo()
             
             cy.wait(400)
-    
-            //Clicar na promoção escolhida - Card de promoção
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click()
-    
-            //Card de Formas de pagamento - escolher forma de pagamento
-            cy.get('#dialogContent_124 > .white > [style=""] > div.md-button > .md-no-style')
-                .click()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -340,10 +320,11 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
 
-            escolherProdutoPesquisa()
-    
-            //Validando informações do segundo produto após pesquisar
+            produtoNormalSegundo()
+
             saldodisponivel()
+
+            cy.wait(400)
     
             escolherProdutoPesquisa()
     
@@ -370,10 +351,10 @@ describe('Gerar pedidos com promoção', () => {
 
             // tela de GERAR PARCELAS
     
-            cy.wait(14000)
+            cy.wait(13000)
     
             //Abrir opções de processos a receber entrada
-            cy.get('#select_348')
+            cy.get('#select_344')
                 .click({force:true})
     
             //Escolher processo a receber de entrada
@@ -429,30 +410,26 @@ describe('Gerar pedidos com promoção', () => {
                       
             escolherVoltagemProduto()
     
-            //Usar promoção, no card "Promoções"
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click()
+            clicarUsarPromocao()
     
-            //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_119 > .white > [style=""] > div.md-button > .md-no-style')
-                .click()
+            selecionarFormaPagPromo()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
     
             cy.wait(500)
     
-            modalInconsRotaTransp()
+            modalServicosVinculados()
 
             okServicosVinculados()
     
             avancarParaTransportadora()
     
-            cy.wait(14000)
+            cy.wait(12000)
 
             // tela para ESCOLHER TRANSPORTADORA
 
-            modalInconsApenasRota()
+            modalInconsRotaTransp()
     
             escolherTransportadora()
         
@@ -460,7 +437,7 @@ describe('Gerar pedidos com promoção', () => {
 
             avancarParcelasEntrega()
         
-            cy.wait(15000)
+            cy.wait(13000)
     
             botaoGerarParcelas()
 
@@ -501,16 +478,10 @@ describe('Gerar pedidos com promoção', () => {
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
-            cy.wait(400)
     
-            //Clicar na promoção escolhida - Card de promoção
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click()
+            clicarUsarPromocao()
     
-            //Card de Formas de pagamento - escolher forma de pagamento
-            cy.get('#dialogContent_124 > .white > [style=""] > div.md-button > .md-no-style')
-                .click()
+            selecionarFormaPagPromo()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -525,7 +496,7 @@ describe('Gerar pedidos com promoção', () => {
     
             avancarParaTransportadora()
     
-            cy.wait(14000)
+            cy.wait(13000)
 
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -537,7 +508,7 @@ describe('Gerar pedidos com promoção', () => {
 
             avancarParcelasEntrega()
         
-            cy.wait(15000)
+            cy.wait(13000)
 
             // tela de GERAR PARCELAS
 
@@ -557,7 +528,7 @@ describe('Gerar pedidos com promoção', () => {
 
             botaoGerarParcelas()
 
-            cy.wait(7500)
+            cy.wait(8000)
 
             //Escolher "Forma de pagamento"
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -594,13 +565,9 @@ describe('Gerar pedidos com promoção', () => {
                       
             escolherVoltagemProduto()
     
-            //Usar promoção, no card "Promoções"
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click()
+            clicarUsarPromocao()
     
-            //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
-                .click()
+            selecionarFormaPagPromo()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -615,7 +582,7 @@ describe('Gerar pedidos com promoção', () => {
     
             avancarParaTransportadora()
     
-            cy.wait(14000)
+            cy.wait(12000)
 
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -627,13 +594,13 @@ describe('Gerar pedidos com promoção', () => {
 
             avancarParcelasEntrega()
         
-            cy.wait(15000)
+            cy.wait(13000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
 
-            cy.wait(7000)
+            cy.wait(6500)
 
             //Escolher a forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -674,13 +641,9 @@ describe('Gerar pedidos com promoção', () => {
                       
             escolherVoltagemProduto()
     
-            //Usar promoção, no card "Promoções"
-            cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click()
+            clicarUsarPromocao()
     
-            //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_121 > .white > [style=""] > div.md-button > .md-no-style')
-                .click()
+            selecionarFormaPagPromo()
     
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -712,7 +675,7 @@ describe('Gerar pedidos com promoção', () => {
     
             avancarParaTransportadora()
     
-            cy.wait(16000)
+            cy.wait(14000)
 
             // tela para ESCOLHER TRANSPORTADORA
 
@@ -724,7 +687,7 @@ describe('Gerar pedidos com promoção', () => {
 
             avancarParcelasEntrega()
         
-            cy.wait(17000)
+            cy.wait(14000)
 
             //Tela de PARCELAS
 
@@ -753,7 +716,7 @@ describe('Gerar pedidos com promoção', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
         botaoFinalizarPedido()
         finalizandoPedido()
-        cy.wait(9000)
+        cy.wait(7000)
         pedidoGerado()
       });
 })

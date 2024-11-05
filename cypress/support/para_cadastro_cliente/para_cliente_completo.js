@@ -81,12 +81,15 @@ export function preecherDataNascimento (selector) {
     cy.get('label[for="txtDataNasc"]')
         .should('have.text', 'Data Nascimento') 
 
+    cy.get('#txtDataNasc > .md-datepicker-button')
+        .click({force:true})
+
+    cy.wait(200)
+
     //Campo data de nascimento
-    cy.get('#input_98')
+    cy.get('#input_100')
         .should('exist')
         .and('be.visible')
-        //.and('have.value','')
-        .wait(200)
         .type("30/09/1998", {force:true})
 }
 
@@ -143,6 +146,21 @@ export function preencherNomeCNPJ (selector) {
         .should('exist')
         .and('be.visible')
         .and('have.value','')
+        .type(nomeClienteCNPJ, {force: true})
+}
+
+export function preencherNomeFantasiaCNPJ (selector) {
+
+    const nomeClienteCNPJ = "Novo cadastro cliente CNPJ"
+
+    //Campo Nome Fantasia - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="txtNomeFantasia"]')
+    .should('have.text', 'Nome Social') 
+
+    cy.get('#txtNomeFantasia')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value','')
         .type(nomeClienteCNPJ, { force: true })
 }
 
@@ -151,6 +169,8 @@ export function clicarSalvarCliente (selector) {
 
     //Botão SALVAR
     cy.get('.btn')
+        .scrollIntoView()
+        .wait(200)
         .should('exist')
         .and('be.visible')
         .and('not.have.attr', 'disabled')
