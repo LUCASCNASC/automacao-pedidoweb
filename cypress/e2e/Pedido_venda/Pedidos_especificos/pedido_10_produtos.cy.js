@@ -5,7 +5,7 @@ import { escolherTransportadora, saldodisponivel, escolherRota, escolherClienteP
          avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos, carregandoFormaPagamento, trocarFilialFaturamento} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoPrincipal, botãoAdicionarProduto, primeiroProdutoEscolher, segundoProdutoEscolher, terceiroProdutoEscolher,
          quartoProdutoEscolher, quintoProdutoEscolher, sextoProdutoEscolher, setimoProdutoEscolher, oitavoProdutoEscolher,
-         nonoProdutoEscolher, decimoProdutoEscolher} from '../../../support/para_pedidos/para_pedidos_10_produtos.cy';
+         nonoProdutoEscolher, decimoProdutoEscolher} from '../../../support/para_pedidos/para_pedidos_10_produtos.js';
 
 describe('Gerar pedido normal', () => {
 
@@ -305,8 +305,6 @@ describe('Gerar pedido normal', () => {
 
         })
     })
-
-    
 
     afterEach(() => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR

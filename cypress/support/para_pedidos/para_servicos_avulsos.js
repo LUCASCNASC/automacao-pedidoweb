@@ -1,4 +1,4 @@
-//Para escolher processo de venda 9888 - serviços avulsos
+//Para escolher processo de venda 9888 - serviços avulsos - quando já temos uma nota de venda de produto e quando vamos vender igual produto
 export function processoVendaServicoAvulso (selector) {
 
     //clicar para aparecer as opções de processo
@@ -15,7 +15,7 @@ export function processoVendaServicoAvulso (selector) {
         .scrollTo('center')
 
     //selecionar processo de venda "9888"
-    cy.get('#select_option_64 > .md-text')
+    cy.get('#select_option_65 > .md-text')
         .scrollIntoView()
         .wait(100)
         .should('exist')
@@ -361,4 +361,209 @@ export function botaoAvancarPedido (selector) {
         .and('not.be.disabled')
         .and('have.text',' Avançar ')
         .click({force:true})
+}
+
+//Escolher servico, para vende-lo - 144 (T.A. MO Não Destaca e Separa Processo Diferente)
+export function produtoServicoAvulso (selector) {
+
+    const codigo_servico = '144'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(codigo_servico)
+        .wait(100)
+        .should('have.value', codigo_servico)
+}
+
+//Validando serviço com saldo disponível local
+export function saldoDisponivelServico (selector) {
+    
+    //Validando imagem
+    cy.get('.resultado-imagem')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando "Saldo disponivel"
+    cy.get('.label')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Saldo disponivel')
+        .invoke('css', 'background-color') // Obtém a cor do elemento
+        .should('equal', 'rgb(92, 184, 92)')
+
+    //Validando nome do serviço dentro card
+    cy.get('.md-resultado-titulo')
+        .should('exist')
+        .and('be.visible')
+
+    //Validado código do serviço dentro do card
+    cy.get('.badge-saldo.ng-binding')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando R$ dentro do card
+    cy.get('sup')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','R$')
+
+    //Validando valor do serviço dentro do card
+    cy.get('.valor-busca')
+        .should('exist')
+        .and('be.visible')
+}
+
+//Clicar para selecionar o produto que queremos adicionar ao pedido
+export function escolherServicoPesquisa (selector) {
+
+    //Imagem do produto
+    cy.get('.resultado-imagem')
+        .should('exist')
+        .and('be.visible')
+
+    //Nome do produto
+    cy.get('.md-resultado-titulo')
+        .should('exist')
+        .and('be.visible')
+
+    //Saldo disponível
+    cy.get('.md-list-item-text > .ng-scope')
+        .should('exist')
+        .and('be.visible')
+
+    //Código do produto
+    cy.get('.badge-saldo.ng-binding')
+        .should('exist')
+        .and('be.visible')
+
+    //Cifrão do valor do produto
+    cy.get('sup')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'R$')
+
+    //Valor do produto
+    cy.get('.valor-busca')
+        .should('exist')
+        .and('be.visible')
+
+    //Clicar para adicionar no carrinho
+    cy.get('.md-list-item-text')
+        .should('exist')
+        .and('be.visible')
+        .click({force:true})
+}
+
+//Escolher servico host, para vende-lo - 104 (Recarga Homologação TIM TIM)
+export function produtoServicoHost (selector) {
+
+    const codigo_servicoHost = '104'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(codigo_servicoHost)
+        .wait(100)
+        .should('have.value', codigo_servicoHost)
+}
+
+//Validando e clicando opção Serviços, do menu de opções
+export function clicarServicosMenu (selector) {
+
+    //Opção Serviços no menu de opções
+    cy.get('a[aria-label="Serviços"]')
+        .should('exist')
+        .and('be.visible')
+        .and('not.have.attr', 'disabled')
+
+    //Opção Serviços no menu de opções
+    cy.get('a[aria-label="Serviços"]')
+        .should('have.attr', 'aria-label', 'Serviços')
+
+    //ícone Serviços 
+    cy.get('md-icon[md-svg-src="images/icons/services.svg"]')
+        .scrollIntoView()
+        .should('exist')
+        .click({force:true})
+}
+
+//modal para selecionar faixa de preço para o serviço - clicar e escolher o valor
+export function escolherValorRecarga (selector) {
+
+    //validando título do modal
+    cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Selecione uma faixa de preço para o serviço')
+
+    //validando botão X do modal
+    cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //validando Garantia Celular Host
+    cy.get('.md-subheader-content')
+        .should('exist')
+        .and('be.visible')
+        .and('contain.text', 'Recarga Celular HOST')
+
+    //validando nome do serviço, dentro do card
+    cy.get('h3.ng-binding')
+        .should('exist')
+        .and('be.visible')
+
+    //validando Valor do serviço dentro do card
+    cy.get('.md-no-style > .md-list-item-text > p.ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Valor:')
+
+    //validando "Valor" na escolha do valor da recarga
+    cy.get('.md-secondary-container > :nth-child(1)')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Valor')
+
+    //seta para escolher valor da recarga
+    cy.get('#select_value_label_121 > .md-select-icon')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click({force:true})
+
+    //selecionando valor da recarga
+    cy.contains('10,00')
+        .click({force:true})
+
+    cy.wait(200)
+
+    //clicando no botão OK após selecionarmos o valor da recarga
+    cy.get('.layout-align-end-end > .md-raised')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text', ' Ok ')
+        .click({force:true})      
 }

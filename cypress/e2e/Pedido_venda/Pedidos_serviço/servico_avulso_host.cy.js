@@ -1,10 +1,11 @@
 import { titulopagina } from '../../../support/para_todos';
-import { processoVendaServicoAvulso, escolherClientePedido, clicarCarrinhoCompras, botaoAvancarPedido, produtoServicoAvulso,
-         saldoDisponivelServico, escolherServicoPesquisa } from '../../../support/para_pedidos/para_servicos_avulsos';
-import { botaoGerarParcelas, avancarFinal, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
+import { processoVendaServicoAvulso, escolherClientePedido, clicarServicosMenu, clicarCarrinhoCompras, botaoAvancarPedido,
+         produtoServicoHost, saldoDisponivelServico, escolherServicoPesquisa, escolherValorRecarga } from '../../../support/para_pedidos/para_servicos_avulsos';
+import { botaoGerarParcelas, avancarFinal, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, carregandoFormaPagamento  } from '../../../support/para_pedidos/gerais_pedidos';
+import { iconeMenuOpcoes } from '../../../support/para_layout/para_menu_opcoes';
 
-
-describe('Venda de serviço avulso', () => {
+//Para este cenário, é necessário fazer update na coluna dataultimaatualizacao, da tabela glb.servicofaixavalorfixo
+describe('Venda de serviço avulso Host - 104', () => {
 
     beforeEach(() => {
         cy.visit('/');
@@ -21,14 +22,24 @@ describe('Venda de serviço avulso', () => {
             
             escolherClientePedido()
 
-            cy.wait(500)
+            cy.wait(200)
 
-            produtoServicoAvulso()
+            iconeMenuOpcoes()
+
+            clicarServicosMenu()
+
+            cy.wait(400)
+
+            produtoServicoHost()
 
             saldoDisponivelServico()
     
             escolherServicoPesquisa()
     
+            cy.wait(200)
+
+            escolherValorRecarga()
+
             cy.wait(200)
 
             clicarCarrinhoCompras()

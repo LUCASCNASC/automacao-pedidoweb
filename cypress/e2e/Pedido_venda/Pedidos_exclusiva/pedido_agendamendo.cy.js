@@ -1,12 +1,13 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
-         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos,
-         carregandoFormaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
-import { produtoNormalPrimeiro, produtoNormalSegundo} from '../../../support/para_pedidos/produtos_pedidos';
+import { escolherClientePedido, saldodisponivel, escolherProdutoPesquisa, escolherVoltagemProduto, 
+         botãoAdicionar, modalServicosVinculados, okServicosVinculados, tirarMontagem, tirarEntrega, semSaldodisponivel, 
+         avancarParaTransportadora, modalInconsRotaTransp, escolherTransportadora, escolherRota, avancarParcelasEntrega, botaoGerarParcelas, 
+         carregandoFormaPagamento, avancarFinal, trocarFilialFaturamento, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, avancarParaParcelas } from '../../../support/para_pedidos/gerais_pedidos';
+import { primeiroPrdNormalExclusiva, kitSemSaldoAgendamento, kitVolumes, produtoSaldoReceber, prdSaldoReceberDuasLinhas, aumentarQuantVendaCinco, 
+         saldoRemotoAReceber, aumentarQuantVendaDez, processoVendaExclusiva } from '../../../support/para_pedidos/para_pedidos_exclusiva';
 
-describe('Gerar pedido normal', () => {
+//Para testarmos esses cenários, é necessário mudar para a versão da exclusiva e criar um agendamento na filial que está sendo usada
+describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
     beforeEach(() => {
         cy.visit('/');
@@ -15,177 +16,17 @@ describe('Gerar pedido normal', () => {
         titulopagina() //Validar título da aba carregada
     })
 
-    context('Sem frete/ processo 9860 - caminho feliz', () => {
+    context('Configuração de processo - Exclusiva: 36 = 2; 139 = 6; 552= 5 dias', () => {
 
-        it('Pedido de venda: produto 1860 0 0 - (Venda local de produto com saldo - sem entrega)', () => {
+        it.skip('Vender um produto normal (com saldo e com entrega, 15 dias) e um kit remoto (2 composições, sem saldo e sem a receber, 20 dias).', () => {
             
-            processoVendaPrincipal()
+            processoVendaExclusiva()
     
             escolherClientePedido()
     
             cy.wait(500)
-    
-            //Pesquisando produto
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
-            escolherVoltagemProduto()
-         
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
-
-            okServicosVinculados()
-    
-            tirarEntrega()
-    
-            tirarMontagem()
-    
-            cy.wait(400)
-
-            avancarParaParcelas()
-    
-            // tela de GERAR PARCELAS
-    
-            cy.wait(5500)
-
-            botaoGerarParcelas()
-
-            carregandoFormaPagamento()
-    
-            cy.wait(5000)
-    
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-    
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
-
-            cy.wait(400)
-    
-            //Botão "AVANÇAR"
-            avancarFinal()
-    
-            cy.wait(6000)
-        })
-
-        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
-            //Pesquisando produto
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            cy.wait(200)
-                      
-            escolherVoltagemProduto()
-            
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
-
-            okServicosVinculados()
-    
-            tirarEntrega()
-    
-            tirarMontagem()
-
-            cy.wait(800)
-    
-            //Pesquisando segundo produto
-            produtoNormalSegundo()
-    
-            saldodisponivel()
-
-            cy.wait(800)
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(800)
-    
-            escolherVoltagemProduto()
-    
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
-
-            cy.wait(500)
-    
-            modalServicosVinculados()
-
-            okServicosVinculados()
-    
-            tirarEntregaSegundo()
-    
-            tirarMontagemSegundo()
-    
-            cy.wait(400)
-    
-            avancarParaParcelas()
-    
-            // tela de GERAR PARCELAS
-    
-            cy.wait(5500)
-    
-            botaoGerarParcelas()
-
-            carregandoFormaPagamento()
-    
-            cy.wait(5000)
-    
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-    
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
-    
-            cy.wait(400)
-    
-            //Botão "AVANÇAR"
-            avancarFinal()
-    
-            cy.wait(7000)
-        })
-    })
-
-    context('Com frete/ processo 9860 - caminho feliz', () => {
-
-        it('Pedido de venda: produto 1860 0 0 - (Venda local de produto com saldo - com entrega)', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
-            //Pesquisando produto
-            produtoNormalPrimeiro()
+            primeiroPrdNormalExclusiva()
 
             saldodisponivel()
     
@@ -195,7 +36,7 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(200)
                       
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() 
             
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
@@ -206,63 +47,14 @@ describe('Gerar pedido normal', () => {
 
             okServicosVinculados()
     
-            tirarMontagem()
-    
-            cy.wait(400)
-    
-            avancarParaTransportadora()
-    
-            // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(11000)
-
-            modalInconsRotaTransp()
-    
-            escolherTransportadora()
-        
-            escolherRota()
-
-            avancarParcelasEntrega()
-        
-            cy.wait(6500)
-
-            // tela de GERAR PARCELAS
-
-            botaoGerarParcelas()
-
-            carregandoFormaPagamento()
-
-            cy.wait(5500)
-
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
-
             cy.wait(400)
 
-            //Botão "AVANÇAR"
-            avancarFinal()
+            kitSemSaldoAgendamento()
 
-            cy.wait(7000)
-        })
+            semSaldodisponivel()
 
-        it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
-            //Pesquisando produto
-            produtoNormalPrimeiro()
+            cy.wait(800)
 
-            saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
@@ -270,42 +62,16 @@ describe('Gerar pedido normal', () => {
             cy.wait(200)
                       
             escolherVoltagemProduto()
-            
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
-    
-            cy.wait(500)
 
-            modalServicosVinculados()
-
-            okServicosVinculados()
-    
             cy.wait(400)
-    
-            //Pesquisando segundo produto
-            produtoNormalSegundo()
-    
-            saldodisponivel()
 
-            cy.wait(800)
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(800)
-    
-            escolherVoltagemProduto()
-    
+            trocarFilialFaturamento()
+
             //clicar no botão "ADICIONAR", para adicionar produto
             botãoAdicionar()
-    
-            cy.wait(500)
-    
-            modalServicosVinculados()
 
-            okServicosVinculados()
-    
-            cy.wait(1000)
-    
+            cy.wait(500)
+
             avancarParaTransportadora()
     
             // tela para ESCOLHER TRANSPORTADORA
@@ -328,7 +94,7 @@ describe('Gerar pedido normal', () => {
 
             carregandoFormaPagamento()
 
-            cy.wait(6000)
+            cy.wait(7000)
 
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
@@ -343,7 +109,281 @@ describe('Gerar pedido normal', () => {
             //Botão "AVANÇAR"
             avancarFinal()
 
-            cy.wait(8000)
+            cy.wait(10000)
+        })
+
+        it.skip('Vender um produto normal (com saldo e com entrega) e um kit com composição 6 volumes (data atual + parametro 552/ 5 dias).', () => {
+            
+            processoVendaExclusiva()
+    
+            escolherClientePedido()
+    
+            cy.wait(500)
+
+            primeiroPrdNormalExclusiva()
+
+            saldodisponivel()
+    
+            escolherProdutoPesquisa()
+    
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+    
+            cy.wait(200)
+                      
+            escolherVoltagemProduto() 
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(500)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            cy.wait(400)
+
+            kitVolumes()
+
+            saldodisponivel()
+
+            cy.wait(800)
+    
+            escolherProdutoPesquisa()
+    
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+    
+            cy.wait(200)
+                      
+            escolherVoltagemProduto()
+
+            cy.wait(400)
+
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(500)
+
+            avancarParaTransportadora()
+    
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(12000)
+
+            modalInconsRotaTransp()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(7000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            carregandoFormaPagamento()
+
+            cy.wait(7000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            //Botão "AVANÇAR"
+            avancarFinal()
+
+            cy.wait(10000)
+        })
+    })
+
+    context('Configuração de processo - Exclusiva: 36 = 2; 139 = 6; 552= 5 dias', () => {
+
+        it.skip('Vender um produto (sem saldo e com saldo a receber para 10 dias, e com entrega), e ter um agendamento para a data de previsão.', () => {
+            
+            processoVendaExclusiva()
+    
+            escolherClientePedido()
+    
+            cy.wait(500)
+
+            produtoSaldoReceber()
+
+            saldodisponivel()
+    
+            escolherProdutoPesquisa()
+    
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+    
+            cy.wait(200)
+                      
+            escolherVoltagemProduto() 
+            
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(500)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            cy.wait(400)
+
+            avancarParaTransportadora()
+    
+            // tela para ESCOLHER TRANSPORTADORA
+
+            cy.wait(12000)
+
+            modalInconsRotaTransp()
+    
+            escolherTransportadora()
+        
+            escolherRota()
+
+            avancarParcelasEntrega()
+        
+            cy.wait(7000)
+
+            // tela de GERAR PARCELAS
+
+            botaoGerarParcelas()
+
+            carregandoFormaPagamento()
+
+            cy.wait(7000)
+
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+
+            avancarFinal()
+
+            cy.wait(9000)
+        })
+
+        //necessário esperar tarefa PVW-220
+        it.skip('Vender um produto em duas linhas (um com 5 unidades a receber e 10 para solicitar compra), e ter um agendamento para a data de previsão para a receber.', () => {
+            
+            processoVendaExclusiva()
+    
+            escolherClientePedido()
+    
+            cy.wait(500)
+
+            prdSaldoReceberDuasLinhas()
+
+            saldoRemotoAReceber()
+    
+            escolherProdutoPesquisa()
+    
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+    
+            cy.wait(200)
+                      
+            escolherVoltagemProduto() 
+
+            trocarFilialFaturamento()
+
+            aumentarQuantVendaCinco()
+
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+
+            cy.wait(800)
+
+            prdSaldoReceberDuasLinhas()
+
+            saldoRemotoAReceber()
+
+            cy.wait(800)
+
+            escolherProdutoPesquisa()
+                      
+            escolherVoltagemProduto() 
+
+            trocarFilialFaturamento()
+
+            aumentarQuantVendaDez()
+            
+            
+        })
+
+        it.skip('Pedido de venda normal: produto 1896 0 0 (sem entrega)', () => {
+            
+            processoVendaExclusiva()
+    
+            escolherClientePedido()
+    
+            cy.wait(500)
+    
+            //Pesquisando produto
+            primeiroPrdNormalExclusiva()
+    
+            saldodisponivel()
+    
+            escolherProdutoPesquisa()
+    
+            cy.wait(200)
+    
+            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+
+            escolherVoltagemProduto()
+         
+            //clicar no botão "ADICIONAR", para adicionar produto
+            botãoAdicionar()
+    
+            cy.wait(500)
+
+            modalServicosVinculados()
+
+            okServicosVinculados()
+    
+            tirarEntrega()
+    
+            cy.wait(400)
+
+            avancarParaParcelas()
+    
+            // tela de GERAR PARCELAS
+    
+            cy.wait(5500)
+
+            botaoGerarParcelas()
+
+            carregandoFormaPagamento()
+    
+            cy.wait(5000)
+    
+            //Selecionando forma de pagamento
+            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+                .click()
+    
+            //Selecionando parcela na forma de pagamento
+            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
+                .click()
+
+            cy.wait(400)
+    
+            //Botão "AVANÇAR"
+            avancarFinal()
+    
+            cy.wait(6000)
         })
     })
 
