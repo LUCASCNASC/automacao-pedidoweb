@@ -2,7 +2,8 @@ import { titulopagina } from '../../../support/para_todos';
 import { saldodisponivel, escolherRota, escolherClientePedido, escolherClientePedido2, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
          botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoFinanceiroBaixa,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento, escolherFormaPagamentoPrincipal, 
+         escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido com financeiro na baixa', () => {
@@ -63,13 +64,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(5500)
     
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-    
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherFormaPagamentoPrincipal()
+
+            escolherDuasParcelaPagamento()
     
             cy.wait(400)
 
@@ -152,13 +149,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             cy.wait(5000)
     
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-    
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherFormaPagamentoPrincipal()
+
+            escolherDuasParcelaPagamento()
     
             cy.wait(400)
     
@@ -222,13 +215,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             cy.wait(7000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -312,13 +301,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             cy.wait(7000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 

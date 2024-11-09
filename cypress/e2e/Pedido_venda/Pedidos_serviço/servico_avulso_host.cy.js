@@ -1,7 +1,8 @@
 import { titulopagina } from '../../../support/para_todos';
 import { processoVendaServicoAvulso, escolherClientePedido, clicarServicosMenu, clicarCarrinhoCompras, botaoAvancarPedido,
          produtoServicoHost, saldoDisponivelServico, escolherServicoPesquisa, escolherValorRecarga } from '../../../support/para_pedidos/para_servicos_avulsos';
-import { botaoGerarParcelas, avancarFinal, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, carregandoFormaPagamento  } from '../../../support/para_pedidos/gerais_pedidos';
+import { botaoGerarParcelas, avancarFinal, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, carregandoFormaPagamento, 
+         escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { iconeMenuOpcoes } from '../../../support/para_layout/para_menu_opcoes';
 
 //Para este cenário, é necessário fazer update na coluna dataultimaatualizacao, da tabela glb.servicofaixavalorfixo
@@ -54,13 +55,9 @@ describe('Venda de serviço avulso Host - 104', () => {
 
             cy.wait(2000)
     
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-    
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherFormaPagamentoPrincipal()
+
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 

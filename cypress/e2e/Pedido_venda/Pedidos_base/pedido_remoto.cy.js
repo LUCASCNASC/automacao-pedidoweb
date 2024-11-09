@@ -2,7 +2,7 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido,  pedidoGerado, botaoFinalizarPedido, bfinalizandoPedido,
          botãoAdicionar, botaoGerarParcelas, processoVendaPrincipal, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, trocarFilialFaturamento, avancarParaTransportadora, modalInconsApenasRota,
-         carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
+         carregandoFormaPagamento, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Remoto/processo 9860 - caminho feliz', () => {
@@ -74,13 +74,9 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(7000)
 
-        //Selecionando forma de pagamento
-        cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-            .click()
+        escolherFormaPagamentoPrincipal()
 
-        //Selecionando parcela na forma de pagamento
-        cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-            .click()
+        escolherDuasParcelaPagamento()
 
         cy.wait(400)
 

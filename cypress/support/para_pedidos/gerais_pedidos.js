@@ -253,34 +253,6 @@ export function escolherClientePedido (selector) {
         .click()
 }
 
-//Carregamento de forma de pagamento, quando clicamos no botão Gerar parcelas
-export function carregandoFormaPagamento (selector) {
-
-    //Modal Forma de pagamento - título Forma de pagamento
-    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .flex')
-        .should('exist')
-        .and('be.visible')
-        .and('have.text', 'Forma de pagamento')
-
-    //botão x do modal Serviços Vinculados
-    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .md-icon-button > .ng-binding')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-
-    //Ícone carregamendo de formas de pagamento
-    cy.get('.md-dialog-fullscreen > .layout-align-center-center > .md-accent')
-        .should('exist')
-        .and('be.visible')
-
-    //Mensagem "Aguarde carregando..."
-    cy.get('.carregando')
-        .should('exist')
-        .and('be.visible')
-        .and('have.text', 'Aguarde carregando...')
-
-}
-
 //Função para validar card de Pedido Concluído
 export function pedidoGerado (selector) {
 
@@ -541,6 +513,68 @@ export function botaoGerarParcelas (selector) {
     //Botão "GERAR PARCELAS" - clicar
     cy.get('.gerar-parcelas > .layout-wrap > [style="padding: 0 5px"] > .md-primary')
         .click({force:true})
+}
+
+//escolhendo forma de pagamento do pedido de venda
+export function escolherFormaPagamentoPrincipal (selector) {
+
+    //validando título Forma de pagamento
+    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Forma de pagamento')
+
+    //validando botão X
+    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .md-icon-button')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //escolhendo forma de pagamento - 3860
+    cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+}
+
+//escolhendo parcelas da forma de pagamento escolhida - 2X
+export function escolherDuasParcelaPagamento (selector) {
+
+    //selecionando parcelas - 2X
+    cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(2) > div.ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+}
+
+//Carregamento de forma de pagamento, quando clicamos no botão Gerar parcelas
+export function carregandoFormaPagamento (selector) {
+
+    //Modal Forma de pagamento - título Forma de pagamento
+    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .flex')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Forma de pagamento')
+
+    //botão x do modal Serviços Vinculados
+    cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Ícone carregamendo de formas de pagamento
+    cy.get('.md-dialog-fullscreen > .layout-align-center-center > .md-accent')
+        .should('exist')
+        .and('be.visible')
+
+    //Mensagem "Aguarde carregando..."
+    cy.get('.carregando')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text', 'Aguarde carregando...')
+
 }
 
 //Para escolher processo de venda 9860 normal

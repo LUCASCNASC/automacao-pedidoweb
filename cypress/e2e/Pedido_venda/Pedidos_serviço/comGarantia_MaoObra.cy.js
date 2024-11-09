@@ -2,7 +2,8 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
          botãoAdicionar, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas,
          avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa,
-         escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
+         escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, escolherFormaPagamentoPrincipal, 
+         escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedidos com Garantia e Mão de Obra', () => {
@@ -71,13 +72,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -166,13 +163,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -236,13 +229,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -329,13 +318,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -399,13 +384,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -492,13 +473,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -562,13 +539,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -657,13 +630,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -727,13 +696,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -822,13 +787,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -892,13 +853,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -986,13 +943,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1056,13 +1009,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1151,13 +1100,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1221,13 +1166,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1316,13 +1257,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1382,13 +1319,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1477,13 +1410,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1560,13 +1489,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1663,13 +1588,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1743,13 +1664,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1846,13 +1763,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -1926,13 +1839,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2029,13 +1938,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2109,13 +2014,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2212,13 +2113,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2292,13 +2189,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2395,13 +2288,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2475,13 +2364,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2578,13 +2463,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2658,13 +2539,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2759,13 +2636,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2839,13 +2712,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -2942,13 +2811,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(800)
 
@@ -3022,13 +2887,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(10000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -3099,10 +2960,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             okServicosVinculados()
     
-            //Botão "OK" - Serviços Vinculados - segundo produto
-            cy.get('[style="position: absolute; bottom: 10px; right: 10px"] > .md-raised')
-                .click() //Clicar no botão "OK" (card "Serviços Vinculados"), para avançar
-    
             cy.wait(400)
 
             avancarParaTransportadora()
@@ -3129,13 +2986,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
             cy.wait(9000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 

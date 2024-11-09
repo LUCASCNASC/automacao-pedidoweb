@@ -1,8 +1,8 @@
 import { titulopagina } from '../../../support/para_todos';
 import { processoVendaServicoAvulso, escolherClientePedido, clicarCarrinhoCompras, botaoAvancarPedido, produtoServicoAvulso,
          saldoDisponivelServico, escolherServicoPesquisa } from '../../../support/para_pedidos/para_servicos_avulsos';
-import { botaoGerarParcelas, avancarFinal, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, carregandoFormaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
-
+import { botaoGerarParcelas, avancarFinal, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, carregandoFormaPagamento, 
+         escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 
 describe('Venda de serviço avulso', () => {
 
@@ -43,13 +43,9 @@ describe('Venda de serviço avulso', () => {
 
             cy.wait(2000)
     
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-    
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherFormaPagamentoPrincipal()
+
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 

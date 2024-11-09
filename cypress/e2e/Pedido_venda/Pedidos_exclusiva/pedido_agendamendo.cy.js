@@ -2,7 +2,8 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherClientePedido, saldodisponivel, escolherProdutoPesquisa, escolherVoltagemProduto, 
          botãoAdicionar, modalServicosVinculados, okServicosVinculados, tirarMontagem, tirarEntrega, semSaldodisponivel, 
          avancarParaTransportadora, modalInconsRotaTransp, escolherTransportadora, escolherRota, avancarParcelasEntrega, botaoGerarParcelas, 
-         carregandoFormaPagamento, avancarFinal, trocarFilialFaturamento, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, avancarParaParcelas } from '../../../support/para_pedidos/gerais_pedidos';
+         carregandoFormaPagamento, avancarFinal, trocarFilialFaturamento, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, avancarParaParcelas, 
+         escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { primeiroPrdNormalExclusiva, kitSemSaldoAgendamento, kitVolumes, produtoSaldoReceber, prdSaldoReceberDuasLinhas, aumentarQuantVendaCinco, 
          saldoRemotoAReceber, aumentarQuantVendaDez, processoVendaExclusiva } from '../../../support/para_pedidos/para_pedidos_exclusiva';
 
@@ -96,13 +97,9 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             cy.wait(7000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -188,13 +185,9 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             cy.wait(7000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -262,13 +255,9 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             cy.wait(7000)
 
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+            escolherFormaPagamentoPrincipal()
 
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -370,13 +359,9 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
     
             cy.wait(5000)
     
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-    
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherFormaPagamentoPrincipal()
+
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
     

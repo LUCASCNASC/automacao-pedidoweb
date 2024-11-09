@@ -3,7 +3,7 @@ import { escolherTransportadora, saldodisponivel, escolherRota, escolherClienteP
          botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos,
-         carregandoFormaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
+         carregandoFormaPagamento, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';
 import { arrastarFormaPagamento, clicarAlterarValor, modalAlterarValor, alterarValorParaBaixo, alterarValorParaCima } from '../../../support/para_pedidos/para_pedido_desconto';
 
@@ -66,13 +66,9 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
     
             cy.wait(4000)
     
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-    
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherFormaPagamentoPrincipal()
+
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
@@ -140,13 +136,9 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
     
             cy.wait(4000)
     
-            //Selecionando forma de pagamento
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-    
-            //Selecionando parcela na forma de pagamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+            escolherFormaPagamentoPrincipal()
+
+            escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
