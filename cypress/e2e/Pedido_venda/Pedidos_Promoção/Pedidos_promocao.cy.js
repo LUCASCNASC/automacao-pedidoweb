@@ -11,8 +11,8 @@ describe('Gerar pedidos com promoção', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-        titulopagina() //Validar título da aba carregada
+        cy.login();
+        titulopagina() 
     })
   
     context('Sem entrega/ com promoção/ processo 9860 - caminho feliz', () => {

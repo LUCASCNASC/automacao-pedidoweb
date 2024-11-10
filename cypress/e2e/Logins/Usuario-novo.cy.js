@@ -11,13 +11,10 @@ describe('Logar com novo usuário', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        titulopagina()//Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
     })
 
     it('Novo usuário - clicar em Fechar, não alterando a senha', () => {
-
-        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-        titulopagina()
-
         logoEmpresaLogin()
 
         iconeComputadorLogin()
@@ -253,9 +250,6 @@ describe('Logar com novo usuário', () => {
     })
 
     it('Novo usuário - clicar em CONFIRMAR, alterando a senha', () => {
-
-        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-        titulopagina()
 
         logoEmpresaLogin()
 

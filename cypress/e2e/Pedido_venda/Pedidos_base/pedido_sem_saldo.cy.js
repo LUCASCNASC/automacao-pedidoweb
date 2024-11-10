@@ -7,8 +7,8 @@ describe('Tentar gerar pedido de venda com produto sem saldo - Regra de saldo Pa
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-        titulopagina() //Validar título da aba carregada
+        cy.login();
+        titulopagina()
     })
 
     context('Processo 9860 - não permitir fazer a venda - no momento de adicionar produto, devem aparecer mensagens de aviso', () => {

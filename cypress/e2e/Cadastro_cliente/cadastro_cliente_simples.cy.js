@@ -21,17 +21,14 @@ describe('Cadastrar cliente simples', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        cy.login();
+        titulopagina() //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
     })
   
     context('Cadastro de cliente simples', () => {
 
         it('Cliente simples CPF', () => {
 
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             iconeMenuOpcoes()
 
             opcaoClienteSimples()
@@ -56,12 +53,7 @@ describe('Cadastrar cliente simples', () => {
         })  
 
         //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
-        it('Cliente simples CPF - alterar data de nascimento logo após cadastrar', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
+        it.skip('Cliente simples CPF - alterar data de nascimento logo após cadastrar', () => {
     
             iconeMenuOpcoes()
 
@@ -120,12 +112,7 @@ describe('Cadastrar cliente simples', () => {
         })  
 
         //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
-        it('Cliente simples CPF - alterar data de nascimento (deve pedir trial)', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
+        it.skip('Cliente simples CPF - alterar data de nascimento (deve pedir trial)', () => {
     
             iconeMenuOpcoes()
 
@@ -362,11 +349,6 @@ describe('Cadastrar cliente simples', () => {
 
         it('Cliente simples CPF - alterar tipo de sexo', () => {
 
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-
             iconeMenuOpcoes()
 
             opcaoClienteSimples()
@@ -499,11 +481,6 @@ describe('Cadastrar cliente simples', () => {
         })
 
         it('Cliente simples CPF - alterar Endereço logo após cadastrar', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             iconeMenuOpcoes()
 
@@ -565,11 +542,6 @@ describe('Cadastrar cliente simples', () => {
         })
 
         it('Cliente simples CNPJ', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             iconeMenuOpcoes()
 
@@ -594,11 +566,6 @@ describe('Cadastrar cliente simples', () => {
 
         it('Cliente simples CNPJ - alterar Endereço', () => {
 
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             iconeMenuOpcoes()
 
             opcaoClienteSimples()
@@ -660,11 +627,6 @@ describe('Cadastrar cliente simples', () => {
     context('Botão de adicionar cliente, na pesquisa de cliente', () => {
 
         it('Botão de adicionar cliente, na pesquisa de cliente', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-        
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
         
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')

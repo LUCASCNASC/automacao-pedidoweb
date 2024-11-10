@@ -11,8 +11,8 @@ describe('Gerar pedido com financeiro na baixa', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-        titulopagina() //Validar título da aba carregada
+        cy.login();
+        titulopagina() 
     })
   
     context('Sem frete/ processo 9863 - caminho feliz', () => {

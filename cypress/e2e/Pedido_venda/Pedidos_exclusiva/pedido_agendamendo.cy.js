@@ -13,8 +13,8 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-        titulopagina() //Validar título da aba carregada
+        cy.login();
+        titulopagina()
     })
 
     context('Configuração de processo - Exclusiva: 36 = 2; 139 = 6; 552= 5 dias', () => {

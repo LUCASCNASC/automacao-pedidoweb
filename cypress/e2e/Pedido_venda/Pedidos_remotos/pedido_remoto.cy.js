@@ -10,8 +10,8 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-        titulopagina() //Validar título da aba carregada
+        cy.login(); 
+        titulopagina() 
     })
   
     context('Pedido de venda remotO normal', () => {

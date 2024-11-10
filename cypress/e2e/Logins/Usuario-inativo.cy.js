@@ -10,12 +10,10 @@ describe('Usuário inativo', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        titulopagina()//Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
     })
 
     it('Tentar logar com usuário inativo', () => {
-
-        //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-        titulopagina()
 
         logoEmpresaLogin()
 

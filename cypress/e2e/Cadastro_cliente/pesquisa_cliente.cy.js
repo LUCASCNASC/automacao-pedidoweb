@@ -9,16 +9,13 @@ describe('Cadastrar cliente', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        cy.login();
+        titulopagina() //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
     })
 
     context('Pesquisa cliente por número', () => {
 
         it('Pesquisa por número CPF', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -115,11 +112,6 @@ describe('Cadastrar cliente', () => {
         }) 
 
         it('Pesquisa por número CNPJ', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -219,11 +211,6 @@ describe('Cadastrar cliente', () => {
     context('Pesquisa cliente por descrição', () => {
 
         it('Pesquisa por descrição CPF', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -324,11 +311,6 @@ describe('Cadastrar cliente', () => {
         }) 
 
         it('Pesquisa por descrição CNPJ', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')

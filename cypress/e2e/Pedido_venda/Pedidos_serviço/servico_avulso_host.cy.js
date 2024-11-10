@@ -11,8 +11,8 @@ describe('Venda de serviço avulso Host - 104', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-        titulopagina() //Validar título da aba carregada
+        cy.login();
+        titulopagina() 
     })
 
     context('Processo 9888 - caminho feliz', () => {

@@ -9,17 +9,14 @@ describe('Validações de layout - tela inicial', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage(); 
+        cy.login();
+        titulopagina()
     })
 
     context('Tela inicial ao logar no sistema', () => {
 
         it('Tela inicial ao logar no sistema - cabeçalho', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-
+            
             //Topo da página - parte colorida
             cy.get('.topo > .md-toolbar-tools')
                 .should('exist')

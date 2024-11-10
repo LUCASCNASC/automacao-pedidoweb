@@ -12,8 +12,8 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-        titulopagina() //Validar título da aba carregada
+        cy.login();
+        titulopagina()
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {

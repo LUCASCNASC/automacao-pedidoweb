@@ -15,6 +15,8 @@ describe('Cadastrar cliente completo', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        cy.login(); 
+        titulopagina()//Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
     })
 
     context('Cadastro de cliente completo', () => {
@@ -22,11 +24,6 @@ describe('Cadastrar cliente completo', () => {
         //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
         it('Cliente completo CPF', () => {
 
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             iconeMenuOpcoes()
 
             opcaoClienteCompleto()
@@ -514,11 +511,6 @@ describe('Cadastrar cliente completo', () => {
 
         //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
         it('Cliente completo CPF - mensagem de campos obrigatórios', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             iconeMenuOpcoes()
 
@@ -1048,11 +1040,6 @@ describe('Cadastrar cliente completo', () => {
         })  
 
         it('Cliente completo CNPJ', () => {
-
-            cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             iconeMenuOpcoes()
 

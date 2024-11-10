@@ -13,14 +13,12 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
+        titulopagina() //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
     })
 
     context('Usuário contexto 1', () => {
 
         it('Login - caminho feliz', () => {
-
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             logoEmpresaLogin()
 
@@ -67,9 +65,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar usuário errado (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             logoEmpresaLogin()
 
@@ -136,9 +131,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar senha errada (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             logoEmpresaLogin()
 
@@ -206,9 +198,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
     
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             logoEmpresaLogin()
 
             iconeComputadorLogin()
@@ -248,9 +237,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
     
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             logoEmpresaLogin()
 
             iconeComputadorLogin()
@@ -289,9 +275,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })  
     
         it('Login - sem passar login e senha (botão ENTRAR deve ficar desabilitado)', () => {
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             logoEmpresaLogin()
 
@@ -333,9 +316,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     context('Usuário contexto 3', () => {
 
         it('Login - caminho feliz', () => {
-
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             logoEmpresaLogin()
 
@@ -382,9 +362,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar usuário errado (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             logoEmpresaLogin()
 
@@ -452,9 +429,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     
         it('Login - passar senha errada (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
     
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             logoEmpresaLogin()
 
             iconeComputadorLogin()
@@ -521,9 +495,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
     
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             logoEmpresaLogin()
 
             iconeComputadorLogin()
@@ -563,9 +534,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
     
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
-    
             logoEmpresaLogin()
 
             iconeComputadorLogin()
@@ -604,9 +572,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })  
     
         it('Login - sem passar login e senha (botão ENTRAR deve ficar desabilitado)', () => {
-    
-            //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
-            titulopagina()
     
             logoEmpresaLogin()
 

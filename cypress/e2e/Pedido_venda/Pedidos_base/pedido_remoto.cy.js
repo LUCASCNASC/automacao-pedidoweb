@@ -10,8 +10,8 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
     beforeEach(() => {
         cy.visit('/');
         cy.clearAllSessionStorage();
-        cy.login('sabium.automacao', '123.automacao'); //Comando personalizado para login
-        titulopagina() //Validar título da aba carregada
+        cy.login();
+        titulopagina()
     })
   
     it.skip('Pedido de venda remota: produto 1860 0 0', () => {
