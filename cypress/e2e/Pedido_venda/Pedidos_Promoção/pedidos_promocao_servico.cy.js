@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
+         clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos'
 import { prd1PrazoParcela, prd2PrazoParcela, prd3PrazoParcela, prd4PrazoParcela, messAdicionandoProdutosServicos, adicionarPrestamista } from '../../../support/para_pedidos/para_pedidos_promocao';
@@ -54,8 +54,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.get('#dialogContent_123 > .white > [style=""] > div.md-button > .md-no-style')
                 .click({force:true})
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -126,8 +125,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.get('#dialogContent_123 > .white > [style=""] > div.md-button > .md-no-style')
                 .click({force:true})
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -219,8 +217,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.get('#dialogContent_123 > .white > [style=""] > div.md-button > .md-no-style')
                 .click({force:true})
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -287,8 +284,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.get('#dialogContent_123 > .white > [style=""] > div.md-button > .md-no-style')
                 .click({force:true})
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     

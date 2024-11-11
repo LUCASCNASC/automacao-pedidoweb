@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
+        clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos,
          carregandoFormaPagamento, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
@@ -26,7 +26,6 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -39,8 +38,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
 
             escolherVoltagemProduto()
          
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -82,7 +80,6 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
 
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(6000)
@@ -96,7 +93,6 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -109,8 +105,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
 
             escolherVoltagemProduto()
          
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -152,7 +147,6 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
 
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(6000)

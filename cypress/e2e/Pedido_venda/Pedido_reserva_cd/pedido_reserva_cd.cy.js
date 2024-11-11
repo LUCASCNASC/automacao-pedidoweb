@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
+         clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, 
          saldoCDDisponivel, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
@@ -38,8 +38,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
 
             escolherVoltagemProduto()
          
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -97,8 +96,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -125,8 +123,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
     
@@ -187,8 +184,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -256,8 +252,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -280,8 +275,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     

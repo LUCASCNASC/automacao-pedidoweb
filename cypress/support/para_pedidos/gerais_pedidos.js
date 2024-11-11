@@ -370,7 +370,7 @@ export function finalizandoPedido (selector) {
 }
 
 //Botão adicionar produto após selecionar voltagem do produto
-export function botãoAdicionar (selector) {
+export function clicarAdicionarProduto (selector) {
 
     //Botão adicionar produto após selecionar voltagem do produto
     cy.get('button.md-primary.btn-rounded')

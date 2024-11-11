@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         botãoAdicionar, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas,
+         clicarAdicionarProduto, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas,
          avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa,
          escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, escolherFormaPagamentoPrincipal, 
          escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
@@ -37,8 +37,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -103,8 +102,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -138,8 +136,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -194,8 +191,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -260,8 +256,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -295,8 +290,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
     
@@ -349,8 +343,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -415,8 +408,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -450,8 +442,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
     
@@ -504,8 +495,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -570,8 +560,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -605,8 +594,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -661,8 +649,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -727,8 +714,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -762,8 +748,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            /clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -818,8 +803,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -884,8 +868,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -918,8 +901,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -974,8 +956,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1040,8 +1021,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1075,8 +1055,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -1131,8 +1110,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1197,8 +1175,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1232,8 +1209,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -1288,8 +1264,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1350,8 +1325,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1385,8 +1359,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -1444,8 +1417,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1520,8 +1492,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1553,8 +1524,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -1619,8 +1589,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1695,8 +1664,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1728,8 +1696,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
     
@@ -1794,8 +1761,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1870,8 +1836,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -1903,8 +1868,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
     
@@ -1969,8 +1933,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2045,8 +2008,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2078,8 +2040,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
     
@@ -2144,8 +2105,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2220,8 +2180,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2253,8 +2212,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -2319,8 +2277,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2395,8 +2352,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2428,8 +2384,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -2494,8 +2449,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2570,8 +2524,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2603,8 +2556,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
     
@@ -2667,8 +2619,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2743,8 +2694,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2776,8 +2726,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -2842,8 +2791,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2918,8 +2866,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                     
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -2951,8 +2898,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 

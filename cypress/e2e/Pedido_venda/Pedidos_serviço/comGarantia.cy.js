@@ -1,7 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
          processoVendaPrincipal, avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados,
-         okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, botãoAdicionar, tirarEntrega, tirarEntregaSegundo,
+         okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, clicarAdicionarProduto, tirarEntrega, tirarEntregaSegundo,
          botaoGerarParcelas, avancarFinal, finalizandoPedido, modalInconsRotaTransp, carregandoFormaPagamento, escolherFormaPagamentoPrincipal, 
          escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
@@ -37,8 +37,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -97,8 +96,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -126,8 +124,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -182,8 +179,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -241,8 +237,8 @@ describe('Gerar pedidos com Garantia', () => {
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -270,8 +266,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -326,8 +321,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -386,8 +380,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -415,8 +408,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -474,8 +466,7 @@ describe('Gerar pedidos com Garantia', () => {
 
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -544,8 +535,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -571,8 +561,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -637,8 +626,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -707,8 +695,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -732,11 +719,9 @@ describe('Gerar pedidos com Garantia', () => {
     
             cy.wait(800)
     
-            //Escolhendo voltagem do segundo produto
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
@@ -801,8 +786,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            /clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -871,8 +855,7 @@ describe('Gerar pedidos com Garantia', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -898,8 +881,7 @@ describe('Gerar pedidos com Garantia', () => {
     
             /escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
     

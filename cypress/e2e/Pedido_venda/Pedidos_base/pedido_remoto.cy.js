@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido,  pedidoGerado, botaoFinalizarPedido, bfinalizandoPedido,
-         botãoAdicionar, botaoGerarParcelas, processoVendaPrincipal, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
+         clicarAdicionarProduto, botaoGerarParcelas, processoVendaPrincipal, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, trocarFilialFaturamento, avancarParaTransportadora, modalInconsApenasRota,
          carregandoFormaPagamento, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
@@ -22,7 +22,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(500)
 
-        //Pesquisando produto
         produtoNormalPrimeiro()
 
         saldodisponivel()
@@ -39,8 +38,7 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         trocarFilialFaturamento()
 
-        //clicar no botão "ADICIONAR", para adicionar produto
-        botãoAdicionar()
+        clicarAdicionarProduto()
 
         cy.wait(500)
 
@@ -80,7 +78,6 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
 
         cy.wait(400)
 
-        //Botão "AVANÇAR"
         avancarFinal()
 
         cy.wait(7500)

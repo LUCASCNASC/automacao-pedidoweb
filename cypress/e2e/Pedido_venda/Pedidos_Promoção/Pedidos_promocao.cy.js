@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
+         clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, modalInconsApenasRota } from '../../../support/para_pedidos/gerais_pedidos'
 import { produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
@@ -41,8 +41,7 @@ describe('Gerar pedidos com promoção', () => {
     
             selecionarFormaPagPromo()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -62,7 +61,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(12000)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(8000)
@@ -94,8 +92,7 @@ describe('Gerar pedidos com promoção', () => {
             
             cy.wait(400)
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -128,7 +125,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(6000)
@@ -158,8 +154,7 @@ describe('Gerar pedidos com promoção', () => {
     
             selecionarFormaPagPromo()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -179,7 +174,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(11000)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(6000)
@@ -212,8 +206,7 @@ describe('Gerar pedidos com promoção', () => {
     
             selecionarFormaPagPromo()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -227,7 +220,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(800)
     
-            //Pesquisando segundo produto
             produtoNormalSegundo()
     
             saldodisponivel()
@@ -238,8 +230,7 @@ describe('Gerar pedidos com promoção', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -273,7 +264,6 @@ describe('Gerar pedidos com promoção', () => {
 
             cy.wait(1000)
 
-            //Avançar para finalizar o pedido
             avancarFinal()
 
             cy.wait(8000)
@@ -305,8 +295,7 @@ describe('Gerar pedidos com promoção', () => {
             
             cy.wait(400)
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -332,8 +321,7 @@ describe('Gerar pedidos com promoção', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -381,7 +369,6 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(8000)
@@ -414,8 +401,7 @@ describe('Gerar pedidos com promoção', () => {
     
             selecionarFormaPagPromo()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -453,7 +439,6 @@ describe('Gerar pedidos com promoção', () => {
 
             cy.wait(400)
 
-            //Clicar para avançar para a tela de finalizar pedido
             avancarFinal()
             
             cy.wait(9000)
@@ -483,8 +468,7 @@ describe('Gerar pedidos com promoção', () => {
     
             selecionarFormaPagPromo()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -569,8 +553,7 @@ describe('Gerar pedidos com promoção', () => {
     
             selecionarFormaPagPromo()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -612,7 +595,6 @@ describe('Gerar pedidos com promoção', () => {
 
             cy.wait(400)
 
-            //Clicar no botão AVANÇAR, para ir para a última tela, para finalizar
             avancarFinal()
 
             cy.wait(8000)
@@ -645,8 +627,7 @@ describe('Gerar pedidos com promoção', () => {
     
             selecionarFormaPagPromo()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -666,8 +647,7 @@ describe('Gerar pedidos com promoção', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
     
@@ -705,7 +685,6 @@ describe('Gerar pedidos com promoção', () => {
 
             cy.wait(400)
 
-            //Avançar para finalizar o pedido
             avancarFinal()
 
             cy.wait(9000)

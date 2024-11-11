@@ -1,7 +1,7 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, finalizandoPedido, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, botãoAdicionar, botaoGerarParcelas, modalInconsRotaTransp,
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, clicarAdicionarProduto, botaoGerarParcelas, modalInconsRotaTransp,
          carregandoFormaPagamento, tirarEntrega, tirarMontagem, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoKitPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';
 
@@ -24,7 +24,6 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(500)
     
-            //Pesquisando kit
             produtoKitPrimeiro()
     
             saldodisponivel()
@@ -37,8 +36,7 @@ describe('Gerar pedido normal', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -70,7 +68,6 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(6000)
@@ -87,7 +84,6 @@ describe('Gerar pedido normal', () => {
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoKitPrimeiro()
     
             saldodisponivel()
@@ -100,8 +96,7 @@ describe('Gerar pedido normal', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -141,7 +136,6 @@ describe('Gerar pedido normal', () => {
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(8000)

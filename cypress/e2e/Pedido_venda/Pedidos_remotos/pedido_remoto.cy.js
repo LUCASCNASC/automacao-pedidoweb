@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         botãoAdicionar, botaoGerarParcelas, processoVendaPrincipal, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados,
+         clicarAdicionarProduto, botaoGerarParcelas, processoVendaPrincipal, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados,
          okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, trocarFilialFaturamento, modalInconsApenasRota,
          carregandoFormaPagamento, semSaldodisponivel, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo, produtoRemotoComCD, produtoRemotoSemCD } from '../../../support/para_pedidos/produtos_pedidos';
@@ -24,7 +24,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(500)
 
-            //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
@@ -41,8 +40,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             trocarFilialFaturamento()
 
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -82,7 +80,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(9000)
@@ -105,7 +102,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(500)
 
-            //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
@@ -122,8 +118,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             trocarFilialFaturamento()
 
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -133,7 +128,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(800)
 
-            //Pesquisando segundo produto
             produtoNormalSegundo()
 
             saldodisponivel()
@@ -186,7 +180,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(18000)
@@ -209,7 +202,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(500)
 
-            //Pesquisando produto
             produtoNormalPrimeiro()
 
             saldodisponivel()
@@ -226,8 +218,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             trocarFilialFaturamento()
 
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -267,7 +258,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(9000)
@@ -293,7 +283,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(500)
 
-            //Pesquisando produto
             produtoRemotoComCD()
 
             semSaldodisponivel()
@@ -310,8 +299,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             trocarFilialFaturamento()
 
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -351,7 +339,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(6000)
@@ -374,7 +361,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             cy.wait(500)
 
-            //Pesquisando produto
             produtoRemotoSemCD()
 
             semSaldodisponivel()

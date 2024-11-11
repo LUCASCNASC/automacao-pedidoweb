@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         botãoAdicionar, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoEntregaFutura,
+         clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoEntregaFutura,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsApenasTransp, carregandoFormaPagamento, escolherFormaPagamentoPrincipal, 
          escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
@@ -24,8 +24,7 @@ describe('Gerar pedido de entrega futura', () => {
             escolherClientePedido()
     
             cy.wait(500)
-    
-            //Pesquisando produto
+
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -38,8 +37,7 @@ describe('Gerar pedido de entrega futura', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -70,8 +68,6 @@ describe('Gerar pedido de entrega futura', () => {
             escolherDuasParcelaPagamento()
     
             cy.wait(400)
-    
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(5500)
@@ -85,7 +81,6 @@ describe('Gerar pedido de entrega futura', () => {
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -98,8 +93,7 @@ describe('Gerar pedido de entrega futura', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -113,7 +107,6 @@ describe('Gerar pedido de entrega futura', () => {
 
             cy.wait(800)
     
-            //Pesquisando segundo produto
             produtoNormalSegundo()
     
             saldodisponivel()
@@ -126,8 +119,7 @@ describe('Gerar pedido de entrega futura', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -159,7 +151,6 @@ describe('Gerar pedido de entrega futura', () => {
     
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(5500)
@@ -176,7 +167,6 @@ describe('Gerar pedido de entrega futura', () => {
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -189,8 +179,7 @@ describe('Gerar pedido de entrega futura', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -230,7 +219,6 @@ describe('Gerar pedido de entrega futura', () => {
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(5500)
@@ -243,8 +231,7 @@ describe('Gerar pedido de entrega futura', () => {
             escolherClientePedido()
     
             cy.wait(500)
-    
-            //Pesquisando produto
+
             produtoNormalPrimeiro()
 
             saldodisponivel()
@@ -257,8 +244,7 @@ describe('Gerar pedido de entrega futura', () => {
                       
             escolherVoltagemProduto()
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -268,7 +254,6 @@ describe('Gerar pedido de entrega futura', () => {
     
             cy.wait(800)
     
-            //Pesquisando segundo produto
             produtoNormalSegundo()
     
             saldodisponivel()
@@ -281,8 +266,7 @@ describe('Gerar pedido de entrega futura', () => {
     
             escolherVoltagemProduto()
     
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
     
@@ -322,7 +306,6 @@ describe('Gerar pedido de entrega futura', () => {
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(6000)

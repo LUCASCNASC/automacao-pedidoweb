@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { escolherClientePedido, saldodisponivel, escolherProdutoPesquisa, escolherVoltagemProduto, 
-         botãoAdicionar, modalServicosVinculados, okServicosVinculados, tirarMontagem, tirarEntrega, semSaldodisponivel, 
+         clicarAdicionarProduto, modalServicosVinculados, okServicosVinculados, tirarMontagem, tirarEntrega, semSaldodisponivel, 
          avancarParaTransportadora, modalInconsRotaTransp, escolherTransportadora, escolherRota, avancarParcelasEntrega, botaoGerarParcelas, 
          carregandoFormaPagamento, avancarFinal, trocarFilialFaturamento, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, avancarParaParcelas, 
          escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
@@ -39,8 +39,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
                       
             escolherVoltagemProduto() 
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -68,8 +67,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             trocarFilialFaturamento()
 
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -103,7 +101,6 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(10000)
@@ -129,8 +126,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
                       
             escolherVoltagemProduto() 
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -156,8 +152,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             cy.wait(400)
 
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(500)
 
@@ -191,7 +186,6 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
 
             cy.wait(10000)
@@ -220,8 +214,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
                       
             escolherVoltagemProduto() 
             
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -291,8 +284,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             aumentarQuantVendaCinco()
 
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
 
             cy.wait(800)
 
@@ -321,7 +313,6 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
     
             cy.wait(500)
     
-            //Pesquisando produto
             primeiroPrdNormalExclusiva()
     
             saldodisponivel()
@@ -334,8 +325,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             escolherVoltagemProduto()
          
-            //clicar no botão "ADICIONAR", para adicionar produto
-            botãoAdicionar()
+            clicarAdicionarProduto()
     
             cy.wait(500)
 
@@ -365,7 +355,6 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
             cy.wait(400)
     
-            //Botão "AVANÇAR"
             avancarFinal()
     
             cy.wait(6000)

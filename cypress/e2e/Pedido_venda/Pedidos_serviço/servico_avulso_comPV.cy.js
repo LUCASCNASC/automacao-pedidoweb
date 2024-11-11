@@ -70,7 +70,7 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
 
             messRegistroSalvoSucesso()
 
-            //Clicando novamente para validar que não deixa adicionar mais grantias
+            //Clicando novamente para validar que não deixa adicionar mais garantias
             clicarAddGarantias()
 
             //Mensagem de "O Serviço Garantias já foi adicionado à esse produto.", quando tentamos adicionar novamente
