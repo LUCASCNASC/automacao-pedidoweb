@@ -11,15 +11,12 @@ describe('Usuário inativo', () => {
         cy.visit('/');
         cy.clearAllSessionStorage();
         titulopagina()//Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        logoEmpresaLogin()
+        iconeComputadorLogin()
+        usuarioTextoIcone()
     })
 
     it('Tentar logar com usuário inativo', () => {
-
-        logoEmpresaLogin()
-
-        iconeComputadorLogin()
-
-        usuarioTextoIcone()
     
         //Validando campo "informe seu usuário"
         cy.get('#txtusername')

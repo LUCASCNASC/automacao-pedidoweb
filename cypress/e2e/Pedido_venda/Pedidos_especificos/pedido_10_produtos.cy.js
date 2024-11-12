@@ -2,7 +2,7 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
          finalizandoPedido, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal, 
          avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa,
-         avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos, carregandoFormaPagamento, trocarFilialFaturamento} from '../../../support/para_pedidos/gerais_pedidos';
+         avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, trocarFilialFaturamento} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoPrincipal, botãoAdicionarProduto, primeiroProdutoEscolher, segundoProdutoEscolher, terceiroProdutoEscolher,
          quartoProdutoEscolher, quintoProdutoEscolher, sextoProdutoEscolher, setimoProdutoEscolher, oitavoProdutoEscolher,
          nonoProdutoEscolher, decimoProdutoEscolher} from '../../../support/para_pedidos/para_pedidos_10_produtos.js';
@@ -14,17 +14,14 @@ describe('Gerar pedido normal', () => {
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina()
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(700)
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it.only('Pedido de venda: produto 1860 0 0', () => {
-            
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(700)
 
             produtoPrincipal() //primeira pesquisa de produto - 1889 0 0 - sem serviço / sem entrega
 

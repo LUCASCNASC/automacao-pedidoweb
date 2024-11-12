@@ -1,9 +1,8 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-        clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
-         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos,
-         carregandoFormaPagamento, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
+import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, clicarAdicionarProduto,
+         tirarEntrega, tirarMontagem, botaoGerarParcelas, processoVendaPrincipal, modalServicosVinculados, okServicosVinculados,
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento, escolherFormaPagamentoPrincipal,
+         escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';
 import { arrastarFormaPagamento, clicarAlterarValor, modalAlterarValor, alterarValorParaBaixo, alterarValorParaCima } from '../../../support/para_pedidos/para_pedido_desconto';
 
@@ -14,17 +13,14 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina()
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 - arredondar para baixo', () => {
-            
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     
@@ -86,12 +82,6 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
         })
 
         it('Pedido de venda: produtos 1860 0 0 - arredondar para cima', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     

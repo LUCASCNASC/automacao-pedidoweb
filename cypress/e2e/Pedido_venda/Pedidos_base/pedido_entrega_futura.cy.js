@@ -13,17 +13,14 @@ describe('Gerar pedido de entrega futura', () => {
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina()
+        processoEntregaFutura()
+         escolherClientePedido()
+        cy.wait(500)
     })
 
     context('Sem frete/ processo 9862 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
-    
-            processoEntregaFutura()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
 
             produtoNormalPrimeiro()
     
@@ -74,12 +71,6 @@ describe('Gerar pedido de entrega futura', () => {
         })
         
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            processoEntregaFutura()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     
@@ -161,12 +152,6 @@ describe('Gerar pedido de entrega futura', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
     
-            processoEntregaFutura()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -225,12 +210,6 @@ describe('Gerar pedido de entrega futura', () => {
         })    
         
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            processoEntregaFutura()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
 
             produtoNormalPrimeiro()
 

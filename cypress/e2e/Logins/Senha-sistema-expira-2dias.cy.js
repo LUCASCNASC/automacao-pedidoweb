@@ -13,16 +13,13 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         cy.visit('/');
         cy.clearAllSessionStorage();
         titulopagina() //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        logoEmpresaLogin()
+        iconeComputadorLogin()
+        usuarioTextoIcone()
     })
 
     it('Login - clicar em NÃO atualizar senha', () => {
 
-        logoEmpresaLogin()
-
-        iconeComputadorLogin()
-
-        usuarioTextoIcone()
-    
         //Validando campo "informe seu usuário"
         cy.get('#txtusername')
             .should('exist')
@@ -89,12 +86,6 @@ describe('Login com usuário que senha expira em 2 dias', () => {
     })
 
     it('Login - clicar em SIM atualizar senha - clicar em Fechar a redefinição de senha', () => {
-
-        logoEmpresaLogin()
-
-        iconeComputadorLogin()
-
-        usuarioTextoIcone()
     
         //Validando campo "informe seu usuário"
         cy.get('#txtusername')
@@ -347,12 +338,6 @@ describe('Login com usuário que senha expira em 2 dias', () => {
     })
 
     it('Login - clicar em SIM atualizar senha - clicar em CONFIRMAR a redefinição de senha', () => {
-
-        logoEmpresaLogin()
-
-        iconeComputadorLogin()
-
-        usuarioTextoIcone()
     
         //Validando campo "informe seu usuário"
         cy.get('#txtusername')

@@ -1,5 +1,5 @@
 import { titulopagina } from '../../../support/para_todos';
-import { saldodisponivel, escolherRota, escolherClientePedido, escolherClientePedido2, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
+import { saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
          clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoFinanceiroBaixa,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento, escolherFormaPagamentoPrincipal, 
@@ -13,17 +13,14 @@ describe('Gerar pedido com financeiro na baixa', () => {
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina() 
+        processoFinanceiroBaixa()
+        escolherClientePedido()
+        cy.wait(500)
     })
   
     context('Sem frete/ processo 9863 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
-    
-            processoFinanceiroBaixa()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     
@@ -75,12 +72,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            processoFinanceiroBaixa()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     
@@ -162,12 +153,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
     
-            processoFinanceiroBaixa()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
             produtoNormalPrimeiro()
     
             saldodisponivel()
@@ -223,12 +208,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            processoFinanceiroBaixa()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     

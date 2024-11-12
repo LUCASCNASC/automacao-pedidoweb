@@ -12,14 +12,12 @@ describe('Logar com novo usuário', () => {
         cy.visit('/');
         cy.clearAllSessionStorage();
         titulopagina()//Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        logoEmpresaLogin()
+        iconeComputadorLogin()
+        usuarioTextoIcone()
     })
 
     it('Novo usuário - clicar em Fechar, não alterando a senha', () => {
-        logoEmpresaLogin()
-
-        iconeComputadorLogin()
-
-        usuarioTextoIcone()
     
         //Validando campo "informe seu usuário"
         cy.get('#txtusername')
@@ -250,12 +248,6 @@ describe('Logar com novo usuário', () => {
     })
 
     it('Novo usuário - clicar em CONFIRMAR, alterando a senha', () => {
-
-        logoEmpresaLogin()
-
-        iconeComputadorLogin()
-
-        usuarioTextoIcone()
     
         //Validando campo "informe seu usuário"
         cy.get('#txtusername')

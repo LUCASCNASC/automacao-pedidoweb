@@ -12,15 +12,12 @@ describe('Remoto/processo 9860 - caminho feliz', () => {
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina()
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
   
     it.skip('Pedido de venda remota: produto 1860 0 0', () => {
-
-        processoVendaPrincipal()
-
-        escolherClientePedido()
-
-        cy.wait(500)
 
         produtoNormalPrimeiro()
 

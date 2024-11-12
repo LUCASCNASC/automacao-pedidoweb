@@ -13,19 +13,15 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina() 
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Venda: produto 1880 0 0 - (Venda local de produto com saldo só no CD - sem entrega)', () => {
-            
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
-            //Pesquisando produto
+
             produtoCDPrimeiro()
     
             saldoCDDisponivel()
@@ -76,14 +72,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
         })
 
         it('Venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local) - (Venda local de 1 produto com saldo local + 1 produto com saldo no CD - sem entrega)', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
-            //Pesquisando produto
+
             produtoCDPrimeiro()
     
             saldoCDDisponivel()
@@ -110,7 +99,6 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
 
             cy.wait(800)
     
-            //Pesquisando segundo produto
             produtoNormalSegundo()
     
             saldodisponivel()
@@ -164,14 +152,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
     context('Com frete/ processo 9860 - caminho feliz', () => {
 
         it('Venda: produto 1880 0 0 - (Venda local de produto com saldo só no CD - com entrega)', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
-            //Pesquisando produto
+            
             produtoCDPrimeiro()
 
             saldoCDDisponivel()
@@ -232,14 +213,7 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
         })
 
         it('Venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local) - (Venda local de 1 produto com saldo local + 1 produto com saldo no CD - com entrega)', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
-            //Pesquisando produto
+            
             produtoCDPrimeiro()
 
             saldoCDDisponivel()
@@ -262,7 +236,6 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
     
             cy.wait(400)
     
-            //Pesquisando segundo produto
             produtoNormalSegundo()
     
             saldodisponivel()

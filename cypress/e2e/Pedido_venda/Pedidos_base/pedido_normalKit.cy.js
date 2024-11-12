@@ -12,17 +12,14 @@ describe('Gerar pedido normal', () => {
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina()
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
   
     context('Sem frete/ processo 9860 - caminho feliz', () => {
         
         it('Pedido de venda: kit 1862 0 0', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoKitPrimeiro()
     
@@ -77,12 +74,6 @@ describe('Gerar pedido normal', () => {
     context('Com frete/processo 9860 - caminho feliz', () => {
         
         it('Pedido de venda: kit 1862 0 0', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoKitPrimeiro()
     

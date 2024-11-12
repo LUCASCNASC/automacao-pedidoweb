@@ -1,10 +1,9 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
-         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos,
-         carregandoFormaPagamento, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
-import { produtoNormalPrimeiro, produtoNormalSegundo} from '../../../support/para_pedidos/produtos_pedidos';
+import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, clicarAdicionarProduto,
+         tirarEntrega, tirarMontagem, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, modalServicosVinculados,
+         okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento,
+         escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoNormalPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';
 import { clicarBotaoDesconto, validarModalSubSobre, aplicarDescontoR$, aplicarDescontoPorcentagem, aplicarDescontoValorFixo } from '../../../support/para_pedidos/para_pedido_desconto';
 
 describe('Gerar pedido de venda com desconto', () => {
@@ -14,17 +13,14 @@ describe('Gerar pedido de venda com desconto', () => {
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina()
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / R$', () => {
-            
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     
@@ -82,12 +78,6 @@ describe('Gerar pedido de venda com desconto', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / % (Pocentagem)', () => {
-            
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
 
             produtoNormalPrimeiro()
     
@@ -145,12 +135,6 @@ describe('Gerar pedido de venda com desconto', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / VALOR FIXO', () => {
-            
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     

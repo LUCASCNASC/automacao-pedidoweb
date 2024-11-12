@@ -2,8 +2,8 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
          clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregaAddProdutosServicos,
-         carregandoFormaPagamento, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento,
+         escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
@@ -13,17 +13,14 @@ describe('Gerar pedido normal', () => {
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina()
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 - (Venda local de produto com saldo - sem entrega)', () => {
-            
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     
@@ -75,12 +72,6 @@ describe('Gerar pedido normal', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
     
@@ -161,12 +152,6 @@ describe('Gerar pedido normal', () => {
     context('Com frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 - (Venda local de produto com saldo - com entrega)', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
 
             produtoNormalPrimeiro()
 
@@ -228,12 +213,6 @@ describe('Gerar pedido normal', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoNormalPrimeiro()
 

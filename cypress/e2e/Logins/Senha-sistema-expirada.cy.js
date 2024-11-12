@@ -11,15 +11,12 @@ describe('Senha do sistema expirada', () => {
         cy.visit('/');
         cy.clearAllSessionStorage();
         titulopagina()//Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        logoEmpresaLogin()
+        iconeComputadorLogin()
+        usuarioTextoIcone()
     })
 
     it('Tentar logar com usuário com senha do sistema expirada', () => {
-
-        logoEmpresaLogin()
-
-        iconeComputadorLogin()
-
-        usuarioTextoIcone()
     
         //Validando campo "informe seu usuário"
         cy.get('#txtusername')

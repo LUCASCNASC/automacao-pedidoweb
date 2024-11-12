@@ -2,7 +2,7 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
          clicarAdicionarProduto, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, modalInconsApenasRota } from '../../../support/para_pedidos/gerais_pedidos'
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos'
 import { produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 import { produtoPromoPartida, produtoPromoPrazoEntrada, produtoPromoPrazoParcelado, clicarUsarPromocao, selecionarFormaPagPromo } from '../../../support/para_pedidos/para_pedidos_promocao';
 
@@ -13,17 +13,14 @@ describe('Gerar pedidos com promoção', () => {
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina() 
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
   
     context('Sem entrega/ com promoção/ processo 9860 - caminho feliz', () => {
 
         it('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoPromoPartida()
     
@@ -67,12 +64,6 @@ describe('Gerar pedidos com promoção', () => {
         })
     
         it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoPromoPrazoEntrada()
     
@@ -132,12 +123,6 @@ describe('Gerar pedidos com promoção', () => {
     
         it('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
             produtoPromoPrazoParcelado()
     
             saldodisponivel()
@@ -183,12 +168,6 @@ describe('Gerar pedidos com promoção', () => {
     context('Sem entrega/ com promoção e sem promoção/ processo 9860 - caminho feliz', () => {
 
         it('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoPromoPartida()
     
@@ -270,12 +249,6 @@ describe('Gerar pedidos com promoção', () => {
         })
 
         it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoPromoPrazoEntrada()
     
@@ -379,12 +352,6 @@ describe('Gerar pedidos com promoção', () => {
 
         it('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
             produtoPromoPartida()
 
             saldodisponivel()
@@ -445,12 +412,6 @@ describe('Gerar pedidos com promoção', () => {
         })
     
         it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
-
-            processoVendaPrincipal()
-
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoPromoPrazoEntrada()
     
@@ -531,12 +492,6 @@ describe('Gerar pedidos com promoção', () => {
 
         it('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
             produtoPromoPrazoParcelado()
     
             saldodisponivel()
@@ -604,12 +559,6 @@ describe('Gerar pedidos com promoção', () => {
     context('Com entrega/ com promoção e sem promoção/ processo 9860 - caminho feliz', () => {
 
         it('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
     
             produtoPromoPartida()
 

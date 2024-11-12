@@ -12,17 +12,14 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
         cy.clearAllSessionStorage();
         cy.login(); 
         titulopagina() 
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
   
     context('Pedido de venda remotO normal', () => {
 
         it('Pedido de venda remota: produto 1860 0 0 - (Venda remota de produto com saldo na filial do faturamento )', () => {
-
-            processoVendaPrincipal()
-
-            escolherClientePedido()
-
-            cy.wait(500)
 
             produtoNormalPrimeiro()
 
@@ -95,12 +92,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
         })
 
         it('Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
-
-            processoVendaPrincipal()
-
-            escolherClientePedido()
-
-            cy.wait(500)
 
             produtoNormalPrimeiro()
 
@@ -196,12 +187,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
         
         it('Pedido de venda remota: kit 1862 0 0', () => {
 
-            processoVendaPrincipal()
-
-            escolherClientePedido()
-
-            cy.wait(500)
-
             produtoNormalPrimeiro()
 
             saldodisponivel()
@@ -277,12 +262,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
         it('Pedido de venda remoto - com saldo no CD (filial 1) - deve permitir fazer o pedido - (Venda remota de produto sem saldo na filial do faturamento, mas com saldo no CD do faturamento - com entrega)', () => {
 
-            processoVendaPrincipal()
-
-            escolherClientePedido()
-
-            cy.wait(500)
-
             produtoRemotoComCD()
 
             semSaldodisponivel()
@@ -354,12 +333,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
         })    
         
         it('Pedido de venda remoto - SEM saldo no CD (filial 1) - NÃO deve permitir fazer o pedido - (Venda remota de produto sem saldo na filial do faturamento, sem saldo da CD do faturamento)', () => {
-
-            processoVendaPrincipal()
-
-            escolherClientePedido()
-
-            cy.wait(500)
 
             produtoRemotoSemCD()
 

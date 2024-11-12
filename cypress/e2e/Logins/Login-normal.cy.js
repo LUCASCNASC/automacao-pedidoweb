@@ -14,18 +14,15 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         cy.visit('/');
         cy.clearAllSessionStorage();
         titulopagina() //Vai variar de acordo com SBX e SABIUM, modificar no arquivo uiUtils.js, na função.
+        logoEmpresaLogin()
+        iconeComputadorLogin()
+        usuarioTextoIcone()
     })
 
     context('Usuário contexto 1', () => {
 
         it('Login - caminho feliz', () => {
-    
-            logoEmpresaLogin()
 
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
-        
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
                 .should('exist')
@@ -65,12 +62,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar usuário errado (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -131,12 +122,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar senha errada (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -197,12 +182,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -236,12 +215,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -275,12 +248,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })  
     
         it('Login - sem passar login e senha (botão ENTRAR deve ficar desabilitado)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-           usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -316,12 +283,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     context('Usuário contexto 3', () => {
 
         it('Login - caminho feliz', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -362,12 +323,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar usuário errado (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -428,12 +383,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar senha errada (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -494,12 +443,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -533,12 +476,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')
@@ -572,12 +509,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
         })  
     
         it('Login - sem passar login e senha (botão ENTRAR deve ficar desabilitado)', () => {
-    
-            logoEmpresaLogin()
-
-            iconeComputadorLogin()
-    
-            usuarioTextoIcone()
         
             //Validando campo "informe seu usuário"
             cy.get('#txtusername')

@@ -1,10 +1,10 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, processoVendaPrincipal,
-         avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, finalizandoPedido, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, clicarAdicionarProduto, botaoGerarParcelas, modalInconsRotaTransp,
-         carregandoFormaPagamento, tirarEntrega, tirarMontagem, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos.js';
+import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, processoVendaPrincipal, finalizandoPedido,
+         modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal,
+         clicarAdicionarProduto, botaoGerarParcelas, carregandoFormaPagamento, tirarEntrega, tirarMontagem, escolherFormaPagamentoPrincipal,
+         escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos.js';
 import { produtoKitPrimeiro} from '../../../support/para_pedidos/produtos_pedidos';
-import { clicarBotaoDesconto, validarModalSubSobre, aplicarDescontoR$, aplicarDescontoPorcentagem, aplicarDescontoValorFixo } from '../../../support/para_pedidos/para_pedido_desconto';
+import { clicarBotaoDesconto, validarModalSubSobre, aplicarDescontoValorFixo } from '../../../support/para_pedidos/para_pedido_desconto';
 
 describe('Gerar pedido de venda Kit com desconto', () => {
 
@@ -13,17 +13,14 @@ describe('Gerar pedido de venda Kit com desconto', () => {
         cy.clearAllSessionStorage();
         cy.login(); 
         titulopagina()
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
   
     context('Sem frete/ processo 9862 - caminho feliz', () => {
         
-        it('Pedido de venda: kit 1862 0 0 com desconto Sub (-) / VALOR FIXO', () => {clicarAdicionarProduto
-    
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
+        it('Pedido de venda: kit 1862 0 0 com desconto Sub (-) / VALOR FIXO', () => {
     
             produtoKitPrimeiro()
     
