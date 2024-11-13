@@ -2,7 +2,7 @@ import { titulopagina } from '../../../support/para_todos';
 import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, clicarAdicionarProduto,
          tirarEntrega, tirarMontagem, botaoGerarParcelas, processoVendaPrincipal, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento, escolherFormaPagamentoPrincipal,
-         escolherDuasParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
+         escolherDuasParcelaPagamento, avancarParaParcelas} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';
 import { arrastarFormaPagamento, clicarAlterarValor, modalAlterarValor, alterarValorParaBaixo, alterarValorParaCima } from '../../../support/para_pedidos/para_pedido_desconto';
 
@@ -43,8 +43,6 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             okServicosVinculados()
     
             tirarEntrega()
-    
-            tirarMontagem()
     
             cy.wait(400)
 
@@ -104,8 +102,6 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             okServicosVinculados()
     
             tirarEntrega()
-    
-            tirarMontagem()
     
             cy.wait(400)
 

@@ -47,7 +47,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
                  .click({force:true})
     
             // //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_123 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('button[aria-label="3860 - T.A. A Receber Futuro   Futuro"]')
                 .click({force:true})
     
             clicarAdicionarProduto()
@@ -63,8 +63,6 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     
@@ -112,7 +110,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
                  .click({force:true})
     
             // //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_123 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('button[aria-label="3860 - T.A. A Receber Futuro   Futuro"]')
                 .click({force:true})
     
             clicarAdicionarProduto()
@@ -128,8 +126,6 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     
@@ -141,14 +137,13 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
 
             // tela de PAGAMENTO
     
-            //Selecionando opções de pagamento de ebtrada
-            cy.get('#select_192')
-                .should('exist')
-                .and('be.visible')
+            //Selecionando opções de pagamento de entrada
+            cy.get('md-option .md-text')
+                .contains('3861 - T.A. A Receber A Vista')
                 .click({force:true})
 
             //Selecionando processo de receber entrada
-            cy.get('#select_option_204 > .md-text')
+            cy.contains('div.md-text.ng-binding', '3861 - T.A. A Receber A Vista')
                 .should('exist')
                 .and('be.visible')
                 .click({force:true})
@@ -198,7 +193,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
                  .click({force:true})
     
             // //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_123 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('button[aria-label="3866 - T.A. A Receber Prestamista   Futuro"]')
                 .click({force:true})
     
             clicarAdicionarProduto()
@@ -210,8 +205,6 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     
@@ -256,10 +249,10 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
                 
             // //Usar promoção, no card "Promoções"
              cy.get('.md-3-line > div.md-button > .md-no-style')
-                 .click({force:true})
+                .click({force:true})
     
             // //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('#dialogContent_123 > .white > [style=""] > div.md-button > .md-no-style')
+            cy.get('button[aria-label="3866 - T.A. A Receber Prestamista   Futuro"]')
                 .click({force:true})
     
             clicarAdicionarProduto()
@@ -275,8 +268,6 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     

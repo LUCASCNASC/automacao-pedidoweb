@@ -53,7 +53,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     
             mensagemEntrandoSistema()
     
-            cy.wait(8000)
+            cy.wait(6000)
     
             //Validando botão INICIAR ATENDIMENTO, para ver se logou
             cy.get('.md-raised > .truncate')
@@ -314,7 +314,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
     
             mensagemEntrandoSistema()
     
-            cy.wait(8000)
+            cy.wait(6000)
     
             //Validando botão INICIAR ATENDIMENTO, para ver se logou
             cy.get('.md-raised > .truncate')

@@ -43,8 +43,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     
@@ -94,8 +92,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(800)
     
@@ -120,8 +116,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             okServicosVinculados()
     
             tirarEntregaSegundo()
-
-            tirarMontagemSegundo()
     
             cy.wait(400)
     
@@ -261,7 +255,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             escolherRota()
 
-            cy.wait(8000)
+            cy.wait(7000)
 
             //Clicar para avançar para a tela de GERAR PARCELAS
             avancarParcelasEntrega()
@@ -272,7 +266,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             carregandoFormaPagamento()
 
-            cy.wait(7000)
+            cy.wait(6000)
 
             escolherFormaPagamentoPrincipal()
 

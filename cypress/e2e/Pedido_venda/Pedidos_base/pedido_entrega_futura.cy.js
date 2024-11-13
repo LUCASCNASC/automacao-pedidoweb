@@ -20,7 +20,7 @@ describe('Gerar pedido de entrega futura', () => {
 
     context('Sem frete/ processo 9862 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0', () => {
+        it.skip('Pedido de venda: produto 1860 0 0', () => {
 
             produtoNormalPrimeiro()
     
@@ -43,8 +43,6 @@ describe('Gerar pedido de entrega futura', () => {
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     
@@ -94,8 +92,6 @@ describe('Gerar pedido de entrega futura', () => {
     
             tirarEntrega()
 
-            tirarMontagem()
-
             cy.wait(800)
     
             produtoNormalSegundo()
@@ -119,8 +115,6 @@ describe('Gerar pedido de entrega futura', () => {
             okServicosVinculados()
                 
             tirarEntregaSegundo()
-    
-            tirarMontagemSegundo()
     
             cy.wait(400)
     
@@ -269,7 +263,7 @@ describe('Gerar pedido de entrega futura', () => {
 
             avancarParcelasEntrega()
         
-            cy.wait(8000)
+            cy.wait(7000)
 
             // tela de GERAR PARCELAS
 

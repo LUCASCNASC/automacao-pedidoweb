@@ -17,7 +17,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
         cy.wait(500)
     })
   
-    context('Pedido de venda remotO normal', () => {
+    context('Pedido de venda remoto normal', () => {
 
         it('Pedido de venda remota: produto 1860 0 0 - (Venda remota de produto com saldo na filial do faturamento )', () => {
 

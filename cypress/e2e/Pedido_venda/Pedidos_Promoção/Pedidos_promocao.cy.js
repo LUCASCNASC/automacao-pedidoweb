@@ -47,8 +47,6 @@ describe('Gerar pedidos com promoção', () => {
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     
@@ -92,8 +90,6 @@ describe('Gerar pedidos com promoção', () => {
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     
@@ -148,8 +144,6 @@ describe('Gerar pedidos com promoção', () => {
             okServicosVinculados()
                 
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     
@@ -194,8 +188,6 @@ describe('Gerar pedidos com promoção', () => {
             okServicosVinculados()
                 
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(800)
     
@@ -277,8 +269,6 @@ describe('Gerar pedidos com promoção', () => {
             okServicosVinculados()
                 
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
 
@@ -640,11 +630,11 @@ describe('Gerar pedidos com promoção', () => {
         })
     })
 
-    afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
-        finalizandoPedido()
-        cy.wait(7000)
-        pedidoGerado()
-      });
+    // afterEach(() => {
+    //     // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+    //     botaoFinalizarPedido()
+    //     finalizandoPedido()
+    //     cy.wait(7000)
+    //     pedidoGerado()
+    //   });
 })

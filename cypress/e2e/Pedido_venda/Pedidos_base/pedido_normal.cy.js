@@ -44,8 +44,6 @@ describe('Gerar pedido normal', () => {
     
             tirarEntrega()
     
-            tirarMontagem()
-    
             cy.wait(400)
 
             avancarParaParcelas()
@@ -94,8 +92,6 @@ describe('Gerar pedido normal', () => {
             okServicosVinculados()
     
             tirarEntrega()
-    
-            tirarMontagem()
 
             cy.wait(800)
     
@@ -120,8 +116,6 @@ describe('Gerar pedido normal', () => {
             okServicosVinculados()
     
             tirarEntregaSegundo()
-    
-            tirarMontagemSegundo()
     
             cy.wait(400)
     
@@ -172,8 +166,6 @@ describe('Gerar pedido normal', () => {
             modalServicosVinculados()
 
             okServicosVinculados()
-    
-            tirarMontagem()
     
             cy.wait(400)
     

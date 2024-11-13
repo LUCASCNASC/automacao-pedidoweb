@@ -42,8 +42,6 @@ describe('Gerar pedido normal', () => {
             okServicosVinculados()
     
             tirarEntrega()
-
-            tirarMontagem()
     
             cy.wait(400)
     

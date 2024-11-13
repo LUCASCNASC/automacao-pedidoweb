@@ -549,6 +549,17 @@ export function escolherDuasParcelaPagamento (selector) {
         .click()
 }
 
+//escolhendo parcelas da forma de pagamento escolhida - 1X
+export function escolherUmaParcelaPagamento (selector) {
+
+    //selecionando parcelas - 1X
+    cy.get('[style="position: relative"] > .ng-scope > div.ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+}
+
 //Carregamento de forma de pagamento, quando clicamos no botão Gerar parcelas
 export function carregandoFormaPagamento (selector) {
 

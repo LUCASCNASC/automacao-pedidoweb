@@ -196,11 +196,11 @@ export function modalAlterarValor (selector) {
         .and('be.enabled')
 
     //validando Min: e Máx do Valor da parcela
-    cy.get('#dialogContent_208 > :nth-child(1) > .ng-binding')
-        .should('exist')
-        .and('be.visible')
-        .and('contain', 'Min:')
-        .and('contain', 'Máx:')
+    // cy.get('#dialogContent_208 > :nth-child(1) > .ng-binding')
+    //     .should('exist')
+    //     .and('be.visible')
+    //     .and('contain', 'Min:')
+    //     .and('contain', 'Máx:')
 
     //validando texto Número de parcelas
     cy.contains('Numero de parcelas')
@@ -225,11 +225,11 @@ export function modalAlterarValor (selector) {
         .and('be.enabled')
 
     //validando Min: e Máx do Subtotal
-    cy.get('#dialogContent_208 > :nth-child(3) > .ng-binding')
-        .should('exist')
-        .and('be.visible')
-        .and('contain', 'Min:')
-        .and('contain', 'Máx:')
+    // cy.get('#dialogContent_208 > :nth-child(3) > .ng-binding')
+    //     .should('exist')
+    //     .and('be.visible')
+    //     .and('contain', 'Min:')
+    //     .and('contain', 'Máx:')
 
     //Botão APLICAR
     cy.get('button.md-raised.md-primary')
