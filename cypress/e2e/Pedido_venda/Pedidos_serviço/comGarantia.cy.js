@@ -16,29 +16,20 @@ describe('Gerar pedidos com Garantia', () => {
         processoVendaPrincipal()
         escolherClientePedido()
         cy.wait(500)
+        produtoNormalPrimeiro()
+        saldodisponivel()
+        escolherProdutoPesquisa()
+        cy.wait(200)
+        // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+        escolherVoltagemProduto()
+        clicarAdicionarProduto()
+        cy.wait(500)
+        modalServicosVinculados()
     })   
 
     context('Sem entrega/processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
-
-            produtoNormalPrimeiro()
-
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -74,24 +65,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -152,24 +125,6 @@ describe('Gerar pedidos com Garantia', () => {
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
-    
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
                 .click()
@@ -204,24 +159,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
@@ -282,24 +219,6 @@ describe('Gerar pedidos com Garantia', () => {
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
-    
             //Marcar Garantia separa titulo em um processo deferente
             cy.get('#checkbox-141-2 > .md-container')
                 .click()
@@ -334,24 +253,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar Garantia separa titulo em um processo deferente
             cy.get('#checkbox-141-2 > .md-container')
@@ -415,24 +316,6 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
-            produtoNormalPrimeiro()
-
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
-    
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
                 .click()
@@ -477,24 +360,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.get('#checkbox-139-0 > .md-container')
@@ -563,24 +428,6 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
-    
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
                 .click()
@@ -625,24 +472,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar garantia "T.A. Garantia Não Separa"
             cy.get('#checkbox-140-1 > .md-container')
@@ -710,24 +539,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
-
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            /clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar Garantia separa titulo em um processo diferente
             cy.get('#checkbox-141-2 > .md-container')
@@ -773,24 +584,6 @@ describe('Gerar pedidos com Garantia', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar Garantia separa titulo em um processo diferente
             cy.get('#checkbox-141-2 > .md-container')

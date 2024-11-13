@@ -16,29 +16,20 @@ describe('Gerar pedidos com Mão de obra', () => {
         processoVendaPrincipal()
         escolherClientePedido()
         cy.wait(500)
+        produtoNormalPrimeiro()
+        saldodisponivel()
+        escolherProdutoPesquisa()
+        cy.wait(200)
+        // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+        escolherVoltagemProduto()
+        clicarAdicionarProduto()
+        cy.wait(500)
+        modalServicosVinculados()
     })
   
     context('Sem entrega/processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
             cy.get('#checkbox-142-0 > .md-container')
@@ -74,24 +65,6 @@ describe('Gerar pedidos com Mão de obra', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-
-            clicarAdicionarProduto()
-            
-            cy.wait(500)
-
-            modalServicosVinculados()
 
             //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
             cy.get('#checkbox-142-0 > .md-container')
@@ -152,24 +125,6 @@ describe('Gerar pedidos com Mão de obra', () => {
     
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
     
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
-    
             //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
             cy.get('#checkbox-143-1 > .md-container')
                 .click()
@@ -204,24 +159,6 @@ describe('Gerar pedidos com Mão de obra', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-    
-            clicarAdicionarProduto()
-
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
             cy.get('#checkbox-143-1 > .md-container')
@@ -280,24 +217,6 @@ describe('Gerar pedidos com Mão de obra', () => {
         })
     
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-    
-            clicarAdicionarProduto()
-
-            cy.wait(500)
-
-            modalServicosVinculados()
 
             //Marcar Mão de obra que não destaca e separa título em processo diferente
             cy.get('#checkbox-144-2 > .md-container')
@@ -332,24 +251,6 @@ describe('Gerar pedidos com Mão de obra', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-    
-            clicarAdicionarProduto()
-
-            cy.wait(500)
-
-            modalServicosVinculados()
 
             //Marcar Mão de obra que não destaca e separa título em processo diferente
             cy.get('#checkbox-144-2 > .md-container')
@@ -413,24 +314,6 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título)', () => {
     
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
-    
             //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
             cy.get('#checkbox-142-0 > .md-container')
                 .click()
@@ -477,24 +360,6 @@ describe('Gerar pedidos com Mão de obra', () => {
         })
         
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
             cy.get('#checkbox-142-0 > .md-container')
@@ -562,24 +427,6 @@ describe('Gerar pedidos com Mão de obra', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
-
-            produtoNormalPrimeiro()
-
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
             cy.get('#checkbox-143-1 > .md-container')
@@ -625,24 +472,6 @@ describe('Gerar pedidos com Mão de obra', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
             cy.get('#checkbox-143-1 > .md-container')
@@ -711,24 +540,6 @@ describe('Gerar pedidos com Mão de obra', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
     
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
-    
             //Marcar Mão de obra que não destaca e separa título em processo diferente
             cy.get('#checkbox-144-2 > .md-container')
                 .click()
@@ -773,24 +584,6 @@ describe('Gerar pedidos com Mão de obra', () => {
         })   
 
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
-            
-            clicarAdicionarProduto()
-    
-            cy.wait(500)
-
-            modalServicosVinculados()
     
             //Marcar Mão de obra que não destaca e separa título em processo diferente
             cy.get('#checkbox-144-2 > .md-container')
