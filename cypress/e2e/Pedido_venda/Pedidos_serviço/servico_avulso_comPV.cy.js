@@ -14,24 +14,18 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
         cy.clearAllSessionStorage();
         cy.login(); 
         titulopagina() 
+        processoVendaServicoAvulso()
+        escolherClientePedido()
     })
 
     context('Processo 9888 - caminho feliz', () => {
 
         it('Venda de garantia - 139 (T.A. Garantia Separa Mesmo Processo)', () => {
             
-            processoVendaServicoAvulso() 
-            
-            escolherClientePedido()
-
             iconeMenuOpcoes()
-
             clienteCompletoOpcaoMenu()
-
             clicarMenuClienteCompleto()
-
             clicarOpcaoServicos()
-
             aguardeCarregandoServico()
 
             //Validando campo
@@ -49,11 +43,8 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
                 .should('have.text', numero_pedido)
 
             botaoAddMaoObra()
-
             botaoAddGarantias()
-
             clicarAddGarantias()
-
             modalGarantiasServicosVinculados()
 
             //clicar na primeira garantia - Garantia Separa Mesmo Processo
@@ -61,13 +52,9 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
                 .click({force:true})
 
             okServicosVinculados()
-
             messServicoAdicionadoSucesso()
-
             botaoSalvarServico()
-
             messAguardeCarregando()
-
             messRegistroSalvoSucesso()
 
             //Clicando novamente para validar que não deixa adicionar mais garantias
@@ -77,19 +64,16 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
             messGarantiaJaAdicionada()
 
             clicarCarrinhoCompras()
-
             botaoAvancarPedido()
 
             cy.wait(3000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(2000)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)

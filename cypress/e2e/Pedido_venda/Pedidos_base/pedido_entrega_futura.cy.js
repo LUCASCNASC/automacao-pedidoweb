@@ -14,21 +14,17 @@ describe('Gerar pedido de entrega futura', () => {
         cy.login();
         titulopagina()
         processoEntregaFutura()
-         escolherClientePedido()
+        escolherClientePedido()
         cy.wait(500)
+        produtoNormalPrimeiro()
+        saldodisponivel()
+        escolherProdutoPesquisa()
+        cy.wait(200)
     })
 
     context('Sem frete/ processo 9862 - caminho feliz', () => {
 
-        it.skip('Pedido de venda: produto 1860 0 0', () => {
-
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
+        it('Pedido de venda: produto 1860 0 0', () => {
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
@@ -69,14 +65,6 @@ describe('Gerar pedido de entrega futura', () => {
         })
         
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
@@ -146,14 +134,6 @@ describe('Gerar pedido de entrega futura', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
     
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
@@ -204,14 +184,6 @@ describe('Gerar pedido de entrega futura', () => {
         })    
         
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-
-            produtoNormalPrimeiro()
-
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       

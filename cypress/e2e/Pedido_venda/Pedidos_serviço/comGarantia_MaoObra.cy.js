@@ -42,7 +42,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-                
             tirarEntrega()
 
             cy.wait(400)
@@ -54,13 +53,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(8000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -83,13 +80,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -99,13 +94,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntregaSegundo()
@@ -119,13 +112,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -148,7 +139,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
@@ -160,13 +150,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -189,13 +177,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -205,7 +191,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
@@ -223,13 +208,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -252,7 +235,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
@@ -264,13 +246,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -293,13 +273,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -309,7 +287,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
@@ -327,13 +304,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -356,7 +331,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-                
             tirarEntrega()
 
             cy.wait(400)
@@ -368,13 +342,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -397,13 +369,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -413,13 +383,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-    
             okServicosVinculados()
     
             tirarEntregaSegundo()
@@ -433,13 +401,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -462,7 +428,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
@@ -474,13 +439,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -503,13 +466,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(800)
 
             produtoNormalSegundo()
-
             saldodisponivel()
 
             cy.wait(800)
@@ -519,13 +480,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
-            /clicarAdicionarProduto()
+            clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-    
             okServicosVinculados()
     
             tirarEntregaSegundo()
@@ -539,13 +498,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -568,7 +525,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
@@ -580,13 +536,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -608,13 +562,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.get('#checkbox-144-2 > .md-container')
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -624,13 +576,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntregaSegundo()
@@ -644,13 +594,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -673,7 +621,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
@@ -685,13 +632,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -714,13 +659,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -730,13 +673,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             tirarEntregaSegundo()
@@ -750,13 +691,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -779,7 +718,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
@@ -791,13 +729,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(8000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -820,13 +756,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -836,7 +770,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
@@ -844,7 +777,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             modalServicosVinculados()
     
             okServicosVinculados()
-    
             tirarEntregaSegundo()
 
             cy.wait(400)
@@ -856,13 +788,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -881,7 +811,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(300)
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
@@ -893,13 +822,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -922,13 +849,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
                 .click()
 
             okServicosVinculados()
-
             tirarEntrega()
 
             cy.wait(400)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -938,13 +863,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-    
             okServicosVinculados()
     
             tirarEntregaSegundo()
@@ -958,13 +881,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1000,11 +921,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1012,13 +930,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1045,7 +961,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -1055,13 +970,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-    
             okServicosVinculados()
 
             cy.wait(400)
@@ -1073,11 +986,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1085,13 +995,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1124,11 +1032,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1136,13 +1041,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1169,7 +1072,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -1179,13 +1081,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -1197,11 +1097,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1209,13 +1106,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1248,11 +1143,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1260,13 +1152,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1293,7 +1183,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -1303,13 +1192,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -1321,11 +1208,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1333,13 +1217,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1372,11 +1254,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1384,13 +1263,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1417,7 +1294,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -1427,13 +1303,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -1445,11 +1319,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1457,13 +1328,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1496,11 +1365,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1508,13 +1374,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1541,7 +1405,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -1551,13 +1414,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -1569,11 +1430,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1581,13 +1439,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1620,11 +1476,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1632,13 +1485,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1665,7 +1516,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -1675,13 +1525,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             cy.wait(400)
@@ -1693,11 +1541,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1705,13 +1550,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1744,11 +1587,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1756,13 +1596,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1789,7 +1627,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -1799,7 +1636,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
@@ -1815,11 +1651,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1827,13 +1660,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1866,11 +1697,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1878,13 +1706,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -1911,7 +1737,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -1921,13 +1746,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -1939,11 +1762,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -1951,13 +1771,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(800)
@@ -1990,11 +1808,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -2002,13 +1817,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(10000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -2035,7 +1848,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
 
             produtoNormalSegundo()
-    
             saldodisponivel()
 
             cy.wait(800)
@@ -2045,13 +1857,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(1000)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -2063,11 +1873,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(14000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
-
             avancarParcelasEntrega()
         
             cy.wait(10000)
@@ -2075,13 +1882,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(9000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)

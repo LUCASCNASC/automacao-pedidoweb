@@ -16,19 +16,15 @@ describe('Gerar pedido normal', () => {
         processoVendaPrincipal()
         escolherClientePedido()
         cy.wait(500)
+        produtoNormalPrimeiro()
+        saldodisponivel()
+        escolherProdutoPesquisa()
+        cy.wait(200)
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 - (Venda local de produto com saldo - sem entrega)', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
     
             // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
@@ -70,12 +66,6 @@ describe('Gerar pedido normal', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
@@ -146,12 +136,6 @@ describe('Gerar pedido normal', () => {
     context('Com frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 - (Venda local de produto com saldo - com entrega)', () => {
-
-            produtoNormalPrimeiro()
-
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
     
@@ -205,12 +189,6 @@ describe('Gerar pedido normal', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            produtoNormalPrimeiro()
-
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
     

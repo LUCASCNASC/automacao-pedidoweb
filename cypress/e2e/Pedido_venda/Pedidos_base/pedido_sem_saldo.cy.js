@@ -21,7 +21,6 @@ describe('Tentar gerar pedido de venda com produto sem saldo - Regra de saldo Pa
     
             cy.wait(500)
     
-            //Pesquisando produto
             produtoSemSaldo()
     
             semSaldodisponivel()

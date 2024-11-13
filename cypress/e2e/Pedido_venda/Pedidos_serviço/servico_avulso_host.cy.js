@@ -13,17 +13,14 @@ describe('Venda de serviço avulso Host - 104', () => {
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina() 
+        processoVendaServicoAvulso()
+        escolherClientePedido()
+        cy.wait(500)
     })
 
     context('Processo 9888 - caminho feliz', () => {
 
         it('Venda de Mão de obra - 144 (T.A. MO Não Destaca e Separa Processo Diferente)', () => {
-            
-            processoVendaServicoAvulso() 
-            
-            escolherClientePedido()
-
-            cy.wait(200)
 
             iconeMenuOpcoes()
 

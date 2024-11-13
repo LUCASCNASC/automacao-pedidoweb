@@ -16,21 +16,17 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
         processoVendaPrincipal()
         escolherClientePedido()
         cy.wait(500)
+        produtoNormalPrimeiro()
+        saldodisponivel()
+        escolherProdutoPesquisa()
+        cy.wait(200)
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 - arredondar para baixo', () => {
     
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
          
@@ -80,14 +76,6 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
         })
 
         it('Pedido de venda: produtos 1860 0 0 - arredondar para cima', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
     
             // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 

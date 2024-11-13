@@ -16,21 +16,17 @@ describe('Gerar pedido de venda com desconto', () => {
         processoVendaPrincipal()
         escolherClientePedido()
         cy.wait(500)
+        produtoNormalPrimeiro()
+        saldodisponivel()
+        escolherProdutoPesquisa()
+        cy.wait(200)
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / R$', () => {
     
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
-            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
          
@@ -76,14 +72,6 @@ describe('Gerar pedido de venda com desconto', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / % (Pocentagem)', () => {
-
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
     
             // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
@@ -131,14 +119,6 @@ describe('Gerar pedido de venda com desconto', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / VALOR FIXO', () => {
-    
-            produtoNormalPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
     
             // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 

@@ -15,20 +15,16 @@ describe('Gerar pedido normal', () => {
         processoVendaPrincipal()
         escolherClientePedido()
         cy.wait(500)
+        produtoKitPrimeiro()
+        saldodisponivel()
+        escolherProdutoPesquisa()
+        cy.wait(200)
     })
   
     context('Sem frete/ processo 9860 - caminho feliz', () => {
         
         it('Pedido de venda: kit 1862 0 0', () => {
-    
-            produtoKitPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
-    
+
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
@@ -72,14 +68,6 @@ describe('Gerar pedido normal', () => {
     context('Com frete/processo 9860 - caminho feliz', () => {
         
         it('Pedido de venda: kit 1862 0 0', () => {
-    
-            produtoKitPrimeiro()
-    
-            saldodisponivel()
-    
-            escolherProdutoPesquisa()
-    
-            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
