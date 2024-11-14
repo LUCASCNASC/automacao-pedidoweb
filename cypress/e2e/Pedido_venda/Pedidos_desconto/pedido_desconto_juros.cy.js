@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, clicarAdicionarProduto,
-         tirarEntrega, tirarMontagem, botaoGerarParcelas, processoVendaPrincipal, modalServicosVinculados, okServicosVinculados,
+         tirarEntrega, botaoGerarParcelas, processoVendaPrincipal, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento, escolherFormaPagamentoPrincipal,
          escolherDuasParcelaPagamento, avancarParaParcelas} from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';

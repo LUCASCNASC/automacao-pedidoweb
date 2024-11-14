@@ -1,6 +1,6 @@
 import { titulopagina } from '../../../support/para_todos';
 import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, clicarAdicionarProduto,
-         tirarEntrega, tirarMontagem, processoVendaPrincipal, avancarParaParcelas, modalServicosVinculados, okServicosVinculados,
+         tirarEntrega, processoVendaPrincipal, avancarParaParcelas, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos'
 import { prd1PrazoParcela, prd2PrazoParcela, prd3PrazoParcela, prd4PrazoParcela, messAdicionandoProdutosServicos, adicionarPrestamista } from '../../../support/para_pedidos/para_pedidos_promocao';
 
