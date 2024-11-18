@@ -22,7 +22,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
     context('Configuração de processo - Exclusiva: 36 = 2; 139 = 6; 552= 5 dias', () => {
 
-        it.skip('Vender um produto normal (com saldo e com entrega, 15 dias) e um kit remoto (2 composições, sem saldo e sem a receber, 20 dias).', () => {
+        it.only('Vender um produto normal (com saldo e com entrega, 15 dias) e um kit remoto (2 composições, sem saldo e sem a receber, 20 dias).', () => {
 
             primeiroPrdNormalExclusiva()
 

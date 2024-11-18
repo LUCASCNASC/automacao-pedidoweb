@@ -1,9 +1,10 @@
 import { titulopagina } from '../../../support/para_todos';
-import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
-         clicarAdicionarProduto, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal,
+import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
+         finalizandoPedido, clicarAdicionarProduto, tirarEntrega, tirarEntregaSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento,
-         escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento, escolherEntradaFormaPagamento, clicarGerarPagamento, escolherUmaParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos';
+         escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento, escolherEntradaFormaPagamento, clicarGerarPagamento,
+         escolherUmaParcelaPagamento} from '../../../support/para_pedidos/gerais_pedidos.js';
 import { produtoNormalPrimeiro, produtoNormalSegundo} from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
@@ -24,9 +25,9 @@ describe('Gerar pedido normal', () => {
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.only('Venda: produto 1860 0 0 - (Venda local de produto com saldo - sem entrega)', () => {
+        it('Venda: produto 1860 0 0 - (Venda local de produto com saldo - sem entrega)', () => {
     
-            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
+            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
 
@@ -63,23 +64,6 @@ describe('Gerar pedido normal', () => {
             avancarFinal()
     
             cy.wait(6000)
-
-            // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-            botaoFinalizarPedido()
-            finalizandoPedido()
-            cy.wait(8000)
-            pedidoGerado()
-
-            cy.get('#pedido-numero').then((numero_pedido) => {
-                //cy.get('#outroElemento').type(texto); // Insere o texto copiado em um campo de input, por exemplo
-              });
-
-            cy.wait(1000)
-
-            cy.visit('http://10.7.0.87/#/login')
-
-            
-
         })
 
         it('Venda: produtos 1860 0 0 e 1870 0 0', () => {
@@ -383,11 +367,11 @@ describe('Gerar pedido normal', () => {
         })
     })
 
-    // afterEach(() => {
-    //     // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    //     botaoFinalizarPedido()
-    //     finalizandoPedido()
-    //     cy.wait(8000)
-    //     pedidoGerado()
-    //   });
+    afterEach(() => {
+        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+        botaoFinalizarPedido()
+        finalizandoPedido()
+        cy.wait(8000)
+        pedidoGerado()
+      });
 })

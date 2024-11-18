@@ -581,11 +581,11 @@ describe('Gerar pedidos com Garantia', () => {
         })
     })
 
-    afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
-        finalizandoPedido()
-        cy.wait(9000)
-        pedidoGerado()
-      });
+    // afterEach(() => {
+    //     // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+    //     botaoFinalizarPedido()
+    //     finalizandoPedido()
+    //     cy.wait(9000)
+    //     pedidoGerado()
+    //   });
 })

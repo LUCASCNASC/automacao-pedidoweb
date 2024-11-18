@@ -252,11 +252,13 @@ export function processoVendaExclusiva (selector) {
         .scrollTo('center')
 
     //selecionar processo de venda "9869"
-    cy.get('#select_option_64 > .md-text')
-        .scrollIntoView()
-        .wait(200)
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
+    cy.get('.md-text.ng-binding')
+        .contains('9869 - T.A. Pedido Negociável Exclusiva')
         .click({force:true})
+
+    //fechar modal de processos
+    cy.get('.md-select-backdrop')
+        .wait(200)
+        .dblclick()
+        .wait(200)
 }

@@ -12,16 +12,19 @@ export function processoVendaServicoAvulso (selector) {
     cy.get('#select_listbox_12')
         .should('exist')
         .and('be.visible')
-        .scrollTo('center')
+        .scrollTo('bottom')
+        .wait(200)
 
-    //selecionar processo de venda "9888"
-    cy.get('#select_option_65 > .md-text')
-        .scrollIntoView()
-        .wait(100)
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
+    //escolher processo 9888
+    cy.get('.md-text.ng-binding')
+        .contains('9888 - T.A. Venda de serviço avulso')
         .click({force:true})
+
+    //fechar modal de processos
+    cy.get('.md-select-backdrop')
+        .wait(200)
+        .dblclick()
+        .wait(200)
 }
 
 //Função para escolher cliente CPF para gerar pedido de venda - pesquisa por cliente

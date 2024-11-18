@@ -664,10 +664,10 @@ export function processoVendaPrincipal (selector) {
 
     //clicar para aparecer as opções de processo
     cy.get('#select_value_label_4 > .md-select-icon')
-    .should('exist')
-    .and('be.visible')
-    .and('not.be.disabled')
-    .click()
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
 
     //rolar para o meio das opções de processo
     cy.get('#select_listbox_12')
@@ -676,11 +676,15 @@ export function processoVendaPrincipal (selector) {
         .scrollTo('center')
 
     //selecionar processo de venda "9860"
-    cy.get('#select_option_60 > .md-text')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
+    cy.get('.md-text.ng-binding')
+        .contains('9860 - T.A. Pedido Negociável')
         .click({force:true})
+
+    //fechar modal de processos
+    cy.get('.md-select-backdrop')
+        .wait(200)
+        .dblclick()
+        .wait(200) 
 }
 
 //Para escolher processo de venda entrega futura 9862 normal
@@ -700,14 +704,16 @@ export function processoEntregaFutura (selector) {
         .scrollTo('center')
 
     //selecionar processo de venda "9862"
-    cy.get('#select_option_62 > .md-text')
-        .scrollIntoView()
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
+    cy.get('.md-text.ng-binding')
+        .contains('9862 - T.A. Pedido Entrega Futura')
         .click({force:true})
-}
 
+    //fechar modal de processos
+    cy.get('.md-select-backdrop')
+        .wait(200)
+        .dblclick()
+        .wait(200)
+}
 
 //Para escolher processo de venda financeiro baixa 9863 normal
 export function processoFinanceiroBaixa (selector) {
@@ -726,12 +732,15 @@ export function processoFinanceiroBaixa (selector) {
         .scrollTo('center')
 
     //selecionar processo de venda "9863"
-    cy.get('#select_option_63 > .md-text')
-        .scrollIntoView()
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
+    cy.get('.md-text.ng-binding')
+        .contains('9863 - T.A.Pedido Financeiro Baixa')
         .click({force:true})
+
+    //fechar modal de processos
+    cy.get('.md-select-backdrop')
+        .wait(200)
+        .dblclick()
+        .wait(200)
 }
 
 //Botão para avançar para a tela de Gerar parcelas
