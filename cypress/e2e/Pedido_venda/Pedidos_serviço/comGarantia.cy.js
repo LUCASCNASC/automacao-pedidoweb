@@ -5,6 +5,7 @@ import { escolherTransportadora, saldodisponivel, escolherRota, escolherClienteP
          botaoGerarParcelas, avancarFinal, finalizandoPedido, modalInconsRotaTransp, carregandoFormaPagamento, escolherFormaPagamentoPrincipal, 
          escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
+import { garantiaNaoSepara, garantiaSeparaMesmoProcesso, garantiaSeparaTituloProcessoDiferente } from '../../../support/para_pedidos/apenas_servicos';
 
 describe('Gerar pedidos com Garantia', () => {
 
@@ -31,9 +32,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
     
             okServicosVinculados()
             tirarEntrega()
@@ -63,9 +62,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
     
             okServicosVinculados()
             tirarEntrega()
@@ -115,9 +112,7 @@ describe('Gerar pedidos com Garantia', () => {
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
 
             okServicosVinculados()
             tirarEntrega()
@@ -147,9 +142,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
     
             okServicosVinculados()
             tirarEntrega()
@@ -199,9 +192,7 @@ describe('Gerar pedidos com Garantia', () => {
     
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
-            //Marcar Garantia separa titulo em um processo deferente
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
+            garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
     
             okServicosVinculados()
             tirarEntrega()
@@ -231,9 +222,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Marcar Garantia separa titulo em um processo deferente
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
+            garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
     
             okServicosVinculados()
             tirarEntrega()
@@ -286,9 +275,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
     
             okServicosVinculados()
     
@@ -326,9 +313,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
     
             okServicosVinculados()
 
@@ -385,9 +370,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
     
             okServicosVinculados()
     
@@ -425,9 +408,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
     
             okServicosVinculados()
     
@@ -484,9 +465,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
-            //Marcar Garantia separa titulo em um processo diferente
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
+            garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
     
             okServicosVinculados()
     
@@ -524,9 +503,7 @@ describe('Gerar pedidos com Garantia', () => {
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
-            //Marcar Garantia separa titulo em um processo diferente
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
+            garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
     
             okServicosVinculados()
     

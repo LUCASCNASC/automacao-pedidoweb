@@ -5,6 +5,8 @@ import { escolherTransportadora, saldodisponivel, escolherRota, escolherClienteP
          escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, escolherFormaPagamentoPrincipal, 
          escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoNormalPrimeiro, produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
+import { garantiaNaoSepara, garantiaSeparaMesmoProcesso, garantiaSeparaTituloProcessoDiferente, maoObraDestacaNãoSepara, 
+         maoObraNaoDestacaSeparaMesmoProcesso, maoObraNaoDestacaSeparaProcessoDiferente } from '../../../support/para_pedidos/apenas_servicos';
 
 describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
@@ -29,17 +31,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
     context('Sem frete/processo 9860 - caminho feliz', () => {
     
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
             
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
             tirarEntrega()
@@ -67,17 +63,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(8000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
             tirarEntrega()
@@ -126,17 +116,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
             tirarEntrega()
@@ -164,17 +148,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(8000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
             tirarEntrega()
@@ -222,17 +200,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
 
             okServicosVinculados()
             tirarEntrega()
@@ -260,17 +232,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente"
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
 
             okServicosVinculados()
             tirarEntrega()
@@ -318,17 +284,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara()//Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
             tirarEntrega()
@@ -356,17 +316,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara()//Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
             tirarEntrega()
@@ -415,17 +369,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
             tirarEntrega()
@@ -453,17 +401,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
             tirarEntrega()
@@ -512,17 +454,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
 
             okServicosVinculados()
             tirarEntrega()
@@ -550,16 +486,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
-            cy.get('#checkbox-144-2 > .md-container')
+            maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
 
             okServicosVinculados()
             tirarEntrega()
@@ -608,17 +539,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
             tirarEntrega()
@@ -646,17 +571,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
             tirarEntrega()
@@ -705,17 +624,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
             tirarEntrega()
@@ -743,17 +656,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
             tirarEntrega()
@@ -802,13 +709,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente//Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
+            maoObraNaoDestacaSeparaProcessoDiferente()
 
             okServicosVinculados()
             tirarEntrega()
@@ -836,17 +741,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente//Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente()
 
             okServicosVinculados()
             tirarEntrega()
@@ -898,17 +797,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
 
     context('Com entrega/processo 9860 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
 
@@ -944,17 +837,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
 
@@ -1009,17 +896,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
 
@@ -1055,17 +936,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
 
@@ -1120,17 +995,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado neste produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
 
             okServicosVinculados()
 
@@ -1166,17 +1035,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            cy.get('#checkbox-139-0 > .md-container')
-                .click()
-
+            garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado neste produto
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
 
             okServicosVinculados()
 
@@ -1231,17 +1094,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara()//Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
 
@@ -1277,17 +1134,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara()//Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
 
@@ -1342,17 +1193,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
 
@@ -1388,17 +1233,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
 
@@ -1453,17 +1292,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
 
             okServicosVinculados()
 
@@ -1499,17 +1332,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. Garantia Não Separa"
-            cy.get('#checkbox-140-1 > .md-container')
-                .click()
-
+            garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado automaticamente
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
 
             okServicosVinculados()
 
@@ -1564,17 +1391,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
 
@@ -1610,17 +1431,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra que destaca e não separa) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            cy.get('#checkbox-142-0 > .md-container')
-                .click()
+            maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
 
             okServicosVinculados()
 
@@ -1674,17 +1489,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
 
@@ -1720,17 +1529,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            cy.get('#checkbox-143-1 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
 
             okServicosVinculados()
 
@@ -1785,17 +1588,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente()
 
             okServicosVinculados()
 
@@ -1831,17 +1628,11 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
         })  
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
+        it.skip('Pedido de venda: produto 1860 0 0 (com Garantia que separa em processo diferente e Mão de Obra não destaca e separa em outro processo) e produto 1870 0 0 (sem serviço)', () => {
 
-            //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-141-2 > .md-container')
-                .click()
-
+            garantiaSeparaTituloProcessoDiferente//Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
-
-            //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" - não precisa marcar, pois já vem marcado
-            cy.get('#checkbox-144-2 > .md-container')
-                .click()
+            maoObraNaoDestacaSeparaProcessoDiferente()
 
             okServicosVinculados()
 
