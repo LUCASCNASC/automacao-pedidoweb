@@ -25,17 +25,13 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 - arredondar para baixo', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
-         
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -49,23 +45,18 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             cy.wait(5000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
     
             cy.wait(4000)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
             arrastarFormaPagamento()
-
             clicarAlterarValor()
-
             modalAlterarValor()
-
             alterarValorParaBaixo()
 
             cy.wait(400)
@@ -76,17 +67,13 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
         })
 
         it('Pedido de venda: produtos 1860 0 0 - arredondar para cima', () => {
-    
-            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
-         
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -100,23 +87,18 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             cy.wait(5000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
     
             cy.wait(4000)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
 
             arrastarFormaPagamento()
-
             clicarAlterarValor()
-
             modalAlterarValor()
-
             alterarValorParaCima()
 
             cy.wait(400)

@@ -25,17 +25,13 @@ describe('Gerar pedido de entrega futura', () => {
     context('Sem frete/ processo 9862 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -49,16 +45,15 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(6000)
     
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
     
             cy.wait(5500)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
     
             cy.wait(400)
+
             avancarFinal()
     
             cy.wait(5500)
@@ -69,13 +64,11 @@ describe('Gerar pedido de entrega futura', () => {
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -93,13 +86,11 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
                 
             tirarEntregaSegundo()
@@ -113,13 +104,11 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(6500)
     
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
     
             cy.wait(5000)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
     
             cy.wait(400)
@@ -133,17 +122,13 @@ describe('Gerar pedido de entrega futura', () => {
     context('Com frete/ processo 9862 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -155,9 +140,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(12000)
 
             modalInconsApenasTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -167,13 +150,11 @@ describe('Gerar pedido de entrega futura', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(5500)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -184,17 +165,13 @@ describe('Gerar pedido de entrega futura', () => {
         })    
         
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(800)
@@ -210,13 +187,11 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -228,9 +203,7 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(12000)
 
             modalInconsApenasTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -240,13 +213,11 @@ describe('Gerar pedido de entrega futura', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(6000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)

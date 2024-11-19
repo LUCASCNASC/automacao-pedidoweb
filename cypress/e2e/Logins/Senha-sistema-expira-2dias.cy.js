@@ -41,13 +41,9 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('equal', 'Informe sua senha')
 
         iconeOlhosSenha()
-
         botaoEsqueceuSenha()
-
         botaoEntrarHabilitado()
-
         clicarBotaoEntrar()
-
         mensagemEntrandoSistema()
 
         cy.wait(8000)
@@ -108,13 +104,9 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('equal', 'Informe sua senha')
 
         iconeOlhosSenha()
-
         botaoEsqueceuSenha()
-
         botaoEntrarHabilitado()
-
         clicarBotaoEntrar()
-
         mensagemEntrandoSistema()
 
         cy.wait(8000)
@@ -360,13 +352,9 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('equal', 'Informe sua senha')
 
         iconeOlhosSenha()
-
         botaoEsqueceuSenha()
-
         botaoEntrarHabilitado()
-
         clicarBotaoEntrar()
-
         mensagemEntrandoSistema()
 
         cy.wait(8000)

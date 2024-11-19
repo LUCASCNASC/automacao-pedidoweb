@@ -9,18 +9,15 @@ describe('Tentar gerar pedido de venda com produto sem saldo - Regra de saldo Pa
         cy.clearAllSessionStorage();
         cy.login();
         titulopagina()
+        processoVendaPrincipal()
+        escolherClientePedido()
+        cy.wait(500)
     })
 
     context('Processo 9860 - não permitir fazer a venda - no momento de adicionar produto, devem aparecer mensagens de aviso', () => {
 
         it('Pedido de venda: produto 1869 0 0 (Venda local de produto sem saldo - sem entrega)', () => {
             
-            processoVendaPrincipal()
-    
-            escolherClientePedido()
-    
-            cy.wait(500)
-    
             produtoSemSaldo()
     
             semSaldodisponivel()

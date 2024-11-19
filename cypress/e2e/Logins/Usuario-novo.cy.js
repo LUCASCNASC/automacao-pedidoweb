@@ -40,11 +40,8 @@ describe('Logar com novo usuário', () => {
             .should('equal', 'Informe sua senha')
 
         iconeOlhosSenha()
-
         botaoEsqueceuSenha()
-
         botaoEntrarHabilitado
-
         clicarBotaoEntrar()
 
         cy.wait(2000)
@@ -270,11 +267,8 @@ describe('Logar com novo usuário', () => {
             .should('equal', 'Informe sua senha')
 
         iconeOlhosSenha()
-
         botaoEsqueceuSenha()
-
         botaoEntrarHabilitado
-
         clicarBotaoEntrar()
 
         cy.wait(2000)

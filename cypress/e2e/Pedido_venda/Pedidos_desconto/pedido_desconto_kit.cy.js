@@ -23,9 +23,7 @@ describe('Gerar pedido de venda Kit com desconto', () => {
         it('Pedido de venda: kit 1862 0 0 com desconto Sub (-) / VALOR FIXO', () => {
     
             produtoKitPrimeiro()
-    
             saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             cy.wait(200)
@@ -33,19 +31,15 @@ describe('Gerar pedido de venda Kit com desconto', () => {
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
 
             clicarBotaoDesconto()
-
             validarModalSubSobre()
-
             aplicarDescontoValorFixo()
     
             tirarEntrega()
@@ -59,13 +53,11 @@ describe('Gerar pedido de venda Kit com desconto', () => {
             cy.wait(6500)
     
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
     
             cy.wait(6000)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
     
             cy.wait(400)

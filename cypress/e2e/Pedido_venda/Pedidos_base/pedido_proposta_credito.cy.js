@@ -26,17 +26,13 @@ describe('Gerar pedido com proposta de crédito', () => {
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Venda: produto 1860 0 0 - (Pedido de  venda sem entrega, com proposta de crédito.)', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
-
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -50,13 +46,11 @@ describe('Gerar pedido com proposta de crédito', () => {
             cy.wait(5500)
 
             botaoGerarParcelas()
-            
             carregandoFormaPagamento()
     
             cy.wait(5000)
     
             escolherFormaPagaPropCredito()
-
             escolherUmaParcelaPagamento()
 
             cy.wait(400)

@@ -21,9 +21,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
         it('Pedido com promoção a prazo/parcelas (promoção 159): produto 1891 0 0 com garantia (isenta de juros)', () => {
     
             prd1PrazoParcela()
-    
             saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             cy.wait(200)
@@ -82,9 +80,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
         it('Pedido com promoção a prazo/entrada + parcelas (promoção 158): produto 1895 0 0 com garantia (isenta de juros)', () => {
     
             prd2PrazoParcela()
-    
             saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             cy.wait(200)
@@ -165,9 +161,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
         it('Pedido com promoção a prazo/parcelas (promoção 161): produto 1893 0 0 com prestamista (isento de juros)', () => {
     
             prd3PrazoParcela()
-    
             saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             cy.wait(200)
@@ -201,7 +195,6 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -226,9 +219,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
         it('Pedido com promoção a prazo/parcelas (promoção 162): produto 1894 0 0 com garantia (isenta de juros) e prestamista (com juros)', () => {
     
             prd4PrazoParcela()
-    
             saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             cy.wait(200)

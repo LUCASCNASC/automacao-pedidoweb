@@ -25,17 +25,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
     context('Sem frete/ processo 9863 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -49,13 +45,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(5000)
     
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
     
             cy.wait(5500)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
     
             cy.wait(400)
@@ -66,17 +60,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -94,13 +84,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntregaSegundo()
@@ -114,13 +102,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(7000)
     
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
     
             cy.wait(5000)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
     
             cy.wait(400)
@@ -134,17 +120,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
     context('Com frete/ processo 9863 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -159,19 +141,16 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             cy.wait(6000)
 
-            //Clicar para avançar para a tela de GERAR PARCELAS
             avancarParcelasEntrega()
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -182,17 +161,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
         })
 
         it('Pedido de venda: produtos 1860 0 0 e 1870 0 0', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -208,13 +183,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(800)
     
             escolherVoltagemProduto()
-    
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -229,19 +202,16 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             cy.wait(7000)
 
-            //Clicar para avançar para a tela de GERAR PARCELAS
             avancarParcelasEntrega()
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(6000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)

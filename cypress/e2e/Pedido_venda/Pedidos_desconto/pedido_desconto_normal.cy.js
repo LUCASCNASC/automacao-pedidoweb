@@ -25,23 +25,17 @@ describe('Gerar pedido de venda com desconto', () => {
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / R$', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
-         
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             clicarBotaoDesconto()
-
             validarModalSubSobre()
-
             aplicarDescontoR$()
     
             tirarEntrega()
@@ -55,13 +49,11 @@ describe('Gerar pedido de venda com desconto', () => {
             cy.wait(5000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(5000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -72,23 +64,17 @@ describe('Gerar pedido de venda com desconto', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / % (Pocentagem)', () => {
-    
-            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
-         
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             clicarBotaoDesconto()
-
             validarModalSubSobre()
-
             aplicarDescontoPorcentagem()
     
             tirarEntrega()
@@ -102,13 +88,11 @@ describe('Gerar pedido de venda com desconto', () => {
             cy.wait(5000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(5000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -119,23 +103,17 @@ describe('Gerar pedido de venda com desconto', () => {
         })
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / VALOR FIXO', () => {
-    
-            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
-         
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             clicarBotaoDesconto()
-
             validarModalSubSobre()
-
             aplicarDescontoValorFixo()
     
             tirarEntrega()
@@ -149,13 +127,11 @@ describe('Gerar pedido de venda com desconto', () => {
             cy.wait(5000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(5000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)

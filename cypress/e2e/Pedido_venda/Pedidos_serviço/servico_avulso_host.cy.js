@@ -23,15 +23,12 @@ describe('Venda de serviço avulso Host - 104', () => {
         it('Venda de Mão de obra - 144 (T.A. MO Não Destaca e Separa Processo Diferente)', () => {
 
             iconeMenuOpcoes()
-
             clicarServicosMenu()
 
             cy.wait(400)
 
             produtoServicoHost()
-
             saldoDisponivelServico()
-    
             escolherServicoPesquisa()
     
             cy.wait(200)
@@ -47,13 +44,11 @@ describe('Venda de serviço avulso Host - 104', () => {
             cy.wait(3000)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(2000)
     
             escolherFormaPagamentoPrincipal()
-
             escolherUmaParcelaPagamento()
 
             cy.wait(400)

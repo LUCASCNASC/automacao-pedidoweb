@@ -39,11 +39,8 @@ describe('Usuário inativo', () => {
             .should('equal', 'Informe sua senha')
 
         iconeOlhosSenha()
-
         botaoEsqueceuSenha()
-
         botaoEntrarHabilitado()
-
         clicarBotaoEntrar()
 
         //Card de mensagem 

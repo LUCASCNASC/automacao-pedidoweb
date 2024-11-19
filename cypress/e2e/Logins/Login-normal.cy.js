@@ -44,13 +44,9 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarHabilitado()
-    
             clicarBotaoEntrar()
-    
             mensagemEntrandoSistema()
     
             cy.wait(6000)
@@ -84,11 +80,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarHabilitado()
-    
             clicarBotaoEntrar()
     
             cy.wait(800)
@@ -144,13 +137,10 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarHabilitado()
-    
             clicarBotaoEntrar()
-    
+
             cy.wait(800)
     
             //Mensagem de senha errada
@@ -203,11 +193,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarDesabilitado()
-    
             clicarBotaoEntrar()
     
             //Validando que não entrou no sistema
@@ -236,11 +223,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarDesabilitado()
-    
             clicarBotaoEntrar()
     
             //Validando que não entrou no sistema
@@ -268,11 +252,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarDesabilitado()
-    
             clicarBotaoEntrar()
     
             //Validando que não entrou no sistema
@@ -305,13 +286,9 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarHabilitado()
-    
             clicarBotaoEntrar()
-    
             mensagemEntrandoSistema()
     
             cy.wait(6000)
@@ -345,11 +322,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarHabilitado()
-    
             clicarBotaoEntrar()
     
             cy.wait(800)
@@ -405,11 +379,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarHabilitado()
-    
             clicarBotaoEntrar()
     
             cy.wait(800)
@@ -464,11 +435,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarDesabilitado()
-    
             clicarBotaoEntrar()
     
             //Validando que não entrou no sistema
@@ -497,11 +465,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarDesabilitado()
-    
             clicarBotaoEntrar()
     
             //Validando que não entrou no sistema
@@ -529,11 +494,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('equal', 'Informe sua senha')
     
             iconeOlhosSenha()
-    
             botaoEsqueceuSenha()
-    
             botaoEntrarDesabilitado()
-    
             clicarBotaoEntrar()
     
             //Validando que não entrou no sistema

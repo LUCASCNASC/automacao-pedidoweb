@@ -24,17 +24,13 @@ describe('Gerar pedido normal', () => {
     context('Sem frete/ processo 9860 - caminho feliz', () => {
         
         it('Pedido de venda: kit 1862 0 0', () => {
-
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -48,13 +44,11 @@ describe('Gerar pedido normal', () => {
             cy.wait(6500)
     
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
     
             cy.wait(6000)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
     
             cy.wait(400)
@@ -68,17 +62,13 @@ describe('Gerar pedido normal', () => {
     context('Com frete/processo 9860 - caminho feliz', () => {
         
         it('Pedido de venda: kit 1862 0 0', () => {
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
     
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -90,9 +80,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(13000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -102,13 +90,11 @@ describe('Gerar pedido normal', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)

@@ -22,9 +22,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
         it('Pedido de venda remota: produto 1860 0 0 - (Venda remota de produto com saldo na filial do faturamento )', () => {
 
             produtoNormalPrimeiro()
-
             saldodisponivel()
-
             escolherProdutoPesquisa()
 
             cy.wait(200)
@@ -42,7 +40,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             cy.wait(400)
@@ -54,9 +51,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(14000)
 
             modalInconsApenasRota()
-
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -72,7 +67,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(8000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -83,20 +77,15 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
             botaoFinalizarPedido()
-
             finalizandoPedido()
-
             cy.wait(7000)
-
             pedidoGerado()
         })
 
         it('Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
 
             produtoNormalPrimeiro()
-
             saldodisponivel()
-
             escolherProdutoPesquisa()
 
             cy.wait(200)
@@ -114,17 +103,13 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             cy.wait(800)
 
             produtoNormalSegundo()
-
             saldodisponivel()
-
             escolherProdutoPesquisa()
-
             escolherVoltagemProduto()
 
             cy.wait(800)
@@ -136,7 +121,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(1000)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             cy.wait(400)
@@ -148,9 +132,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(14000)
 
             modalInconsApenasRota()
-
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -160,13 +142,11 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(12000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -177,20 +157,15 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
             botaoFinalizarPedido()
-
             finalizandoPedido()
-
             cy.wait(7000)
-
             pedidoGerado()
         })
         
         it('Pedido de venda remota: kit 1862 0 0', () => {
 
             produtoNormalPrimeiro()
-
             saldodisponivel()
-
             escolherProdutoPesquisa()
 
             cy.wait(200)
@@ -208,7 +183,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             cy.wait(400)
@@ -220,9 +194,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(14000)
 
             modalInconsApenasRota()
-
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -232,13 +204,11 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(8000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -249,11 +219,8 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
             botaoFinalizarPedido()
-
             finalizandoPedido()
-
             cy.wait(7000)
-
             pedidoGerado()
         })
     })
@@ -263,9 +230,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
         it('Pedido de venda remoto - com saldo no CD (filial 1) - deve permitir fazer o pedido - (Venda remota de produto sem saldo na filial do faturamento, mas com saldo no CD do faturamento - com entrega)', () => {
 
             produtoRemotoComCD()
-
             semSaldodisponivel()
-
             escolherProdutoPesquisa()
 
             cy.wait(200)
@@ -283,7 +248,6 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
 
             cy.wait(400)
@@ -295,9 +259,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(10000)
 
             modalInconsApenasRota()
-
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -307,13 +269,11 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(5000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -324,20 +284,15 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
             botaoFinalizarPedido()
-
             finalizandoPedido()
-
             cy.wait(7000)
-
             pedidoGerado()
         })    
         
         it('Pedido de venda remoto - SEM saldo no CD (filial 1) - NÃO deve permitir fazer o pedido - (Venda remota de produto sem saldo na filial do faturamento, sem saldo da CD do faturamento)', () => {
 
             produtoRemotoSemCD()
-
             semSaldodisponivel()
-
             escolherProdutoPesquisa()
 
             cy.wait(200)

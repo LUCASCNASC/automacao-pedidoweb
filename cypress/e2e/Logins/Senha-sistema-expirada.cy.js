@@ -39,13 +39,9 @@ describe('Senha do sistema expirada', () => {
             .should('equal', 'Informe sua senha')
 
         iconeOlhosSenha()
-
         botaoEsqueceuSenha()
-
         botaoEntrarHabilitado()
-
         clicarBotaoEntrar()
-
         mensagemEntrandoSistema()
 
         cy.wait(2000)

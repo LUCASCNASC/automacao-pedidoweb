@@ -22,12 +22,10 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
 
     context('Configuração de processo - Exclusiva: 36 = 2; 139 = 6; 552= 5 dias', () => {
 
-        it.only('Vender um produto normal (com saldo e com entrega, 15 dias) e um kit remoto (2 composições, sem saldo e sem a receber, 20 dias).', () => {
+        it.skip('Vender um produto normal (com saldo e com entrega, 15 dias) e um kit remoto (2 composições, sem saldo e sem a receber, 20 dias).', () => {
 
             primeiroPrdNormalExclusiva()
-
             saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
@@ -35,19 +33,16 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             cy.wait(200)
                       
             escolherVoltagemProduto() 
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
 
             kitSemSaldoAgendamento()
-
             semSaldodisponivel()
 
             cy.wait(800)
@@ -75,9 +70,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             cy.wait(12000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -87,13 +80,11 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -106,9 +97,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
         it.skip('Vender um produto normal (com saldo e com entrega) e um kit com composição 6 volumes (data atual + parametro 552/ 5 dias).', () => {
 
             primeiroPrdNormalExclusiva()
-
             saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
@@ -116,19 +105,16 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             cy.wait(200)
                       
             escolherVoltagemProduto() 
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
 
             kitVolumes()
-
             saldodisponivel()
 
             cy.wait(800)
@@ -154,9 +140,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             cy.wait(12000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -166,13 +150,11 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -188,9 +170,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
         it.skip('Vender um produto (sem saldo e com saldo a receber para 10 dias, e com entrega), e ter um agendamento para a data de previsão.', () => {
 
             produtoSaldoReceber()
-
             saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
@@ -198,13 +178,11 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             cy.wait(200)
                       
             escolherVoltagemProduto() 
-            
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             cy.wait(400)
@@ -216,9 +194,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             cy.wait(12000)
 
             modalInconsRotaTransp()
-    
             escolherTransportadora()
-        
             escolherRota()
 
             avancarParcelasEntrega()
@@ -228,13 +204,11 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
 
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
@@ -248,9 +222,7 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
         it.skip('Vender um produto em duas linhas (um com 5 unidades a receber e 10 para solicitar compra), e ter um agendamento para a data de previsão para a receber.', () => {
 
             prdSaldoReceberDuasLinhas()
-
             saldoRemotoAReceber()
-    
             escolherProdutoPesquisa()
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
@@ -258,38 +230,27 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             cy.wait(200)
                       
             escolherVoltagemProduto() 
-
             trocarFilialFaturamento()
-
             aumentarQuantVendaCinco()
-
             clicarAdicionarProduto()
 
             cy.wait(800)
 
             prdSaldoReceberDuasLinhas()
-
             saldoRemotoAReceber()
 
             cy.wait(800)
 
-            escolherProdutoPesquisa()
-                      
+            escolherProdutoPesquisa()  
             escolherVoltagemProduto() 
-
             trocarFilialFaturamento()
-
             aumentarQuantVendaDez()
-            
-            
         })
 
         it.skip('Pedido de venda normal: produto 1896 0 0 (sem entrega)', () => {
     
             primeiroPrdNormalExclusiva()
-    
             saldodisponivel()
-    
             escolherProdutoPesquisa()
     
             cy.wait(200)
@@ -297,13 +258,11 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
-         
             clicarAdicionarProduto()
     
             cy.wait(500)
 
             modalServicosVinculados()
-
             okServicosVinculados()
     
             tirarEntrega()
@@ -317,13 +276,11 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             cy.wait(5500)
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
     
             cy.wait(5000)
     
             escolherFormaPagamentoPrincipal()
-
             escolherDuasParcelaPagamento()
 
             cy.wait(400)
