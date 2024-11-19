@@ -15,6 +15,37 @@ export function escolherTransportadora (selector) {
         .click({force:true})
 }
 
+//Escolher rota completa, rota maringá
+export function escolherRota (selector) {
+
+    //Lupa de pesquisa de rota - clicar para pesquisar
+    cy.get('.rota-frete > .md-icon-right > .ng-binding')
+        .scrollIntoView()
+        .click()
+
+    cy.wait(400)
+
+    //Pesquisar rota
+    cy.get('#txtBuscaRotaModal')
+        .type('1')
+
+    //Clicar na lupa para pesquisar rota depois de preencher campo
+    cy.get('md-icon[ng-click="pesquisar()"]')
+        .click()
+
+    cy.wait(400)
+
+    //Escolher rota após pesquisarmos
+    cy.get('v-pane-header.ng-scope > div')
+        .click() //clicar na rota 1
+
+    //Escolher rota 2
+    cy.get(':nth-child(4) > .padding-10-0')
+        .click() //clicar na rota 1
+
+    cy.wait (200)
+}
+
 //Validando produto com saldo disponível local
 export function saldodisponivel (selector) {
     
@@ -142,37 +173,6 @@ export function semSaldodisponivel (selector) {
     cy.get('.expandeIcone')
         .should('exist')
         .and('be.visible')
-}
-
-//Escolher rota completa, rota maringá
-export function escolherRota (selector) {
-
-    //Lupa de pesquisa de rota - clicar para pesquisar
-    cy.get('.rota-frete > .md-icon-right > .ng-binding')
-        .scrollIntoView()
-        .click()
-
-    cy.wait(400)
-
-    //Pesquisar rota
-    cy.get('#txtBuscaRotaModal')
-        .type('1')
-
-    //Clicar na lupa para pesquisar rota depois de preencher campo
-    cy.get('md-icon[ng-click="pesquisar()"]')
-        .click()
-
-    cy.wait(400)
-
-    //Escolher rota após pesquisarmos
-    cy.get('v-pane-header.ng-scope > div')
-        .click() //clicar na rota 1
-
-    //Escolher rota 2
-    cy.get(':nth-child(4) > .padding-10-0')
-        .click() //clicar na rota 1
-
-    cy.wait (200)
 }
 
 //Função para escolher cliente CPF para gerar pedido de venda - inserir cliente 
@@ -415,21 +415,6 @@ export function finalizandoPedido (selector) {
         .and('contain','Não atualize a página enquanto o pedido estiver sendo finalizado.')
         .and('have.css', 'color', 'rgb(204, 0, 0)')
 
-}
-
-//Botão adicionar produto após selecionar voltagem do produto
-export function clicarAdicionarProduto (selector) {
-
-    //Botão adicionar produto após selecionar voltagem do produto
-    cy.get('button.md-primary.btn-rounded')
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-        .and('contain','Adicionar')
-
-    //Botão adicionar produto após selecionar voltagem do produto, clicar no botão
-    cy.get('[style="padding: 0px 5px;"] > .md-primary')
-        .click({force:true})
 }
 
 //Arrastar botão de Retirada / Entrega
@@ -1029,6 +1014,21 @@ export function trocarFilialFaturamento (selector) {
     //Card Filial de faturamento - clicar na filial 6
     cy.get('.white > md-list.md-default-theme > :nth-child(2) > div.md-button > .md-no-style')
         .click()
+}
+
+//Botão adicionar produto após selecionar voltagem do produto
+export function clicarAdicionarProduto (selector) {
+
+    //Botão adicionar produto após selecionar voltagem do produto
+    cy.get('button.md-primary.btn-rounded')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('contain','Adicionar')
+
+    //Botão adicionar produto após selecionar voltagem do produto, clicar no botão
+    cy.get('[style="padding: 0px 5px;"] > .md-primary')
+        .click({force:true})
 }
 
 //Card Inconsistências - rota e transportadora

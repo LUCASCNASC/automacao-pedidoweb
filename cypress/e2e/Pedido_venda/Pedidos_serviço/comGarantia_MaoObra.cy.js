@@ -231,7 +231,7 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(300)
 
             //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-            cy.get('#checkbox-143-1 > .md-container')
+            cy.get('#checkbox-144-2 > .md-container')
                 .click()
 
             okServicosVinculados()
