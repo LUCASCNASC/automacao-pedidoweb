@@ -36,21 +36,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(8000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -64,7 +60,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
@@ -72,10 +67,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -90,11 +83,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -108,21 +99,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(9000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -136,7 +123,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(800)
@@ -144,10 +130,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -158,15 +142,12 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(10000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -180,21 +161,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(9000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -208,7 +185,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
@@ -216,10 +192,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -230,15 +204,12 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(10000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -252,21 +223,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraDestacaNãoSepara()//Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(9000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -280,7 +247,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraDestacaNãoSepara()//Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(800)
@@ -288,10 +254,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -303,15 +267,12 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(10000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -325,21 +286,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(9000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -353,7 +310,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(800)
@@ -361,10 +317,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -376,22 +330,18 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(10000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
 
             avancarFinal()
-
-            cywait(9000)
+            cy.wait(9000)
         })
 
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa e Mão de Obra não destaca e separa em outro processo)', () => {
@@ -399,21 +349,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(9000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -427,7 +373,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(800)
@@ -435,10 +380,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -450,15 +393,12 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(10000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -472,21 +412,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(9000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -500,7 +436,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
@@ -508,10 +443,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -523,15 +456,12 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(10000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -545,21 +475,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(8000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -573,7 +499,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
@@ -581,30 +506,25 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
 
             modalServicosVinculados()
-    
             okServicosVinculados()
+
             tirarEntregaSegundo()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(10000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -618,21 +538,17 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente//Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente()
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(9000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -646,7 +562,6 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente//Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente()
-
             okServicosVinculados()
             tirarEntrega()
             cy.wait(400)
@@ -654,10 +569,8 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -669,15 +582,12 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaParcelas()
-
-            // tela de GERAR PARCELAS
-
             cy.wait(10000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -694,16 +604,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -711,11 +618,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -729,17 +634,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -749,11 +651,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -761,11 +661,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -779,16 +677,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -796,11 +691,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -814,17 +707,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -834,11 +724,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -846,11 +734,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -864,16 +750,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-
             okServicosVinculados()
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -881,11 +764,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -899,17 +780,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-
             okServicosVinculados()
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -919,11 +797,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -931,11 +807,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -949,16 +823,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraDestacaNãoSepara()//Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -966,11 +837,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -984,17 +853,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraDestacaNãoSepara()//Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -1004,11 +870,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1016,11 +880,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -1034,16 +896,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1051,11 +910,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -1069,17 +926,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -1089,11 +943,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1101,11 +953,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -1119,16 +969,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-
             okServicosVinculados()
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1136,11 +983,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -1154,17 +999,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Processo Diferente" 
-
             okServicosVinculados()
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -1174,11 +1016,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1186,11 +1026,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -1204,16 +1042,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1221,11 +1056,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -1239,17 +1072,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-
             okServicosVinculados()
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -1258,11 +1088,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1270,11 +1098,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -1288,16 +1114,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1305,11 +1128,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -1323,17 +1144,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente() //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-
             okServicosVinculados()
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -1343,11 +1161,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1355,11 +1171,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(800)
@@ -1373,16 +1187,13 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente //Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente()
-
             okServicosVinculados()
             cy.wait(800)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1390,11 +1201,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(10000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
@@ -1408,17 +1217,14 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             garantiaSeparaTituloProcessoDiferente//Marcar garantia "T.A. MO Não Destaca e Separa Processo Diferente"
             cy.wait(300)
             maoObraNaoDestacaSeparaProcessoDiferente()
-
             okServicosVinculados()
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(1000)
@@ -1428,11 +1234,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(400)
 
             avancarParaTransportadora()
-
-            // tela para ESCOLHER TRANSPORTADORA
-
             cy.wait(14000)
 
+            // tela para ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -1440,11 +1244,9 @@ describe('Gerar pedidos com Garantia e Mão de Obra', () => {
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(9000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)

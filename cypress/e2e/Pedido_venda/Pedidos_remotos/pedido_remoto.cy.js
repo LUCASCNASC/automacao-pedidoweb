@@ -24,55 +24,44 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             produtoNormalPrimeiro()
             saldodisponivel()
             escolherProdutoPesquisa()
-
             cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
             escolherVoltagemProduto()
-            
             cy.wait(400)
 
             trocarFilialFaturamento()
-
             clicarAdicionarProduto()
-
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
-
             cy.wait(400)
 
             avancarParaTransportadora()
+            cy.wait(14000)
 
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(14000)
 
             modalInconsApenasRota()
             escolherTransportadora()
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
-
             carregandoFormaPagamento()
-
             cy.wait(8000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(9000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
@@ -87,72 +76,58 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             produtoNormalPrimeiro()
             saldodisponivel()
             escolherProdutoPesquisa()
-
             cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
             escolherVoltagemProduto()
-            
             cy.wait(400)
 
             trocarFilialFaturamento()
-
             clicarAdicionarProduto()
-
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
-
             cy.wait(800)
 
             produtoNormalSegundo()
             saldodisponivel()
             escolherProdutoPesquisa()
             escolherVoltagemProduto()
-
             cy.wait(800)
 
             trocarFilialFaturamento()
-
-            botãoAdicionar()
-
+            clicarAdicionarProduto()
             cy.wait(1000)
 
             modalServicosVinculados()
             okServicosVinculados()
-
             cy.wait(400)
 
             avancarParaTransportadora()
+            cy.wait(14000)
 
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(14000)
 
             modalInconsApenasRota()
             escolherTransportadora()
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(12000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(18000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
@@ -167,54 +142,44 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             produtoNormalPrimeiro()
             saldodisponivel()
             escolherProdutoPesquisa()
-
             cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
             escolherVoltagemProduto()
-            
             cy.wait(400)
 
             trocarFilialFaturamento()
-
             clicarAdicionarProduto()
-
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
-
             cy.wait(400)
 
             avancarParaTransportadora()
+            cy.wait(14000)
 
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(14000)
 
             modalInconsApenasRota()
             escolherTransportadora()
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(10000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(8000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(9000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
@@ -232,54 +197,44 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             produtoRemotoComCD()
             semSaldodisponivel()
             escolherProdutoPesquisa()
-
             cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
             escolherVoltagemProduto()
-            
             cy.wait(400)
 
             trocarFilialFaturamento()
-
             clicarAdicionarProduto()
-
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
-
             cy.wait(400)
 
             avancarParaTransportadora()
+            cy.wait(10000)
 
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(10000)
 
             modalInconsApenasRota()
             escolherTransportadora()
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(6000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(5000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(6000)
 
             // RESUMO DO PEDIDO - ANTES DE FINALIZAR
@@ -294,13 +249,11 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             produtoRemotoSemCD()
             semSaldodisponivel()
             escolherProdutoPesquisa()
-
             cy.wait(200)
 
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                     
             escolherVoltagemProduto()
-            
             cy.wait(400)
 
             trocarFilialFaturamento()

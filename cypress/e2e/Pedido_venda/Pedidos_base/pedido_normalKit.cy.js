@@ -36,10 +36,9 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             avancarParaParcelas()
+            cy.wait(6500)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(6500)
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
@@ -67,10 +66,9 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             avancarParaTransportadora()
+            cy.wait(13000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(13000)
 
             modalInconsRotaTransp()
             escolherTransportadora()

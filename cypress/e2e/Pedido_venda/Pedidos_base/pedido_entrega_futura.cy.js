@@ -37,10 +37,9 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(400)
     
             avancarParaParcelas()
+            cy.wait(6000)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(6000)
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
@@ -88,10 +87,9 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(400)
     
             avancarParaParcelas()
+            cy.wait(6500)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(6500)
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
@@ -119,10 +117,9 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(400)
     
             avancarParaTransportadora()
+            cy.wait(12000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(12000)
 
             modalInconsApenasTransp()
             escolherTransportadora()
@@ -156,7 +153,6 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(800)
     
             produtoNormalSegundo()
-    
             saldodisponivel()
             cy.wait(800)
     
@@ -172,10 +168,9 @@ describe('Gerar pedido de entrega futura', () => {
             cy.wait(400)
     
             avancarParaTransportadora()
+            cy.wait(12000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(12000)
 
             modalInconsApenasTransp()
             escolherTransportadora()

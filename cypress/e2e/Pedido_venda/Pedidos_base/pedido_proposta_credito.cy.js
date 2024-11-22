@@ -38,10 +38,9 @@ describe('Gerar pedido com proposta de crédito', () => {
             cy.wait(400)
 
             avancarParaParcelas()
+            cy.wait(5500)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(5500)
 
             botaoGerarParcelas()
             carregandoFormaPagamento()

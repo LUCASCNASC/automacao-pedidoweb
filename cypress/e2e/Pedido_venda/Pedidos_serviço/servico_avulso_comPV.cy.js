@@ -5,7 +5,7 @@ import { processoVendaServicoAvulso, escolherClientePedido, iconeMenuOpcoes, cli
          messRegistroSalvoSucesso, messGarantiaJaAdicionada, clicarCarrinhoCompras, botaoAvancarPedido } from '../../../support/para_pedidos/para_servicos_avulsos';
 import { botaoGerarParcelas, avancarFinal, botaoFinalizarPedido, finalizandoPedido, pedidoGerado, carregandoFormaPagamento, 
          escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
-
+import { garantiaSeparaMesmoProcesso } from '../../../support/para_pedidos/apenas_servicos';
 
 describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
 
@@ -46,40 +46,31 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
             botaoAddGarantias()
             clicarAddGarantias()
             modalGarantiasServicosVinculados()
-
-            //clicar na primeira garantia - Garantia Separa Mesmo Processo
-            cy.get('#checkbox-139-0 > .md-container')
-                .click({force:true})
-
+            garantiaSeparaMesmoProcesso() //clicar na primeira garantia - Garantia Separa Mesmo Processo
             okServicosVinculados()
+
             messServicoAdicionadoSucesso()
             botaoSalvarServico()
             messAguardeCarregando()
             messRegistroSalvoSucesso()
 
-            //Clicando novamente para validar que não deixa adicionar mais garantias
-            clicarAddGarantias()
+            clicarAddGarantias() //Clicando novamente para validar que não deixa adicionar mais garantias
 
-            //Mensagem de "O Serviço Garantias já foi adicionado à esse produto.", quando tentamos adicionar novamente
-            messGarantiaJaAdicionada()
+            messGarantiaJaAdicionada() //Mensagem de "O Serviço Garantias já foi adicionado à esse produto.", quando tentamos adicionar novamente
 
             clicarCarrinhoCompras()
             botaoAvancarPedido()
-
             cy.wait(3000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(2000)
-    
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(4000)
         })
     })

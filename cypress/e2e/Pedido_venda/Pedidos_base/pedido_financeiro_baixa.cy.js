@@ -37,10 +37,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(400)
     
             avancarParaParcelas()
+            cy.wait(5000)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(5000)
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
@@ -67,7 +66,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(800)
     
             produtoNormalSegundo()
-
             saldodisponivel()
             cy.wait(800)
     
@@ -85,10 +83,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(400)
     
             avancarParaParcelas()
+            cy.wait(7000)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(7000)
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
@@ -116,10 +113,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(400)
     
             avancarParaTransportadora()
+            cy.wait(12000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(12000)
 
             escolherRota()
             cy.wait(6000)
@@ -151,7 +147,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(400)
     
             produtoNormalSegundo()
-    
             saldodisponivel()
             cy.wait(800)
     
@@ -167,11 +162,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(400)
     
             avancarParaTransportadora()
+            cy.wait(13000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(13000)
-
             escolherRota()
             cy.wait(7000)
 

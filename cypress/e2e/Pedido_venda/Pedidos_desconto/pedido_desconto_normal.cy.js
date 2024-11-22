@@ -28,7 +28,6 @@ describe('Gerar pedido de venda com desconto', () => {
 
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
 
             modalServicosVinculados()
@@ -39,27 +38,22 @@ describe('Gerar pedido de venda com desconto', () => {
             aplicarDescontoR$()
     
             tirarEntrega()
-
             cy.wait(400)
 
             avancarParaParcelas()
+            cy.wait(5000)
 
             // tela de GERAR PARCELAS
 
-            cy.wait(5000)
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(5000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(6000)
         })
 
@@ -67,7 +61,6 @@ describe('Gerar pedido de venda com desconto', () => {
 
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
 
             modalServicosVinculados()
@@ -78,27 +71,22 @@ describe('Gerar pedido de venda com desconto', () => {
             aplicarDescontoPorcentagem()
     
             tirarEntrega()
-
             cy.wait(400)
 
             avancarParaParcelas()
+            cy.wait(5000)
 
             // tela de GERAR PARCELAS
 
-            cy.wait(5000)
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(5000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(6000)
         })
 
@@ -106,7 +94,6 @@ describe('Gerar pedido de venda com desconto', () => {
 
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
 
             modalServicosVinculados()
@@ -117,27 +104,22 @@ describe('Gerar pedido de venda com desconto', () => {
             aplicarDescontoValorFixo()
     
             tirarEntrega()
-
             cy.wait(400)
 
             avancarParaParcelas()
+            cy.wait(5000)
 
             // tela de GERAR PARCELAS
 
-            cy.wait(5000)
-
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(5000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(6000)
         })
     })

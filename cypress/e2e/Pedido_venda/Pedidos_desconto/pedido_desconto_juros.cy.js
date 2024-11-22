@@ -28,41 +28,34 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
 
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
     
             tirarEntrega()
-    
             cy.wait(400)
 
             avancarParaParcelas()
+            cy.wait(5000)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(5000)
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-    
             cy.wait(4000)
     
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             arrastarFormaPagamento()
             clicarAlterarValor()
             modalAlterarValor()
             alterarValorParaBaixo()
-
             cy.wait(400)
     
             avancarFinal()
-    
             cy.wait(6000)
         })
 
@@ -70,41 +63,34 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
 
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
     
             tirarEntrega()
-    
             cy.wait(400)
 
             avancarParaParcelas()
+            cy.wait(5000)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(5000)
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-    
             cy.wait(4000)
     
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             arrastarFormaPagamento()
             clicarAlterarValor()
             modalAlterarValor()
             alterarValorParaCima()
-
             cy.wait(400)
     
             avancarFinal()
-    
             cy.wait(6000)
         })
     })

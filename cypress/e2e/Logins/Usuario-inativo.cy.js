@@ -66,6 +66,6 @@ describe('Usuário inativo', () => {
             .should('exist')
             .and('be.visible')
 
-        iconeComputadorLogin()
+        iconeComputadorLogin() //Validando que não entrou no sistema
     })
 })

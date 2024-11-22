@@ -38,10 +38,9 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
 
             avancarParaParcelas()
+            cy.wait(5500)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(5500)
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
@@ -68,7 +67,6 @@ describe('Gerar pedido normal', () => {
             cy.wait(800)
     
             produtoNormalSegundo()
-    
             saldodisponivel()
             cy.wait(800)
     
@@ -86,10 +84,9 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             avancarParaParcelas()
+            cy.wait(5500)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(5500)
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
@@ -116,10 +113,9 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
 
             avancarParaParcelas()
+            cy.wait(5500)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(5500)
 
             escolherEntradaFormaPagamento()
             clicarGerarPagamento()
@@ -149,10 +145,9 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             avancarParaTransportadora()
+            cy.wait(11000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(11000)
 
             modalInconsRotaTransp()
             escolherTransportadora()
@@ -186,7 +181,6 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             produtoNormalSegundo()
-    
             saldodisponivel()
             cy.wait(800)
     
@@ -202,10 +196,9 @@ describe('Gerar pedido normal', () => {
             cy.wait(1000)
     
             avancarParaTransportadora()
+            cy.wait(12000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(12000)
 
             modalInconsRotaTransp()
             escolherTransportadora()
@@ -239,10 +232,9 @@ describe('Gerar pedido normal', () => {
             cy.wait(400)
     
             avancarParaTransportadora()
+            cy.wait(11000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(11000)
 
             modalInconsRotaTransp()
             escolherTransportadora()

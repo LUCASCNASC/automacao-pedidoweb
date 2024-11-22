@@ -48,7 +48,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             mensagemEntrandoSistema()
-    
             cy.wait(6000)
     
             //Validando botão INICIAR ATENDIMENTO, para ver se logou
@@ -83,7 +82,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
-    
             cy.wait(800)
     
             //Mensagem de senha errada
@@ -110,8 +108,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('exist')
                 .and('be.visible')
     
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
         it('Login - passar senha errada (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
@@ -140,7 +137,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
-
             cy.wait(800)
     
             //Mensagem de senha errada
@@ -167,8 +163,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('exist')
                 .and('be.visible')
     
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
@@ -197,8 +192,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
     
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
@@ -227,8 +221,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
     
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })  
     
         it('Login - sem passar login e senha (botão ENTRAR deve ficar desabilitado)', () => {
@@ -256,8 +249,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
     
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })
     })
 
@@ -290,7 +282,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             mensagemEntrandoSistema()
-    
             cy.wait(6000)
     
             //Validando botão INICIAR ATENDIMENTO, para ver se logou
@@ -325,7 +316,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
-    
             cy.wait(800)
     
             //Mensagem de senha errada
@@ -352,8 +342,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('exist')
                 .and('be.visible')
     
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
         it('Login - passar senha errada (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
@@ -382,7 +371,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
-    
             cy.wait(800)
     
             //Mensagem de senha errada
@@ -409,8 +397,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
                 .should('exist')
                 .and('be.visible')
     
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
@@ -439,8 +426,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
     
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
         it('Login - passar somente login (botão ENTRAR deve ficar desabilitado)', () => {
@@ -468,9 +454,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
-    
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })  
     
         it('Login - sem passar login e senha (botão ENTRAR deve ficar desabilitado)', () => {
@@ -497,9 +482,8 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
-    
-            //Validando que não entrou no sistema
-            iconeComputadorLogin()
+
+            iconeComputadorLogin() //Validando que não entrou no sistema
         })
     })
 })

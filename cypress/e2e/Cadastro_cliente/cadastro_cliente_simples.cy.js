@@ -30,7 +30,6 @@ describe('Cadastrar cliente simples', () => {
         it('Cliente simples CPF', () => {
 
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             prencherCPFcliente()
@@ -56,7 +55,6 @@ describe('Cadastrar cliente simples', () => {
         it.skip('Cliente simples CPF - alterar data de nascimento logo após cadastrar', () => {
     
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             prencherCPFcliente()
@@ -115,7 +113,6 @@ describe('Cadastrar cliente simples', () => {
         it.skip('Cliente simples CPF - alterar data de nascimento (deve pedir trial)', () => {
     
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             //Campo CPF - validando mensagem dentro do campo antes de preencher
@@ -177,7 +174,6 @@ describe('Cadastrar cliente simples', () => {
             cy.wait(7500)
 
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             //Preencher campo CPF - para alterar o cadastro que acabamos de gerar
@@ -350,7 +346,6 @@ describe('Cadastrar cliente simples', () => {
         it('Cliente simples CPF - alterar tipo de sexo', () => {
 
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             //Campo CPF - validando mensagem dentro do campo antes de preencher
@@ -483,7 +478,6 @@ describe('Cadastrar cliente simples', () => {
         it('Cliente simples CPF - alterar Endereço logo após cadastrar', () => {
     
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             prencherCPFcliente()
@@ -507,7 +501,6 @@ describe('Cadastrar cliente simples', () => {
             // ALTERAÇÃO DE CLIENTE SIMPLES - CPF
 
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             //Campo CEP - alterar
@@ -544,7 +537,6 @@ describe('Cadastrar cliente simples', () => {
         it('Cliente simples CNPJ', () => {
     
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             arrastarPessoaJuridica()
@@ -567,7 +559,6 @@ describe('Cadastrar cliente simples', () => {
         it('Cliente simples CNPJ - alterar Endereço', () => {
 
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             arrastarPessoaJuridica()
@@ -589,7 +580,6 @@ describe('Cadastrar cliente simples', () => {
             // ALTERAÇÃO DE CLIENTE SIMPLES - CPF
 
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             //Campo CEP - alterar
@@ -694,7 +684,6 @@ describe('Cadastrar cliente simples', () => {
                 .should('exist') 
                 .and('be.visible')
                 .and('not.have.attr', 'disabled')
-
         })
     })
 })

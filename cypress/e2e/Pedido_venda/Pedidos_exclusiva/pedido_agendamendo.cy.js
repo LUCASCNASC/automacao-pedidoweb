@@ -27,70 +27,57 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             primeiroPrdNormalExclusiva()
             saldodisponivel()
             escolherProdutoPesquisa()
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(200)
                       
             escolherVoltagemProduto() 
             clicarAdicionarProduto()
-    
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(400)
 
             kitSemSaldoAgendamento()
             semSaldodisponivel()
-
             cy.wait(800)
 
             escolherProdutoPesquisa()
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(200)
                       
             escolherVoltagemProduto()
-
             cy.wait(400)
 
             trocarFilialFaturamento()
-
             clicarAdicionarProduto()
-
             cy.wait(500)
 
             avancarParaTransportadora()
+            cy.wait(12000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(12000)
 
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(7000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(10000)
         })
 
@@ -99,68 +86,56 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             primeiroPrdNormalExclusiva()
             saldodisponivel()
             escolherProdutoPesquisa()
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(200)
                       
             escolherVoltagemProduto() 
             clicarAdicionarProduto()
-    
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(400)
 
             kitVolumes()
             saldodisponivel()
-
             cy.wait(800)
     
             escolherProdutoPesquisa()
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(200)
                       
             escolherVoltagemProduto()
-
             cy.wait(400)
 
             clicarAdicionarProduto()
-
             cy.wait(500)
 
             avancarParaTransportadora()
+            cy.wait(12000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(12000)
 
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(7000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(10000)
         })
     })
@@ -172,49 +147,41 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             produtoSaldoReceber()
             saldodisponivel()
             escolherProdutoPesquisa()
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(200)
                       
             escolherVoltagemProduto() 
             clicarAdicionarProduto()
-    
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(400)
 
             avancarParaTransportadora()
+            cy.wait(12000)
     
             // tela para ESCOLHER TRANSPORTADORA
-
-            cy.wait(12000)
 
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(7000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(9000)
         })
 
@@ -224,21 +191,18 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             prdSaldoReceberDuasLinhas()
             saldoRemotoAReceber()
             escolherProdutoPesquisa()
+            cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-    
-            cy.wait(200)
                       
             escolherVoltagemProduto() 
             trocarFilialFaturamento()
             aumentarQuantVendaCinco()
             clicarAdicionarProduto()
-
             cy.wait(800)
 
             prdSaldoReceberDuasLinhas()
             saldoRemotoAReceber()
-
             cy.wait(800)
 
             escolherProdutoPesquisa()  
@@ -252,41 +216,34 @@ describe('Pedidos Exclusiva - Parâmetro de empresa 1019 marcado', () => {
             primeiroPrdNormalExclusiva()
             saldodisponivel()
             escolherProdutoPesquisa()
-    
             cy.wait(200)
     
             // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
 
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
 
             modalServicosVinculados()
             okServicosVinculados()
     
             tirarEntrega()
-    
             cy.wait(400)
 
             avancarParaParcelas()
+            cy.wait(5500)
     
             // tela de GERAR PARCELAS
-    
-            cy.wait(5500)
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-    
             cy.wait(5000)
     
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
     
             avancarFinal()
-    
             cy.wait(6000)
         })
     })

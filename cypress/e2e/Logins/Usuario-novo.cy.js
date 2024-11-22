@@ -43,7 +43,6 @@ describe('Logar com novo usuário', () => {
         botaoEsqueceuSenha()
         botaoEntrarHabilitado
         clicarBotaoEntrar()
-
         cy.wait(2000)
 
         //Card Sua Senha expirou - Mensagem "Sua Senha expirou..."
@@ -241,7 +240,7 @@ describe('Logar com novo usuário', () => {
         cy.get('[ng-show="!loading"] > a')
             .click()
 
-        iconeComputadorLogin()
+        iconeComputadorLogin() //Validando que não entrou no sistema
     })
 
     it('Novo usuário - clicar em CONFIRMAR, alterando a senha', () => {
@@ -270,7 +269,6 @@ describe('Logar com novo usuário', () => {
         botaoEsqueceuSenha()
         botaoEntrarHabilitado
         clicarBotaoEntrar()
-
         cy.wait(2000)
 
         //Card Sua Senha expirou - Mensagem "Sua Senha expirou..."

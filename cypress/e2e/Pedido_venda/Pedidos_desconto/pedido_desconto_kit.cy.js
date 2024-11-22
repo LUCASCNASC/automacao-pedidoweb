@@ -25,14 +25,12 @@ describe('Gerar pedido de venda Kit com desconto', () => {
             produtoKitPrimeiro()
             saldodisponivel()
             escolherProdutoPesquisa()
-    
             cy.wait(200)
     
             // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
@@ -43,27 +41,22 @@ describe('Gerar pedido de venda Kit com desconto', () => {
             aplicarDescontoValorFixo()
     
             tirarEntrega()
-    
             cy.wait(400)
     
             avancarParaParcelas()
+            cy.wait(6500)
     
             // tela de GERAR PARCELAS
     
-            cy.wait(6500)
-    
             botaoGerarParcelas()
             carregandoFormaPagamento()
-    
             cy.wait(6000)
     
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-    
             cy.wait(400)
     
             avancarFinal()
-    
             cy.wait(6000)
         })
     })

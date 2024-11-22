@@ -25,7 +25,6 @@ describe('Cadastrar cliente completo', () => {
         it.skip('Cliente completo CPF', () => {
 
             iconeMenuOpcoes()
-
             opcaoClienteCompleto()
 
             preencherCPFcliente()
@@ -513,7 +512,6 @@ describe('Cadastrar cliente completo', () => {
         it.skip('Cliente completo CPF - mensagem de campos obrigatórios', () => {
     
             iconeMenuOpcoes()
-
             opcaoClienteCompleto()
 
             //Clicar em salvar, antes de preencher o campo CPF, não deve deixar salvar
@@ -1042,7 +1040,6 @@ describe('Cadastrar cliente completo', () => {
         it('Cliente completo CNPJ', () => {
     
             iconeMenuOpcoes()
-
             opcaoClienteCompleto()
 
             preencherCNPJcliente()

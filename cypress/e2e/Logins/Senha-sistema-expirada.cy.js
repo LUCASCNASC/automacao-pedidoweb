@@ -43,7 +43,6 @@ describe('Senha do sistema expirada', () => {
         botaoEntrarHabilitado()
         clicarBotaoEntrar()
         mensagemEntrandoSistema()
-
         cy.wait(2000)
 
         //Mensagem "Seu acesso ao sistema expirou."
@@ -63,6 +62,6 @@ describe('Senha do sistema expirada', () => {
         cy.get('md-dialog-actions > .md-primary')
             .click()
 
-        iconeComputadorLogin()
+        iconeComputadorLogin() //Validando que não entrou no sistema
     })
 })

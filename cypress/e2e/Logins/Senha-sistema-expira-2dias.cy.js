@@ -45,12 +45,9 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         botaoEntrarHabilitado()
         clicarBotaoEntrar()
         mensagemEntrandoSistema()
-
         cy.wait(8000)
 
-
-        //Após logar
-
+        //APÓS LOGAR
         //Card de expira acesso - Mensagem "Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo."
         cy.get('.md-dialog-content-body > .ng-binding')
             .should('exist')
@@ -108,11 +105,9 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         botaoEntrarHabilitado()
         clicarBotaoEntrar()
         mensagemEntrandoSistema()
-
         cy.wait(8000)
 
-        //Após logar
-
+        //APÓS LOGAR
         //Card de expira acesso - Mensagem "Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo."
         cy.get('.md-dialog-content-body > .ng-binding')
             .should('exist')
@@ -356,11 +351,9 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         botaoEntrarHabilitado()
         clicarBotaoEntrar()
         mensagemEntrandoSistema()
-
         cy.wait(8000)
 
-        //Após logar
-
+        //APÓS LOGAR
         //Card de expira acesso - Mensagem "Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo."
         cy.get('.md-dialog-content-body > .ng-binding')
             .should('exist')

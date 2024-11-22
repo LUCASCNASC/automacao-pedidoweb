@@ -24,37 +24,29 @@ describe('Venda de serviço avulso Host - 104', () => {
 
             iconeMenuOpcoes()
             clicarServicosMenu()
-
             cy.wait(400)
 
             produtoServicoHost()
             saldoDisponivelServico()
             escolherServicoPesquisa()
-    
             cy.wait(200)
 
             escolherValorRecarga()
-
             cy.wait(200)
 
             clicarCarrinhoCompras()
-
             botaoAvancarPedido()
-
             cy.wait(3000)
 
+            // tela de GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(2000)
-    
             escolherFormaPagamentoPrincipal()
             escolherUmaParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(4000) 
         })
     })
