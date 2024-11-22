@@ -28,14 +28,12 @@ describe('Gerar pedido com financeiro na baixa', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
     
             tirarEntrega()
-    
             cy.wait(400)
     
             avancarParaParcelas()
@@ -46,16 +44,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
-    
             cy.wait(5500)
     
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-    
             cy.wait(400)
 
             avancarFinal()
-    
             cy.wait(5000)
         })
 
@@ -63,36 +58,30 @@ describe('Gerar pedido com financeiro na baixa', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
     
             tirarEntrega()
-    
             cy.wait(800)
     
             produtoNormalSegundo()
 
             saldodisponivel()
-
             cy.wait(800)
     
             escolherProdutoPesquisa()
-    
             cy.wait(800)
     
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
     
             tirarEntregaSegundo()
-    
             cy.wait(400)
     
             avancarParaParcelas()
@@ -103,16 +92,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
-    
             cy.wait(5000)
     
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-    
             cy.wait(400)
     
             avancarFinal()
-    
             cy.wait(7500)
         })
     })
@@ -123,12 +109,10 @@ describe('Gerar pedido com financeiro na baixa', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(400)
     
             avancarParaTransportadora()
@@ -138,7 +122,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(12000)
 
             escolherRota()
-
             cy.wait(6000)
 
             avancarParcelasEntrega()
@@ -147,16 +130,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(8000)
         })
 
@@ -164,32 +144,26 @@ describe('Gerar pedido com financeiro na baixa', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(400)
     
             produtoNormalSegundo()
     
             saldodisponivel()
-
             cy.wait(800)
     
             escolherProdutoPesquisa()
-    
             cy.wait(800)
     
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(400)
     
             avancarParaTransportadora()
@@ -199,7 +173,6 @@ describe('Gerar pedido com financeiro na baixa', () => {
             cy.wait(13000)
 
             escolherRota()
-
             cy.wait(7000)
 
             avancarParcelasEntrega()
@@ -208,16 +181,13 @@ describe('Gerar pedido com financeiro na baixa', () => {
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(6000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(8000)
         })
     })

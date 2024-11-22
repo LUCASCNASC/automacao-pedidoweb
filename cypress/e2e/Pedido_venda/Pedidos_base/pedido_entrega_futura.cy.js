@@ -28,14 +28,12 @@ describe('Gerar pedido de entrega futura', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
     
             tirarEntrega()
-    
             cy.wait(400)
     
             avancarParaParcelas()
@@ -46,16 +44,13 @@ describe('Gerar pedido de entrega futura', () => {
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
-    
             cy.wait(5500)
     
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-    
             cy.wait(400)
 
             avancarFinal()
-    
             cy.wait(5500)
         })
         
@@ -65,24 +60,20 @@ describe('Gerar pedido de entrega futura', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
     
             tirarEntrega()
-
             cy.wait(800)
     
             produtoNormalSegundo()
     
             saldodisponivel()
-
             cy.wait(800)
     
             escolherProdutoPesquisa()
-    
             cy.wait(800)
     
             escolherVoltagemProduto()
@@ -94,7 +85,6 @@ describe('Gerar pedido de entrega futura', () => {
             okServicosVinculados()
                 
             tirarEntregaSegundo()
-    
             cy.wait(400)
     
             avancarParaParcelas()
@@ -105,16 +95,13 @@ describe('Gerar pedido de entrega futura', () => {
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
-    
             cy.wait(5000)
     
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-    
             cy.wait(400)
     
             avancarFinal()
-    
             cy.wait(5500)
         })
     })
@@ -125,12 +112,10 @@ describe('Gerar pedido de entrega futura', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(400)
     
             avancarParaTransportadora()
@@ -144,23 +129,19 @@ describe('Gerar pedido de entrega futura', () => {
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(650)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(5500)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(5500)
         })    
         
@@ -168,32 +149,26 @@ describe('Gerar pedido de entrega futura', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(800)
     
             produtoNormalSegundo()
     
             saldodisponivel()
-
             cy.wait(800)
     
             escolherProdutoPesquisa()
-    
             cy.wait(800)
     
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(400)
     
             avancarParaTransportadora()
@@ -207,23 +182,19 @@ describe('Gerar pedido de entrega futura', () => {
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(7000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(6000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(6000)
         })  
     })

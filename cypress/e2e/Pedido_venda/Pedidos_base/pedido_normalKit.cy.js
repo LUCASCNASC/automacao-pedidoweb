@@ -27,14 +27,12 @@ describe('Gerar pedido normal', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
     
             tirarEntrega()
-    
             cy.wait(400)
     
             avancarParaParcelas()
@@ -45,16 +43,13 @@ describe('Gerar pedido normal', () => {
     
             botaoGerarParcelas()
             carregandoFormaPagamento()
-    
             cy.wait(6000)
     
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-    
             cy.wait(400)
     
             avancarFinal()
-    
             cy.wait(6000)
         })
     })
@@ -65,12 +60,10 @@ describe('Gerar pedido normal', () => {
                       
             escolherVoltagemProduto()
             clicarAdicionarProduto()
-    
             cy.wait(500)
     
             modalServicosVinculados()
             okServicosVinculados()
-    
             cy.wait(400)
     
             avancarParaTransportadora()
@@ -84,23 +77,19 @@ describe('Gerar pedido normal', () => {
             escolherRota()
 
             avancarParcelasEntrega()
-        
             cy.wait(8000)
 
             // tela de GERAR PARCELAS
 
             botaoGerarParcelas()
             carregandoFormaPagamento()
-
             cy.wait(7000)
 
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
-
             cy.wait(400)
 
             avancarFinal()
-
             cy.wait(8000)
         })
     })
