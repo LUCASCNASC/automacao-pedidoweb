@@ -27,29 +27,24 @@ describe('Gerar pedido com proposta de crédito', () => {
 
         it('Venda: produto 1860 0 0 - (Pedido de  venda sem entrega, com proposta de crédito.)', () => {
 
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-
             avancarParaParcelas()
             cy.wait(5500)
-    
-            // tela de GERAR PARCELAS
 
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
-    
             escolherFormaPagaPropCredito()
             escolherUmaParcelaPagamento()
             cy.wait(400)
-    
             avancarFinal()
             cy.wait(6000)
         })

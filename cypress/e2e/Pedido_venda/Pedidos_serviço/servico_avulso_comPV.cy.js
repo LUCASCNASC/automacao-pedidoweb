@@ -62,8 +62,7 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
             botaoAvancarPedido()
             cy.wait(3000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(2000)
             escolherFormaPagamentoPrincipal()
@@ -76,8 +75,7 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(4000)
         pedidoGerado()

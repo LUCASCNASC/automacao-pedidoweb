@@ -20,18 +20,17 @@ describe('Venda de serviço avulso', () => {
 
         it('Venda de Mão de obra - 144 (T.A. MO Não Destaca e Separa Processo Diferente)', () => {
 
-            produtoServicoAvulso()
+            produtoServicoAvulso() //PRODUTO
             saldoDisponivelServico()
             escolherServicoPesquisa()
             cy.wait(200)
 
-            clicarCarrinhoCompras()
+            clicarCarrinhoCompras() //CARRINHO COMPRAS
 
             botaoAvancarPedido()
             cy.wait(3000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(2000)
             escolherFormaPagamentoPrincipal()
@@ -44,8 +43,7 @@ describe('Venda de serviço avulso', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(4000)
         pedidoGerado()

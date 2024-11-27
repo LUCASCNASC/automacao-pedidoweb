@@ -26,70 +26,60 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
 
         it('Pedido de venda: produto 1860 0 0 - arredondar para baixo', () => {
 
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-
             avancarParaParcelas()
             cy.wait(5000)
-    
-            // tela de GERAR PARCELAS
 
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(4000)
-    
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
 
-            arrastarFormaPagamento()
+            arrastarFormaPagamento() //DESCONTO
             clicarAlterarValor()
             modalAlterarValor()
             alterarValorParaBaixo()
             cy.wait(400)
-    
             avancarFinal()
             cy.wait(6000)
         })
 
         it('Pedido de venda: produtos 1860 0 0 - arredondar para cima', () => {
 
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-
             avancarParaParcelas()
             cy.wait(5000)
-    
-            // tela de GERAR PARCELAS
 
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(4000)
-    
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
 
-            arrastarFormaPagamento()
+            arrastarFormaPagamento() //DESCONTO
             clicarAlterarValor()
             modalAlterarValor()
             alterarValorParaCima()
             cy.wait(400)
-    
             avancarFinal()
             cy.wait(6000)
         })

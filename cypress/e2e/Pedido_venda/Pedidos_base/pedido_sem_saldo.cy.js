@@ -18,13 +18,10 @@ describe('Tentar gerar pedido de venda com produto sem saldo - Regra de saldo Pa
 
         it('Pedido de venda: produto 1869 0 0 (Venda local de produto sem saldo - sem entrega)', () => {
             
-            produtoSemSaldo()
+            produtoSemSaldo() // PRODUTO
             semSaldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-    
-            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
             escolherVoltagemProduto()
 
             //Validando mensagem "Este produto não possui saldo na filial selecionada."

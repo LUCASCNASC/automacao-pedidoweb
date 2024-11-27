@@ -21,8 +21,7 @@ describe('Gerar pedidos com Garantia', () => {
         saldodisponivel()
         escolherProdutoPesquisa()
         cy.wait(200)
-        // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-        escolherVoltagemProduto()
+        escolherVoltagemProduto() //PRODUTO
         clicarAdicionarProduto()
         cy.wait(500)
         modalServicosVinculados()
@@ -33,15 +32,14 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            okServicosVinculados()
-            tirarEntrega()
+            okServicosVinculados() //SERVIÇOS
+            tirarEntrega() //ENTREGA
             cy.wait(400)
     
             avancarParaParcelas()
             cy.wait(8500)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -55,11 +53,11 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            okServicosVinculados()
-            tirarEntrega()
+            okServicosVinculados() //SERVIÇOS
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-
-            produtoNormalSegundo()
+ 
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -68,16 +66,14 @@ describe('Gerar pedidos com Garantia', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             tirarEntregaSegundo()
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(10000)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(10500)
             escolherFormaPagamentoPrincipal()
@@ -91,15 +87,14 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             tirarEntrega()
             cy.wait(400)
     
             avancarParaParcelas()
             cy.wait(7500)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7000)
             escolherFormaPagamentoPrincipal()
@@ -113,11 +108,11 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             tirarEntrega()
             cy.wait(800)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -126,16 +121,14 @@ describe('Gerar pedidos com Garantia', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             tirarEntregaSegundo()
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(8500)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(8000)
             escolherFormaPagamentoPrincipal()
@@ -149,15 +142,14 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
             garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             tirarEntrega()
             cy.wait(400)
     
             avancarParaParcelas()
             cy.wait(8500)
-    
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -171,11 +163,11 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             tirarEntrega()
             cy.wait(800)
     
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -184,16 +176,14 @@ describe('Gerar pedidos com Garantia', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             tirarEntregaSegundo()
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(8500)
-    
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -210,21 +200,19 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(400)
     
             avancarParaTransportadora()
             cy.wait(14000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(7500)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(8000)
             escolherFormaPagamentoPrincipal()
@@ -238,10 +226,10 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(800)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -250,22 +238,19 @@ describe('Gerar pedidos com Garantia', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             cy.wait(400)
-    
             avancarParaTransportadora()
             cy.wait(14000)
     
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(9000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -279,21 +264,19 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(400)
     
             avancarParaTransportadora()
             cy.wait(14000)
-    
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(9000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(8500)
             escolherFormaPagamentoPrincipal()
@@ -307,10 +290,10 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(800)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -319,22 +302,19 @@ describe('Gerar pedidos com Garantia', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             cy.wait(400)
-    
             avancarParaTransportadora()
             cy.wait(14000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -348,21 +328,19 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
             garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(400)
     
             avancarParaTransportadora()
             cy.wait(14000)
     
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(9000)
             escolherFormaPagamentoPrincipal()
@@ -376,10 +354,10 @@ describe('Gerar pedidos com Garantia', () => {
         it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(800)
     
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -388,21 +366,18 @@ describe('Gerar pedidos com Garantia', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
     
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             cy.wait(400)
-    
             avancarParaTransportadora()
             cy.wait(16000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -414,11 +389,10 @@ describe('Gerar pedidos com Garantia', () => {
         })
     })
 
-    // afterEach(() => {
-    //     // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-    //     botaoFinalizarPedido()
-    //     finalizandoPedido()
-    //     cy.wait(9000)
-    //     pedidoGerado()
-    //   });
+    afterEach(() => {
+        botaoFinalizarPedido() //RESUMO
+        finalizandoPedido()
+        cy.wait(9000)
+        pedidoGerado()
+      });
 })

@@ -22,64 +22,50 @@ describe('Gerar pedidos com promoção', () => {
 
         it('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
-            produtoPromoPartida()
+            produtoPromoPartida() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
+            cy.wait(200)   
             escolherVoltagemProduto()
-
-            clicarUsarPromocao()
+            clicarUsarPromocao() //PROMOCAO
             selecionarFormaPagPromo()
-    
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(12000)
     
-            // tela de PAGAMENTO
-    
-            avancarFinal()
+            avancarFinal() //AVANÇAR PARA ÚLTIMA TELA
             cy.wait(8000)
         })
     
         it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
     
-            produtoPromoPrazoEntrada()
+            produtoPromoPrazoEntrada() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
+            cy.wait(200)        
             escolherVoltagemProduto()
-
-            clicarUsarPromocao()
+            clicarUsarPromocao() //PROMOÇÃO
             selecionarFormaPagPromo()
             cy.wait(400)
-    
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(9000)
     
-            // tela de GERAR PARCELAS
+            //GERAR PARCELAS
 
             cy.get('#select_190')
                 .click()
@@ -94,39 +80,31 @@ describe('Gerar pedidos com promoção', () => {
     
             cy.wait(400)
     
-            avancarFinal()
+            avancarFinal()  //AVANÇAR PARA ÚLTIMA TELA
             cy.wait(6000)
         })
     
         it('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
-            produtoPromoPrazoParcelado()
+            produtoPromoPrazoParcelado() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
             escolherVoltagemProduto()
-    
-            clicarUsarPromocao()
+            clicarUsarPromocao() //PROMOÇÃO
             selecionarFormaPagPromo()
-    
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
                 
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(11000)
     
-            // tela de PAGAMENTO
-    
-            avancarFinal()
+            avancarFinal() //AVANÇAR PARA ÚLTIMA TELA
             cy.wait(6000)
         })
     })
@@ -135,49 +113,40 @@ describe('Gerar pedidos com promoção', () => {
 
         it('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
-            produtoPromoPartida()
+            produtoPromoPartida() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
+            cy.wait(200)    
             escolherVoltagemProduto()
-    
-            clicarUsarPromocao()
+            clicarUsarPromocao() //PROMOÇÃO
             selecionarFormaPagPromo()
-    
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
                 
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(800)
     
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
                 
-            tirarEntregaSegundo()
+            tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
             tirarMontagemSegundo()
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(12000)
 
-            //Tela de PARCELAS
-
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             cy.wait(6500)
 
             //Escolher forma de pagamento
@@ -196,50 +165,42 @@ describe('Gerar pedidos com promoção', () => {
 
         it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
-            produtoPromoPrazoEntrada()
+            produtoPromoPrazoEntrada() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
             escolherVoltagemProduto()
-
-            clicarUsarPromocao()
+            clicarUsarPromocao() //PROMOÇÃO
             selecionarFormaPagPromo()
             cy.wait(400)
-    
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
                 
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(400)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
                 
-            tirarEntregaSegundo()
+            tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
             tirarMontagemSegundo()
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(13000)
 
-            // tela de GERAR PARCELAS 
+            //GERAR PARCELAS 
     
             //Abrir opções de processos a receber entrada
             cy.get('#select_344')
@@ -277,37 +238,29 @@ describe('Gerar pedidos com promoção', () => {
 
         it('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
-            produtoPromoPartida()
+            produtoPromoPartida() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
+            cy.wait(200)    
             escolherVoltagemProduto()
-    
             clicarUsarPromocao()
             selecionarFormaPagPromo()
-    
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
-    
             avancarParaTransportadora()
             cy.wait(12000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
 
-            avancarParcelasEntrega()
+            avancarParcelasEntrega() //ENTREGA
             cy.wait(13000)
     
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             cy.wait(6500)
 
             //Escolher "Forma de pagamento"
@@ -326,38 +279,29 @@ describe('Gerar pedidos com promoção', () => {
     
         it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
     
-            produtoPromoPrazoEntrada()
+            produtoPromoPrazoEntrada() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
+            cy.wait(200)       
             escolherVoltagemProduto()
-    
-            clicarUsarPromocao()
+            clicarUsarPromocao() //PROMOÇÃO
             selecionarFormaPagPromo()
-    
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(400)
-    
             avancarParaTransportadora()
             cy.wait(13000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
-
             avancarParcelasEntrega()
             cy.wait(13000)
 
-            // tela de GERAR PARCELAS
+            //GERAR PARCELAS
 
             //Escolher forma de pagamento na entrada
             cy.get('#select_931')
@@ -392,39 +336,29 @@ describe('Gerar pedidos com promoção', () => {
 
         it('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
-            produtoPromoPrazoParcelado()
+            produtoPromoPrazoParcelado() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
             escolherVoltagemProduto()
-    
-            clicarUsarPromocao()
+            clicarUsarPromocao() //PROMOÇÃO
             selecionarFormaPagPromo()
-    
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(400)
-    
             avancarParaTransportadora()
             cy.wait(12000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
-
             avancarParcelasEntrega()
             cy.wait(13000)
 
-            // tela de GERAR PARCELAS
-
+            //GERAR PARCELAS
             botaoGerarParcelas()
             cy.wait(6500)
 
@@ -447,50 +381,38 @@ describe('Gerar pedidos com promoção', () => {
 
         it('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
-            produtoPromoPartida()
+            produtoPromoPartida() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
             escolherVoltagemProduto()
-    
-            clicarUsarPromocao()
+            clicarUsarPromocao() //PROMOÇÃO
             selecionarFormaPagPromo()
-    
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(800)
     
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(800)
-    
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(1000)
     
-            okServicosVinculados()
-    
+            okServicosVinculados() //SERVIÇOS
             avancarParaTransportadora()
             cy.wait(14000)
-
-            // tela para ESCOLHER TRANSPORTADORA
-
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
-
             avancarParcelasEntrega()
             cy.wait(14000)
 
-            //Tela de PARCELAS
-
+            //GERAR PARCELAS
             botaoGerarParcelas()
             cy.wait(6500)
 

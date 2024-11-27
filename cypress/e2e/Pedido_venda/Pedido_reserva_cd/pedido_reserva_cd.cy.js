@@ -22,93 +22,74 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
 
         it('Venda: produto 1880 0 0 - (Venda local de produto com saldo só no CD - sem entrega)', () => {
 
-            produtoCDPrimeiro()
+            produtoCDPrimeiro() //PRODUTO
             saldoCDDisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-    
-            // // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             tirarMontagem()
             cy.wait(400)
-
             avancarParaParcelas()
             cy.wait(6500)
-    
-            // tela de GERAR PARCELAS
 
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
-    
             cy.wait(5000)
-    
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-    
             avancarFinal()
             cy.wait(6000) 
         })
 
         it('Venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local) - (Venda local de 1 produto com saldo local + 1 produto com saldo no CD - sem entrega)', () => {
 
-            produtoCDPrimeiro()
+            produtoCDPrimeiro() //PRODUTO
             saldoCDDisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-                     
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             tirarMontagem()
             cy.wait(800)
     
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS - SEGUNDO PRODUTO
             okServicosVinculados()
     
-            tirarEntregaSegundo()
+            tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
             tirarMontagemSegundo()
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(6500)
-    
-            // tela de GERAR PARCELAS
-    
-            botaoGerarParcelas()
+
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6000)
-    
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-    
             avancarFinal()
             cy.wait(7000)
         })
@@ -118,103 +99,79 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
 
         it('Venda: produto 1880 0 0 - (Venda local de produto com saldo só no CD - com entrega)', () => {
             
-            produtoCDPrimeiro()
+            produtoCDPrimeiro() //PRODUTO
             saldoCDDisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarMontagem()
+            tirarMontagem() //ENTREGA
             cy.wait(400)
-    
             avancarParaTransportadora()
             cy.wait(12000)
     
-            // tela para ESCOLHER TRANSPORTADORA
-
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
-
             avancarParcelasEntrega()
             cy.wait(7500)
 
-            // tela de GERAR PARCELAS
-
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6500)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-
             avancarFinal()
             cy.wait(7000)
         })
 
         it('Venda: produtos 1880 0 0 (reserva CD) e 1870 0 0 (saldo local) - (Venda local de 1 produto com saldo local + 1 produto com saldo no CD - com entrega)', () => {
             
-            produtoCDPrimeiro()
+            produtoCDPrimeiro() //PRODUTO
             saldoCDDisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
     
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
-    
             escolherProdutoPesquisa()
             cy.wait(800)
-    
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS - SEGUNDO PRODUTO
             okServicosVinculados()
             cy.wait(1000)
-    
             avancarParaTransportadora()
             cy.wait(14000)
-    
-            // tela para ESCOLHER TRANSPORTADORA
 
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
-
             avancarParcelasEntrega()
             cy.wait(8000)
 
-            // tela de GERAR PARCELAS
-
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-
             avancarFinal()
             cy.wait(9000)
         })

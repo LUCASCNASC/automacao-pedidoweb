@@ -26,99 +26,84 @@ describe('Gerar pedido de venda com desconto', () => {
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / R$', () => {
 
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
 
-            clicarBotaoDesconto()
+            clicarBotaoDesconto() //DESCONTO
             validarModalSubSobre()
             aplicarDescontoR$()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-
             avancarParaParcelas()
             cy.wait(5000)
 
-            // tela de GERAR PARCELAS
-
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-
             avancarFinal()
             cy.wait(6000)
         })
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / % (Pocentagem)', () => {
 
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
 
-            clicarBotaoDesconto()
+            clicarBotaoDesconto() //DESCONTO
             validarModalSubSobre()
             aplicarDescontoPorcentagem()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-
             avancarParaParcelas()
             cy.wait(5000)
 
-            // tela de GERAR PARCELAS
-
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-
             avancarFinal()
             cy.wait(6000)
         })
 
         it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / VALOR FIXO', () => {
 
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
 
-            clicarBotaoDesconto()
+            clicarBotaoDesconto() //DESCONTO
             validarModalSubSobre()
             aplicarDescontoValorFixo()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-
             avancarParaParcelas()
             cy.wait(5000)
 
-            // tela de GERAR PARCELAS
-
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-
             avancarFinal()
             cy.wait(6000)
         })

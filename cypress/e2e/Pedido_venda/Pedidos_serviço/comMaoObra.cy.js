@@ -17,11 +17,10 @@ describe('Gerar pedidos com Mão de obra', () => {
         processoVendaPrincipal()
         escolherClientePedido()
         cy.wait(500)
-        produtoNormalPrimeiro()
+        produtoNormalPrimeiro() //PRODUTO
         saldodisponivel()
         escolherProdutoPesquisa()
         cy.wait(200)
-        // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
         escolherVoltagemProduto()
         clicarAdicionarProduto()
         cy.wait(500)
@@ -33,7 +32,7 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título', () => {
     
             maoObraDestacaNãoSepara() //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
 
             tirarEntrega()
             cy.wait(400)
@@ -41,8 +40,7 @@ describe('Gerar pedidos com Mão de obra', () => {
             avancarParaParcelas()
             cy.wait(8000)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7000)
             escolherFormaPagamentoPrincipal()
@@ -56,11 +54,11 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
 
             maoObraDestacaNãoSepara()  //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             tirarEntrega()
             cy.wait(400)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //PRODUTO - SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -69,16 +67,14 @@ describe('Gerar pedidos com Mão de obra', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             tirarEntregaSegundo()
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(8000)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7000)
             escolherFormaPagamentoPrincipal()
@@ -92,15 +88,14 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
     
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             tirarEntrega()
             cy.wait(400)
     
             avancarParaParcelas()
             cy.wait(8500)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -114,11 +109,11 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             tirarEntrega()
             cy.wait(400)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //PRODUTO NORMAL
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -127,16 +122,14 @@ describe('Gerar pedidos com Mão de obra', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             tirarEntregaSegundo()
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(8500)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -150,15 +143,14 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
 
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de obra que não destaca e separa título em processo diferente
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             tirarEntrega()
             cy.wait(400)
     
             avancarParaParcelas()
             cy.wait(8500)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -172,11 +164,11 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
 
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de obra que não destaca e separa título em processo diferente
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             tirarEntrega()
             cy.wait(400)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -185,16 +177,14 @@ describe('Gerar pedidos com Mão de obra', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             tirarEntregaSegundo()
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(8500)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7500)
             escolherFormaPagamentoPrincipal()
@@ -211,22 +201,20 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título)', () => {
     
             maoObraDestacaNãoSepara()  //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(400)
     
             avancarParaTransportadora()
             cy.wait(14000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             cy.wait(1000)
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(8000)
             escolherFormaPagamentoPrincipal()
@@ -240,10 +228,10 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Destaca e Não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
             maoObraDestacaNãoSepara()  //Marcar Mão de Obra "T.A. MO Destaca e Não Separa"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(800)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -252,22 +240,19 @@ describe('Gerar pedidos com Mão de obra', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             cy.wait(400)
-    
             avancarParaTransportadora()
             cy.wait(18000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(9500)
             escolherFormaPagamentoPrincipal()
@@ -281,21 +266,19 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo)', () => {
     
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(400)
     
             avancarParaTransportadora()
             cy.wait(17000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(9000)
             escolherFormaPagamentoPrincipal()
@@ -309,10 +292,10 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título no Mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
             maoObraNaoDestacaSeparaMesmoProcesso() //Marcar Mão de Obra "T.A. MO Não Destaca e Separa Mesmo Processo"
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(800)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -321,22 +304,19 @@ describe('Gerar pedidos com Mão de obra', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTP
             okServicosVinculados()
             cy.wait(400)
-    
             avancarParaTransportadora()
             cy.wait(15000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(11000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(10000)
             escolherFormaPagamentoPrincipal()
@@ -350,21 +330,19 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente)', () => {
     
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de obra que não destaca e separa título em processo diferente
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(400)
     
             avancarParaTransportadora()
             cy.wait(14000)
                 
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
     
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(9000)
             escolherFormaPagamentoPrincipal()
@@ -378,10 +356,10 @@ describe('Gerar pedidos com Mão de obra', () => {
         it('Pedido de venda: produto 1860 0 0 (com Mão de Obra que Não destaca e Separa título em processo Diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             maoObraNaoDestacaSeparaProcessoDiferente() //Marcar Mão de obra que não destaca e separa título em processo diferente
-            okServicosVinculados()
+            okServicosVinculados() //SERVIÇOS
             cy.wait(800)
 
-            produtoNormalSegundo()
+            produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
             escolherProdutoPesquisa()
@@ -390,22 +368,19 @@ describe('Gerar pedidos com Mão de obra', () => {
             clicarAdicionarProduto()
             cy.wait(1000)
 
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             cy.wait(400)
-    
             avancarParaTransportadora()
             cy.wait(15000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(8000)
             escolherFormaPagamentoPrincipal()
@@ -418,8 +393,7 @@ describe('Gerar pedidos com Mão de obra', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(9000)
         pedidoGerado()

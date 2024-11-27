@@ -25,29 +25,24 @@ describe('Gerar pedido normal', () => {
         
         it('Pedido de venda: kit 1862 0 0', () => {
                       
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-    
             avancarParaParcelas()
             cy.wait(6500)
-    
-            // tela de GERAR PARCELAS
-    
-            botaoGerarParcelas()
+  
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6000)
-    
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-    
             avancarFinal()
             cy.wait(6000)
         })
@@ -57,36 +52,29 @@ describe('Gerar pedido normal', () => {
         
         it('Pedido de venda: kit 1862 0 0', () => {
                       
-            escolherVoltagemProduto()
+            escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
     
-            avancarParaTransportadora()
+            avancarParaTransportadora() //ENTREGA
             cy.wait(13000)
-    
-            // tela para ESCOLHER TRANSPORTADORA
 
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
-
             avancarParcelasEntrega()
             cy.wait(8000)
 
-            // tela de GERAR PARCELAS
-
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7000)
-
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-
             avancarFinal()
             cy.wait(8000)
         })

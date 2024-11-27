@@ -21,13 +21,10 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
 
         it('Pedido com promoção a prazo/parcelas (promoção 159): produto 1891 0 0 com garantia (isenta de juros)', () => {
     
-            prd1PrazoParcela()
+            prd1PrazoParcela() //PRODUTO PROMOÇÃO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
             escolherVoltagemProduto()
 
             //Validando Tipo "Tipo(s) Serviço(s) Isento(s):" dentro do modal Promoções
@@ -51,33 +48,27 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-    
             avancarParaParcelas()
 
             messAdicionandoProdutosServicos()
             cy.wait(12000)
 
-            // tela de PAGAMENTO
-
-            avancarFinal()
+            avancarFinal() //PAGAMENTO
             cy.wait(7000)
         })
     
         it('Pedido com promoção a prazo/entrada + parcelas (promoção 158): produto 1895 0 0 com garantia (isenta de juros)', () => {
     
-            prd2PrazoParcela()
+            prd2PrazoParcela() //PRODUTO PROMOCAO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
             escolherVoltagemProduto()
             cy.wait(400)
     
@@ -102,13 +93,12 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-    
             avancarParaParcelas()
 
             messAdicionandoProdutosServicos()
@@ -141,13 +131,10 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
     
         it('Pedido com promoção a prazo/parcelas (promoção 161): produto 1893 0 0 com prestamista (isento de juros)', () => {
     
-            prd3PrazoParcela()
+            prd3PrazoParcela() //PRODUTO PROMOCAO
             saldodisponivel()
             escolherProdutoPesquisa()
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
+            cy.wait(200)    
             escolherVoltagemProduto()
             cy.wait(400)
     
@@ -172,12 +159,11 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
-    
             avancarParaParcelas()
 
             messAdicionandoProdutosServicos()
@@ -185,21 +171,16 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
 
             adicionarPrestamista()
 
-            // tela de PAGAMENTO
-
-            avancarFinal()
+            avancarFinal() //PAGAMENTO
             cy.wait(7000)
         })
 
         it('Pedido com promoção a prazo/parcelas (promoção 162): produto 1894 0 0 com garantia (isenta de juros) e prestamista (com juros)', () => {
     
-            prd4PrazoParcela()
+            prd4PrazoParcela() //PRODUTO PROMOCAO
             saldodisponivel()
             escolherProdutoPesquisa()
-            cy.wait(200)
-    
-            // PRODUTO PESQUISADO - HORA DE ESCOLHER A VOLTAGEM
-                      
+            cy.wait(200)  
             escolherVoltagemProduto()
 
             //Validando Tipo "Tipo(s) Serviço(s) Isento(s):" dentro do modal Promoções
@@ -223,23 +204,20 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             clicarAdicionarProduto()
             cy.wait(500)
     
-            modalServicosVinculados()
+            modalServicosVinculados() //SERVICOS
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados()
     
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
     
             avancarParaParcelas()
-
             messAdicionandoProdutosServicos()
             cy.wait(10000)
 
             adicionarPrestamista()
 
-            // tela de PAGAMENTO
-
-            avancarFinal()
+            avancarFinal() //PAGAMENTO
             cy.wait(9000)
         })
     })

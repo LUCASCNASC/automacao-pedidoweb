@@ -26,20 +26,18 @@ describe('Venda de serviço avulso Host - 104', () => {
             clicarServicosMenu()
             cy.wait(400)
 
-            produtoServicoHost()
+            produtoServicoHost() //PRODUTO
             saldoDisponivelServico()
             escolherServicoPesquisa()
             cy.wait(200)
-
             escolherValorRecarga()
             cy.wait(200)
 
-            clicarCarrinhoCompras()
+            clicarCarrinhoCompras() //CARRINHO COMPRAS
             botaoAvancarPedido()
             cy.wait(3000)
 
-            // tela de GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(2000)
             escolherFormaPagamentoPrincipal()
@@ -52,8 +50,7 @@ describe('Venda de serviço avulso Host - 104', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(4000)
         pedidoGerado()
