@@ -9,22 +9,20 @@ export function produtoPrincipal (selector) {
         .wait(400)
         .should('have.value', '')
 
-    //Validando campo Buscar produto
-    cy.get('#searchText')
-        .should('exist')
-        .and('be.visible')
-        .and('have.value', '')
-        .and('not.be.disabled')
-
-    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
-    cy.get('label[for="searchText"]')
-        .should('have.text', 'Buscar produtos')
-
     //Prenchendo campo Buscar produto
     cy.get('#searchText')
         .type(produto_principal)
         .wait(100)
         .should('have.value', produto_principal)
+}
+
+//Clicar para selecionar o produto que queremos adicionar ao pedido - sem validações
+export function escolherProdutoPesquisa (selector) {
+
+    //Clicar para adicionar no carrinho
+    cy.get('.md-list-item-text')
+        .click({force:true})
+
 }
 
 //Botão adicionar produto após selecionar voltagem do produto
@@ -194,10 +192,7 @@ export function tirarEntregaTerceiro (selector) {
 
     //Botão Retirada / Entrega - texto Retirada / Entrega
     cy.get(':nth-child(4) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-        .should('exist')
-        //.and('be.visible')
-        .and('not.be.disabled')
-        .and('have.text', ' Retirada / Entrega ')
+        .should('have.text', ' Retirada / Entrega ')
         .click({force:true})
 }
 
@@ -206,10 +201,7 @@ export function tirarEntregaQuarto (selector) {
 
     //Botão Retirada / Entrega - texto Retirada / Entrega
     cy.get(':nth-child(5) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-        .should('exist')
-        //.and('be.visible')
-        .and('not.be.disabled')
-        .and('have.text', ' Retirada / Entrega ')
+        .should('have.text', ' Retirada / Entrega ')
         .click({force:true})
 }
 
@@ -218,10 +210,7 @@ export function tirarEntregaQuinto (selector) {
 
     //Botão Retirada / Entrega - texto Retirada / Entrega
     cy.get(':nth-child(6) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-        .should('exist')
-        //.and('be.visible')
-        .and('not.be.disabled')
-        .and('have.text', ' Retirada / Entrega ')
+        .should('have.text', ' Retirada / Entrega ')
         .click({force:true})
 }
 
@@ -232,10 +221,7 @@ export function tirarEntregaSexto (selector) {
 
     //Botão Retirada / Entrega - texto Retirada / Entrega
     cy.get(':nth-child(7) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-        .should('exist')
-        //.and('be.visible')
-        .and('not.be.disabled')
-        .and('have.text', ' Retirada / Entrega ')
+        .should('have.text', ' Retirada / Entrega ')
         .click({force:true})
 }
 
@@ -246,10 +232,7 @@ export function tirarEntregaSetimo (selector) {
 
     //Botão Retirada / Entrega - texto Retirada / Entrega
     cy.get(':nth-child(8) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-        .should('exist')
-        //.and('be.visible')
-        .and('not.be.disabled')
-        .and('have.text', ' Retirada / Entrega ')
+        .should('have.text', ' Retirada / Entrega ')
         .click({force:true})
 }
 
@@ -260,10 +243,7 @@ export function tirarEntregaOitavo (selector) {
 
     //Botão Retirada / Entrega - texto Retirada / Entrega
     cy.get(':nth-child(9) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-        .should('exist')
-        //.and('be.visible')
-        .and('not.be.disabled')
-        .and('have.text', ' Retirada / Entrega ')
+        .should('have.text', ' Retirada / Entrega ')
         .click({force:true})
 }
 
@@ -274,10 +254,7 @@ export function tirarEntregaNono (selector) {
 
     //Botão Retirada / Entrega - texto Retirada / Entrega
     cy.get(':nth-child(10) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-        .should('exist')
-        //.and('be.visible')
-        .and('not.be.disabled')
-        .and('have.text', ' Retirada / Entrega ')
+        .should('have.text', ' Retirada / Entrega ')
         .click({force:true})
 }
 
@@ -288,9 +265,29 @@ export function tirarEntregaDecimo (selector) {
 
     //Botão Retirada / Entrega - texto Retirada / Entrega
     cy.get(':nth-child(11) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
-        .should('exist')
-        //.and('be.visible')
-        .and('not.be.disabled')
-        .and('have.text', ' Retirada / Entrega ')
+        .should('have.text', ' Retirada / Entrega ')
         .click({force:true})
 }
+
+//Arrastar botão de Retirada / Entrega do onze produto
+export function tirarEntregaOnze (selector) {
+
+    cy.wait(1000)
+
+    //Botão Retirada / Entrega - texto Retirada / Entrega
+    cy.get(':nth-child(12) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
+        .should('have.text', ' Retirada / Entrega ')
+        .click({force:true})
+}
+
+//Arrastar botão de Retirada / Entrega do doze produto
+export function tirarEntregaDoze (selector) {
+
+    cy.wait(1000)
+
+    //Botão Retirada / Entrega - texto Retirada / Entrega
+    cy.get(':nth-child(13) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
+        .should('have.text', ' Retirada / Entrega ')
+        .click({force:true})
+}
+

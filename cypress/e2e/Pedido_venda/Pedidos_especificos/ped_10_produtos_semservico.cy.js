@@ -1,13 +1,13 @@
 import { titulopagina } from '../../../support/para_todos.js';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
          finalizandoPedido, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal, 
-         avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa,
+         avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
          avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, trocarFilialFaturamento } from '../../../support/para_pedidos/gerais_pedidos.js';
-import { produtoPrincipal, botãoAdicionarProduto, clicarVoltagem1, clicarVoltagem2, clicarVoltagem3, clicarVoltagem4, clicarVoltagem5,
+import { produtoPrincipal, escolherProdutoPesquisa, botãoAdicionarProduto, clicarVoltagem1, clicarVoltagem2, clicarVoltagem3, clicarVoltagem4, clicarVoltagem5,
          clicarVoltagem6, clicarVoltagem7, clicarVoltagem8, clicarVoltagem9, clicarVoltagem10, clicarVoltagem11, clicarVoltagem12,
          clicarVoltagem13, clicarVoltagem14, clicarVoltagem15, clicarVoltagem16, clicarVoltagem17, clicarVoltagem18, clicarVoltagem19, 
          tirarEntregaTerceiro, tirarEntregaQuarto, tirarEntregaQuinto, tirarEntregaSexto, tirarEntregaSetimo, tirarEntregaOitavo,
-         tirarEntregaNono, tirarEntregaDecimo} from '../../../support/para_pedidos/para_pedidos_10_produtos_semservico.js';
+         tirarEntregaNono, tirarEntregaDecimo, tirarEntregaOnze, tirarEntregaDoze } from '../../../support/para_pedidos/para_pedidos_10_produtos_semservico.js';
 
 describe('Gerar pedido normal - sem serviço vinculado e tirar a entrega', () => {
 
@@ -132,7 +132,7 @@ describe('Gerar pedido normal - sem serviço vinculado e tirar a entrega', () =>
             clicarVoltagem11() //onze escolha de voltagem - 1907 11 11
             botãoAdicionarProduto() //onze adicionando produto - 1907 11 11
             cy.wait(2700)
-            //tirarEntregaOnze()
+            tirarEntregaOnze()
             cy.wait(3500)
 
             produtoPrincipal() //doze pesquisa de produto - 1907 12 12
@@ -142,7 +142,7 @@ describe('Gerar pedido normal - sem serviço vinculado e tirar a entrega', () =>
             clicarVoltagem12() //doze escolha de voltagem - 1907 12 12
             botãoAdicionarProduto() //doze adicionando produto - 1907 12 12
             cy.wait(2900)
-            //tirarEntregaDoze()
+            tirarEntregaDoze()
             cy.wait(3800)
 
             produtoPrincipal() //treze pesquisa de produto - 1907 13 13
@@ -159,14 +159,62 @@ describe('Gerar pedido normal - sem serviço vinculado e tirar a entrega', () =>
             cy.wait(5400)
             escolherProdutoPesquisa() //quatorze vez escolher produto - 1907 14 14
             cy.wait(3300)
-            clicarVoltagem13() //quatorze escolha de voltagem - 1907 14 14
+            clicarVoltagem14() //quatorze escolha de voltagem - 1907 14 14
             botãoAdicionarProduto() //quatorze adicionando produto - 1907 14 14
             cy.wait(3300)
             //tirarEntregaQuatorze()
             cy.wait(4500)
 
-            
-            // ENTREGA TIRADA APENAS ATÉ O PRODUTO 1907 10 10
+            produtoPrincipal() //quinze pesquisa de produto - 1907 15 15
+            cy.wait(5700)
+            escolherProdutoPesquisa() //quinze vez escolher produto - 1907 15 15
+            cy.wait(3500)
+            clicarVoltagem15() //quinze escolha de voltagem - 1907 15 15
+            botãoAdicionarProduto() //quinze adicionando produto - 1907 15 15
+            cy.wait(3500)
+            //tirarEntregaQuinze()
+            cy.wait(4800)
+
+            produtoPrincipal() //dezesseis pesquisa de produto - 1907 16 16
+            cy.wait(6000)
+            escolherProdutoPesquisa() //dezesseis vez escolher produto - 1907 16 16
+            cy.wait(3700)
+            clicarVoltagem16() //dezesseis escolha de voltagem - 1907 16 16
+            botãoAdicionarProduto() //dezesseis adicionando produto - 1907 16 16
+            cy.wait(3700)
+            //tirarEntregaDezesseis()
+            cy.wait(5100)
+
+            produtoPrincipal() //dezessete pesquisa de produto - 1907 17 17
+            cy.wait(6300)
+            escolherProdutoPesquisa() //dezessete vez escolher produto - 1907 17 17
+            cy.wait(3900)
+            clicarVoltagem17() //dezessete escolha de voltagem - 1907 17 17
+            botãoAdicionarProduto() //dezessete adicionando produto - 1907 17 17
+            cy.wait(3900)
+            //tirarEntregaDezessete()
+            cy.wait(5400)
+
+            produtoPrincipal() //dezoito pesquisa de produto - 1907 18 18
+            cy.wait(6600)
+            escolherProdutoPesquisa() //dezoito vez escolher produto - 1907 18 18
+            cy.wait(4100)
+            clicarVoltagem18() //dezoito escolha de voltagem - 1907 18 18
+            botãoAdicionarProduto() //dezoito adicionando produto - 1907 18 18
+            cy.wait(4100)
+            //tirarEntregaDezoito()
+            cy.wait(5700)
+
+            produtoPrincipal() //dezenove pesquisa de produto - 1907 18 18
+            cy.wait(6900)
+            escolherProdutoPesquisa() //dezenove vez escolher produto - 1907 18 18
+            cy.wait(4300)
+            clicarVoltagem19() //dezenove escolha de voltagem - 1907 18 18
+            botãoAdicionarProduto() //dezenove adicionando produto - 1907 18 18
+            cy.wait(4300)
+            //tirarEntregaDezenove()
+            cy.wait(6000)
+
 
             
         })
