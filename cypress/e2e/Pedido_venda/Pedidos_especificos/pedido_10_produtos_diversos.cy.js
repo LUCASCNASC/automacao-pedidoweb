@@ -1,8 +1,8 @@
-import { titulopagina } from '../../../support/para_todos';
+import { titulopagina } from '../../../support/para_todos.js';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
          finalizandoPedido, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal, 
          avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa,
-         avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, trocarFilialFaturamento} from '../../../support/para_pedidos/gerais_pedidos';
+         avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, trocarFilialFaturamento} from '../../../support/para_pedidos/gerais_pedidos.js';
 import { produtoPrincipal, botãoAdicionarProduto, primeiroProdutoEscolher, segundoProdutoEscolher, terceiroProdutoEscolher,
          quartoProdutoEscolher, quintoProdutoEscolher, sextoProdutoEscolher, setimoProdutoEscolher, oitavoProdutoEscolher,
          nonoProdutoEscolher, decimoProdutoEscolher} from '../../../support/para_pedidos/para_pedidos_10_produtos.js';
@@ -164,8 +164,7 @@ describe('Gerar pedido normal', () => {
             avancarParaTransportadora()
             cy.wait(12000)
 
-            // tela para ESCOLHER TRANSPORTADORA
-
+            //ESCOLHER TRANSPORTADORA
             modalInconsRotaTransp()
             escolherTransportadora()
             escolherRota()
@@ -173,8 +172,7 @@ describe('Gerar pedido normal', () => {
             avancarParcelasEntrega()
             cy.wait(10000)
 
-            // tela de GERAR PARCELAS
-
+            //GERAR PARCELAS
             botaoGerarParcelas()
             carregandoFormaPagamento()
             cy.wait(10000)
@@ -189,9 +187,7 @@ describe('Gerar pedido normal', () => {
 
             cy.wait(400)
 
-            //Botão "AVANÇAR"
             avancarFinal()
-
             cy.wait(10000)
         })
     })
