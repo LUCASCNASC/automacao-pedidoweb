@@ -13,6 +13,45 @@ export function iconeMenuOpcoes (selector) {
         .click({force:true})
 }
 
+//validando topo da página - parte colorida
+export function topoPagina (selector) {
+
+    //Topo da página - parte colorida
+    cy.get('.topo > .md-toolbar-tools')
+    .should('exist')
+    .and('be.visible')
+}
+
+export function imageMenu (selector) {
+
+    //Validando imagem no início do modal menu
+    cy.get('.md-primary > .logo > .md-default-theme > img')
+    .should('exist')
+    .and('be.visible')
+    .and('not.have.attr', 'disabled')
+}
+
+//Ícone do computador para validar se realmente saiu do pedido web
+export function iconeComputadorLogin (selector) {
+
+    //Ícone do computador
+    cy.get('[ng-click="clienteStatsOpen()"] > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.have.attr', 'disabled')
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+}
+
 //Validando opção Ínicio, do menu de opções
 export function inicioOpcaoMenu (selector) {
 
@@ -30,6 +69,7 @@ export function inicioOpcaoMenu (selector) {
     //Opção Início no menu de opções
     cy.get('a[aria-label="Início"]')
         .should('have.attr', 'aria-label', 'Início')
+        .click({force:true})
 }
 
 //Validando opção Departamentos, do menu de opções
@@ -49,6 +89,13 @@ export function departamentoOpcaoMenu (selector) {
     //Opção Departamentos no menu de opções
     cy.get('a[aria-label="Departamentos"]')
         .should('have.attr', 'aria-label', 'Departamentos')
+        .click({force:true})
+
+    //validando se entrou no Departamentos
+    cy.get('.breadcrumbDepartamentos')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Departamentos')
 }
 
 //Validando opção Serviços, do menu de opções
@@ -68,6 +115,13 @@ export function servicosOpcaoMenu (selector) {
     //Opção Serviços no menu de opções
     cy.get('a[aria-label="Serviços"]')
         .should('have.attr', 'aria-label', 'Serviços')
+        .click({force:true})
+
+    //validando se entrou no Serviços
+    cy.get('[ng-click="alterarOrdenacaoPorDescricao()"]')
+        .should('exist')
+        .and('be.visible')
+        .and('not.have.attr', 'disabled')
 }
 
 //Validando opção Pedidos Pendentes, do menu de opções
@@ -87,6 +141,13 @@ export function pedidosPendentesOpcaoMenu (selector) {
     //Opção Pedidos pendentes no menu de opções
     cy.get('a[aria-label="Pedidos pendentes"]')
         .should('have.attr', 'aria-label', 'Pedidos pendentes')
+        .click({force:true})
+
+    //validando se entrou no Pedidos pendentes
+    cy.get('.header')
+        .should('exist')
+        //.and('be.visible')
+        .and('contain', 'PEDIDOS PENDENTES')
 }
 
 //Validando opção Cliente, do menu de opções
@@ -106,6 +167,12 @@ export function clienteOpcaoMenu (selector) {
     //Opção Cliente no menu de opções
     cy.get('a[aria-label="Cliente"]')
         .should('have.attr', 'aria-label', 'Cliente')
+        .click({force:true})
+
+    //validando se entrou no Cliente
+    cy.get('.md-default')
+        .should('exist')
+        .and('not.have.attr', 'disabled')
 }
 
 //Validando opção Cliente Completo, do menu de opções
@@ -125,6 +192,12 @@ export function clienteCompletoOpcaoMenu (selector) {
     //Opção Cliente completo no menu de opções
     cy.get('a[aria-label="Cliente completo"]')
         .should('have.attr', 'aria-label', 'Cliente completo')
+        .click({force:true})
+
+    //validando se entrou no Cliente completo
+    cy.get('#menu_items_pri > .on')
+        .should('exist')
+        .and('not.have.attr', 'disabled')
 }
 
 //Validando opção Pós Venda, do menu de opções
@@ -144,6 +217,12 @@ export function posVendaOpcaoMenu (selector) {
     //Opção Pós-venda no menu de opções
     cy.get('a[aria-label="Pós-venda"]')
         .should('have.attr', 'aria-label', 'Pós-venda')
+        .click({force:true})
+
+    //validando se entrou no Pos venda
+    cy.get('.header')
+        .should('exist')
+        .and('be.visible')
 }
 
 //Validando opção Intenção de compra, do menu de opções
@@ -163,6 +242,12 @@ export function intencaoCompraOpcaoMenu (selector) {
     //Opção Intenção de compra no menu de opções
     cy.get('button[aria-label="Intenção de compra"]')
         .should('have.attr', 'aria-label', 'Intenção de compra')
+        .click({force:true})
+
+    //validando se entrou no Intenção compra
+    cy.get('.header')
+        .should('exist')
+        .and('be.visible')
 }
 
 //Validando opção Propósta de crédito, do menu de opções
@@ -182,6 +267,12 @@ export function propostaCreditoOpcaoMenu (selector) {
     //Opção Proposta de crédito no menu de opções
     cy.get('a[aria-label="Proposta de crédito"]')
         .should('have.attr', 'aria-label', 'Proposta de crédito')
+        .click({force:true})
+
+    //validando se entrou no Proposta de crédito
+    cy.get('.header')
+        .should('exist')
+        .and('be.visible')
 }
 
 //Validando opção Configurações, do menu de opções
@@ -201,6 +292,12 @@ export function configuracoesOpcaoMenu (selector) {
     //Opção Configurações no menu de opções
     cy.get('a[aria-label="Configurações"]')
         .should('have.attr', 'aria-label', 'Configurações')
+        .click({force:true})
+
+    //validando se entrou no Configurações
+    cy.get('ui-view.ng-scope > :nth-child(2)')
+        .should('exist')
+        .and('be.visible')
 }
 
 //Validando opção Minha performance, do menu de opções
@@ -220,4 +317,25 @@ export function minhaPerformanceOpcaoMenu (selector) {
     //Opção Minha performance no menu de opções
     cy.get('a[aria-label="Minha performance"]')
         .should('have.attr', 'aria-label', 'Minha performance')
+        .click({force:true})
+
+    //validando se entrou no Minha performance
+    cy.get('.header')
+        .should('exist')
+        .and('be.visible')
+}
+
+//validando opção Sair, já fora da opção menu de opções
+export function botaoSair (selector) {
+
+    //Opção Minha performance no menu de opções
+    cy.get('.rodape > ._md-button-wrap > div.md-button > .md-no-style')
+        .should('exist')
+        .and('be.visible')
+        .and('not.have.attr', 'disabled')
+
+    //Opção Minha performance no menu de opções
+    cy.get('.rodape > ._md-button-wrap > div.md-button > .md-no-style')
+        .should('have.attr', 'aria-label', 'Sair')
+        .click({force:true})
 }
