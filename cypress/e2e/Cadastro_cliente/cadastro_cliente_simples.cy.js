@@ -1,4 +1,3 @@
-//Importando funções 
 import { titulopagina } from '../../support/para_todos';
 import { iconeMenuOpcoes, opcaoClienteSimples, salvarClienteSimples, preencherNomeCompletoCPF, preencherNomeCompletoCNPJ, inserirPesquisarCEP, 
          preencherDataNascimento, inserirNumeroEndereco, arrastarPessoaJuridica, sexoPessoaFisica, cadastroRotaCliente, mensagemPrimeiroRegistSalvoSucesso, 
@@ -8,7 +7,6 @@ import gerarCNPJ from '../../support/gerarCNPJ';
 
 const cpf = gerarCpf(); // Gera um CPF válido
 const cnpj = gerarCNPJ(); // Gera um CNPJ válido
-
 const Numeroalteracao = '113'
 const CEPalteracao = "87054320"
 const idSupervisorTrial = "393"
@@ -31,23 +29,14 @@ describe('Cadastrar cliente simples', () => {
 
             iconeMenuOpcoes()
             opcaoClienteSimples()
-
             prencherCPFcliente()
-
             preencherNomeCompletoCPF()
-
             preencherDataNascimento()
-
             sexoPessoaFisica()
-
             inserirPesquisarCEP()
-
             inserirNumeroEndereco()
-
             cadastroRotaCliente()
-
             salvarClienteSimples()
-
             mensagemPrimeiroRegistSalvoSucesso()
         })  
 
@@ -56,11 +45,8 @@ describe('Cadastrar cliente simples', () => {
     
             iconeMenuOpcoes()
             opcaoClienteSimples()
-
             prencherCPFcliente()
-
             preencherNomeCompletoCPF()
-
             preencherDataNascimento()
 
             // sexoPessoaFisica()
@@ -134,21 +120,13 @@ describe('Cadastrar cliente simples', () => {
                 });
 
             preencherNomeCompletoCPF()
-
             preencherDataNascimento()
-
             sexoPessoaFisica()
-
             inserirPesquisarCEP()
-
             inserirNumeroEndereco()
-
             cadastroRotaCliente()
-
             salvarClienteSimples()
-
             mensagemPrimeiroRegistSalvoSucesso()
-
             cy.wait(1000)
 
             opcaoClienteSimples()
@@ -226,11 +204,9 @@ describe('Cadastrar cliente simples', () => {
                 .type("29/09/1997", {force:true})
 
             salvarClienteSimples()
-
             cy.wait(1000)
 
             salvarClienteSimples()
-
             cy.wait(3000)
 
             // Card de Autorização do Supervisor
@@ -367,21 +343,13 @@ describe('Cadastrar cliente simples', () => {
                 });
 
             preencherNomeCompletoCPF()
-
             preencherDataNascimento()
-
             sexoPessoaFisica()
-
             inserirPesquisarCEP()
-
             inserirNumeroEndereco()
-
             cadastroRotaCliente()
-
             salvarClienteSimples()
-
             mensagemPrimeiroRegistSalvoSucesso()
-
             cy.wait(1000)
 
             iconeMenuOpcoes()
@@ -465,11 +433,9 @@ describe('Cadastrar cliente simples', () => {
             cy.wait(200)
 
             salvarClienteSimples()
-
             cy.wait(1000)
 
             salvarClienteSimples()
-
             cy.wait(9000)
 
             mensagemPrimeiroRegistSalvoSucesso()
@@ -479,23 +445,14 @@ describe('Cadastrar cliente simples', () => {
     
             iconeMenuOpcoes()
             opcaoClienteSimples()
-
             prencherCPFcliente()
-
             preencherNomeCompletoCPF()
-
             preencherDataNascimento()
-
             sexoPessoaFisica()
-
             inserirPesquisarCEP()
-
             inserirNumeroEndereco()
-
             cadastroRotaCliente()
-
             salvarClienteSimples()
-
             mensagemPrimeiroRegistSalvoSucesso()
 
             // ALTERAÇÃO DE CLIENTE SIMPLES - CPF
@@ -530,7 +487,6 @@ describe('Cadastrar cliente simples', () => {
                 .type(Numeroalteracao, {force:true})
 
             salvarClienteSimples()
-
             mensagemPrimeiroRegistSalvoSucesso()
         })
 
@@ -538,21 +494,13 @@ describe('Cadastrar cliente simples', () => {
     
             iconeMenuOpcoes()
             opcaoClienteSimples()
-
             arrastarPessoaJuridica()
-
             preencherCNPJcliente()
-
             preencherNomeCompletoCNPJ()
-
             inserirPesquisarCEP()
-
             inserirNumeroEndereco()
-
             cadastroRotaCliente()
-
             salvarClienteSimples()
-
             mensagemPrimeiroRegistSalvoSucesso()
         })
 
@@ -560,21 +508,13 @@ describe('Cadastrar cliente simples', () => {
 
             iconeMenuOpcoes()
             opcaoClienteSimples()
-
             arrastarPessoaJuridica()
-
             preencherCNPJcliente()
-
             preencherNomeCompletoCNPJ()
-
             inserirPesquisarCEP()
-
             inserirNumeroEndereco()
-
             cadastroRotaCliente()
-
             salvarClienteSimples()
-
             mensagemPrimeiroRegistSalvoSucesso()
 
             // ALTERAÇÃO DE CLIENTE SIMPLES - CPF
@@ -609,7 +549,6 @@ describe('Cadastrar cliente simples', () => {
                 .type(Numeroalteracao, {force:true})
 
             salvarClienteSimples()
-
             mensagemPrimeiroRegistSalvoSucesso()
         })
     })

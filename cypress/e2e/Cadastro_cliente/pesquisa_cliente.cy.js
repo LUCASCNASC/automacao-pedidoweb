@@ -46,7 +46,6 @@ describe('Cadastrar cliente', () => {
                 .type(numeroCPF)
 
             clicarCPFPesquisado()
-
             mensagemAguardeCarregando()
             cy.wait(2500)
 
@@ -81,7 +80,6 @@ describe('Cadastrar cliente', () => {
                 .type(numeroCNPJ)
 
             clicarCNPJPesquisado()
-
             mensagemAguardeCarregando()
             cy.wait(2500)
 
@@ -123,7 +121,6 @@ describe('Cadastrar cliente', () => {
                 .type(descricaoCPF)
 
             clicarCPFPesquisado()
-
             mensagemAguardeCarregando()
             cy.wait(2500)
 
@@ -162,7 +159,6 @@ describe('Cadastrar cliente', () => {
                 .type(descricaoCNPJ)
 
             clicarCNPJPesquisado()
-
             mensagemAguardeCarregando()
             cy.wait(2500)
 

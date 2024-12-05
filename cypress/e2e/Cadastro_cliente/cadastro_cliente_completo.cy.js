@@ -5,10 +5,7 @@ import { iconeMenuOpcoes, opcaoClienteCompleto, preecherDataNascimento, selecion
 import gerarCpf from '../../support/gerarCPF';
 import gerarCNPJ from '../../support/gerarCNPJ';
 
-
-
 const CEPcadastro = "87065300"
-
 
 describe('Cadastrar cliente completo', () => {
 
@@ -26,15 +23,10 @@ describe('Cadastrar cliente completo', () => {
 
             iconeMenuOpcoes()
             opcaoClienteCompleto()
-
             preencherCPFcliente()
-
             preencherNomeCompleto()
-
             preecherDataNascimento()
-
             selecionarSexoCliente()
-
             clicarSalvarCliente()
 
             cy.wait(500)
@@ -537,11 +529,8 @@ describe('Cadastrar cliente completo', () => {
                 .and('have.text', 'Endereço')
 
             preencherCPFcliente()
-
             preencherNomeCompleto()
-
             preecherDataNascimento()
-
             selecionarSexoCliente()
 
             cy.wait(500)
@@ -1008,9 +997,7 @@ describe('Cadastrar cliente completo', () => {
             cy.wait(2000)
 
             messEnderecoIncluidoSucesso()
-                
             clicarSalvarCliente()
-
             cy.wait(2000)
 
             //Card Aguarde carregando...
@@ -1041,11 +1028,8 @@ describe('Cadastrar cliente completo', () => {
     
             iconeMenuOpcoes()
             opcaoClienteCompleto()
-
             preencherCNPJcliente()
-
             preencherNomeCNPJ()
-
             preencherNomeFantasiaCNPJ()
 
             //Tentar clicar em SALVAR, não deve deixar, pois ainda não tem endereço
@@ -1492,7 +1476,6 @@ describe('Cadastrar cliente completo', () => {
             cy.wait(2000)
 
             messEnderecoIncluidoSucesso()
-                
             clicarSalvarCliente()
 
             cy.wait(2000)

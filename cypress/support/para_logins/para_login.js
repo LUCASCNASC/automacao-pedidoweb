@@ -107,3 +107,12 @@ export function mensagemEntrandoSistema (selector) {
         .and('be.visible')
         .and('have.text','Entrando no sistema')
 }
+
+//botao INICIAR ATENDIMENTO - validando que entrou no sistema
+export function botaoIniciarAtendimento (selector) {
+
+    //Validando botão INICIAR ATENDIMENTO, para ver se logou
+    cy.get('.md-raised > .truncate')
+        .should('exist')
+        .and('be.visible')
+}

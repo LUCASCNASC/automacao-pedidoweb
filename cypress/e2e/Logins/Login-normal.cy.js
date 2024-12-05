@@ -1,7 +1,7 @@
 //Importando funções 
 import { titulopagina } from '../../support/para_todos';
 import { logoEmpresaLogin, iconeComputadorLogin, usuarioTextoIcone, senhaTextoIcone, iconeOlhosSenha, botaoEsqueceuSenha, botaoEntrarHabilitado, 
-         botaoEntrarDesabilitado, clicarBotaoEntrar, mensagemEntrandoSistema } from '../../support/para_logins/para_login';
+         botaoEntrarDesabilitado, clicarBotaoEntrar, mensagemEntrandoSistema, botaoIniciarAtendimento } from '../../support/para_logins/para_login';
 
 const usuSabiumAutomacao = "sabium.automacao"; //usuário ERP Sabium (contexto 1)
 const senhaautomacao = "123.automacao"; //senha usuário ERP Sabium (contexto 1)
@@ -49,11 +49,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             clicarBotaoEntrar()
             mensagemEntrandoSistema()
             cy.wait(6000)
-    
-            //Validando botão INICIAR ATENDIMENTO, para ver se logou
-            cy.get('.md-raised > .truncate')
-                .should('exist')
-                .and('be.visible')
+            botaoIniciarAtendimento()
         })
     
         it('Login - passar usuário errado (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
@@ -191,7 +187,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
-    
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
@@ -220,7 +215,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
-    
             iconeComputadorLogin() //Validando que não entrou no sistema
         })  
     
@@ -283,11 +277,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             clicarBotaoEntrar()
             mensagemEntrandoSistema()
             cy.wait(6000)
-    
-            //Validando botão INICIAR ATENDIMENTO, para ver se logou
-            cy.get('.md-raised > .truncate')
-                .should('exist')
-                .and('be.visible')
+            botaoIniciarAtendimento()
         })
     
         it('Login - passar usuário errado (deve dar mensagem de Login ou Senha do usuário está incorreto.)', () => {
@@ -425,7 +415,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
-    
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
@@ -454,7 +443,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
-
             iconeComputadorLogin() //Validando que não entrou no sistema
         })  
     
@@ -482,7 +470,6 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEsqueceuSenha()
             botaoEntrarDesabilitado()
             clicarBotaoEntrar()
-
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     })
