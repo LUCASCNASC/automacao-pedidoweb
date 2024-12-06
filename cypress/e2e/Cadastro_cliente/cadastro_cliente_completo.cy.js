@@ -19,7 +19,7 @@ describe('Cadastrar cliente completo', () => {
     context('Cadastro de cliente completo', () => {
 
         //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
-        it.skip('Cliente completo CPF', () => {
+        it.only('Cliente completo CPF', () => {
 
             iconeMenuOpcoes()
             opcaoClienteCompleto()

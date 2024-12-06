@@ -1,7 +1,7 @@
 //Importando funções 
 import { titulopagina } from '../../support/para_todos';
 import { logoEmpresaLogin, iconeComputadorLogin, usuarioTextoIcone, senhaTextoIcone, iconeOlhosSenha, botaoEsqueceuSenha, botaoEntrarHabilitado, 
-         botaoEntrarDesabilitado, clicarBotaoEntrar, mensagemEntrandoSistema, botaoIniciarAtendimento } from '../../support/para_logins/para_login';
+         botaoEntrarDesabilitado, clicarBotaoEntrar, mensagemEntrandoSistema, botaoIniciarAtendimento, messUsuarioSenhaInvalidos } from '../../support/para_logins/para_login';
 
 const usuSabiumAutomacao = "sabium.automacao"; //usuário ERP Sabium (contexto 1)
 const senhaautomacao = "123.automacao"; //senha usuário ERP Sabium (contexto 1)
@@ -79,31 +79,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             cy.wait(800)
-    
-            //Mensagem de senha errada
-            cy.get('.toast')
-                .should('exist')
-                .and('be.visible')
-    
-            //Mensagem "Atenção"
-            cy.get('.toast-title')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text','Atenção')
-                .and('not.have.attr', 'disabled')
-    
-            //Mensagem "Login ou Senha do usuário está incorreto."
-            cy.get('.toast-message')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text','Login ou Senha do usuário está incorreto.')
-                .and('not.have.attr', 'disabled') 
-    
-            //Botão X para fechar mensagem
-            cy.get('.toast-close-button')
-                .should('exist')
-                .and('be.visible')
-    
+            messUsuarioSenhaInvalidos() 
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
@@ -134,31 +110,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             cy.wait(800)
-    
-            //Mensagem de senha errada
-            cy.get('.toast')
-                .should('exist')
-                .and('be.visible')
-    
-            //Mensagem "Atenção"
-            cy.get('.toast-title')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text','Atenção')
-                .and('not.have.attr', 'disabled')
-    
-            //Mensagem "Login ou Senha do usuário está incorreto."
-            cy.get('.toast-message')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text','Login ou Senha do usuário está incorreto.')
-                .and('not.have.attr', 'disabled') 
-    
-            //Botão X para fechar mensagem
-            cy.get('.toast-close-button')
-                .should('exist')
-                .and('be.visible')
-    
+            messUsuarioSenhaInvalidos()
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
@@ -307,31 +259,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             cy.wait(800)
-    
-            //Mensagem de senha errada
-            cy.get('.toast')
-                .should('exist')
-                .and('be.visible')
-    
-            //Mensagem "Atenção"
-            cy.get('.toast-title')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text','Atenção')
-                .and('not.have.attr', 'disabled')
-    
-            //Mensagem "Login ou Senha do usuário está incorreto."
-            cy.get('.toast-message')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text','Login ou Senha do usuário está incorreto.')
-                .and('not.have.attr', 'disabled') 
-    
-            //Botão X para fechar mensagem
-            cy.get('.toast-close-button')
-                .should('exist')
-                .and('be.visible')
-    
+            messUsuarioSenhaInvalidos()
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
@@ -362,31 +290,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             cy.wait(800)
-    
-            //Mensagem de senha errada
-            cy.get('.toast')
-                .should('exist')
-                .and('be.visible')
-    
-            //Mensagem "Atenção"
-            cy.get('.toast-title')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text','Atenção')
-                .and('not.have.attr', 'disabled')
-    
-            //Mensagem "Login ou Senha do usuário está incorreto."
-            cy.get('.toast-message')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text','Login ou Senha do usuário está incorreto.')
-                .and('not.have.attr', 'disabled') 
-    
-            //Botão X para fechar mensagem
-            cy.get('.toast-close-button')
-                .should('exist')
-                .and('be.visible')
-    
+            messUsuarioSenhaInvalidos()
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     

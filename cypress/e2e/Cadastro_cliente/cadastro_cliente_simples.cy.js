@@ -41,58 +41,50 @@ describe('Cadastrar cliente simples', () => {
         })  
 
         //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
-        it.skip('Cliente simples CPF - alterar data de nascimento logo após cadastrar', () => {
+        it.only('Cliente simples CPF - alterar data de nascimento logo após cadastrar', () => {
     
             iconeMenuOpcoes()
             opcaoClienteSimples()
             prencherCPFcliente()
             preencherNomeCompletoCPF()
             preencherDataNascimento()
+            sexoPessoaFisica()
+            inserirPesquisarCEP()
+            inserirNumeroEndereco()
+            cadastroRotaCliente()
+            salvarClienteSimples()
+            mensagemPrimeiroRegistSalvoSucesso()
 
-            // sexoPessoaFisica()
+            // ALTERAÇÃO DE CLIENTE SIMPLES - CPF
+            iconeMenuOpcoes()
+            opcaoClienteSimples()
 
-            // inserirPesquisarCEP()
+            //Alteração - Campo data de nascimento
+            cy.get('#input_888')
+                .should('exist')
+                .and('be.visible')
+                .clear()
+                .should('have.value','')
+                .type("10/10/1990", {force:true})
 
-            // inserirNumeroEndereco()
+            salvarClienteSimples()
 
-            // cadastroRotaCliente()
+            //Card de mensagem de Registro salvo com sucesso!
+            cy.get('.toast')
+                .should('exist')
+                .and('be.visible')
 
-            // salvarClienteSimples()
+            //Card de mensagem de Registro salvo com sucesso! - Aviso
+            cy.get('.toast-title')
+                .should('exist')
+                .and('be.visible')
+                .and('have.text', 'Aviso')
 
-            // mensagemPrimeiroRegistSalvoSucesso()
-
-            // // ALTERAÇÃO DE CLIENTE SIMPLES - CPF
-
-            // iconeMenuOpcoes()
-
-            // opcaoClienteSimples()
-
-            // //Alteração - Campo data de nascimento
-            // cy.get('#input_880')
-            //     .should('exist')
-            //     .and('be.visible')
-            //     .clear()
-            //     .should('have.value','')
-            //     .type("10/10/1990", {force:true})
-
-            // salvarClienteSimples()
-
-            // //Card de mensagem de Registro salvo com sucesso!
-            // cy.get('.toast')
-            //     .should('exist')
-            //     .and('be.visible')
-
-            // //Card de mensagem de Registro salvo com sucesso! - Aviso
-            // cy.get('.toast-title')
-            //     .should('exist')
-            //     .and('be.visible')
-            //     .and('have.text', 'Aviso')
-
-            // //Card de mensagem de Registro salvo com sucesso! - Registro salvo com sucesso!
-            // cy.get('.toast-message')
-            //     .should('exist')
-            //     .and('be.visible')
-            //     .and('have.text', 'Registro salvo com sucesso!')
+            //Card de mensagem de Registro salvo com sucesso! - Registro salvo com sucesso!
+            cy.get('.toast-message')
+                .should('exist')
+                .and('be.visible')
+                .and('have.text', 'Registro salvo com sucesso!')
         })  
 
         //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO

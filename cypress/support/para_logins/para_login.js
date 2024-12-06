@@ -116,3 +116,31 @@ export function botaoIniciarAtendimento (selector) {
         .should('exist')
         .and('be.visible')
 }
+
+//validando mensagem de Login ou senha estão incorretos
+export function messUsuarioSenhaInvalidos (selector) {
+
+    //Mensagem de senha errada
+    cy.get('.toast')
+        .should('exist')
+        .and('be.visible')
+
+    //Mensagem "Atenção"
+    cy.get('.toast-title')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Atenção')
+        .and('not.have.attr', 'disabled')
+
+    //Mensagem "Login ou Senha do usuário está incorreto."
+    cy.get('.toast-message')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Usuário/Senha são inválidos')
+        .and('not.have.attr', 'disabled') 
+
+    //Botão X para fechar mensagem
+    cy.get('.toast-close-button')
+        .should('exist')
+        .and('be.visible')
+}

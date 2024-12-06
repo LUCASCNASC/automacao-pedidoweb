@@ -183,7 +183,7 @@ export function preencherDataNascimento (selector) {
         .should('have.text', 'Data de nascimento')     
 
     //Campo data de nascimento
-    cy.get('#input_124')
+    cy.get('#input_132')
         .should('exist')
         .and('be.visible')
         .and('have.value','')

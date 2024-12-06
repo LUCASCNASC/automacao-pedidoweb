@@ -81,16 +81,11 @@ export function preecherDataNascimento (selector) {
     cy.get('label[for="txtDataNasc"]')
         .should('have.text', 'Data Nascimento') 
 
-    cy.get('#txtDataNasc > .md-datepicker-button')
-        .click({force:true})
-
     cy.wait(200)
 
     //Campo data de nascimento
-    cy.get('#input_100')
-        .should('exist')
-        .and('be.visible')
-        .type("30/09/1998", {force:true})
+    cy.get('#input_104')  // Seleciona o campo com o placeholder
+        .type('30/09/1998')
 }
 
 //Validar e escolher sexo da pessoa
