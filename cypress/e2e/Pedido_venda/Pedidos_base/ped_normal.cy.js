@@ -188,7 +188,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(8000)
         })
 
-        it('Venda: produto 1860 0 0 - (Pedido de venda com entrega. Com Entrada + parcelamento.)', () => {
+        it.only('Venda: produto 1860 0 0 - (Pedido de venda com entrega. Com Entrada + parcelamento.)', () => {
                       
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()

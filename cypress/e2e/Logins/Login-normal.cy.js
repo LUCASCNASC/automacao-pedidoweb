@@ -1,7 +1,7 @@
 //Importando funções 
 import { titulopagina } from '../../support/para_todos';
 import { logoEmpresaLogin, iconeComputadorLogin, usuarioTextoIcone, senhaTextoIcone, iconeOlhosSenha, botaoEsqueceuSenha, botaoEntrarHabilitado, 
-         botaoEntrarDesabilitado, clicarBotaoEntrar, mensagemEntrandoSistema, botaoIniciarAtendimento, messUsuarioSenhaInvalidos } from '../../support/para_logins/para_login';
+         botaoEntrarDesabilitado, clicarBotaoEntrar, mensagemEntrandoSistema, botaoIniciarAtendimento, messLoginSenhaIncorreto } from '../../support/para_logins/para_login';
 
 const usuSabiumAutomacao = "sabium.automacao"; //usuário ERP Sabium (contexto 1)
 const senhaautomacao = "123.automacao"; //senha usuário ERP Sabium (contexto 1)
@@ -79,7 +79,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             cy.wait(800)
-            messUsuarioSenhaInvalidos() 
+            messLoginSenhaIncorreto() 
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
@@ -110,7 +110,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             cy.wait(800)
-            messUsuarioSenhaInvalidos()
+            messLoginSenhaIncorreto()
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
@@ -259,7 +259,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             cy.wait(800)
-            messUsuarioSenhaInvalidos()
+            messLoginSenhaIncorreto()
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     
@@ -290,7 +290,7 @@ describe('Login caminho feliz - usuário normal senha liberada', () => {
             botaoEntrarHabilitado()
             clicarBotaoEntrar()
             cy.wait(800)
-            messUsuarioSenhaInvalidos()
+            messLoginSenhaIncorreto()
             iconeComputadorLogin() //Validando que não entrou no sistema
         })
     

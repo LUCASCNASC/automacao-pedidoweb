@@ -118,7 +118,7 @@ export function botaoIniciarAtendimento (selector) {
 }
 
 //validando mensagem de Login ou senha estão incorretos
-export function messUsuarioSenhaInvalidos (selector) {
+export function messLoginSenhaIncorreto (selector) {
 
     //Mensagem de senha errada
     cy.get('.toast')
@@ -136,11 +136,129 @@ export function messUsuarioSenhaInvalidos (selector) {
     cy.get('.toast-message')
         .should('exist')
         .and('be.visible')
-        .and('have.text','Usuário/Senha são inválidos')
+        .and('have.text','Login ou Senha do usuário está incorreto.')
         .and('not.have.attr', 'disabled') 
 
     //Botão X para fechar mensagem
     cy.get('.toast-close-button')
         .should('exist')
         .and('be.visible')
+}
+
+// Card de expira acesso - "Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo."
+export function expiraAcessoCardValidar (selector) {
+
+    //Card de expira acesso - Mensagem "Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo."
+    cy.get('.md-dialog-content-body > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo.')
+
+    //Card de expira acesso - NÃO
+    cy.get('.md-cancel-button')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','NÃO')
+        .and('not.have.attr', 'disabled')
+
+    //Card de expira acesso - SIM
+    cy.get('.md-confirm-button')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','SIM')
+        .and('not.have.attr', 'disabled')
+}
+
+//Card de expira acesso - clicar em SIM
+export function clicarSIMExpira (selector) {
+
+    //Card de expira acesso - clicar em SIM
+    cy.get('.md-confirm-button')
+        .click()
+
+    //Mensagem "Aguarde carregando...", após clicarmos em SIM
+    cy.get('center')
+        .should('exist')
+        .and('be.visible')
+        .and('have.text','Aguarde carregando...')
+}
+
+//Validar Regras para a Nova Senha (antes de preencher campo Nova Senha)
+export function regrasNovaSenhaAntes (selector) {
+
+    //Validar a primeira Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 8 caracteres.
+    cy.contains('span', 'Ao menos 8 caracteres.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(204, 0, 0)')
+
+    //Validar a segunda Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 1 letra maiúscula ou minúscula.
+    cy.contains('span', 'Ao menos 1 letra maiúscula ou minúscula.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(204, 0, 0)')
+
+    //Validar a terceira Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 1 algarismo.
+    cy.contains('span', 'Ao menos 1 algarismo.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(204, 0, 0)')
+
+    //Validar a quarta Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 1 caractere especial.
+    cy.contains('span', 'Ao menos 1 caractere especial.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(204, 0, 0)')
+
+    //Validar a quinta Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto A nova senha não pode ser a atual.
+    cy.contains('span', 'A nova senha não pode ser a atual.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(204, 0, 0)')
+
+    //Validar a sexta Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto As novas senhas informadas são iguais.
+    cy.contains('span', 'As novas senhas informadas são iguais.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(204, 0, 0)')
+}
+
+//Validar Regras para a Nova Senha (antes de preencher campo Nova Senha)
+export function regrasNovaSenhaDepois (selector) {
+
+    //Validar a primeira Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 8 caracteres.
+    cy.contains('span', 'Ao menos 8 caracteres.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(0, 100, 0)')
+
+    //Validar a segunda Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 1 letra maiúscula ou minúscula.
+    cy.contains('span', 'Ao menos 1 letra maiúscula ou minúscula.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(0, 100, 0)')
+
+    //Validar a terceira Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 1 algarismo.
+    cy.contains('span', 'Ao menos 1 algarismo.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(0, 100, 0)')
+
+    //Validar a quarta Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 1 caractere especial.
+    cy.contains('span', 'Ao menos 1 caractere especial.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(0, 100, 0)')
+
+    //Validar a quinta Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto A nova senha não pode ser a atual.
+    cy.contains('span', 'A nova senha não pode ser a atual.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(0, 100, 0)')
+
+    //Validar a sexta Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto As novas senhas informadas são iguais.
+    cy.contains('span', 'As novas senhas informadas são iguais.')
+        .should('exist')
+        .and('be.visible')
+        .and('have.css', 'color', 'rgb(204, 0, 0)')
 }

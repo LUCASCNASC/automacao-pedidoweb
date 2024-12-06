@@ -1,7 +1,7 @@
 //Importando funções 
 import { titulopagina } from '../../support/para_todos';
 import { logoEmpresaLogin, iconeComputadorLogin, usuarioTextoIcone, senhaTextoIcone, iconeOlhosSenha, botaoEsqueceuSenha, botaoEntrarHabilitado,
-         clicarBotaoEntrar, mensagemEntrandoSistema } from '../../support/para_logins/para_login';
+         clicarBotaoEntrar, mensagemEntrandoSistema, expiraAcessoCardValidar, clicarSIMExpira, regrasNovaSenhaAntes, regrasNovaSenhaDepois } from '../../support/para_logins/para_login';
 
 const usuSabiumAutomacao = "usu.expira2dias"; //usuário 419
 const senhaautomacao = "321@teste"; //trocar informação parnova senha e vice-versa
@@ -48,25 +48,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         cy.wait(8000)
 
         //APÓS LOGAR
-        //Card de expira acesso - Mensagem "Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo."
-        cy.get('.md-dialog-content-body > .ng-binding')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo.')
-
-        //Card de expira acesso - NÃO
-        cy.get('.md-cancel-button')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','NÃO')
-            .and('not.have.attr', 'disabled')
-
-        //Card de expira acesso - SIM
-        cy.get('.md-confirm-button')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','SIM')
-            .and('not.have.attr', 'disabled')
+        expiraAcessoCardValidar()
 
         //Card de expira acesso - clicar em NÃO
         cy.get('.md-cancel-button')
@@ -107,37 +89,9 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         mensagemEntrandoSistema()
         cy.wait(8000)
 
-        //APÓS LOGAR
-        //Card de expira acesso - Mensagem "Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo."
-        cy.get('.md-dialog-content-body > .ng-binding')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo.')
-
-        //Card de expira acesso - NÃO
-        cy.get('.md-cancel-button')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','NÃO')
-            .and('not.have.attr', 'disabled')
-
-        //Card de expira acesso - SIM
-        cy.get('.md-confirm-button')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','SIM')
-            .and('not.have.attr', 'disabled')
-
-        //Card de expira acesso - clicar em SIM
-        cy.get('.md-confirm-button')
-            .click()
-
-        //Mensagem "Aguarde carregando...", após clicarmos em SIM
-        cy.get('center')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','Aguarde carregando...')
-
+        //APÓS LOGAR g
+        expiraAcessoCardValidar()
+        clicarSIMExpira() //clicar SIM 
 
         //Card Altere Sua Senha Temporária - título "Altere Sua Senha Temporária"
         cy.get('p')
@@ -187,41 +141,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
 
-        //Validar a primeira Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 8 caracteres.
-        cy.contains('span', 'Ao menos 8 caracteres.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a segunda Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 1 letra maiúscula ou minúscula.
-        cy.contains('span', 'Ao menos 1 letra maiúscula ou minúscula.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a terceira Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 1 algarismo.
-        cy.contains('span', 'Ao menos 1 algarismo.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a quarta Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 1 caractere especial.
-        cy.contains('span', 'Ao menos 1 caractere especial.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a quinta Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto A nova senha não pode ser a atual.
-        cy.contains('span', 'A nova senha não pode ser a atual.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a sexta Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto As novas senhas informadas são iguais.
-        cy.contains('span', 'As novas senhas informadas são iguais.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
+        regrasNovaSenhaAntes()
 
         //Card Altere Sua Senha Temporária - campo para preenchimento "Nova Senha"
         cy.get('input[name="password_new"]')
@@ -235,41 +155,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .should('be.visible')
 
-        //Validar a primeira Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 8 caracteres.
-        cy.contains('span', 'Ao menos 8 caracteres.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a segunda Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 1 letra maiúscula ou minúscula.
-        cy.contains('span', 'Ao menos 1 letra maiúscula ou minúscula.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a terceira Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 1 algarismo.
-        cy.contains('span', 'Ao menos 1 algarismo.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a quarta Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 1 caractere especial.
-        cy.contains('span', 'Ao menos 1 caractere especial.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a quinta Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto A nova senha não pode ser a atual.
-        cy.contains('span', 'A nova senha não pode ser a atual.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a sexta Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto As novas senhas informadas são iguais.
-        cy.contains('span', 'As novas senhas informadas são iguais.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
+        regrasNovaSenhaDepois()
 
         //Card Altere Sua Senha Temporária - botão CONFIRMAR antes de todas as regras estarem certas
         cy.get(':nth-child(5) > .md-raised')
@@ -354,36 +240,8 @@ describe('Login com usuário que senha expira em 2 dias', () => {
         cy.wait(8000)
 
         //APÓS LOGAR
-        //Card de expira acesso - Mensagem "Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo."
-        cy.get('.md-dialog-content-body > .ng-binding')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','Falta(m) " 2 " dia(s) para seu acesso ao sistema expirar. Favor atualizá-lo.')
-
-        //Card de expira acesso - NÃO
-        cy.get('.md-cancel-button')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','NÃO')
-            .and('not.have.attr', 'disabled')
-
-        //Card de expira acesso - SIM
-        cy.get('.md-confirm-button')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','SIM')
-            .and('not.have.attr', 'disabled')
-
-        //Card de expira acesso - clicar em SIM
-        cy.get('.md-confirm-button')
-            .click()
-
-        //Mensagem "Aguarde carregando...", após clicarmos em SIM
-        cy.get('center')
-            .should('exist')
-            .and('be.visible')
-            .and('have.text','Aguarde carregando...')
-
+        expiraAcessoCardValidar()
+        clicarSIMExpira() //clicar SIM 
 
         //Card Altere Sua Senha Temporária - título "Altere Sua Senha Temporária"
         cy.get('p')
@@ -433,41 +291,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .and('be.visible')
 
-        //Validar a primeira Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 8 caracteres.
-        cy.contains('span', 'Ao menos 8 caracteres.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a segunda Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 1 letra maiúscula ou minúscula.
-        cy.contains('span', 'Ao menos 1 letra maiúscula ou minúscula.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a terceira Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 1 algarismo.
-        cy.contains('span', 'Ao menos 1 algarismo.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a quarta Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto Ao menos 1 caractere especial.
-        cy.contains('span', 'Ao menos 1 caractere especial.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a quinta Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto A nova senha não pode ser a atual.
-        cy.contains('span', 'A nova senha não pode ser a atual.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
-
-        //Validar a sexta Regras para a Nova Senha (antes de preencher campo Nova Senha) - Texto As novas senhas informadas são iguais.
-        cy.contains('span', 'As novas senhas informadas são iguais.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
+        regrasNovaSenhaAntes()
 
         //Card Altere Sua Senha Temporária - campo para preenchimento "Nova Senha"
         cy.get('input[name="password_new"]')
@@ -481,41 +305,7 @@ describe('Login com usuário que senha expira em 2 dias', () => {
             .should('exist')
             .should('be.visible')
 
-        //Validar a primeira Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 8 caracteres.
-        cy.contains('span', 'Ao menos 8 caracteres.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a segunda Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 1 letra maiúscula ou minúscula.
-        cy.contains('span', 'Ao menos 1 letra maiúscula ou minúscula.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a terceira Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 1 algarismo.
-        cy.contains('span', 'Ao menos 1 algarismo.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a quarta Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto Ao menos 1 caractere especial.
-        cy.contains('span', 'Ao menos 1 caractere especial.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a quinta Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto A nova senha não pode ser a atual.
-        cy.contains('span', 'A nova senha não pode ser a atual.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(0, 100, 0)')
-
-        //Validar a sexta Regras para a Nova Senha (depois de preencher campo Nova Senha) - Texto As novas senhas informadas são iguais.
-        cy.contains('span', 'As novas senhas informadas são iguais.')
-            .should('exist')
-            .and('be.visible')
-            .and('have.css', 'color', 'rgb(204, 0, 0)')
+        regrasNovaSenhaDepois()
 
         //Card Altere Sua Senha Temporária - botão CONFIRMAR antes de todas as regras estarem certas
         cy.get(':nth-child(5) > .md-raised')
