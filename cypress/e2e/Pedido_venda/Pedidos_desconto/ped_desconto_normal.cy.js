@@ -2,8 +2,8 @@ import { titulopagina } from '../../../support/para_todos';
 import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, clicarAdicionarProduto,
          tirarEntrega, botaoGerarParcelas, processoVendaPrincipal, avancarParaParcelas, modalServicosVinculados,
          okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento,
-         escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
-import { produtoNormalPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';
+         escolherFormaPagamentoPrincipal, escolherUmaParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoDescontoCifrao, produtoDescontoPercentual, produtoDescontoValorFixo } from '../../../support/para_pedidos/produtos_pedidos';
 import { clicarBotaoDesconto, validarModalSubSobre, aplicarDescontoR$, aplicarDescontoPorcentagem, aplicarDescontoValorFixo } from '../../../support/para_pedidos/para_pedido_desconto';
 
 describe('Gerar pedido de venda com desconto', () => {
@@ -16,17 +16,17 @@ describe('Gerar pedido de venda com desconto', () => {
         processoVendaPrincipal()
         escolherClientePedido()
         cy.wait(500)
-        produtoNormalPrimeiro()
-        saldodisponivel()
-        escolherProdutoPesquisa()
-        cy.wait(200)
     })
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / R$', () => {
+        it('1-Pedido de venda: produto 1860 0 0 com desconto Sub (-) / R$', () => {
 
-            escolherVoltagemProduto() //PRODUTO
+            produtoDescontoCifrao() //PRODUTO
+            saldodisponivel()
+            escolherProdutoPesquisa()
+            cy.wait(200)
+            escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(500)
 
@@ -46,15 +46,19 @@ describe('Gerar pedido de venda com desconto', () => {
             carregandoFormaPagamento()
             cy.wait(5000)
             escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
+            escolherUmaParcelaPagamento()
             cy.wait(400)
             avancarFinal()
             cy.wait(6000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / % (Pocentagem)', () => {
+        it('2-Pedido de venda: produto 1860 0 0 com desconto Sub (-) / % (Porcentagem)', () => {
 
-            escolherVoltagemProduto() //PRODUTO
+            produtoDescontoPercentual() //PRODUTO
+            saldodisponivel()
+            escolherProdutoPesquisa()
+            cy.wait(200)
+            escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(500)
 
@@ -74,15 +78,19 @@ describe('Gerar pedido de venda com desconto', () => {
             carregandoFormaPagamento()
             cy.wait(5000)
             escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
+            escolherUmaParcelaPagamento()
             cy.wait(400)
             avancarFinal()
             cy.wait(6000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 com desconto Sub (-) / VALOR FIXO', () => {
+        it('3-Pedido de venda: produto 1860 0 0 com desconto Sub (-) / VALOR FIXO', () => {
 
-            escolherVoltagemProduto() //PRODUTO
+            produtoDescontoValorFixo() //PRODUTO
+            saldodisponivel()
+            escolherProdutoPesquisa()
+            cy.wait(200)
+            escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(500)
 
@@ -102,7 +110,7 @@ describe('Gerar pedido de venda com desconto', () => {
             carregandoFormaPagamento()
             cy.wait(5000)
             escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
+            escolherUmaParcelaPagamento()
             cy.wait(400)
             avancarFinal()
             cy.wait(6000)
@@ -110,8 +118,7 @@ describe('Gerar pedido de venda com desconto', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(7000)
         pedidoGerado()

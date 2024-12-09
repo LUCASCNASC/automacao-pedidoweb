@@ -293,7 +293,7 @@ export function clicarUsarPromocao (selector) {
 }
 
 //validando e escolhendo forma de pagamento da promoção
-export function selecionarFormaPagPromo(selector) {
+export function selecionarFormaPagPromo (selector) {
 
     //validando título do modal Formas de pagamento
     cy.get('h2.flex')
@@ -320,4 +320,18 @@ export function selecionarFormaPagPromo(selector) {
         .and('be.visible')
         .and('not.be.disabled')
         .click()
+}
+
+//Validando Tipo "Tipo(s) Serviço(s) Isento(s):" dentro do modal Promoções
+export function tipoServicoIsentoValidar (selector) {
+
+    //Validando Tipo "Tipo(s) Serviço(s) Isento(s):" dentro do modal Promoções
+    cy.contains('Tipo(s) Serviço(s) Isento(s):')
+        .should('exist')
+        .and('be.visible')
+
+    //Validando "Garantias" dentro do modal Promoções
+    cy.contains('Garantias')
+        .should('exist')
+        .and('be.visible')
 }

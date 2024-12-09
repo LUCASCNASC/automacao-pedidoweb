@@ -2,7 +2,8 @@ import { titulopagina } from '../../../support/para_todos';
 import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, clicarAdicionarProduto,
          tirarEntrega, processoVendaPrincipal, avancarParaParcelas, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal } from '../../../support/para_pedidos/gerais_pedidos'
-import { prd1PrazoParcela, prd2PrazoParcela, prd3PrazoParcela, prd4PrazoParcela, messAdicionandoProdutosServicos, adicionarPrestamista } from '../../../support/para_pedidos/para_pedidos_promocao';
+import { prd1PrazoParcela, prd2PrazoParcela, prd3PrazoParcela, prd4PrazoParcela, messAdicionandoProdutosServicos, adicionarPrestamista, 
+         tipoServicoIsentoValidar } from '../../../support/para_pedidos/para_pedidos_promocao';
 import { garantiaSeparaMesmoProcesso } from '../../../support/para_pedidos/apenas_servicos'
 
 describe('Gerar pedidos com promoção e serviços com isenção de juros', () => {
@@ -19,32 +20,21 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
   
     context('Sem entrega/ com promoção/ com serviço processo 9860 - caminho feliz', () => {
 
-        it('Pedido com promoção a prazo/parcelas (promoção 159): produto 1891 0 0 com garantia (isenta de juros)', () => {
+        it('1-Pedido com promoção a prazo/parcelas (promoção 159): produto 1891 0 0 com garantia (isenta de juros)', () => {
     
             prd1PrazoParcela() //PRODUTO PROMOÇÃO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)
             escolherVoltagemProduto()
-
-            //Validando Tipo "Tipo(s) Serviço(s) Isento(s):" dentro do modal Promoções
-            cy.contains('Tipo(s) Serviço(s) Isento(s):')
-                .should('exist')
-                .and('be.visible')
-
-            //Validando "Garantias" dentro do modal Promoções
-            cy.contains('Garantias')
-                .should('exist')
-                .and('be.visible')
+            tipoServicoIsentoValidar()
                 
             // //Usar promoção, no card "Promoções"
-             cy.get('.md-3-line > div.md-button > .md-no-style')
-                 .click({force:true})
+             cy.get('.md-3-line > div.md-button > .md-no-style').click({force:true})
     
             // //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('button[aria-label="3860 - T.A. A Receber Futuro   Futuro"]')
-                .click({force:true})
-    
+            cy.get('button[aria-label="3860 - T.A. A Receber Futuro   Futuro"]').click({force:true})
+                
             clicarAdicionarProduto()
             cy.wait(500)
     
@@ -63,7 +53,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.wait(7000)
         })
     
-        it('Pedido com promoção a prazo/entrada + parcelas (promoção 158): produto 1895 0 0 com garantia (isenta de juros)', () => {
+        it('2-Pedido com promoção a prazo/entrada + parcelas (promoção 158): produto 1895 0 0 com garantia (isenta de juros)', () => {
     
             prd2PrazoParcela() //PRODUTO PROMOCAO
             saldodisponivel()
@@ -71,24 +61,13 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.wait(200)
             escolherVoltagemProduto()
             cy.wait(400)
-    
-            //Validando Tipo "Tipo(s) Serviço(s) Isento(s):" dentro do modal Promoções
-            cy.contains('Tipo(s) Serviço(s) Isento(s):')
-                .should('exist')
-                .and('be.visible')
-
-            //Validando "Garantias" dentro do modal Promoções
-            cy.contains('Garantias')
-                .should('exist')
-                .and('be.visible')
+            tipoServicoIsentoValidar()
                 
-            // //Usar promoção, no card "Promoções"
-             cy.get('.md-3-line > div.md-button > .md-no-style')
-                 .click({force:true})
+            //Usar promoção, no card "Promoções"
+            cy.get('.md-3-line > div.md-button > .md-no-style').click({force:true})
     
-            // //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('button[aria-label="3860 - T.A. A Receber Futuro   Futuro"]')
-                .click({force:true})
+            //Escolher uma forma de pagamento, no card de "Formas de pagamento"
+            cy.get('button[aria-label="3860 - T.A. A Receber Futuro   Futuro"]').click({force:true})
     
             clicarAdicionarProduto()
             cy.wait(500)
@@ -129,7 +108,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.wait(7000)
         })
     
-        it('Pedido com promoção a prazo/parcelas (promoção 161): produto 1893 0 0 com prestamista (isento de juros)', () => {
+        it('3-Pedido com promoção a partida (promoção 161): produto 1893 0 0 com prestamista (isento de juros)', () => {
     
             prd3PrazoParcela() //PRODUTO PROMOCAO
             saldodisponivel()
@@ -137,25 +116,13 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.wait(200)    
             escolherVoltagemProduto()
             cy.wait(400)
-    
-            //Validando Tipo "Tipo(s) Serviço(s) Isento(s):" dentro do modal Promoções
-            cy.contains('Tipo(s) Serviço(s) Isento(s):')
-                .should('exist')
-                .and('be.visible')
-
-            //Validando "Garantias" dentro do modal Promoções
-            cy.contains('Seguro Prestamista')
-                .should('exist')
-                .and('be.visible')
                 
-            // //Usar promoção, no card "Promoções"
-             cy.get('.md-3-line > div.md-button > .md-no-style')
-                 .click({force:true})
-    
-            // //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('button[aria-label="3866 - T.A. A Receber Prestamista   Futuro"]')
-                .click({force:true})
-    
+            //Usar promoção, no card "Promoções"
+            cy.get('.md-3-line > div.md-button > .md-no-style').click({force:true})
+                 
+            //Escolher uma forma de pagamento, no card de "Formas de pagamento"
+            cy.get('button[aria-label="3866 - T.A. A Receber Prestamista   Futuro"]').click({force:true})
+                
             clicarAdicionarProduto()
             cy.wait(500)
     
@@ -175,31 +142,20 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
             cy.wait(7000)
         })
 
-        it('Pedido com promoção a prazo/parcelas (promoção 162): produto 1894 0 0 com garantia (isenta de juros) e prestamista (com juros)', () => {
+        it('4-Pedido com promoção a prazo/parcelas (promoção 162): produto 1894 0 0 com garantia (isenta de juros) e prestamista (com juros)', () => {
     
             prd4PrazoParcela() //PRODUTO PROMOCAO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)  
             escolherVoltagemProduto()
-
-            //Validando Tipo "Tipo(s) Serviço(s) Isento(s):" dentro do modal Promoções
-            cy.contains('Tipo(s) Serviço(s) Isento(s):')
-                .should('exist')
-                .and('be.visible')
-
-            //Validando "Garantias" dentro do modal Promoções
-            cy.contains('Garantias')
-                .should('exist')
-                .and('be.visible')
+            tipoServicoIsentoValidar()
                 
-            // //Usar promoção, no card "Promoções"
-             cy.get('.md-3-line > div.md-button > .md-no-style')
-                .click({force:true})
+            ///Usar promoção, no card "Promoções"
+             cy.get('.md-3-line > div.md-button > .md-no-style').click({force:true})
     
-            // //Escolher uma forma de pagamento, no card de "Formas de pagamento"
-            cy.get('button[aria-label="3866 - T.A. A Receber Prestamista   Futuro"]')
-                .click({force:true})
+            //Escolher uma forma de pagamento, no card de "Formas de pagamento"
+            cy.get('button[aria-label="3866 - T.A. A Receber Prestamista   Futuro"]').click({force:true})
     
             clicarAdicionarProduto()
             cy.wait(500)
@@ -223,8 +179,7 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(9000)
         pedidoGerado()

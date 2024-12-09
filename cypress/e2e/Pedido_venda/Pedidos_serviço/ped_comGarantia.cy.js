@@ -29,7 +29,7 @@ describe('Gerar pedidos com Garantia', () => {
 
     context('Sem entrega/processo 9860 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
+        it('1-Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados() //SERVIÇOS
@@ -38,19 +38,9 @@ describe('Gerar pedidos com Garantia', () => {
     
             avancarParaParcelas()
             cy.wait(8500)
-    
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(7500)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(6000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it('2-Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados() //SERVIÇOS
@@ -72,19 +62,9 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(10000)
-    
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(10500)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(11000)
         })
     
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
+        it('3-Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             okServicosVinculados() //SERVIÇOS
@@ -93,19 +73,9 @@ describe('Gerar pedidos com Garantia', () => {
     
             avancarParaParcelas()
             cy.wait(7500)
-    
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(7000)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(6500)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
+        it('4-Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             okServicosVinculados() //SERVIÇOS
@@ -127,19 +97,9 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(8500)
-    
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(8000)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(10000)
         })
     
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
+        it('5-Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
             garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
             okServicosVinculados() //SERVIÇOS
@@ -148,19 +108,9 @@ describe('Gerar pedidos com Garantia', () => {
     
             avancarParaParcelas()
             cy.wait(8500)
-
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(7500)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(6000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
+        it('6-Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
             okServicosVinculados() //SERVIÇOS
@@ -182,22 +132,12 @@ describe('Gerar pedidos com Garantia', () => {
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(8500)
-
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(7500)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(8000)
         })
     })
 
     context('Com entrega/processo 9860 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
+        it('7-Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo)', () => {
     
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados() //SERVIÇOS
@@ -211,19 +151,9 @@ describe('Gerar pedidos com Garantia', () => {
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(7500)
-
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(8000)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(10000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
+        it('8-Pedido de venda: produto 1860 0 0 (com Garantia que separa título no mesmo processo) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados() //SERVIÇOS
@@ -249,19 +179,9 @@ describe('Gerar pedidos com Garantia', () => {
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(9000)
-
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(7500)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(8000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
+        it('9-Pedido de venda: produto 1860 0 0 (com Garantia que não separa título)', () => {
     
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             okServicosVinculados() //SERVIÇOS
@@ -275,19 +195,9 @@ describe('Gerar pedidos com Garantia', () => {
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(9000)
-
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(8500)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
+        it('10-Pedido de venda: produto 1860 0 0 (com Garantia que não separa título) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaNaoSepara() //Marcar garantia "T.A. Garantia Não Separa"
             okServicosVinculados() //SERVIÇOS
@@ -313,19 +223,9 @@ describe('Gerar pedidos com Garantia', () => {
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
-    
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(7500)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
+        it('11-Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente)', () => {
     
             garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
             okServicosVinculados() //SERVIÇOS
@@ -339,19 +239,9 @@ describe('Gerar pedidos com Garantia', () => {
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
-
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(9000)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-    
-            avancarFinal()
-            cy.wait(9000)
         })
 
-        it('Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
+        it('12-Pedido de venda: produto 1860 0 0 (com Garantia que separa título em um processo diferente) e produto 1870 0 0 (sem serviço)', () => {
     
             garantiaSeparaTituloProcessoDiferente() //Marcar Garantia separa titulo em um processo diferente
             okServicosVinculados() //SERVIÇOS
@@ -376,20 +266,18 @@ describe('Gerar pedidos com Garantia', () => {
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
-    
-            botaoGerarParcelas() //GERAR PARCELAS
-            carregandoFormaPagamento()
-            cy.wait(7500)
-            escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
-            cy.wait(400)
-
-            avancarFinal()
-            cy.wait(9000)
         })
     })
 
     afterEach(() => {
+        botaoGerarParcelas() //GERAR PARCELAS
+        carregandoFormaPagamento()
+        cy.wait(7500)
+        escolherFormaPagamentoPrincipal()
+        escolherDuasParcelaPagamento()
+        cy.wait(400)
+        avancarFinal()
+        cy.wait(9000)
         botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(9000)

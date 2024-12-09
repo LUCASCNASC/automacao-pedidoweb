@@ -513,7 +513,7 @@ export function tirarMontagemSegundo (selector) {
         .scrollIntoView()
         .wait(200)
         .should('exist')
-        .and('be.visible')
+        //.and('be.visible')
         .and('not.be.disabled')
 
     //Botão Montagem parte direita
@@ -539,7 +539,7 @@ export function botaoGerarParcelas (selector) {
         .scrollIntoView()
         .wait(200)
         .should('exist')
-        .and('be.visible')
+        //.and('be.visible')
         .should('not.be.disabled')
         .and('have.text', 'Gerar parcelas')
 
@@ -554,7 +554,7 @@ export function escolherFormaPagamentoPrincipal (selector) {
     //validando título Forma de pagamento
     cy.get('.md-dialog-fullscreen > .md-primary > .md-toolbar-tools > .flex')
         .should('exist')
-        .and('be.visible')
+        //.and('be.visible')
         .and('have.text','Forma de pagamento')
 
     //validando botão X

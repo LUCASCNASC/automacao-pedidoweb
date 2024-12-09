@@ -25,7 +25,7 @@ describe('Gerar pedido normal', () => {
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it('Venda: produto 1860 0 0 - (Venda local de produto com saldo - sem entrega)', () => {
+        it('1-Venda: produto 1860 0 0 - (Venda local de produto com saldo - sem entrega)', () => {
 
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
@@ -49,7 +49,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(6000)
         })
 
-        it('Venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('2-Venda: produtos 1860 0 0 e 1870 0 0', () => {
                       
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
@@ -89,7 +89,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(7000)
         })
 
-        it('Venda: produto 1860 0 0 - (Pedido de venda sem entrega. Com Entrada + parcelamento.)', () => {
+        it('3-Venda: produto 1860 0 0 - (Pedido de venda sem entrega. Com Entrada + parcelamento.)', () => {
 
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
@@ -119,7 +119,7 @@ describe('Gerar pedido normal', () => {
 
     context('Com frete/ processo 9860 - caminho feliz', () => {
 
-        it('Venda: produto 1860 0 0 - (Venda local de produto com saldo - com entrega)', () => {
+        it('4-Venda: produto 1860 0 0 - (Venda local de produto com saldo - com entrega)', () => {
                       
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
@@ -147,7 +147,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(7000)
         })
 
-        it('Venda: produtos 1860 0 0 e 1870 0 0', () => {
+        it('5-Venda: produtos 1860 0 0 e 1870 0 0', () => {
                       
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
@@ -188,7 +188,7 @@ describe('Gerar pedido normal', () => {
             cy.wait(8000)
         })
 
-        it.only('Venda: produto 1860 0 0 - (Pedido de venda com entrega. Com Entrada + parcelamento.)', () => {
+        it('6-Venda: produto 1860 0 0 - (Pedido de venda com entrega. Com Entrada + parcelamento.)', () => {
                       
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()

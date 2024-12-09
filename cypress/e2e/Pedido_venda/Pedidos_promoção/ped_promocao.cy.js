@@ -2,7 +2,8 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido,
          clicarAdicionarProduto, tirarEntrega, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados,
-         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp } from '../../../support/para_pedidos/gerais_pedidos'
+         escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento,
+         escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos'
 import { produtoNormalSegundo } from '../../../support/para_pedidos/produtos_pedidos';
 import { produtoPromoPartida, produtoPromoPrazoEntrada, produtoPromoPrazoParcelado, clicarUsarPromocao, selecionarFormaPagPromo } from '../../../support/para_pedidos/para_pedidos_promocao';
 
@@ -20,7 +21,7 @@ describe('Gerar pedidos com promoção', () => {
   
     context('Sem entrega/ com promoção/ processo 9860 - caminho feliz', () => {
 
-        it('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
+        it('1-Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
             produtoPromoPartida() //PRODUTO
             saldodisponivel()
@@ -44,7 +45,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(8000)
         })
     
-        it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
+        it('2-Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
     
             produtoPromoPrazoEntrada() //PRODUTO
             saldodisponivel()
@@ -63,20 +64,14 @@ describe('Gerar pedidos com promoção', () => {
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
-            cy.wait(9000)
+            cy.wait(11000)
     
             //GERAR PARCELAS
-
-            cy.get('#select_190')
-                .click()
-    
-            //Escolher processo a receber de entrada
-            cy.get('#select_option_203 > .md-text')
-                .click({force:true})
+            cy.get('.white > :nth-child(3)').click()
+            cy.contains('3861 - T.A. A Receber A Vista').click()
     
             //Botão "GERAR PAGAMENTO"
-            cy.get('.white > .layout-align-center-center > .md-primary')
-                .click()
+            cy.get('.white > .layout-align-center-center > .md-primary').click()
     
             cy.wait(400)
     
@@ -84,7 +79,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(6000)
         })
     
-        it('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
+        it('3-Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
             produtoPromoPrazoParcelado() //PRODUTO
             saldodisponivel()
@@ -102,7 +97,7 @@ describe('Gerar pedidos com promoção', () => {
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
-            cy.wait(11000)
+            cy.wait(12500)
     
             avancarFinal() //AVANÇAR PARA ÚLTIMA TELA
             cy.wait(6000)
@@ -111,7 +106,7 @@ describe('Gerar pedidos com promoção', () => {
 
     context('Sem entrega/ com promoção e sem promoção/ processo 9860 - caminho feliz', () => {
 
-        it('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
+        it('4-Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
             produtoPromoPartida() //PRODUTO
             saldodisponivel()
@@ -141,7 +136,6 @@ describe('Gerar pedidos com promoção', () => {
             okServicosVinculados()
                 
             tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
-            tirarMontagemSegundo()
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(12000)
@@ -151,11 +145,11 @@ describe('Gerar pedidos com promoção', () => {
 
             //Escolher forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+                .click({force:true})
 
             //Escolher parcelamento
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+                .click({force:true})
 
             cy.wait(1000)
 
@@ -163,7 +157,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(8000)
         })
 
-        it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
+        it('5-Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
             produtoPromoPrazoEntrada() //PRODUTO
             saldodisponivel()
@@ -195,37 +189,30 @@ describe('Gerar pedidos com promoção', () => {
             okServicosVinculados()
                 
             tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
-            tirarMontagemSegundo()
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(13000)
 
             //GERAR PARCELAS 
+            cy.get('.white > :nth-child(3)').click({force:true})
     
-            //Abrir opções de processos a receber entrada
-            cy.get('#select_344')
-                .click({force:true})
-    
-            //Escolher processo a receber de entrada
-            cy.contains('div.md-text', '3861 - T.A. A Receber A Vista')
-                .click({force:true})
+            cy.contains('div.md-text', '3861 - T.A. A Receber A Vista').click({force:true})
     
             //Botão "GERAR PAGAMENTO"
-            cy.get('.white > .layout-align-center-center > .md-primary')
-                .click({force:true})
-    
+            cy.get('.white > .layout-align-center-center > .md-primary').click({force:true})
+                
             cy.wait(400)
 
             botaoGerarParcelas()
-            cy.wait(6000)
+            cy.wait(8000)
     
             //Selecionando forma de pagamento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+                .click({force:true})
     
             //Selecionando parcela na forma de pagamento
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+                .click({force:true})
     
             cy.wait(400)
     
@@ -236,7 +223,7 @@ describe('Gerar pedidos com promoção', () => {
 
     context('Com entrega /com promoção/ processo 9860 - caminho feliz', () => {
 
-        it('Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
+        it('6-Pedido com promoção partida (promoção 152): produto 1868 0 0', () => {
     
             produtoPromoPartida() //PRODUTO
             saldodisponivel()
@@ -258,7 +245,7 @@ describe('Gerar pedidos com promoção', () => {
             escolherRota()
 
             avancarParcelasEntrega() //ENTREGA
-            cy.wait(13000)
+            cy.wait(14000)
     
             botaoGerarParcelas() //GERAR PARCELAS
             cy.wait(6500)
@@ -277,7 +264,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(9000)
         })
     
-        it('Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
+        it('7-Pedido com promoção a prazo com entrada (promoção 150): produto 1866 0 0', () => {
     
             produtoPromoPrazoEntrada() //PRODUTO
             saldodisponivel()
@@ -301,40 +288,22 @@ describe('Gerar pedidos com promoção', () => {
             avancarParcelasEntrega()
             cy.wait(13000)
 
-            //GERAR PARCELAS
-
-            //Escolher forma de pagamento na entrada
-            cy.get('#select_931')
-                .click({force:true})
-
-            //Escolher o processo para a forma de pagamento de entrada
-            cy.get('#select_option_943')
-                .click({force:true})
-
-            cy.wait(400)
-
-            //Botão GERAR PAGAMENTO
-            cy.get('.white > .layout-align-center-center > .md-primary')
-                .click({force:true})
-
-            botaoGerarParcelas()
+            //"GERAR PAGAMENTO"
+            cy.get('.white > :nth-child(3)').click({force:true})
+            cy.contains('3861 - T.A. A Receber A Vista').click({force:true})
+            cy.get('.white > .layout-align-center-center > .md-primary').click({force:true})
+            botaoGerarParcelas() //GERAR PARCELAS
+            carregandoFormaPagamento()
             cy.wait(8000)
-
-            //Escolher "Forma de pagamento"
-            cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
-
-            //Escolher parcelamento
-            cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
-
+            escolherFormaPagamentoPrincipal()
+            escolherDuasParcelaPagamento()
             cy.wait(400)
 
             avancarFinal()
             cy.wait(9000)
         })
 
-        it('Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
+        it('8-Pedido com promoção a prazo parcelado (promoção 151): produto 1867 0 0', () => {
     
             produtoPromoPrazoParcelado() //PRODUTO
             saldodisponivel()
@@ -358,8 +327,7 @@ describe('Gerar pedidos com promoção', () => {
             avancarParcelasEntrega()
             cy.wait(13000)
 
-            //GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             cy.wait(6500)
 
             //Escolher a forma de pagamento
@@ -379,7 +347,7 @@ describe('Gerar pedidos com promoção', () => {
 
     context('Com entrega/ com promoção e sem promoção/ processo 9860 - caminho feliz', () => {
 
-        it('Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
+        it('9-Pedido com promoção partida (promoção 152): produto 1868 0 0 e produto 1870 0 0 (sem promoção)', () => {
     
             produtoPromoPartida() //PRODUTO
             saldodisponivel()
@@ -412,17 +380,16 @@ describe('Gerar pedidos com promoção', () => {
             avancarParcelasEntrega()
             cy.wait(14000)
 
-            //GERAR PARCELAS
-            botaoGerarParcelas()
-            cy.wait(6500)
+            botaoGerarParcelas() //GERAR PARCELAS
+            cy.wait(8000)
 
             //Escolher forma de pagemento
             cy.get('[style=""] > md-collapsible-header.layout-row > .md-collapsible-tools > .ng-scope')
-                .click()
+                .click({force: true})
 
             //Escolher parcelamento
             cy.get('.active > md-collapsible-body > .layout-column > [style="position: relative"] > :nth-child(1) > div.ng-binding')
-                .click()
+                .click({force: true})
 
             cy.wait(400)
 
@@ -435,7 +402,7 @@ describe('Gerar pedidos com promoção', () => {
         // RESUMO DO PEDIDO - ANTES DE FINALIZAR
         botaoFinalizarPedido()
         finalizandoPedido()
-        cy.wait(7000)
+        cy.wait(9000)
         pedidoGerado()
       });
 })

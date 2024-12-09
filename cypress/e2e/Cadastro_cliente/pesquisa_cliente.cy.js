@@ -18,7 +18,7 @@ describe('Cadastrar cliente', () => {
 
     context('Pesquisa cliente por número', () => {
 
-        it('Pesquisa por número CPF', () => {
+        it('1-Pesquisa por número CPF', () => {
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -52,7 +52,7 @@ describe('Cadastrar cliente', () => {
             numeroDescricaoCPFpesquisado()
         }) 
 
-        it('Pesquisa por número CNPJ', () => {
+        it('2-Pesquisa por número CNPJ', () => {
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -89,7 +89,7 @@ describe('Cadastrar cliente', () => {
 
     context('Pesquisa cliente por descrição', () => {
 
-        it('Pesquisa por descrição CPF', () => {
+        it('3-Pesquisa por descrição CPF', () => {
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')
@@ -127,7 +127,7 @@ describe('Cadastrar cliente', () => {
             numeroDescricaoCPFpesquisado()
         }) 
 
-        it('Pesquisa por descrição CNPJ', () => {
+        it('4-Pesquisa por descrição CNPJ', () => {
     
             //inserir CPF/CNPJ no campo de cliente para podermos pesquisar pela lupa
             cy.get('.click-cliente > .informe-o-cliente > .cliente-header')

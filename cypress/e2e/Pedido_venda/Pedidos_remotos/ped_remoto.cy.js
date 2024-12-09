@@ -19,7 +19,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
   
     context('Pedido de venda remoto normal', () => {
 
-        it('Pedido de venda remota: produto 1860 0 0 - (Venda remota de produto com saldo na filial do faturamento )', () => {
+        it('1-Pedido de venda remota: produto 1860 0 0 - (Venda remota de produto com saldo na filial do faturamento )', () => {
 
             produtoNormalPrimeiro() //PRODUTO
             saldodisponivel()
@@ -58,7 +58,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             pedidoGerado()
         })
 
-        it('Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
+        it('2-Pedido de venda remota: produtos 1860 0 0 e 1870 0 0', () => {
 
             produtoNormalPrimeiro() //PRODUTO
             saldodisponivel()
@@ -110,7 +110,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             pedidoGerado()
         })
         
-        it('Pedido de venda remota: kit 1862 0 0', () => {
+        it('3-Pedido de venda remota: kit 1862 0 0', () => {
 
             produtoNormalPrimeiro() //PRODUTO
             saldodisponivel()
@@ -152,7 +152,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
     
     context('Pedido de venda remoto sem saldo remoto, pegar CD', () => {
 
-        it.skip('Pedido de venda remoto - com saldo no CD (filial 1) - deve permitir fazer o pedido - (Venda remota de produto sem saldo na filial do faturamento, mas com saldo no CD do faturamento - com entrega)', () => {
+        it('4-Pedido de venda remoto - com saldo no CD (filial 1) - deve permitir fazer o pedido - (Venda remota de produto sem saldo na filial do faturamento, mas com saldo no CD do faturamento - com entrega)', () => {
 
             produtoRemotoComCD() //PRODUTO
             semSaldodisponivel()
@@ -191,7 +191,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             pedidoGerado()
         })    
         
-        it.skip('Pedido de venda remoto - SEM saldo no CD (filial 1) - NÃO deve permitir fazer o pedido - (Venda remota de produto sem saldo na filial do faturamento, sem saldo da CD do faturamento)', () => {
+        it('5-Pedido de venda remoto - SEM saldo no CD (filial 1) - NÃO deve permitir fazer o pedido - (Venda remota de produto sem saldo na filial do faturamento, sem saldo da CD do faturamento)', () => {
 
             produtoRemotoSemCD() //PRODUTO
             semSaldodisponivel()

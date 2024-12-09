@@ -126,7 +126,7 @@ export function aplicarDescontoPorcentagem (selector) {
 //aplicar desconto Sub(-) com VALOR FIXO
 export function aplicarDescontoValorFixo (selector) {
 
-    const valor_desconto_valorFixo = '130000'
+    const valor_desconto_valorFixo = '5000'
 
     //clicar no botão VALOR FIXO    
     cy.contains('button', 'VALOR FIXO')
@@ -246,13 +246,13 @@ export function alterarValorParaBaixo (selector) {
     cy.get('[ng-model="formaPgtoValor"]')
         .clear()
         .wait(200)
-        .type('137800')
+        .type('136000')
 
     //campo Subtotal
     cy.get('[ng-model="formaPgtoSubtotal"]')
         .clear()
         .wait(200)
-        .type('137800')
+        .type('136000')
 
     //clicar no botão APLICAR
     cy.get('button[ng-click="aplicarAlterarValor()"]')
@@ -266,13 +266,13 @@ export function alterarValorParaCima (selector) {
     cy.get('[ng-model="formaPgtoValor"]')
         .clear()
         .wait(200)
-        .type('137900')
+        .type('137000')
 
     //campo Subtotal
     cy.get('[ng-model="formaPgtoSubtotal"]')
         .clear()
         .wait(200)
-        .type('137900')
+        .type('137000')
 
     //clicar no botão APLICAR
     cy.get('button[ng-click="aplicarAlterarValor()"]')

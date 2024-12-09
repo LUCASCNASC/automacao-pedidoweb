@@ -3,7 +3,7 @@ import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPed
          modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal,
          clicarAdicionarProduto, botaoGerarParcelas, carregandoFormaPagamento, tirarEntrega, escolherFormaPagamentoPrincipal,
          escolherDuasParcelaPagamento, avancarParaParcelas } from '../../../support/para_pedidos/gerais_pedidos.js';
-import { produtoKitPrimeiro} from '../../../support/para_pedidos/produtos_pedidos.js';
+import { produtoKitDesconto} from '../../../support/para_pedidos/produtos_pedidos.js';
 import { clicarBotaoDesconto, validarModalSubSobre, aplicarDescontoValorFixo } from '../../../support/para_pedidos/para_pedido_desconto.js';
 
 describe('Gerar pedido de venda Kit com desconto', () => {
@@ -20,9 +20,9 @@ describe('Gerar pedido de venda Kit com desconto', () => {
   
     context('Sem frete/ processo 9862 - caminho feliz', () => {
         
-        it('Pedido de venda: kit 1862 0 0 com desconto Sub (-) / VALOR FIXO', () => {
+        it('1-Pedido de venda: kit 1862 0 0 com desconto Sub (-) / VALOR FIXO', () => {
     
-            produtoKitPrimeiro() //PRODUTO
+            produtoKitDesconto() //PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
             cy.wait(200)  
@@ -54,8 +54,7 @@ describe('Gerar pedido de venda Kit com desconto', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(9000)
         pedidoGerado()

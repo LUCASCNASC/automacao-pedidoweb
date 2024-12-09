@@ -2,8 +2,8 @@ import { titulopagina } from '../../../support/para_todos';
 import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, finalizandoPedido, clicarAdicionarProduto,
          tirarEntrega, botaoGerarParcelas, processoVendaPrincipal, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, carregandoFormaPagamento, escolherFormaPagamentoPrincipal,
-         escolherDuasParcelaPagamento, avancarParaParcelas} from '../../../support/para_pedidos/gerais_pedidos';
-import { produtoNormalPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';
+         escolherUmaParcelaPagamento, avancarParaParcelas} from '../../../support/para_pedidos/gerais_pedidos';
+import { produtoArredondarCimaBaixo } from '../../../support/para_pedidos/produtos_pedidos';
 import { arrastarFormaPagamento, clicarAlterarValor, modalAlterarValor, alterarValorParaBaixo, alterarValorParaCima } from '../../../support/para_pedidos/para_pedido_desconto';
 
 describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 definidos no processo de inclusão', () => {
@@ -16,7 +16,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
         processoVendaPrincipal()
         escolherClientePedido()
         cy.wait(500)
-        produtoNormalPrimeiro()
+        produtoArredondarCimaBaixo()
         saldodisponivel()
         escolherProdutoPesquisa()
         cy.wait(200)
@@ -24,7 +24,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it('Pedido de venda: produto 1860 0 0 - arredondar para baixo', () => {
+        it('1-Pedido de venda: produto 1860 0 0 - arredondar para baixo', () => {
 
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
@@ -42,7 +42,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             carregandoFormaPagamento()
             cy.wait(4000)
             escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
+            escolherUmaParcelaPagamento()
             cy.wait(400)
 
             arrastarFormaPagamento() //DESCONTO
@@ -54,7 +54,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             cy.wait(6000)
         })
 
-        it('Pedido de venda: produtos 1860 0 0 - arredondar para cima', () => {
+        it('-2Pedido de venda: produtos 1860 0 0 - arredondar para cima', () => {
 
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
@@ -72,7 +72,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             carregandoFormaPagamento()
             cy.wait(4000)
             escolherFormaPagamentoPrincipal()
-            escolherDuasParcelaPagamento()
+            escolherUmaParcelaPagamento()
             cy.wait(400)
 
             arrastarFormaPagamento() //DESCONTO
@@ -86,8 +86,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() // RESUMO 
         finalizandoPedido()
         cy.wait(8000)
         pedidoGerado()

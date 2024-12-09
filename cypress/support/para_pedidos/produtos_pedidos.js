@@ -193,3 +193,118 @@ export function produtoRemotoSemCD (selector) {
         .wait(100)
         .should('have.value', remoto__sem_saldo_CD)
 }
+
+//Escolher produto arredondar primeiro - 1908 0 0
+export function produtoArredondarCimaBaixo (selector) {
+
+    const produto_arredondar = '1908'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(produto_arredondar)
+        .wait(100)
+        .should('have.value', produto_arredondar)
+}
+
+//Escolher produto com desconto R$ - 1912 0 0
+export function produtoDescontoCifrao (selector) {
+
+    const produto_desconto_cifrao = '1912'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(produto_desconto_cifrao)
+        .wait(100)
+        .should('have.value', produto_desconto_cifrao)
+}
+
+//Escolher produto com desconto percentual - 1913 0 0
+export function produtoDescontoPercentual (selector) {
+
+    const produto_desconto_percentual = '1913'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(produto_desconto_percentual)
+        .wait(100)
+        .should('have.value', produto_desconto_percentual)
+}
+
+//Escolher produto com desconto valor fixo - 1914 0 0
+export function produtoDescontoValorFixo (selector) {
+
+    const produto_desconto_valorfixo = '1914'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        //.and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(produto_desconto_valorfixo)
+        .wait(100)
+        .should('have.value', produto_desconto_valorfixo)
+}
+
+//Escolher Kit desconto - 1909 0 0
+export function produtoKitDesconto (selector) {
+
+    const primeiro_kit_desconto = '1909'
+
+    //Validando campo Buscar produto
+    cy.get('#searchText')
+        .should('exist')
+        .and('be.visible')
+        .and('have.value', '')
+        .and('not.be.disabled')
+
+    //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher
+    cy.get('label[for="searchText"]')
+        .should('have.text', 'Buscar produtos')
+
+    //Prenchendo campo Buscar produto
+    cy.get('#searchText')
+        .type(primeiro_kit_desconto)
+        .wait(100)
+        .should('have.value', primeiro_kit_desconto)
+}
