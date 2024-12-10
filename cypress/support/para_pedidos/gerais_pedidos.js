@@ -358,6 +358,63 @@ export function pedidoGerado (selector) {
         //.should('equal', 'rgb(36, 13, 105)')
 }
 
+//Função para validar card de Pedido Concluído - alterado com sucesso
+export function pedidoAlteradoSucesso (selector) {
+
+    //Card pedido gravado com sucesso - Título Pedido Concluído
+    cy.get('.md-toolbar-tools h2.flex')
+        .should('exist')
+        .and('be.visible')
+        .and('contain','Pedido Concluído')
+
+    //Card pedido gravado com sucesso - X para sair da aba
+    cy.get('.md-content-overflow > :nth-child(1) > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.have.attr', 'disabled')
+
+    //Card pedido gravado com sucesso - ícone check
+    cy.get('.icon.success.animate')
+        .should('exist')
+        .find('.line.tip.animateSuccessTip')
+        .should('exist')
+
+    //Card pedido gravado com sucesso - Pedido gerado
+    cy.get('.padding-10 > .layout-wrap > .flex-sm-50 > :nth-child(1)')
+        .should('exist')
+        .and('be.visible')
+        .and('contain','Pedido gerado:')
+        
+    //Card pedido gravado com sucesso - Pedido gravado com sucesso
+    cy.get('[ng-show="editarPedido"]')
+        .should('exist')
+        .and('be.visible')
+        .and('contain','Pedido alterado com sucesso')
+
+    //Card pedido gravado com sucesso - Número do Pedido gravado com sucesso
+    cy.get('#pedido-numero')
+        .should('exist')
+        .and('be.visible')
+
+    //Card pedido gravado com sucesso - Botão IMPRIMIR
+    cy.get('md-dialog-actions.layout-align-center-center > .md-accent')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Imprimir')
+        .and('not.have.attr', 'disabled')
+        //.invoke('css', 'background-color') // Obtém a cor do elemento
+        //.should('equal', 'rgb(28, 202, 19)')
+
+    //Card pedido gravado com sucesso - Botão OK
+    cy.get('md-dialog-actions.layout-align-center-center > .md-primary')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Ok')
+        .and('not.have.attr', 'disabled')
+        //.invoke('css', 'background-color') // Obtém a cor do elemento
+        //.should('equal', 'rgb(36, 13, 105)')
+}
+
 //Botão para finalizar o pedido
 export function botaoFinalizarPedido (selector) {
 
@@ -420,13 +477,6 @@ export function finalizandoPedido (selector) {
 //Arrastar botão de Retirada / Entrega
 export function tirarEntrega (selector) {
 
-    //Botão como um todo
-    cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container > .md-bar')
-        .scrollIntoView()
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-
     //Botão Retirada / Entrega parte esquerda
     cy.get('[ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container')
         .should('exist')
@@ -477,15 +527,10 @@ export function tirarMontagem (selector) {
 //Arrastar botão de Retirada / Entrega do segundo produto
 export function tirarEntregaSegundo (selector) {
 
-    //Botão como um todo
-    cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container > .md-bar')
-        .scrollIntoView()
-        .should('exist')
-        .and('be.visible')
-        .and('not.be.disabled')
-
     //Botão Retirada / Entrega parte esquerda
     cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container')
+        .scrollIntoView()
+        .wait(500)
         .should('exist')
         .and('be.visible')
         .and('not.be.disabled')
@@ -498,6 +543,32 @@ export function tirarEntregaSegundo (selector) {
 
     //Botão Retirada / Entrega - texto Retirada / Entrega
     cy.get(':nth-child(3) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .and('have.text', ' Retirada / Entrega ')
+        .click({force:true})
+}
+
+//Arrastar botão de Retirada / Entrega do terceiro produto
+export function tirarEntregaTerceiro (selector) {
+
+    //Botão Retirada / Entrega parte esquerda
+    cy.get(':nth-child(4) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container')
+        .scrollIntoView()
+        .wait(500)
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Retirada / Entrega parte direita
+    cy.get(':nth-child(4) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-container > .md-thumb-container > .md-thumb')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+
+    //Botão Retirada / Entrega - texto Retirada / Entrega
+    cy.get(':nth-child(4) > .md-whiteframe-2dp > :nth-child(3) > [ng-show="itemAtual._permiteEntrega"] > .md-auto-horizontal-margin > .md-label')
         .should('exist')
         .and('be.visible')
         .and('not.be.disabled')

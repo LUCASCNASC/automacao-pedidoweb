@@ -59,7 +59,8 @@ export function produtoKitPrimeiro (selector) {
     cy.get('#searchText')
         .should('exist')
         .and('be.visible')
-        .and('have.value', '')
+        .clear()
+        .should('have.value', '')
         .and('not.be.disabled')
 
     //Validando campo Buscar produto - validando mensagem dentro do campo antes de preencher

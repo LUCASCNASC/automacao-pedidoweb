@@ -252,3 +252,52 @@ export function menssCarregarPedAlterar (selector) {
         .and('contain', 'Aguarde enquanto o pedido')
         .and('contain', 'é carregado ...')
 }
+
+//clicar no botão + para aumentar a quantidade do produto já adicionado anteriormente
+export function clicarAumentoQtdProduto (selector) {
+
+    cy.get('md-icon[ng-click="aumentaQuantidadeProduto(itemAtual)"]')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+        .click()
+        .click()
+}
+
+//clicar para remover primeiro produto
+export function clicarRemoverProduto (selector) {
+
+    //ícone dentro do botão
+    cy.get('#item-index-0 > .flex-gt-sm-80 > :nth-child(2) > .flex-20 > .md-warn > .ng-binding')
+        .should('exist')
+        //.and('be.visible')
+        .and('not.be.disabled')
+
+    //botão completo
+    cy.get('#item-index-0 > .flex-gt-sm-80 > :nth-child(2) > .flex-20 > .md-warn')
+        .should('exist')
+        //.and('be.visible')
+        .and('not.be.disabled')
+        .click({force:true})        
+}
+
+//fechar modal de intenção de compra
+export function clicarFecharIntencaoCompra (selector) {
+
+    //título modal
+    cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .flex')
+
+    //botão SALVAR
+    cy.get('.ng-pristine.flex-100 > .layout-align-end-end > .md-raised')
+        .should('exist')
+        .and('be.visible')
+        .and('be.disabled')
+
+    //botão X
+    cy.get('.md-dialog-fullscreen > ._md-toolbar-transitions > .md-toolbar-tools > .md-icon-button > .ng-binding')
+        .should('exist')
+        .and('be.visible')
+        .and('not.be.disabled')
+        .click()
+}
