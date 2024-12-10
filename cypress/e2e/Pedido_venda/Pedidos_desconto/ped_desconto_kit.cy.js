@@ -2,7 +2,7 @@ import { titulopagina } from '../../../support/para_todos.js';
 import { saldodisponivel, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, processoVendaPrincipal, finalizandoPedido,
          modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal,
          clicarAdicionarProduto, botaoGerarParcelas, carregandoFormaPagamento, tirarEntrega, escolherFormaPagamentoPrincipal,
-         escolherDuasParcelaPagamento, avancarParaParcelas } from '../../../support/para_pedidos/gerais_pedidos.js';
+         escolherDuasParcelaPagamento, avancarParaParcelas, composicaoDesteKit } from '../../../support/para_pedidos/gerais_pedidos.js';
 import { produtoKitDesconto} from '../../../support/para_pedidos/produtos_pedidos.js';
 import { clicarBotaoDesconto, validarModalSubSobre, aplicarDescontoValorFixo } from '../../../support/para_pedidos/para_pedido_desconto.js';
 
@@ -27,6 +27,7 @@ describe('Gerar pedido de venda Kit com desconto', () => {
             escolherProdutoPesquisa()
             cy.wait(200)  
             escolherVoltagemProduto()
+            composicaoDesteKit()
             clicarAdicionarProduto()
             cy.wait(500)
     

@@ -149,7 +149,7 @@ export function arrastarFormaPagamento (selector) {
     cy.get('.md-whiteframe-2dp')
         .trigger('mousedown', { which: 1 })
         .trigger('mousemove', { clientX: 100, clientY: 0 }) // Ajuste clientX para a posição desejada
-        .trigger('mouseup');
+        .trigger('mouseup')
 }
 
 //Clicar no botão R$

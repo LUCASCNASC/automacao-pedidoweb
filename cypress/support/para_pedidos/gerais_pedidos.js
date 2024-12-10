@@ -1240,3 +1240,12 @@ export function clicarGerarPagamento (selector) {
         .and('have.text', 'Gerar pagamento')
         .click({force:true})
 }
+
+//validando composição deste KIT
+export function composicaoDesteKit (selector) {
+
+    cy.get('.is-expanded > v-pane-header.ng-scope > div')
+        .should('exist')
+        .and('be.visible')
+        .and('contain', 'Composição deste KIT')
+}

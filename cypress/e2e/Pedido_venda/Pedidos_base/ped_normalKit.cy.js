@@ -2,7 +2,7 @@ import { titulopagina } from '../../../support/para_todos';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido, processoVendaPrincipal,
          avancarParaParcelas, avancarParaTransportadora, avancarParcelasEntrega, finalizandoPedido, modalServicosVinculados, okServicosVinculados,
          escolherProdutoPesquisa, escolherVoltagemProduto, avancarFinal, clicarAdicionarProduto, botaoGerarParcelas, modalInconsRotaTransp,
-         carregandoFormaPagamento, tirarEntrega, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos';
+         carregandoFormaPagamento, tirarEntrega, escolherFormaPagamentoPrincipal, escolherDuasParcelaPagamento, composicaoDesteKit } from '../../../support/para_pedidos/gerais_pedidos';
 import { produtoKitPrimeiro } from '../../../support/para_pedidos/produtos_pedidos';
 
 describe('Gerar pedido normal', () => {
@@ -26,6 +26,7 @@ describe('Gerar pedido normal', () => {
         it('1-Pedido de venda: kit 1862 0 0', () => {
                       
             escolherVoltagemProduto() //PRODUTO
+            composicaoDesteKit()
             clicarAdicionarProduto()
             cy.wait(500)
     
@@ -53,6 +54,7 @@ describe('Gerar pedido normal', () => {
         it('2-Pedido de venda: kit 1862 0 0', () => {
                       
             escolherVoltagemProduto() //PRODUTO
+            composicaoDesteKit()
             clicarAdicionarProduto()
             cy.wait(500)
     
@@ -81,8 +83,7 @@ describe('Gerar pedido normal', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(9000)
         pedidoGerado()
