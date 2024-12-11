@@ -21,7 +21,7 @@ describe('Gerar pedido normal - sem serviço vinculado e tirar a entrega', () =>
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.only('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
 
             produtoPrincipal() //primeira pesquisa de 
             cy.wait(1500)

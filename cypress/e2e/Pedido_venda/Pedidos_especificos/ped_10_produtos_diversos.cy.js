@@ -2,7 +2,7 @@ import { titulopagina } from '../../../support/para_todos.js';
 import { escolherTransportadora, saldodisponivel, escolherRota, escolherClientePedido, pedidoGerado, botaoFinalizarPedido,
          finalizandoPedido, tirarEntrega, tirarMontagem, tirarEntregaSegundo, tirarMontagemSegundo, botaoGerarParcelas, processoVendaPrincipal, 
          avancarParaTransportadora, avancarParcelasEntrega, modalServicosVinculados, okServicosVinculados, escolherProdutoPesquisa,
-         avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, trocarFilialFaturamento} from '../../../support/para_pedidos/gerais_pedidos.js';
+         avancarFinal, modalInconsRotaTransp, carregandoFormaPagamento, trocarFilialFaturamento, escolherUmaParcelaPagamento } from '../../../support/para_pedidos/gerais_pedidos.js';
 import { produtoPrincipal, botãoAdicionarProduto, primeiroProdutoEscolher, segundoProdutoEscolher, terceiroProdutoEscolher,
          quartoProdutoEscolher, quintoProdutoEscolher, sextoProdutoEscolher, setimoProdutoEscolher, oitavoProdutoEscolher,
          nonoProdutoEscolher, decimoProdutoEscolher} from '../../../support/para_pedidos/para_pedidos_10_produtos.js';
@@ -21,7 +21,7 @@ describe('Gerar pedido normal', () => {
 
     context('Sem frete/ processo 9860 - caminho feliz', () => {
 
-        it.only('Pedido de venda: produto 1860 0 0', () => {
+        it('Pedido de venda: produto 1860 0 0', () => {
 
             produtoPrincipal() //primeira pesquisa de produto - 1889 0 0 - sem serviço / sem entrega
             cy.wait(1000)
@@ -163,17 +163,12 @@ describe('Gerar pedido normal', () => {
 
             avancarParaTransportadora()
             cy.wait(12000)
-
-            //ESCOLHER TRANSPORTADORA
-            modalInconsRotaTransp()
+            modalInconsRotaTransp() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
-
             avancarParcelasEntrega()
             cy.wait(10000)
-
-            //GERAR PARCELAS
-            botaoGerarParcelas()
+            botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(10000)
 
@@ -186,15 +181,13 @@ describe('Gerar pedido normal', () => {
                 .click()
 
             cy.wait(400)
-
             avancarFinal()
             cy.wait(10000)
         })
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(10000)
         pedidoGerado()

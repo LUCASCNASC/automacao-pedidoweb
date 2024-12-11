@@ -29,22 +29,18 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(4000)
             escolherFormaPagamentoPrincipal()
             escolherUmaParcelaPagamento()
             cy.wait(400)
-
             arrastarFormaPagamento() //DESCONTO
             clicarAlterarValor()
             modalAlterarValor()
@@ -59,22 +55,18 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(4000)
             escolherFormaPagamentoPrincipal()
             escolherUmaParcelaPagamento()
             cy.wait(400)
-
             arrastarFormaPagamento() //DESCONTO
             clicarAlterarValor()
             modalAlterarValor()
@@ -86,7 +78,7 @@ describe('Gerar pedido normal com desconto nos juros - parametros 243 e 244 defi
     })
 
     afterEach(() => {
-        botaoFinalizarPedido() // RESUMO 
+        botaoFinalizarPedido() //RESUMO 
         finalizandoPedido()
         cy.wait(8000)
         pedidoGerado()

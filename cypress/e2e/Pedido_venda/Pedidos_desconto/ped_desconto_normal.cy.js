@@ -29,19 +29,15 @@ describe('Gerar pedido de venda com desconto', () => {
             escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-
             clicarBotaoDesconto() //DESCONTO
             validarModalSubSobre()
             aplicarDescontoR$()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
@@ -61,19 +57,15 @@ describe('Gerar pedido de venda com desconto', () => {
             escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-
             clicarBotaoDesconto() //DESCONTO
             validarModalSubSobre()
             aplicarDescontoPorcentagem()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
@@ -93,19 +85,15 @@ describe('Gerar pedido de venda com desconto', () => {
             escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-
             clicarBotaoDesconto() //DESCONTO
             validarModalSubSobre()
             aplicarDescontoValorFixo()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)

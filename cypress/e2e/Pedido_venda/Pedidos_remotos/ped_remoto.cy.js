@@ -31,19 +31,16 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             trocarFilialFaturamento()
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(12000)
-
-            modalInconsApenasRota() //ESCOLHER TRANSPORTADORA
+            modalInconsApenasRota() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(10000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(8000)
@@ -52,8 +49,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(400)
             avancarFinal()
             cy.wait(6000)
-
-            botaoFinalizarPedido() // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            botaoFinalizarPedido() //RESUMO
             finalizandoPedido()
             cy.wait(7000)
             pedidoGerado()
@@ -70,11 +66,9 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             trocarFilialFaturamento()
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(800)
-
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
@@ -83,19 +77,16 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             trocarFilialFaturamento()
             clicarAdicionarProduto()
             cy.wait(1000)
-
             modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(12000)
-
-            modalInconsApenasRota() //ESCOLHER TRANSPORTADORA
+            modalInconsApenasRota() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(6000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(12000)
@@ -104,14 +95,13 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(400)
             avancarFinal()
             cy.wait(18000)
-
-            botaoFinalizarPedido() // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            botaoFinalizarPedido() //RESUMO
             finalizandoPedido()
             cy.wait(7000)
             pedidoGerado()
         })
         
-        it.only('3-Pedido de venda remota: kit 1877 0 0', () => {
+        it('3-Pedido de venda remota: kit 1877 0 0', () => {
 
             produtoKitRemoto() //PRODUTO
             saldoCDDisponivel()
@@ -123,19 +113,16 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             composicaoDesteKit()
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(12000)
-
-            modalInconsApenasRota() //ESCOLHER TRANSPORTADORA
+            modalInconsApenasRota() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(7000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(8000)
@@ -144,8 +131,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(400)
             avancarFinal()
             cy.wait(9000)
-            
-            botaoFinalizarPedido() // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            botaoFinalizarPedido() //RESUMO
             finalizandoPedido()
             cy.wait(7000)
             pedidoGerado()
@@ -165,19 +151,16 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             trocarFilialFaturamento()
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(10000)
-
-            modalInconsApenasRota() //ESCOLHER TRANSPORTADORA
+            modalInconsApenasRota() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(6000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
@@ -186,8 +169,7 @@ describe('Remoto/processo 9860 - Regra de saldo Parâmetro 36 = 4 - Parâmetro 1
             cy.wait(400)
             avancarFinal()
             cy.wait(6000)
-
-            botaoFinalizarPedido() // RESUMO DO PEDIDO - ANTES DE FINALIZAR
+            botaoFinalizarPedido() //RESUMO
             finalizandoPedido()
             cy.wait(7000)
             pedidoGerado()

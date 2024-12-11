@@ -29,15 +29,12 @@ describe('Gerar pedido normal', () => {
             composicaoDesteKit()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(6500)
-  
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6000)
@@ -57,20 +54,16 @@ describe('Gerar pedido normal', () => {
             composicaoDesteKit()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
-    
             avancarParaTransportadora() //ENTREGA
             cy.wait(13000)
-
             modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(8000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7000)

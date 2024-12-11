@@ -30,15 +30,12 @@ describe('Gerar pedido com proposta de crédito', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5500)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
@@ -51,8 +48,7 @@ describe('Gerar pedido com proposta de crédito', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(8000)
         propostaCreditoGerada()

@@ -24,19 +24,15 @@ describe('Venda de serviço avulso', () => {
             saldoDisponivelServico()
             escolherServicoPesquisa()
             cy.wait(200)
-
             clicarCarrinhoCompras() //CARRINHO COMPRAS
-
             botaoAvancarPedido()
             cy.wait(3000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(2000)
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-
             avancarFinal()
             cy.wait(4000) 
         })

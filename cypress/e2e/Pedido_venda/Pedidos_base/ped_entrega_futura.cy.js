@@ -29,14 +29,12 @@ describe('Gerar pedido de entrega futura', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(6000)
-    
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5500)
@@ -52,12 +50,10 @@ describe('Gerar pedido de entrega futura', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-            tirarEntrega()
+            tirarEntrega() //ENTREGA
             cy.wait(800)
-    
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
@@ -66,14 +62,12 @@ describe('Gerar pedido de entrega futura', () => {
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS - SEGUNDO PRODUTO
             okServicosVinculados()
-            tirarEntregaSegundo()
+            tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(6500)
-    
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
@@ -92,19 +86,16 @@ describe('Gerar pedido de entrega futura', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(12000)
-    
             modalInconsApenasTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(6500)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5500)
@@ -120,11 +111,9 @@ describe('Gerar pedido de entrega futura', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(800)
-    
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
@@ -133,19 +122,16 @@ describe('Gerar pedido de entrega futura', () => {
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS - SEGUNDO PRODUTO
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(12000)
-            
             modalInconsApenasTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(7000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6000)
@@ -158,8 +144,7 @@ describe('Gerar pedido de entrega futura', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RUSUMO
         finalizandoPedido()
         cy.wait(8000)
         pedidoGerado()

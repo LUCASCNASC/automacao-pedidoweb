@@ -50,27 +50,21 @@ describe('Venda de serviço avulso, com pedido do produto já baixado', () => {
             modalGarantiasServicosVinculados()
             garantiaSeparaMesmoProcesso() //clicar na primeira garantia - Garantia Separa Mesmo Processo
             okServicosVinculados()
-
             messServicoAdicionadoSucesso()
             botaoSalvarServico()
             messAguardeCarregando()
             messRegistroSalvoSucesso()
-
             clicarAddGarantias() //Clicando novamente para validar que não deixa adicionar mais garantias
-
             messGarantiaJaAdicionada() //Mensagem de "O Serviço Garantias já foi adicionado à esse produto.", quando tentamos adicionar novamente
-
             clicarCarrinhoCompras()
             botaoAvancarPedido()
             cy.wait(3000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(2000)
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-
             avancarFinal()
             cy.wait(4000)
         })

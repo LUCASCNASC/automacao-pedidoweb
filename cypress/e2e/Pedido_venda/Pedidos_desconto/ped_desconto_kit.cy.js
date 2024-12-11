@@ -30,19 +30,15 @@ describe('Gerar pedido de venda Kit com desconto', () => {
             composicaoDesteKit()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-
             clicarBotaoDesconto() //DESCONTO
             validarModalSubSobre()
             aplicarDescontoValorFixo()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(6500)
-    
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6000)

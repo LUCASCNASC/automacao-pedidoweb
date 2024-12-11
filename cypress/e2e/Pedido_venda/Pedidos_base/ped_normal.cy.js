@@ -30,15 +30,12 @@ describe('Gerar pedido normal', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5500)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
@@ -54,13 +51,10 @@ describe('Gerar pedido normal', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(800)
-    
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
@@ -69,22 +63,18 @@ describe('Gerar pedido normal', () => {
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS - SEGUNDO PRODUTO
             okServicosVinculados()
-    
             tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5500)
-    
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-    
             avancarFinal()
             cy.wait(7000)
         })
@@ -94,17 +84,13 @@ describe('Gerar pedido normal', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5500)
-    
-            //GERAR PARCELAS
-            escolherEntradaFormaPagamento()
+            escolherEntradaFormaPagamento() //GERAR PARCELAS
             clicarGerarPagamento()
             botaoGerarParcelas()
             carregandoFormaPagamento()
@@ -124,19 +110,16 @@ describe('Gerar pedido normal', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(11000)
-    
             modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(6500)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5500)
@@ -152,11 +135,9 @@ describe('Gerar pedido normal', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
-    
             produtoNormalSegundo() //PRODUTO
             saldodisponivel()
             cy.wait(800)
@@ -165,19 +146,16 @@ describe('Gerar pedido normal', () => {
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(1000)
             avancarParaTransportadora()
             cy.wait(12000)
-
             modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(7000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6000)
@@ -193,19 +171,16 @@ describe('Gerar pedido normal', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(11000)
-
             modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(6500)
-
             escolherEntradaFormaPagamento() //GERAR PARCELAS
             clicarGerarPagamento()
             botaoGerarParcelas()
@@ -220,8 +195,7 @@ describe('Gerar pedido normal', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(8000)
         pedidoGerado()

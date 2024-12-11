@@ -291,3 +291,27 @@ export function mensagemPrimeiroRegistSalvoSucesso (selector) {
         .and('be.visible')
         .and('have.text', 'Registro salvo com sucesso!')
 }
+
+//logar no sistema novamente, para realizar as alterações no cadastro
+export function logarNovamente (selector) {
+
+     //Inserir Usuário para logar novamente
+     cy.get('#txtusername')
+        .type('sabium.automacao')
+
+    //Inserir Senha para logar novamente
+    cy.get('#txtpassword')
+        .type('123.automacao')
+
+    //Clicar no botão Entrar, para logar novamente
+    cy.get('.test_btnSalvarCliente')
+        .click({force:true})
+}
+
+//clicar para sair do sistema
+export function clicarSairSistema (selector) {
+
+    //Clicar no botão Sair
+    cy.get('.rodape > ._md-button-wrap > div.md-button > .md-no-style')
+        .click({force:true})
+}

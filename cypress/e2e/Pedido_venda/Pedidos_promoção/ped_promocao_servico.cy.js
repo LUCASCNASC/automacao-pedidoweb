@@ -37,18 +37,14 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
                 
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
-
             messAdicionandoProdutosServicos()
             cy.wait(12000)
-
             avancarFinal() //PAGAMENTO
             cy.wait(7000)
         })
@@ -71,20 +67,16 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
     
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
-
             messAdicionandoProdutosServicos()
             cy.wait(12000)
 
             // tela de PAGAMENTO
-    
             //Selecionando opções de pagamento de entrada
             cy.get('md-option .md-text')
                 .contains('3861 - T.A. A Receber A Vista')
@@ -125,19 +117,14 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
                 
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
-
             messAdicionandoProdutosServicos()
             cy.wait(8000)
-
             adicionarPrestamista()
-
             avancarFinal() //PAGAMENTO
             cy.wait(7000)
         })
@@ -159,20 +146,15 @@ describe('Gerar pedidos com promoção e serviços com isenção de juros', () =
     
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             garantiaSeparaMesmoProcesso() //Marcar garantia "T.A. Garantia Separa Mesmo Processo"
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
-    
             avancarParaParcelas()
             messAdicionandoProdutosServicos()
             cy.wait(10000)
-
             adicionarPrestamista()
-
             avancarFinal() //PAGAMENTO
             cy.wait(9000)
         })

@@ -32,16 +32,13 @@ describe('Gerar pedidos com promoção', () => {
             selecionarFormaPagPromo()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(12000)
-    
-            avancarFinal() //AVANÇAR PARA ÚLTIMA TELA
+            avancarFinal() 
             cy.wait(8000)
         })
     
@@ -57,10 +54,8 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(400)
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
@@ -74,8 +69,7 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.white > .layout-align-center-center > .md-primary').click()
     
             cy.wait(400)
-    
-            avancarFinal()  //AVANÇAR PARA ÚLTIMA TELA
+            avancarFinal() 
             cy.wait(6000)
         })
     
@@ -90,16 +84,13 @@ describe('Gerar pedidos com promoção', () => {
             selecionarFormaPagPromo()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
-                
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(12500)
-    
-            avancarFinal() //AVANÇAR PARA ÚLTIMA TELA
+            avancarFinal()
             cy.wait(6000)
         })
     })
@@ -117,13 +108,10 @@ describe('Gerar pedidos com promoção', () => {
             selecionarFormaPagPromo()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVIÇOS
-            okServicosVinculados()
-                
+            okServicosVinculados() 
             tirarEntrega() //ENTREGA
             cy.wait(800)
-    
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
@@ -131,15 +119,12 @@ describe('Gerar pedidos com promoção', () => {
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
-                
             tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(12000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             cy.wait(6500)
 
@@ -152,7 +137,6 @@ describe('Gerar pedidos com promoção', () => {
                 .click({force:true})
 
             cy.wait(1000)
-
             avancarFinal()
             cy.wait(8000)
         })
@@ -169,13 +153,10 @@ describe('Gerar pedidos com promoção', () => {
             cy.wait(400)
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
-                
             tirarEntrega() //ENTREGA
             cy.wait(400)
-
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(400)
@@ -184,10 +165,8 @@ describe('Gerar pedidos com promoção', () => {
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVIÇOS - SEGUNDO PRODUTO
             okServicosVinculados()
-                
             tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
             cy.wait(400)
             avancarParaParcelas()
@@ -202,7 +181,6 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.white > .layout-align-center-center > .md-primary').click({force:true})
                 
             cy.wait(400)
-
             botaoGerarParcelas()
             cy.wait(8000)
     
@@ -215,7 +193,6 @@ describe('Gerar pedidos com promoção', () => {
                 .click({force:true})
     
             cy.wait(400)
-    
             avancarFinal()
             cy.wait(8000)
         })
@@ -234,19 +211,16 @@ describe('Gerar pedidos com promoção', () => {
             selecionarFormaPagPromo()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             avancarParaTransportadora()
             cy.wait(12000)
-
-            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
+            modalInconsRotaTransp() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
 
             avancarParcelasEntrega() //ENTREGA
             cy.wait(14000)
-    
             botaoGerarParcelas() //GERAR PARCELAS
             cy.wait(6500)
 
@@ -259,7 +233,6 @@ describe('Gerar pedidos com promoção', () => {
                 .click()
 
             cy.wait(400)
-
             avancarFinal()
             cy.wait(9000)
         })
@@ -275,13 +248,11 @@ describe('Gerar pedidos com promoção', () => {
             selecionarFormaPagPromo()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(13000)
-
             modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
@@ -292,13 +263,13 @@ describe('Gerar pedidos com promoção', () => {
             cy.get('.white > :nth-child(3)').click({force:true})
             cy.contains('3861 - T.A. A Receber A Vista').click({force:true})
             cy.get('.white > .layout-align-center-center > .md-primary').click({force:true})
+
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(8000)
             escolherFormaPagamentoPrincipal()
             escolherDuasParcelaPagamento()
             cy.wait(400)
-
             avancarFinal()
             cy.wait(9000)
         })
@@ -314,19 +285,16 @@ describe('Gerar pedidos com promoção', () => {
             selecionarFormaPagPromo()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(12000)
-
-            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
+            modalInconsRotaTransp() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(13000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             cy.wait(6500)
 
@@ -339,7 +307,6 @@ describe('Gerar pedidos com promoção', () => {
                 .click({force:true})
 
             cy.wait(400)
-
             avancarFinal()
             cy.wait(8000)
         })  
@@ -358,11 +325,9 @@ describe('Gerar pedidos com promoção', () => {
             selecionarFormaPagPromo()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVIÇOS
             okServicosVinculados()
             cy.wait(800)
-    
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             escolherProdutoPesquisa()
@@ -370,16 +335,14 @@ describe('Gerar pedidos com promoção', () => {
             escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(1000)
-    
             okServicosVinculados() //SERVIÇOS
             avancarParaTransportadora()
             cy.wait(14000)
-            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
+            modalInconsRotaTransp() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(14000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             cy.wait(8000)
 
@@ -392,15 +355,13 @@ describe('Gerar pedidos com promoção', () => {
                 .click({force: true})
 
             cy.wait(400)
-
             avancarFinal()
             cy.wait(9000)
         })
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(9000)
         pedidoGerado()

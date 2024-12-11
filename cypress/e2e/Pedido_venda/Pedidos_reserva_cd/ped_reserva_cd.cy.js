@@ -29,16 +29,13 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             tirarMontagem()
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(6500)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
@@ -58,14 +55,11 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             tirarMontagem()
             cy.wait(800)
-    
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
@@ -74,16 +68,13 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS - SEGUNDO PRODUTO
             okServicosVinculados()
-    
             tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
             tirarMontagemSegundo()
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(6500)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6000)
@@ -106,21 +97,17 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarMontagem() //ENTREGA
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(12000)
-    
-            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
+            modalInconsRotaTransp() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(7500)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6500)
@@ -140,11 +127,9 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             escolherVoltagemProduto() 
             clicarAdicionarProduto()
             cy.wait(500)
-
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
-    
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
@@ -153,19 +138,16 @@ describe('Gerar pedido com reserva no CD - Regra de saldo Parâmetro 36 = 4 - Pa
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS - SEGUNDO PRODUTO
             okServicosVinculados()
             cy.wait(1000)
             avancarParaTransportadora()
             cy.wait(14000)
-
-            modalInconsRotaTransp() //ESCOLHER TRANSPORTADORA
+            modalInconsRotaTransp() //TRANSPORTADORA
             escolherTransportadora()
             escolherRota()
             avancarParcelasEntrega()
             cy.wait(8000)
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7000)

@@ -1,7 +1,7 @@
 import { titulopagina } from '../../support/para_todos';
 import { iconeMenuOpcoes, opcaoClienteSimples, salvarClienteSimples, preencherNomeCompletoCPF, preencherNomeCompletoCNPJ, inserirPesquisarCEP, 
-         preencherDataNascimento, inserirNumeroEndereco, arrastarPessoaJuridica, sexoPessoaFisica, cadastroRotaCliente, mensagemPrimeiroRegistSalvoSucesso, 
-         prencherCPFcliente, preencherCNPJcliente } from '../../support/para_cadastro_cliente/para_cliente_simples';
+         preencherDataNascimento, inserirNumeroEndereco, arrastarPessoaJuridica, sexoPessoaFisica, cadastroRotaCliente, 
+         mensagemPrimeiroRegistSalvoSucesso, prencherCPFcliente, preencherCNPJcliente, logarNovamente } from '../../support/para_cadastro_cliente/para_cliente_simples';
 import gerarCpf from '../../support/gerarCPF';
 import gerarCNPJ from '../../support/gerarCNPJ';
 
@@ -40,7 +40,7 @@ describe('Cadastrar cliente simples', () => {
             mensagemPrimeiroRegistSalvoSucesso()
         })  
 
-        //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
+        //REVISAR DATA NASCIMENTO
         it.only('Cliente simples CPF - alterar data de nascimento logo após cadastrar', () => {
     
             iconeMenuOpcoes()
@@ -54,9 +54,8 @@ describe('Cadastrar cliente simples', () => {
             cadastroRotaCliente()
             salvarClienteSimples()
             mensagemPrimeiroRegistSalvoSucesso()
-
-            // ALTERAÇÃO DE CLIENTE SIMPLES - CPF
-            iconeMenuOpcoes()
+            
+            iconeMenuOpcoes() //ALTERAÇÃO DE CLIENTE SIMPLES - CPF
             opcaoClienteSimples()
 
             //Alteração - Campo data de nascimento
@@ -68,26 +67,10 @@ describe('Cadastrar cliente simples', () => {
                 .type("10/10/1990", {force:true})
 
             salvarClienteSimples()
-
-            //Card de mensagem de Registro salvo com sucesso!
-            cy.get('.toast')
-                .should('exist')
-                .and('be.visible')
-
-            //Card de mensagem de Registro salvo com sucesso! - Aviso
-            cy.get('.toast-title')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Aviso')
-
-            //Card de mensagem de Registro salvo com sucesso! - Registro salvo com sucesso!
-            cy.get('.toast-message')
-                .should('exist')
-                .and('be.visible')
-                .and('have.text', 'Registro salvo com sucesso!')
+            mensagemPrimeiroRegistSalvoSucesso()
         })  
 
-        //REVISAR DATA NASCIMENTO - NÃO ESTÁ FUNCIONANDO
+        //REVISAR DATA NASCIMENTO
         it.skip('Cliente simples CPF - alterar data de nascimento (deve pedir trial)', () => {
     
             iconeMenuOpcoes()
@@ -122,25 +105,10 @@ describe('Cadastrar cliente simples', () => {
             cy.wait(1000)
 
             opcaoClienteSimples()
-
-            //Clicar no botão Sair
-            cy.get('.rodape > ._md-button-wrap > div.md-button > .md-no-style')
-                .click({force:true})
-
+            clicarSairSistema()
             cy.wait(2000)
 
-            //Inserir Usuário para logar novamente
-            cy.get('#txtusername')
-                .type('sabium.automacao')
-
-            //Inserir Senha para logar novamente
-            cy.get('#txtpassword')
-                .type('123.automacao')
-
-            //Clicar no botão Entrar, para logar novamente
-            cy.get('.test_btnSalvarCliente')
-                .click({force:true})
-
+            logarNovamente()
             cy.wait(7500)
 
             iconeMenuOpcoes()
@@ -345,29 +313,13 @@ describe('Cadastrar cliente simples', () => {
             cy.wait(1000)
 
             iconeMenuOpcoes()
-
-            //Clicar no botão Sair
-            cy.get('.rodape > ._md-button-wrap > div.md-button > .md-no-style')
-                .click({force:true})
-
+            clicarSairSistema()
             cy.wait(2000)
 
-            //Inserir Usuário para logar novamente
-            cy.get('#txtusername')
-                .type('sabium.automacao')
-
-            //Inserir Senha para logar novamente
-            cy.get('#txtpassword')
-                .type('123.automacao')
-
-            //Clicar no botão Entrar, para logar novamente
-            cy.get('.test_btnSalvarCliente')
-                .click({force:true})
-
+            logarNovamente()
             cy.wait(7000)
 
             iconeMenuOpcoes()
-
             opcaoClienteSimples()
 
             //Preencher campo CPF - para alterar o cadastro que acabamos de gerar
@@ -508,10 +460,8 @@ describe('Cadastrar cliente simples', () => {
             cadastroRotaCliente()
             salvarClienteSimples()
             mensagemPrimeiroRegistSalvoSucesso()
-
-            // ALTERAÇÃO DE CLIENTE SIMPLES - CPF
-
-            iconeMenuOpcoes()
+            
+            iconeMenuOpcoes() //ALTERAÇÃO DE CLIENTE SIMPLES - CPF
             opcaoClienteSimples()
 
             //Campo CEP - alterar

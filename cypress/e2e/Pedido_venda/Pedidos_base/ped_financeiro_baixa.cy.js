@@ -29,15 +29,12 @@ describe('Gerar pedido com financeiro na baixa', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
-    
             tirarEntrega() //ENTREGA
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(5000)
-    
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5500)
@@ -53,13 +50,11 @@ describe('Gerar pedido com financeiro na baixa', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
 
             tirarEntrega() //ENTREGA
             cy.wait(800)
-    
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
@@ -68,15 +63,12 @@ describe('Gerar pedido com financeiro na baixa', () => {
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS - SEGUNDO PRODUTO
             okServicosVinculados()
-
             tirarEntregaSegundo() //ENTREGA - SEGUNDO PRODUTO
             cy.wait(400)
             avancarParaParcelas()
             cy.wait(7000)
-            
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(5000)
@@ -95,17 +87,14 @@ describe('Gerar pedido com financeiro na baixa', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(12000)
-    
             escolherRota() //ESCOLHER TRANSPORTADORA
             cy.wait(6000)
             avancarParcelasEntrega()
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(7000)
@@ -121,11 +110,9 @@ describe('Gerar pedido com financeiro na baixa', () => {
             escolherVoltagemProduto() //PRODUTO
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS
             okServicosVinculados()
             cy.wait(400)
-    
             produtoNormalSegundo() //SEGUNDO PRODUTO
             saldodisponivel()
             cy.wait(800)
@@ -134,17 +121,14 @@ describe('Gerar pedido com financeiro na baixa', () => {
             escolherVoltagemProduto()
             clicarAdicionarProduto()
             cy.wait(500)
-    
             modalServicosVinculados() //SERVICOS - SEGUNDO PRODUTO
             okServicosVinculados()
             cy.wait(400)
             avancarParaTransportadora()
             cy.wait(13000)
-    
             escolherRota() //ESCOLHER TRANSPORTADORA
             cy.wait(7000)
             avancarParcelasEntrega()
-
             botaoGerarParcelas() //GERAR PARCELAS
             carregandoFormaPagamento()
             cy.wait(6000)
@@ -157,8 +141,7 @@ describe('Gerar pedido com financeiro na baixa', () => {
     })
 
     afterEach(() => {
-        // RESUMO DO PEDIDO - ANTES DE FINALIZAR
-        botaoFinalizarPedido()
+        botaoFinalizarPedido() //RESUMO
         finalizandoPedido()
         cy.wait(9000)
         pedidoGerado()
